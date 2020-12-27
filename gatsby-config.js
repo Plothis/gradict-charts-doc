@@ -6,5 +6,15 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `charts`,
+        path: `${__dirname}/charts`,
+        ignore: [`**/.*`],  // only parse the first level
+      },
+    },
+    `gatsby-transformer-remark`,
+  ],
 }
