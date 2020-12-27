@@ -7,6 +7,8 @@
   "license": "MIT",
   "dependencies": {
     "gatsby": "^2.29.2",
+    "gatsby-source-filesystem": "^2.8.1",
+    "gatsby-transformer-remark": "^2.13.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
@@ -16,5 +18,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }

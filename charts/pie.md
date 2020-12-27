@@ -1,12 +1,15 @@
-# 饼图 Pie
+---
+title: 饼图 Pie
+order: 0
+---
 
 # <a name="4wlszb"></a>1 图表名称
 
 
-| 标准中文名 | 饼图 |
-| --- | --- |
-| 中文别名 | 饼状图 |
-| 英文名 | Pie Chart／Circle Chart |
+| 标准中文名 | 饼图                    |
+| ---------- | ----------------------- |
+| 中文别名   | 饼状图                  |
+| 英文名     | Pie Chart／Circle Chart |
 
 
 # <a name="rin8bm"></a>2 图表简介
