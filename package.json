@@ -1,0 +1,20 @@
+{
+  "name": "gradict-charts-doc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Plothis/gradict-charts-doc.git",
+  "author": "Plothis",
+  "license": "MIT",
+  "dependencies": {
+    "gatsby": "^2.29.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  }
+}
