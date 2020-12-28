@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.7",
+    "gatsby-plugin-less": "^4.4.0",
+    "less": "^4.0.0",
     "prettier": "^2.2.1"
   }
 }
