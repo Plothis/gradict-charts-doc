@@ -130,13 +130,12 @@ const useStyles = makeStyles({
 });
 
 const data = {
-  banner: <img src="../static/about-bg.png" style={{ width: '100%', maxWidth: 'inherit' }} />,
   introduction: {
     title: '关于我们',
     detail:
       '图之典是由一群对数据可视化充满热情的人共同建立起来的。我们来自五湖四海，来自各大公司，为了共同的爱好和使命，利用工作之余的时间攒起了这个网站。在这个数据时代，我们希望在数据和人之间搭起一座桥梁——数据可视化。帮助大家更好的了解可视化、使用可视化工具，这是我们简单的初衷。图之典的首创者们，都来自图之可视化工作室。其实，与其说是工作室，不如说是一个由爱好组成的兴趣小组。我们一起探讨、一起创作、一起成长。当然，图之典的发展和充实也需要更多力量的加入，我们也非常期待你可以为这个站点添砖加瓦。'
   },
-  contactus: {
+  contactUs: {
     title: '联系我们',
     detail: ['电子邮箱：gradict@163.com',
       // '商务合作：gradict_market@163.com'
@@ -153,7 +152,7 @@ const data = {
       {
         name: 'wechat',
         link: '',
-        QRcode: '../static/QR-code/Plothis.jpeg'
+        QRcode: '/QR-code/Plothis.jpeg'
       }
     ]
   },
@@ -161,77 +160,77 @@ const data = {
     {
       name: 'Allen',
       title: '后端工程师',
-      avatar: '/static/member/Allen-后端.png',
+      avatar: '/member/Allen-后端.png',
       social: [{ name: 'github', link: 'https://github.com/hb-bobo' }]
     },
     {
       name: 'Amphetamine',
       title: '设计师',
-      avatar: '/static/member/Amphetamine-设计师.png',
+      avatar: '/member/Amphetamine-设计师.png',
       social: []
     },
     {
       name: 'Mia',
       title: '团队经理人',
-      avatar: '/static/member/Chan-团队经理人.png',
+      avatar: '/member/Chan-团队经理人.png',
       social: []
     },
     {
       name: 'Gaia',
       title: '设计师',
-      avatar: '/static/member/Gaia-设计师.png',
+      avatar: '/member/Gaia-设计师.png',
       social: [{ name: 'zcool', link: 'https://www.zcool.com.cn/u/15757199' }]
     },
     {
       name: 'Neo',
       title: '总顾问',
-      avatar: '/static/member/Neo-总顾问.png',
+      avatar: '/member/Neo-总顾问.png',
       social: [
         { name: 'yuque', link: 'https://www.yuque.com/neowang' },
-        { name: 'github', link: 'https://github.com/jiazhewang' },
+        { name: 'github', link: 'https://github.com/neoddish' },
         { name: 'weibo', link: 'https://weibo.com/neopard/profile?rightmod=1&wvr=6&mod=personinfo' }
       ]
     },
     {
       name: 'Olivia',
       title: '项目经理',
-      avatar: '/static/member/Olivia-项目经理.png',
-      social: [{ name: 'github', link: 'https://olivialan.github.io/' }, { name: 'wechat', link: '', QRcode: '/static/social-icons/qubawoguajing.jpg' }]
+      avatar: '/member/Olivia-项目经理.png',
+      social: [{ name: 'github', link: 'https://olivialan.github.io/' }, { name: 'wechat', link: '', QRcode: '/social-icons/qubawoguajing.jpg' }]
     },
     {
       name: '涂大宝',
       title: '顾问',
-      avatar: '/static/member/涂大宝-顾问.png',
+      avatar: '/member/涂大宝-顾问.png',
       social: []
     },
     {
       name: 'xi',
       title: '前端可视化工程师',
-      avatar: '/static/member/xi-前端可视化工程师.png',
+      avatar: '/member/xi-前端可视化工程师.png',
       social: [{ name: 'yuque', link: 'https://www.yuque.com/u68039' }, { name: 'github', link: 'https://www.yuque.com/u68039' }]
     },
     {
       name: '小虾',
       title: '设计师',
-      avatar: '/static/member/小虾-设计师.png',
+      avatar: '/member/小虾-设计师.png',
       social: [{ name: 'personalweb', link: 'http://www.xiauxx.site/' }]
     },
     {
       name: '徐堃',
       title: '设计师',
-      avatar: '/static/member/徐堃-设计师.png',
-      social: [{ name: 'wechat', link: '', QRcode: '/static/social-icons/QR-xukun.png' }, { name: 'zcool', link: 'https://www.zcool.com.cn/u/13265546' }]
+      avatar: '/member/徐堃-设计师.png',
+      social: [{ name: 'wechat', link: '', QRcode: '/social-icons/QR-xukun.png' }, { name: 'zcool', link: 'https://www.zcool.com.cn/u/13265546' }]
     },
     {
       name: '鱼头',
       title: '前端工程师',
-      avatar: '/static/member/鱼头-前端工程师.png',
+      avatar: '/member/鱼头-前端工程师.png',
       social: [{ name: 'github', link: 'https://github.com/ymyqwe' }, { name: 'blog', link: ' https://yumingyuan.me/' }]
     },
     {
       name: '子龙',
       title: '前端可视化工程师',
-      avatar: '/static/member/子龙-前端可视化工程师.png',
+      avatar: '/member/子龙-前端可视化工程师.png',
       social: [{ name: 'github', link: 'https://github.com/mark0322' }, { name: 'jianshu', link: ' https://www.jianshu.com/u/ebd19f11aab9' }]
     }
   ]
@@ -241,7 +240,7 @@ const About = () => {
   const classes = useStyles();
   return (
     <>
-      {data.banner}
+      <img src="/about-bg.png" style={{ width: '100%', maxWidth: 'inherit' }} />
       <AboutContent>
         <Introduction>
           <div className="block">
@@ -249,12 +248,12 @@ const About = () => {
             <p>{data.introduction.detail}</p>
           </div>
           <div className="block">
-            <h3>{data.contactus.title}</h3>
-            {data.contactus.detail.map((contact) => (
+            <h3>{data.contactUs.title}</h3>
+            {data.contactUs.detail.map((contact) => (
               <p key={contact}>{contact}</p>
             ))}
             <p>
-              {data.contactus.icon.map((icon) =>
+              {data.contactUs.icon.map((icon) =>
                 // <span className={`icon font_family icon-${icon}`} key={icon} />
                 icon.name === 'wechat' ? (
                   <Tooltip
@@ -305,12 +304,12 @@ const About = () => {
                           >
                             <a href="javascript:void(0);" target="view_window">
                               {/* <span className={`font_family icon-${icon.name}`}></span> */}
-                              <img src={`/static/social-icons/${icon.name}.png`} alt={icon.name} />
+                              <img src={`/social-icons/${icon.name}.png`} alt={icon.name} />
                             </a>
                           </Tooltip>
                         ) : (
                             <a href={icon.link} target="view_window" key={icon.name}>
-                              <img src={`/static/social-icons/${icon.name}.png`} alt={icon.name} />
+                              <img src={`/social-icons/${icon.name}.png`} alt={icon.name} />
                             </a>
                           );
                       })}
