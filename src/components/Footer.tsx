@@ -137,7 +137,7 @@ const Footer: React.FC<WithWidth> = ({ width }) => {
                         }
                         key={icon.name}
                       >
-                        <a href="javascript:void(0);" target="view_window">
+                        <a href="#!" target="view_window">
                           <span className={`font_family icon-${icon.name}`} />
                         </a>
                       </Tooltip>

@@ -267,7 +267,7 @@ const About = () => {
                     }
                     key={icon.name}
                   >
-                    <a href="javascript:void(0);" target="view_window" className="icon">
+                    <a href="#!" target="view_window" className="icon">
                       <span className={`font_family icon-${icon.name}`} />
                     </a>
                   </Tooltip>
@@ -302,7 +302,7 @@ const About = () => {
                             }
                             key={icon.name}
                           >
-                            <a href="javascript:void(0);" target="view_window">
+                            <a href="#!" target="view_window">
                               {/* <span className={`font_family icon-${icon.name}`}></span> */}
                               <img src={`/social-icons/${icon.name}.png`} alt={icon.name} />
                             </a>
