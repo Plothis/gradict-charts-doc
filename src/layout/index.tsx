@@ -20,11 +20,16 @@ const Content = styled.div`
     width: 100%;
   }
 `;
-const Layout = (props) => (
-  <Container className={props.className}>
-    {props.page === 'chart' ? props.children : <Content>{props.children}</Content>}
-    <Footer />
-  </Container>
-);
+const Layout = ({ children, path, location }) => {
+  // 404 page without layout
+  if (location.key || location.hash) return children;
+
+  return (
+    <Container>
+      {path === '/about/' ? children : <Content>{children}</Content>}
+      <Footer />
+    </Container>
+  )
+};
 
 export default Layout;
