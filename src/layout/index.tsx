@@ -21,8 +21,9 @@ const Content = styled.div`
   }
 `;
 const Layout = ({ children, path, location }) => {
+  console.log('children: ', children.type.noLayout);
   // 404 page without layout
-  if (location.key || location.hash) return children;
+  if (location.key === 'initial') return children;
 
   return (
     <Container>
