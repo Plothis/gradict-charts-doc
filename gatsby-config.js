@@ -16,6 +16,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: 'gatsby-plugin-less',
       options: {
