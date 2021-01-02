@@ -9,9 +9,6 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import * as indexActions from '../store/actions/indexActions';
 
 const links = [{ url: '/', name: '首页' }, { url: '/introduce/', name: '本站介绍' }, { url: '/about/', name: '关于我们' }];
 
@@ -23,6 +20,7 @@ const Header: React.FC<WithWidth> = ({ width }) => {
   }
   // 首页意外隐藏filters按钮
   const hideFilters = pathname !== '/';
+
   return (
     <div className="header-container">
       {width === 'xs' ? (
@@ -78,19 +76,5 @@ const Header: React.FC<WithWidth> = ({ width }) => {
     </div>
   );
 }
-
-// // 将actions映射到组件的props中
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({ ...indexActions }, dispatch);
-// }
-
-// export default withWidth()(
-//   withRouter(
-//     connect(
-//       null,
-//       mapDispatchToProps
-//     )(Header)
-//   )
-// );
 
 export default withWidth()(Header);
