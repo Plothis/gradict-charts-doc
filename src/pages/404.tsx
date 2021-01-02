@@ -7,6 +7,6 @@ const NotFoundPage = () => {
   )
 }
 
-NotFoundPage.noLayout = true;
+// NotFoundPage.noLayout = true;
 
 export default NotFoundPage;

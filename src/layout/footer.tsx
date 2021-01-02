@@ -44,7 +44,7 @@ const data = {
     {
       name: '使用说明',
       fun: () => {
-        navigate('/introduce');
+        navigate('/introduce/');
         // scrollToTop();
       }
     },
@@ -66,7 +66,7 @@ const data = {
     {
       name: '服务协议',
       fun: () => {
-        navigate('/service')
+        navigate('/service/')
         // scrollToTop();
       }
     }

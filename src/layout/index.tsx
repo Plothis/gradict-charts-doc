@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Footer from '../components/Footer';
+import Header from './header';
+import Footer from './footer';
 
 const Container = styled.div``;
 const Content = styled.div`
@@ -21,12 +22,12 @@ const Content = styled.div`
   }
 `;
 const Layout = ({ children, path, location }) => {
-  console.log('children: ', children.type.noLayout);
+  // console.log('children: ', children.type.noLayout);
   // 404 page without layout
-  if (location.key === 'initial') return children;
-
+  // if (location.key === 'initial') return children;
   return (
     <Container>
+      <Header />
       {path === '/about/' ? children : <Content>{children}</Content>}
       <Footer />
     </Container>
