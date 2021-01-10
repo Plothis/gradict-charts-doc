@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from './header';
 import Footer from './footer';
+import Contribution from '../components/Contribution'
+import BackToTop from '../components/BackToTop';
 
 const Container = styled.div``;
 const Content = styled.div`
@@ -30,6 +32,8 @@ const Layout = ({ children, path, location }) => {
       <Header />
       {path === '/about/' ? children : <Content>{children}</Content>}
       <Footer />
+      <BackToTop />
+      <Contribution />
     </Container>
   )
 };
