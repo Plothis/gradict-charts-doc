@@ -15,7 +15,7 @@ module.exports = {
         ignore: [`**/.*`],  // only parse the first level
       },
     },
-    `gatsby-transformer-remark`,
+    `gatsby-plugin-mdx`,
     `gatsby-plugin-styled-components`,
     {
       resolve: 'gatsby-plugin-less',
