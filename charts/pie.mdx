@@ -4,6 +4,7 @@ order: 0
 ---
 
 <!-- 0. overview -->
+
 <section class='chart-detail-overview'>
 
 ![pie-chart-overview](http://www.tuzhidian.com:3001/upload/images/2019/饼图_ff4270c4c477f75845ba82ff696bf904.png)
@@ -14,32 +15,30 @@ order: 0
 
 从数据来看，饼图一般需要一个分类数据字段、一个连续数据字段。值得注意的是，分类字段的数据，在图表使用的语境下，应当构成一个整体（例如一班、二班、三班，构成了整个高一年级），而不能是独立、无关的。
 
-使用时，须确认各个扇形的数据加起来等于100%；避免扇区超过5个，尽量让图表简洁明了；注意扇形的排布顺序，一般情况下，将最大的扇形放在12点钟方向，接下来按面积依次排列；最后，正确使用颜色，既区分出需要强调的扇形，又不致于让人眼花缭乱。
+使用时，须确认各个扇形的数据加起来等于 100%；避免扇区超过 5 个，尽量让图表简洁明了；注意扇形的排布顺序，一般情况下，将最大的扇形放在 12 点钟方向，接下来按面积依次排列；最后，正确使用颜色，既区分出需要强调的扇形，又不致于让人眼花缭乱。
 
 </section>
 
 ## 图表属性
 
-* **形状：** 圆形
-* **图类：** 统计图表
-* **功能：** 组成 • 比较
+- **形状：** 圆形
+- **图类：** 统计图表
+- **功能：** 组成 • 比较
 
 ## 图表详解
 
 ### 元素构成
 
-<!-- TODO -->
-
-*这里少一张图*
+<PlaceHolder>这里少一张图</PlaceHolder>
 
 ### 适用场景
 
-1. 想要突出表示某个部分在整体中所占比例，尤其该部分所占比例达到总体的25%或50%时。
-2. 分类数量最好小于5个。
+1. 想要突出表示某个部分在整体中所占比例，尤其该部分所占比例达到总体的 25%或 50%时。
+2. 分类数量最好小于 5 个。
 3. 各不同分类间的占比差异明显。
 4. 需要确定的图表绘制空间大小（不会随着分类增多有增大画布空间）。
 
-<img src='http://139.224.62.3:3001/upload/images/network/1548843706598-f5925a02-c6e2-4c69-aa86-8e6d194ce00d.jpeg' width='328' /> 
+<img src="http://139.224.62.3:3001/upload/images/network/1548843706598-f5925a02-c6e2-4c69-aa86-8e6d194ce00d.jpeg" width="328" />
 
 ### 不适用场景
 
@@ -47,15 +46,147 @@ order: 0
 2. 饼图也不能用来表现趋势。
 3. 由于饼图用面积取代了长度，从而加大了对各个数据进行比较的难度。以下图为例，五个变量中，并没有一个占比特别明显的变量，彼此之间十分接近。如果用饼图表示，人们很难分辨大小。因此，当需要对数据进行比较，分清孰大孰小，尤其是当数据接近时，柱状图更加合适。
 
-<img src="http://139.224.62.3:3001/upload/images/network/1548843959370-e81a6eba-88d1-4f07-8a69-8625ff270700.jpeg" width="532"/>
+<img src="http://139.224.62.3:3001/upload/images/network/1548843959370-e81a6eba-88d1-4f07-8a69-8625ff270700.jpeg" width="532" />
 
-4. 此外，当类别过多时，不建议使用饼图，否则阅读会将很差（如下图）。可行的办法，一是将一些不重要的变量合并为“其他”，避免扇区超过5个；二是改用条形图或者表格。尤其是，如果你想让读者清楚的阅读到每一条数据，选用表格会更加直截了当。
+4. 此外，当类别过多时，不建议使用饼图，否则阅读会将很差（如下图）。可行的办法，一是将一些不重要的变量合并为“其他”，避免扇区超过 5 个；二是改用条形图或者表格。尤其是，如果你想让读者清楚的阅读到每一条数据，选用表格会更加直截了当。
 
 <img src="http://139.224.62.3:3001/upload/images/network/1548844025444-ce1af3f7-a65a-4075-8d37-748d560335f7.jpeg" width="566" />
 
-
 ## 相似图形
 
-<!-- TODO -->
+<PlaceHolder>这里需要统一处理图表基础信息</PlaceHolder>
 
 ## 设计案例
+
+<DesignCaseContainer>
+  <DesignCaseItem
+    description="用有冲击力的颜色突出最想表现的扇形，其余的则在视觉上弱化处理（比如用灰色处理）。此外，将文字注释巧妙的设计到图形中。"
+    link="https://multimedia.scmp.com/news/china/article/2170344/china-2025-aviation/index.html?src=follow-chapter"
+    image="http://139.224.62.3:3001/upload/images/2019/1543645728953-3a3e4054-58e3-449b-9edb-6d6f20d85ae8_bde10d6c48ff7b43d9bbb97907f1148d.png"
+  />
+  <DesignCaseItem
+    description="《南华早报》关于香港少数族裔的报道。蓝色表示男性，红色表示女性，符合一般认知。同时，除了男女占比外，还用圆形面积代表了总人数。特别的，它还将菲律宾人（香港最多的少数族裔）画成了灰色轮廓，固定在底图上，并加入交互功能。这样，用户在滑动到其他族裔（如美国人）时，就可以方便的比较它与菲律宾人的规模差别。这是把简单的饼图，设计的丰富、精巧的案例。"
+    link="http://multimedia.scmp.com/news/hong-kong/article/20th-handover/index.html"
+    image="http://139.224.62.3:3001/upload/images/2019/1543644866253-29992d89-cd08-4573-9f12-c4196364ffe9_5f3ef6cff573a83b1ca68cd0a74608c6.png"
+  />
+  <DesignCaseItem
+    description="给扇形以装饰，使其更直观、美观的表现所属类别。"
+    link="http://www.emilyschramm.com/blog/2017/12/8/thanksgiving-pie-chart"
+    image="http://139.224.62.3:3001/upload/images/2019/1543470251577-be0d1f79-89a6-407c-b352-695d8b979f70_57ce59274d9c552e69f643c134510798.png"
+  />
+  <DesignCaseItem
+    description="创意性的使用实物拍摄。"
+    link="https://www.sweetspot.com/en/2014/10/21/focus-visualizations-pie-charts/"
+    image="http://139.224.62.3:3001/upload/images/2019/1543469706699-b6fd6fbb-809e-43ae-8b83-5ade89f118dd_c7a101e1b16e67dd1b8c60728f9d350a.png"
+  />
+  <DesignCaseItem
+    description="实物装饰+变形处理。"
+    link="http://www.peterorntoft.com/infographicsincontext.html"
+    image="http://139.224.62.3:3001/upload/images/2019/1544011569937-afbad9d1-68e1-4a9a-98cb-ee989c2cacd9_569001048365d3c3eca890060890e07c.png"
+  />
+  <DesignCaseItem
+    description="《纽约时报》对比了民主党和共和党人士爱用词语的差异。对饼图进行变形（并不从圆心开始划分，而是左右划分），这样很好的契合了政治上两派相争、一左一右的概念，同时方便多个饼图排版——蓝色越多、民主党更爱提、越靠左；红色越多、共和党更爱提、越靠右。"
+    link="https://archive.nytimes.com/www.nytimes.com/interactive/2012/09/06/us/politics/convention-word-counts.html#Businesshttp://"
+    image="http://139.224.62.3:3001/upload/images/2019/1543480079659-6dc37188-ff73-498f-a84f-620c020d36e1_b26c17b1961748fa8da6e524f39cca96.png"
+  />
+</DesignCaseContainer>
+
+## 使用场景
+
+1. 通常认为，已知最早的饼图是威廉·普莱菲于 1801 年在他的《统计学摘要》Statistical Breviary 中所作。这张饼图，描述了 1789 年以前土耳其帝国在亚洲、欧洲及非洲中所占的比例。为什么饼图适合表达这个话题呢？第一，其分类变量为亚、欧、非三洲，这三洲的国土构成了土耳其疆域的整体。而我们的目的正是为了表现它们的“占比”。此外，总共三个类别，数量不多不少，不会使饼图太过杂乱。第二，其连续变量为各洲的国土面积，有一个部分（亚洲）占比显著（60%左右），很好辨别。另外，欧洲占比约为 25%，在饼图中呈直角，也方便辨别（这也很可能是作者把欧洲放在 12 点钟方向的原因）。
+
+<img src="http://139.224.62.3:3001/upload/images/2019/1543463720192-d6a22b1a-93d7-4680-8b16-6955250aea8b_c26170ea0bd93bf7058536bbfdba757c.png" width="328" />
+
+2. 作为最常见的图表之一，饼图大量的用于各行各业的报告中。例如，研报中经常会出现市场份额的分析。据中金公司研报，2017 年我国的餐饮业营收额中，火锅占到 22%，其次是自助餐（12%）、川菜（8%）、小吃快餐（8%）、西餐（6%）。这 5 种类型的餐饮，营收额占到了整个市场的 56%，尤其以火锅占据绝对优势。
+
+<img src="http://139.224.62.3:3001/upload/images/2019/1549124264533-2e97509a-ff16-4225-bb7d-c9947e13f1e1_7ea3f8d7ce721dc202cf8f9081f5c5b9.png" width="396" />
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<ProductionTutorials
+  data={{
+    'BI 工具': {
+      Excel: [
+        { link: 'https://support.office.com/zh-cn/article/%E6%B7%BB%E5%8A%A0%E9%A5%BC%E5%9B%BE-1a5f08ae-ba40-46f2-9ed0-ff84873b7863', linkText: '官方基础教程' },
+        { link: 'https://zhuanlan.zhihu.com/p/23350815', linkText: '使用颜色插件、调整标签位置' },
+        { link: 'https://www.ruhe8.com/article/2539.html', linkText: '画半圆饼图' },
+      ],
+      'Power BI': [{ link: 'https://www.jianshu.com/p/15a7bbdc464c', linkText: '基础教程' }],
+      Tableau: [{ link: 'https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_pie.htm', linkText: '官方基础教程' }],
+      QlikView: [{ link: 'https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Pie_Chart.htm', linkText: '官方基础文档' }],
+    },
+    代码库: {
+      Echarts: [{ link: 'http://echarts.baidu.com/examples/#chart-type-pie', linkText: '官方实例' }],
+      AntV: [{ link: 'https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/innerlabel.html', linkText: '官方实例' }],
+      D3: [
+        { link: 'https://beta.observablehq.com/@mbostock/d3-pie-chart', linkText: '基础饼图' },
+        { link: 'https://bl.ocks.org/santi698/f3685ca8a1a7f5be1967f39f367437c0', linkText: '基础饼图2' },
+      ],
+      matplotlib: [{ link: 'https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html', linkText: '官方文档及案例' }],
+      ggplot2: [
+        { link: 'https://ggplot2.tidyverse.org/reference/coord_polar.html', linkText: '官方文档及案例' },
+        { link: 'http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-start-guide-r-software-and-data-visualization', linkText: '基础饼图教程' },
+      ],
+    },
+    设计软件: {
+      PS: [
+        { link: 'https://www.graphicadi.com/pie-chart-photoshop/', linkText: '官方文档及案例' },
+        { link: 'https://www.techwalla.com/articles/how-do-i-make-a-pie-chart-in-photoshop', linkText: '扭曲切割法' },
+      ],
+      AI: [{ link: 'https://design.tutsplus.com/tutorials/how-to-create-an-editable-pie-chart-in-adobe-illustrator--cms-31336', linkText: 'AI分步教程' }],
+      Sketch: [
+        { link: 'httpshttp://www.iueux.com/1116.html', linkText: '3种基础方法' },
+        { link: 'https://medium.com/d-d-mag/%E7%94%A8-sketch-%E8%99%9B%E7%B7%9A%E5%81%9A%E7%94%9C%E7%94%9C%E5%9C%88%E5%92%8C%E5%9C%93%E9%A4%85-c78e5bb995fc', linkText: '虚线法' },
+      ],
+    },
+  }}
+/>
+
+## 专项工具
+
+1. <a href="https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=PieChart" target="__blank">
+     在线工具
+   </a>
+2. <a href="https://www.visme.co/pie-chart-maker/" target="__blank">
+     在线工具
+   </a>
+
+## 学习资源
+
+1. <a href="https://blog.usejournal.com/why-humans-love-pie-charts-9cd346000bdc" target="__blank">
+     【推荐】从历史和进化的角度看人类为何喜欢饼图（英文）
+   </a>
+2. <a href="https://www.sweetspot.com/en/2014/10/21/focus-visualizations-pie-charts/" target="__blank">
+     饼状图入门及使用原则（英文）
+   </a>
+3. <a href="https://www.businessinsider.com/pie-charts-are-the-worst-2013-6" target="__blank">
+     迫不得已不要用饼图（英文）
+   </a>
+
+## 参考文献
+
+<!-- 为了以下部分有统一的样式，以及展开收起效果，只能手写 hmtl 了 -->
+
+<Reference>
+  <ol>
+    <li>
+      Wikipedia. (n.d.). <em>Pie chart</em>. [online]. Available at: https://en.wikipedia.org/wiki/Pie_chart [Accessed 3 December 2018].
+    </li>
+    <li>AntV墨者学院. (n.d.). 饼图的简介. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/pie.html[Accessed 3 December 2018].</li>
+  </ol>
+</Reference>
+
+## 贡献者
+
+<!-- 由于一些工作不体现在 github 提交上，所以还是维持之前手工维护的方式 -->
+
+<Contributors
+  data={{
+    Gaia: [{ date: '2018年12月', content: '绘图' }],
+    Neo: [{ date: '2019年1月', content: ' 文档审核与编辑' }],
+    Olivia: [{ date: '2019年2月', content: ' 文档资料搜集、整理和编辑' }],
+    小虾: [{ date: '2019年2月', content: '绘图' }],
+  }}
+/>
