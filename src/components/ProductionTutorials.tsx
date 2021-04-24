@@ -138,8 +138,12 @@ function handleTableData(data: Props['data']) {
 
     // TODO 这一页的类型待补全
     result = result.concat(groupData);
-    group.children = newGroup;
-    group.length = length;
+    Object.assign(group, {
+      children: newGroup,
+      length: length
+    });
+    // group.children = newGroup;
+    // group.length = length;
   });
   return result;
 }
