@@ -96,9 +96,9 @@ function renderChart(graph, index) {
   if (graph.disabled) {
     return (
       <Container key={index}>
-        <div className="title">{graph.cnName}</div>
+        <div className="title">{graph.name}</div>
         <div className="picture">
-          <img src={graph.image} alt={graph.cnName} />
+          <img src={graph.image} alt={graph.name} />
           <div className="coming-soon">
             <span className="icon font_family icon-jingqingqidai" style={{ color: '#fff' }} />
             <span className="text">敬请期待</span>
@@ -109,12 +109,12 @@ function renderChart(graph, index) {
     );
   } else {
     return (
-      <Link to={`/charts/${graph.name}`}  key={index}>
-        <a href={`/charts/${graph.name}`}>
+      <Link to={`/charts/${graph.path}`}  key={index}>
+        <a href={`/charts/${graph.path}`}>
           <Container>
-            <div className="title">{graph.cnName}</div>
+            <div className="title">{graph.name}</div>
             <div className="picture">
-              <img src={graph.image} alt={graph.cnName} />
+              <img src={graph.image} alt={graph.name} />
             </div>
             {/* {graph.briefIntroduction ? <div className="description">{graph.briefIntroduction}</div> : null} */}
           </Container>

@@ -14,6 +14,7 @@ import { cloneDeep, forIn, isEmpty } from 'lodash'
 import SpecificButton from '../components/SpecificButton';;
 import Layout from '../layout/index';
 import ChartList from '../components/ChartList';
+import { chartProps } from '../constants/props';
 const Line = styled.div`
   display: flex;
   min-height: 60px;
@@ -133,13 +134,22 @@ function useWidth() {
 const SHAPE_ENNAME = 'shape';
 const zhCompletedKB = CKBJson('zh-CN', true);
 
+const CHART_MAP = {
+  pie_chart: {
+    path: 'pie'
+  },
+  sankey_diagram: {
+    path: 'sankey'
+  }
+}
+
 export function Home(props) {
-  // console.log(props)
+
   const width = useWidth();
   const [showFilters, setShowFilters] = useState(true);
   const [queries, setQueries] = useState([]);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
-  const [filters, setFilters] = useState(false);
+  const [filters, setFilters] = useState([]);
   const [springProps, setSpringProps] = useSpring(() => ({
     config: { tension: 2000, friction: 100, precision: 1 },
     from: {height: 0},
@@ -149,18 +159,29 @@ export function Home(props) {
   const allCharts = useMemo(() => {
     const chartList = []
     props.data.allFile.nodes.forEach(({name}) => {
-      if (zhCompletedKB[name]) {
-        chartList.push(zhCompletedKB[name])
+      for (const key in zhCompletedKB) {
+        if (Object.prototype.hasOwnProperty.call(zhCompletedKB, key)) {
+          const element = zhCompletedKB[key];
+          if (key.includes(name)) {
+            chartList.push({
+              ...element,
+              path: CHART_MAP[key].path,
+            });
+            break;
+          }
+        }
       }
+
     });
-    console.log(zhCompletedKB)
-    setQueries(chartList)
+
+    // setQueries(chartList)
     return chartList
   }, [])
-  console.log(allCharts)
+
 
   useEffect(() => {
-    
+
+    setQueries(chartProps)
     return () => {
  
     }
@@ -207,6 +228,10 @@ export function Home(props) {
                     <div className="line-content">
                       <div className="buttons">
                         {Array.isArray(query.children) && query.children.map((child, j) => {
+                          if (!filters[query.enName]) {
+         
+                            return null;
+                          }
                           const active = filters[query.enName].indexOf(child.enName) >= 0;
                           if (query.enName === SHAPE_ENNAME) {
                             return (
