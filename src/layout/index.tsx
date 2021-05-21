@@ -23,7 +23,7 @@ const Content = styled.div`
     width: 100%;
   }
 `;
-const Layout = ({ children, path, location }) => {
+const Layout: React.FC<{path?: string, location?: any}> = ({ children, path, location }) => {
   // 404 page without layout
   // if (location.key === 'initial') return children;
   return (
