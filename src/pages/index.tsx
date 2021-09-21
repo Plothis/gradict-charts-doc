@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useLocation } from '@reach/router'
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby'
 import { useTheme } from '@material-ui/core/styles';
@@ -9,13 +10,20 @@ import Drawer from '@material-ui/core/Drawer';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { animated, useSpring } from 'react-spring';
-
 import { cloneDeep, forIn, isEmpty } from 'lodash'
 import SpecificButton from '../components/SpecificButton';;
 import Layout from '../layout/index';
 import ChartList from '../components/ChartList';
+import { ChartInfo, ChartProp, parseProps, parseChartFromMDX } from "./parseMDX";
 
-import { chartProps, parseChartProps } from "./parseMDX";
+
+interface ChartQuery {
+  name: string
+  /** 属性类型 */
+  type: string
+  /** 属性值 */
+  value: string
+}
 const Line = styled.div`
   display: flex;
   min-height: 60px;
@@ -136,87 +144,88 @@ const SHAPE_ENNAME = 'shape';
 
 
 export function Home(props) {
-
+  
   const width = useWidth();
   const [showFilters, setShowFilters] = useState(true);
-  const [queries, setQueries] = useState([]);
+  const [queries, setQueries] = useState<ChartQuery[]>([]);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [filters, setFilters] = useState([]);
-  const [springProps, setSpringProps] = useSpring(() => ({
+  const [springProps, animate] = useSpring(() => ({
     config: { tension: 2000, friction: 100, precision: 1 },
-    from: {height: 0},
-    to: { height: true ? 'auto' : 0}
+    from: { height: 0 },
+    to: { height: 'auto' },
   }));
-
-  const {chartList} = useMemo(() => {
-    return parseChartProps(props.data.allFile.nodes)
+  const {propsList: chartProps, propMap} = parseProps()
+  const { chartList } = useMemo(() => {
+    return parseChartFromMDX(props.data.allFile.nodes)
   }, [])
+  
   useEffect(() => {
     setFilters(chartList)
   }, [])
-  
-  async function clearFilter() {
-    // await this.props.clearFilters();
-    // this.getCharts();
-    // Router.push(
-    //   {
-    //     pathname: '/',
-    //     query: {}
-    //   },
-    //   {
-    //     pathname: '/',
-    //     query: {}
-    //   },
-    //   { shallow: true }
-    // );
-  }
-  const changeSearch = () => {
-    const {
-      IndexPage: { filters }
-    } = this.props;
-    const newQuery = cloneDeep(filters);
-    forIn(newQuery, (value, keys) => {
-      if (isEmpty(value)) {
-        delete newQuery[keys];
-      } else {
-        newQuery[keys] = value.join('_');
+
+  useEffect(() => {
+    if (queries.length > 0) {
+      animate({ to: { height: 'auto' } })
+    } else {
+      animate({ to: { height: 0 } })
+    }
+    setFilters(queryChart())
+  }, [queries])
+
+  const isPropButtonActive = (type: string, propValue: string) => {
+    for (const query of queries) {
+      if (query.type === type && query.value === propValue) {
+        return true
       }
-    });
-    // Router.push(
-    //   {
-    //     pathname: '/',
-    //     query: newQuery
-    //   },
-    //   {
-    //     pathname: '/',
-    //     query: newQuery
-    //   },
-    //   { shallow: true }
-    // );
+    }
+    return false
+  }
+  const clearFilter = () => {
+    setQueries([])
+  }
+  const changeSearch = (queryProp: ChartQuery) => {
+    const newQueries = [...queries]
+    const index = newQueries.findIndex((item) => item.type === queryProp.type && item.value === queryProp.value)
+    if (index > -1) {
+      newQueries.splice(index, 1)
+    } else {
+      newQueries.push(queryProp)
+    }
+    setQueries(newQueries)
   };
   const queryChart = () => {
-
-  }
-  const clickButton = (query, element) => {
-    console.log(query, element)
-    const { updateFilters } = this.props;
-    const value = element.enName;
-    // updateFilters({ key: query.enName, value, iconName: element.iconName });
-    // this.changeSearch();
-    // this.getCharts();
-    for (const iterator of chartList) {
-      
+    const chartMap: Record<string, ChartInfo> = {}
+    if (queries.length === 0) {
+      return [...chartList]
     }
-  };
+    for (const query of queries) {
+      for (const chartInfo of chartList) {
+        if (query.value in chartInfo.$searchMap) {
+          if (chartMap[chartInfo.name] === undefined) {
+            chartMap[chartInfo.name] = chartInfo
+          } else {
+            // in chartMap
+            continue
+          }
+        }
+      }
+    }
+    return Object.values(chartMap)
+  }
+  const clickPropButton = (query: ChartProp, propValue: string) => {
+    changeSearch({ type: query.enName, name: query.cnName, value: propValue })
+  }
   const toggleMobileFilters = () => {
     setShowMobileFilters(!showMobileFilters)
   }
-  const toggleFilters  = () => {
+  const toggleFilters = () => {
     setShowFilters(!showFilters);
   }
-  const CNMap = []
-  const  filterArray = []
-  
+  const removeFilter = (query: ChartQuery) => {
+    changeSearch(query)
+  }
+
   return (
     <div>
       {chartProps.length > 0 ? (
@@ -228,31 +237,29 @@ export function Home(props) {
                 {chartProps.map((query, i) => (
                   <Line key={i}>
                     <div className="line-name">
-                      <span className={`icon font_family icon-${query.iconName}`} /> 
+                      <span className={`icon font_family icon-${query.iconName}`} />
                       {query.cnName}
                     </div>
                     <div className="line-content">
                       <div className="buttons">
-                        {Array.isArray(query.children) && query.children.map((name, j) => {
+                        {Array.isArray(query.children) && query.children.map((propValue, j) => {
                           // if (!filters[query.name]) {
                           //   return null;
                           // }
-                          const active = false
-                          // const active = filters[query.name].indexOf(name) >= 0;
+                          const active = isPropButtonActive(query.enName, propValue)
                           if (query.cnName === SHAPE_ENNAME) {
                             return (
                               <span
                                 key={j}
-                                className={`icon pure-icon font_family icon-${name} ${active ? 'active' : ''}`}
-                                // active={active ? 'active' : null}
-                                onClick={() => clickButton(query, name)}
+                                className={`icon pure-icon font_family icon-${propValue} ${active ? 'active' : ''}`}
+                                onClick={() => clickPropButton(query, propValue)}
                               />
                             );
                           } else {
                             return (
-                              <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickButton(query, name)}>
+                              <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickPropButton(query, propValue)}>
                                 {/* {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null} */}
-                                {name}
+                                {propValue}
                               </SpecificButton>
                             );
                           }
@@ -262,22 +269,18 @@ export function Home(props) {
                   </Line>
                 ))}
                 <div className="search-filters">
-                  <div {...springProps} >
-                    {(props) => (
-                      <animated.div className="items" style={props}>
-                        筛选内容:
-                        {filterArray.map((item, i) => (
-                          <div className="search-button" key={i}>
-                            {CNMap[item.type]}:{item.type === SHAPE_ENNAME ? <span className={`icon font_family icon-${item.iconName}`} /> : <span>{CNMap[item.value]}</span>}
-                            <CloseOutlinedIcon style={{ fontSize: 16, marginLeft: '4px' }} onClick={() => this.removeFilter(item)} />
-                          </div>
-                        ))}
-                        <div className="clear" onClick={this.clearFilter}>
-                          清除
-                        </div>
-                      </animated.div>
-                    )}
-                  </div>
+                  <animated.div className="items" style={springProps}>
+                    筛选内容:
+                    {queries.map((item, i) => (
+                      <div className="search-button" key={i}>
+                        <span>{item.name}: {item.value}</span>
+                        <CloseOutlinedIcon style={{ fontSize: 16, marginLeft: '4px' }} onClick={() => removeFilter(item)} />
+                      </div>
+                    ))}
+                    <div className="clear" onClick={clearFilter}>
+                      清除
+                    </div>
+                  </animated.div>
                 </div>
               </Collapse>
               <Collapse in={!showFilters} timeout="auto">
@@ -297,7 +300,7 @@ export function Home(props) {
       {width === 'xs' && (
         <Drawer open={showMobileFilters} anchor="top" onClose={toggleMobileFilters} PaperProps={{ className: 'mobile-filters-drawer' }}>
           <div className="mobile-filters">
-            {queries.map((query, i) => (
+            {chartProps.map((query, i) => (
               <MobileLine key={i}>
                 <div className="line-name">
                   {/* <span className={`icon font_family icon-${query.iconName}`} /> */}
@@ -305,22 +308,22 @@ export function Home(props) {
                 </div>
                 <div className="line-content">
                   <div className="buttons">
-                    {Array.isArray(query.children) && query.children.map((child, j) => {
-                      const active = filters[query.enName].indexOf(child.enName) >= 0;
+                    {Array.isArray(query.children) && query.children.map((propValue, j) => {
+                      const active = isPropButtonActive(query.enName, propValue)
                       if (query.enName === SHAPE_ENNAME) {
                         return (
                           <span
                             key={j}
-                            className={`icon pure-icon font_family icon-${child.iconName} ${active ? 'active' : ''}`}
+                            className={`icon pure-icon font_family icon-${propValue} ${active ? 'active' : ''}`}
                             // active={active ? 'active' : null}
-                            onClick={() => clickButton(query, child)}
+                            onClick={() => clickPropButton(query, propValue)}
                           />
                         );
                       } else {
                         return (
-                          <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickButton(query, child)}>
-                            {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null}
-                            {child.cnName}
+                          <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickPropButton(query, propValue)}>
+                            {/* {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null} */}
+                            {propValue}
                           </SpecificButton>
                         );
                       }
@@ -334,9 +337,9 @@ export function Home(props) {
                 {(props) => (
                   <animated.div className="items" style={props}>
                     筛选内容:
-                    {filterArray.map((item, i) => (
+                    {queries.map((item, i) => (
                       <div className="search-button" key={i}>
-                        {CNMap[item.type]}:{item.type === SHAPE_ENNAME ? <span className={`icon font_family icon-${item.iconName}`} /> : <span>{CNMap[item.value]}</span>}
+                        <span>{item.name}: {item.value}</span>
                         <CloseOutlinedIcon style={{ fontSize: 16, marginLeft: '4px' }} onClick={() => this.removeFilter(item)} />
                       </div>
                     ))}
@@ -358,7 +361,7 @@ export function Home(props) {
           </div>
         </Drawer>
       )}
-  </div>
+    </div>
   )
 }
 
