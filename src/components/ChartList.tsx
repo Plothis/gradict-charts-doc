@@ -110,15 +110,13 @@ function renderChart(graph, index) {
   } else {
     return (
       <Link to={`/charts/${graph.path}`}  key={index}>
-        <a href={`/charts/${graph.path}`}>
-          <Container>
-            <div className="title">{graph.name}</div>
-            <div className="picture">
-              <img src={graph.image} alt={graph.name} />
-            </div>
-            {/* {graph.briefIntroduction ? <div className="description">{graph.briefIntroduction}</div> : null} */}
-          </Container>
-        </a>
+        <Container>
+          <div className="title">{graph.name}</div>
+          <div className="picture">
+            <img src={graph.image} alt={graph.name} />
+          </div>
+          {/* {graph.briefIntroduction ? <div className="description">{graph.briefIntroduction}</div> : null} */}
+        </Container>
       </Link>
     );
   }

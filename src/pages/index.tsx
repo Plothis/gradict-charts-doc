@@ -9,12 +9,13 @@ import Drawer from '@material-ui/core/Drawer';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { animated, useSpring } from 'react-spring';
-import { CKBJson } from '@antv/knowledge';
+
 import { cloneDeep, forIn, isEmpty } from 'lodash'
 import SpecificButton from '../components/SpecificButton';;
 import Layout from '../layout/index';
 import ChartList from '../components/ChartList';
-import { chartProps } from '../constants/props';
+
+import { chartProps, parseChartProps } from "./parseMDX";
 const Line = styled.div`
   display: flex;
   min-height: 60px;
@@ -132,16 +133,7 @@ function useWidth() {
 }
 
 const SHAPE_ENNAME = 'shape';
-const zhCompletedKB = CKBJson('zh-CN', true);
 
-const CHART_MAP = {
-  pie_chart: {
-    path: 'pie'
-  },
-  sankey_diagram: {
-    path: 'sankey'
-  }
-}
 
 export function Home(props) {
 
@@ -156,36 +148,13 @@ export function Home(props) {
     to: { height: true ? 'auto' : 0}
   }));
 
-  const allCharts = useMemo(() => {
-    const chartList = []
-    props.data.allFile.nodes.forEach(({name}) => {
-      for (const key in zhCompletedKB) {
-        if (Object.prototype.hasOwnProperty.call(zhCompletedKB, key)) {
-          const element = zhCompletedKB[key];
-          if (key.includes(name)) {
-            chartList.push({
-              ...element,
-              path: CHART_MAP[key].path,
-            });
-            break;
-          }
-        }
-      }
-
-    });
-
-    // setQueries(chartList)
-    return chartList
+  const {chartList} = useMemo(() => {
+    return parseChartProps(props.data.allFile.nodes)
   }, [])
-
-
   useEffect(() => {
-
-    setQueries(chartProps)
-    return () => {
- 
-    }
+    setFilters(chartList)
   }, [])
+  
   async function clearFilter() {
     // await this.props.clearFilters();
     // this.getCharts();
@@ -201,6 +170,44 @@ export function Home(props) {
     //   { shallow: true }
     // );
   }
+  const changeSearch = () => {
+    const {
+      IndexPage: { filters }
+    } = this.props;
+    const newQuery = cloneDeep(filters);
+    forIn(newQuery, (value, keys) => {
+      if (isEmpty(value)) {
+        delete newQuery[keys];
+      } else {
+        newQuery[keys] = value.join('_');
+      }
+    });
+    // Router.push(
+    //   {
+    //     pathname: '/',
+    //     query: newQuery
+    //   },
+    //   {
+    //     pathname: '/',
+    //     query: newQuery
+    //   },
+    //   { shallow: true }
+    // );
+  };
+  const queryChart = () => {
+
+  }
+  const clickButton = (query, element) => {
+    console.log(query, element)
+    const { updateFilters } = this.props;
+    const value = element.enName;
+    // updateFilters({ key: query.enName, value, iconName: element.iconName });
+    // this.changeSearch();
+    // this.getCharts();
+    for (const iterator of chartList) {
+      
+    }
+  };
   const toggleMobileFilters = () => {
     setShowMobileFilters(!showMobileFilters)
   }
@@ -208,45 +215,44 @@ export function Home(props) {
     setShowFilters(!showFilters);
   }
   const CNMap = []
-  const charts = allCharts
   const  filterArray = []
   
   return (
     <div>
-      {queries.length > 0 ? (
+      {chartProps.length > 0 ? (
         <>
           {/* desktop */}
           {width !== 'xs' && (
             <div className="index-table">
               <Collapse in={showFilters} timeout="auto">
-                {queries.map((query, i) => (
+                {chartProps.map((query, i) => (
                   <Line key={i}>
                     <div className="line-name">
-                      {/* <span className={`icon font_family icon-${query.iconName}`} /> */}
-                      {query.name}
+                      <span className={`icon font_family icon-${query.iconName}`} /> 
+                      {query.cnName}
                     </div>
                     <div className="line-content">
                       <div className="buttons">
-                        {Array.isArray(query.children) && query.children.map((child, j) => {
-                          if (!filters[query.enName]) {
-         
-                            return null;
-                          }
-                          const active = filters[query.enName].indexOf(child.enName) >= 0;
-                          if (query.enName === SHAPE_ENNAME) {
+                        {Array.isArray(query.children) && query.children.map((name, j) => {
+                          // if (!filters[query.name]) {
+                          //   return null;
+                          // }
+                          const active = false
+                          // const active = filters[query.name].indexOf(name) >= 0;
+                          if (query.cnName === SHAPE_ENNAME) {
                             return (
                               <span
                                 key={j}
-                                className={`icon pure-icon font_family icon-${child.iconName} ${active ? 'active' : ''}`}
+                                className={`icon pure-icon font_family icon-${name} ${active ? 'active' : ''}`}
                                 // active={active ? 'active' : null}
-                                onClick={() => this.clickButton(query, child)}
+                                onClick={() => clickButton(query, name)}
                               />
                             );
                           } else {
                             return (
-                              <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => this.clickButton(query, child)}>
-                                {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null}
-                                {child.cnName}
+                              <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickButton(query, name)}>
+                                {/* {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null} */}
+                                {name}
                               </SpecificButton>
                             );
                           }
@@ -280,7 +286,7 @@ export function Home(props) {
               <ExpandMoreIcon className="toggle-search" onClick={toggleFilters} style={showFilters ? { transform: 'rotate(180deg)' } : {}} />
             </div>
           )}
-          <ChartList charts={charts} />
+          <ChartList charts={filters} />
         </>
       ) : (
         <div style={{ height: '80vh', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -307,12 +313,12 @@ export function Home(props) {
                             key={j}
                             className={`icon pure-icon font_family icon-${child.iconName} ${active ? 'active' : ''}`}
                             // active={active ? 'active' : null}
-                            onClick={() => this.clickButton(query, child)}
+                            onClick={() => clickButton(query, child)}
                           />
                         );
                       } else {
                         return (
-                          <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => this.clickButton(query, child)}>
+                          <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickButton(query, child)}>
                             {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null}
                             {child.cnName}
                           </SpecificButton>
@@ -364,6 +370,9 @@ const HomeWrap = (props) => {
           allFile {
             nodes {
               name
+              childMdx {
+                mdxAST
+              }
             }
           }
         }
