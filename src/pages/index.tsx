@@ -14,7 +14,7 @@ import { cloneDeep, forIn, isEmpty } from 'lodash'
 import SpecificButton from '../components/SpecificButton';;
 import Layout from '../layout/index';
 import ChartList from '../components/ChartList';
-import { ChartInfo, ChartProp, parseProps, parseChartFromMDX } from "./parseMDX";
+import { ChartInfo, ChartProp, parseProps, parseChartFromMDX } from "../utils/parseMDX";
 
 
 interface ChartQuery {
