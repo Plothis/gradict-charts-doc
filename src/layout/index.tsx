@@ -1,9 +1,11 @@
 import React from 'react';
+import { Provider, connect } from "react-redux";
 import styled from 'styled-components';
 import Header from './header';
 import Footer from './footer';
 import Contribution from '../components/Contribution'
 import BackToTop from '../components/BackToTop';
+import { store } from '../store/store';
 
 const Container = styled.div``;
 const Content = styled.div`
@@ -23,17 +25,19 @@ const Content = styled.div`
     width: 100%;
   }
 `;
-const Layout: React.FC<{path?: string, location?: any}> = ({ children, path, location }) => {
+const Layout: React.FC<{ path?: string, location?: any }> = ({ children, path, location }) => {
   // 404 page without layout
   // if (location.key === 'initial') return children;
   return (
-    <Container>
-      <Header />
-      {path === '/about/' ? children : <Content>{children}</Content>}
-      <Footer />
-      <BackToTop />
-      <Contribution />
-    </Container>
+    <Provider store={store}>
+      <Container>
+        <Header />
+        {path === '/about/' ? children : <Content>{children}</Content>}
+        <Footer />
+        <BackToTop />
+        <Contribution />
+      </Container>
+    </Provider>
   )
 };
 

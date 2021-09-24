@@ -9,7 +9,9 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import { store } from '../store/store';
 
+const { dispatch } = store
 const links = [{ url: '/', name: '首页' }, { url: '/introduce/', name: '本站介绍' }, { url: '/about/', name: '关于我们' }];
 
 const Header: React.FC<WithWidth> = ({ width }) => {
@@ -32,7 +34,7 @@ const Header: React.FC<WithWidth> = ({ width }) => {
             <img className="logo" src="/logo.png" alt="" />
           </Link>
           <div className="filters-button"
-            // onClick={this.props.toggleMobileFilters} 
+            onClick={dispatch.indexPage.toggleMobileFilters} 
             style={hideFilters ? { visibility: 'hidden' } : {}}>
             筛选
               <ArrowDropDown />

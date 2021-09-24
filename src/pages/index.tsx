@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useLocation } from '@reach/router'
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from 'gatsby'
 import { useTheme } from '@material-ui/core/styles';
@@ -15,6 +15,7 @@ import SpecificButton from '../components/SpecificButton';;
 import Layout from '../layout/index';
 import ChartList from '../components/ChartList';
 import { ChartInfo, ChartProp, parseProps, parseChartFromMDX } from "../utils/parseMDX";
+import { Dispatch, RootState } from "../store/store";
 
 
 interface ChartQuery {
@@ -144,22 +145,21 @@ const SHAPE_ENNAME = 'shape';
 
 
 export function Home(props) {
-  
+  const { showMobileFilters, toggleMobileFilters } = props
   const width = useWidth();
   const [showFilters, setShowFilters] = useState(true);
   const [queries, setQueries] = useState<ChartQuery[]>([]);
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [filters, setFilters] = useState([]);
   const [springProps, animate] = useSpring(() => ({
     config: { tension: 2000, friction: 100, precision: 1 },
     from: { height: 0 },
     to: { height: 'auto' },
   }));
-  const {propsList: chartProps, propMap} = parseProps()
+  const { propsList: chartProps, propMap } = parseProps()
   const { chartList } = useMemo(() => {
     return parseChartFromMDX(props.data.allFile.nodes)
   }, [])
-  
+
   useEffect(() => {
     setFilters(chartList)
   }, [])
@@ -196,19 +196,39 @@ export function Home(props) {
   };
   const queryChart = () => {
     const chartMap: Record<string, ChartInfo> = {}
+
+    // {shape: ['圆形', '方形'], xxx: []}
+    const queryMap: Record<string, string[]> = {}
+    
     if (queries.length === 0) {
       return [...chartList]
     }
-    for (const query of queries) {
-      for (const chartInfo of chartList) {
-        if (query.value in chartInfo.$searchMap) {
-          if (chartMap[chartInfo.name] === undefined) {
-            chartMap[chartInfo.name] = chartInfo
-          } else {
-            // in chartMap
-            continue
+    // 按type归纳，同组的查询条件为or，不同type为and
+    queries.forEach(query => {
+      if (queryMap[query.type] === undefined) {
+        queryMap[query.type] = []
+      }
+      queryMap[query.type].push(query.value)
+    })
+    
+    for (const chartInfo of chartList) {
+      let matchCount = 0
+      const keysLen = Object.keys(queryMap).length
+      for (const propType in queryMap) {
+        if (Object.prototype.hasOwnProperty.call(queryMap, propType)) {
+          const queryProps = queryMap[propType];
+          for (const propValue of queryProps) {   
+            // 同类属性命中一个即可 
+            if (propValue in chartInfo.$searchMap) {
+              matchCount++
+              continue
+            }
           }
         }
+      }
+      // 大类需要完全匹配
+      if (keysLen === matchCount) {
+        chartMap[chartInfo.name] = chartInfo
       }
     }
     return Object.values(chartMap)
@@ -216,9 +236,7 @@ export function Home(props) {
   const clickPropButton = (query: ChartProp, propValue: string) => {
     changeSearch({ type: query.enName, name: query.cnName, value: propValue })
   }
-  const toggleMobileFilters = () => {
-    setShowMobileFilters(!showMobileFilters)
-  }
+
   const toggleFilters = () => {
     setShowFilters(!showFilters);
   }
@@ -247,22 +265,12 @@ export function Home(props) {
                           //   return null;
                           // }
                           const active = isPropButtonActive(query.enName, propValue)
-                          if (query.cnName === SHAPE_ENNAME) {
-                            return (
-                              <span
-                                key={j}
-                                className={`icon pure-icon font_family icon-${propValue} ${active ? 'active' : ''}`}
-                                onClick={() => clickPropButton(query, propValue)}
-                              />
-                            );
-                          } else {
-                            return (
-                              <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickPropButton(query, propValue)}>
-                                {/* {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null} */}
-                                {propValue}
-                              </SpecificButton>
-                            );
-                          }
+                          return (
+                            <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickPropButton(query, propValue)}>
+                              {/* {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null} */}
+                              {propValue}
+                            </SpecificButton>
+                          );
                         })}
                       </div>
                     </div>
@@ -310,45 +318,30 @@ export function Home(props) {
                   <div className="buttons">
                     {Array.isArray(query.children) && query.children.map((propValue, j) => {
                       const active = isPropButtonActive(query.enName, propValue)
-                      if (query.enName === SHAPE_ENNAME) {
-                        return (
-                          <span
-                            key={j}
-                            className={`icon pure-icon font_family icon-${propValue} ${active ? 'active' : ''}`}
-                            // active={active ? 'active' : null}
-                            onClick={() => clickPropButton(query, propValue)}
-                          />
-                        );
-                      } else {
-                        return (
-                          <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickPropButton(query, propValue)}>
-                            {/* {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null} */}
-                            {propValue}
-                          </SpecificButton>
-                        );
-                      }
+                      return (
+                        <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickPropButton(query, propValue)}>
+                          {/* {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null} */}
+                          {propValue}
+                        </SpecificButton>
+                      );
                     })}
                   </div>
                 </div>
               </MobileLine>
             ))}
             <div className="search-filters">
-              <div {...springProps}>
-                {(props) => (
-                  <animated.div className="items" style={props}>
-                    筛选内容:
-                    {queries.map((item, i) => (
-                      <div className="search-button" key={i}>
-                        <span>{item.name}: {item.value}</span>
-                        <CloseOutlinedIcon style={{ fontSize: 16, marginLeft: '4px' }} onClick={() => this.removeFilter(item)} />
-                      </div>
-                    ))}
-                    {/* <div className="clear" onClick={this.clearFilter}>
+              <animated.div className="items" style={springProps}>
+                筛选内容:
+                {queries.map((item, i) => (
+                  <div className="search-button" key={i}>
+                    <span>{item.name}: {item.value}</span>
+                    <CloseOutlinedIcon style={{ fontSize: 16, marginLeft: '4px' }} onClick={() => removeFilter(item)} />
+                  </div>
+                ))}
+                {/* <div className="clear" onClick={this.clearFilter}>
                     清除
                   </div> */}
-                  </animated.div>
-                )}
-              </div>
+              </animated.div>
             </div>
           </div>
           <div className="function-buttons">
@@ -364,6 +357,13 @@ export function Home(props) {
     </div>
   )
 }
+const mapState = (state: RootState) => ({
+  showMobileFilters: state.indexPage.showMobileFilters,
+})
+const mapDispatch = (dispatch: Dispatch) => ({
+  toggleMobileFilters: () => dispatch.indexPage.toggleMobileFilters(),
+})
+const HomeConnectComponent = connect(mapState, mapDispatch)(Home)
 
 const HomeWrap = (props) => {
   return (
@@ -380,7 +380,7 @@ const HomeWrap = (props) => {
           }
         }
       `}
-      render={data => <Home data={data} {...props} />}
+      render={data => <HomeConnectComponent data={data} {...props} />}
     />
   )
 }
