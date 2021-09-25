@@ -4,7 +4,7 @@
 
 [actions preview](https://github.com/Plothis/gradict-charts-doc/actions)
 
-[preview](http://114.67.103.78/)
+[preview](http://114.67.103.78:3004/)
 
 
 
