@@ -13,6 +13,8 @@ import { ProductionTutorials } from './src/components/ProductionTutorials';
 import { Reference } from './src/components/Reference';
 // 贡献者
 import { Contributors } from './src/components/Contributors';
+// 相似图表
+import { SimilarCharts } from './src/components/SimilarCharts';
 
 const PlaceHolder = ({ children }) => {
   return <em style={{ opacity: 0.65 }}>{children}</em>;
@@ -28,5 +30,6 @@ export const wrapRootElement = ({ element }) => (
     ProductionTutorials,
     Reference,
     Contributors,
+    SimilarCharts,
   }}>{element}</MDXProvider>
 )

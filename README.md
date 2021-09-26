@@ -7,6 +7,8 @@
 [preview](http://114.67.103.78:3004/)
 
 
+### 贡献
 
-### mdx editor
-[mdx-editor](https://github.com/Plothis/mdx-editor)
+/charts目录下新增mdx文件，命名须保持与[@antv/knowledge](https://github.com/antvis/AVA/blob/master/packages/knowledge/src/chartID.ts)一致
+
+内容可先在[mdx-editor](https://github.com/Plothis/mdx-editor)编辑好在复制，然后发起PR

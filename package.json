@@ -31,11 +31,12 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "start": "npm run clean & npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "gh-pages": "npm run build && node scripts/deploy.js gh-pages"
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.3",
@@ -43,6 +44,7 @@
     "gatsby-link": "^3.13.0",
     "gatsby-plugin-less": "^4.4.0",
     "gatsby-react-router-scroll": "^4.13.0",
+    "gh-pages": "^3.2.3",
     "less": "^4.0.0",
     "prettier": "^2.2.1"
   }
