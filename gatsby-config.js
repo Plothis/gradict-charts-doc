@@ -6,6 +6,7 @@
 
 module.exports = {
   /* Your site config here */
+  pathPrefix: `/gradict-charts-doc`,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,

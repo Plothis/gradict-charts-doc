@@ -31,12 +31,12 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run clean & npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "gh-pages": "npm run build && node scripts/deploy.js gh-pages"
+    "gh-pages": "gatsby build --prefix-paths && node scripts/deploy.js gh-pages"
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.3",
