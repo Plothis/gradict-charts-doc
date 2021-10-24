@@ -1,10 +1,14 @@
 # gradict-charts-doc
-图之典 - 图表文档
+图之典([tuzhidian.com](http://tuzhidian.com/)) - 图表文档
 
+
+## site
 
 [actions preview](https://github.com/Plothis/gradict-charts-doc/actions)
 
-[preview](http://114.67.103.78:3004/)
+[gh-pages](https://plothis.github.io/gradict-charts-doc)
+
+[dev-preview](https://tuzhidian.8and1.cn)
 
 
 ### 贡献
