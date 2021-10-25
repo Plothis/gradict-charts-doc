@@ -35,8 +35,7 @@
     "develop": "gatsby develop",
     "start": "npm run clean & npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "gh-pages": "gatsby build --prefix-paths && node scripts/deploy.js gh-pages"
+    "clean": "gatsby clean"
   },
   "devDependencies": {
     "@types/mdx-js__react": "^1.5.3",

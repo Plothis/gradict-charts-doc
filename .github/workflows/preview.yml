@@ -20,7 +20,7 @@ jobs:
             npm run build
       - name: Get the preview_url
         run: echo "url => ${{ steps.preview_step.outputs.preview_url }}"
-      - name: Deploy 🚀
+      - name: Deploy gh-pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages # The branch the action should deploy to.
