@@ -197,7 +197,7 @@ export function Home(props) {
   const queryChart = () => {
     const chartMap: Record<string, ChartInfo> = {}
 
-    // {shape: ['圆形', '方形'], xxx: []}
+    // { shape: ['圆形', '方形'], xxx: []}
     const queryMap: Record<string, string[]> = {}
     
     if (queries.length === 0) {
