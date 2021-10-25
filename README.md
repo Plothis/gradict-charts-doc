@@ -4,11 +4,10 @@
 
 ## site
 
+[https://plothis.github.io/gradict-charts-doc](https://plothis.github.io/gradict-charts-doc)
+
+
 [actions preview](https://github.com/Plothis/gradict-charts-doc/actions)
-
-[gh-pages](https://plothis.github.io/gradict-charts-doc)
-
-[dev-preview](https://tuzhidian.8and1.cn)
 
 
 ### 贡献
