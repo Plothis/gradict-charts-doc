@@ -24,24 +24,29 @@ export interface ChartInfo {
   name: string
   image: string
   path: string
-  common: string[]
+  /** 常用使用这个字段 */
+  family: string[]
+  /** 形状 */
   shape: string[]
-  graphTypes: string[]
-  function: string[]
+  /** 图类 */
+  category: string[]
+  /** 用途 */
+  purpose: string[]
   /**
    * 便于搜索
-   * $searchMap: { 属性值: 1 }
+   * $searchMap: { 类型-属性值: 1 }
    */
   $searchMap: Record<string, number>
 }
 
-const zhCompletedKB = CKBJson('zh-CN', true);
+export const zhCompletedKB = CKBJson('zh-CN', true);
 
-function mapDeEmphasis(map, arr: any[]) {
+function mapDeEmphasis(map, arr: any[], typeName?: string) {
   if (Array.isArray(arr)) {
     for (const iterator of arr) {
-      if (map[iterator] === undefined) {
-        map[iterator] = 1
+      const key = typeName ? `${typeName}-${iterator}` : iterator
+      if (map[key] === undefined) {
+        map[key] = 1
       }
     }
   }
@@ -107,16 +112,16 @@ export function parseChartFromMDX(nodes: Node[]) {
     if (chartKB) {
       chartInfo.name = chartKB.name
       chartInfo.path = name
-      chartInfo.common = chartKB.family
+      chartInfo.family = chartKB.family
       chartInfo.shape = chartKB.shape
-      chartInfo.graphTypes = chartKB.category
-      chartInfo.function = chartKB.purpose
+      chartInfo.category = chartKB.category
+      chartInfo.purpose = chartKB.purpose
       // 将属性转为map便于查找
       chartInfo.$searchMap = {}
-      mapDeEmphasis(chartInfo.$searchMap, chartKB.family)
-      mapDeEmphasis(chartInfo.$searchMap, chartKB.shape)
-      mapDeEmphasis(chartInfo.$searchMap, chartKB.category)
-      mapDeEmphasis(chartInfo.$searchMap, chartKB.purpose)
+      mapDeEmphasis(chartInfo.$searchMap, chartKB.family, 'family')
+      mapDeEmphasis(chartInfo.$searchMap, chartKB.shape, 'shape')
+      mapDeEmphasis(chartInfo.$searchMap, chartKB.category, 'category')
+      mapDeEmphasis(chartInfo.$searchMap, chartKB.purpose, 'purpose')
     }
     if (childMdx && childMdx.mdxAST && Array.isArray(childMdx.mdxAST.children)) {
       let hasDetailOverview = false

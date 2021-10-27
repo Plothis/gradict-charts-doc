@@ -25,9 +25,10 @@ const Content = styled.div`
     width: 100%;
   }
 `;
-const Layout: React.FC<{ path?: string, location?: any }> = ({ children, path, location }) => {
+const Layout: React.FC<{ path?: string, location?: any }> = ({ children, path, location, ...other }) => {
   // 404 page without layout
   // if (location.key === 'initial') return children;
+  console.log(other)
   return (
     <Provider store={store}>
       <Container>

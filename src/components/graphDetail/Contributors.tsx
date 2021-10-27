@@ -18,13 +18,14 @@ export const Contributors = ({ data = [] }) => {
             {info.map((item, index) => <div key={index}>{item.date} {item.content}</div>)}
           </>
         );
+
         return (
-          <>
+          <span key={i}>
             <Popover trigger="hover" placement="right" content={contentEl}>
               <ContributeName>{key}</ContributeName>
             </Popover>
             {size(data) !== i + 1 && '  •  '}
-          </>
+          </span>
         );
       })}
     </div>
