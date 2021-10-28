@@ -44,7 +44,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage({
       path: node.fields.slug,
       component: docTemplate,
-      test: 1,
     })
   })
 }

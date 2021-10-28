@@ -12,7 +12,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { animated, useSpring } from 'react-spring';
 import { cloneDeep, forIn, isEmpty } from 'lodash'
 import SpecificButton from '../components/SpecificButton';;
-import Layout from '../layout/index';
+
 import ChartList from '../components/ChartList';
 import { ChartInfo, ChartProp, parseProps, parseChartFromMDX } from "../utils/parseMDX";
 import { Dispatch, RootState } from "../store/store";

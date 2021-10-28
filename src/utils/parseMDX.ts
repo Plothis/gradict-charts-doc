@@ -11,6 +11,7 @@ interface Node {
     mdxAST: {
       children: MdxASTNode[]
     }
+    body: string
   }
 }
 export interface ChartProp {
@@ -37,6 +38,7 @@ export interface ChartInfo {
    * $searchMap: { 类型-属性值: 1 }
    */
   $searchMap: Record<string, number>
+  body: string
 }
 
 export const zhCompletedKB = CKBJson('zh-CN', true);
@@ -116,6 +118,7 @@ export function parseChartFromMDX(nodes: Node[]) {
       chartInfo.shape = chartKB.shape
       chartInfo.category = chartKB.category
       chartInfo.purpose = chartKB.purpose
+      chartInfo.body = node.childMdx.body
       // 将属性转为map便于查找
       chartInfo.$searchMap = {}
       mapDeEmphasis(chartInfo.$searchMap, chartKB.family, 'family')

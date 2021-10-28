@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Provider, connect } from "react-redux";
+
 import styled from 'styled-components';
 import Header from './header';
 import Footer from './footer';
@@ -25,19 +26,21 @@ const Content = styled.div`
     width: 100%;
   }
 `;
-const Layout: React.FC<{ path?: string, location?: any }> = ({ children, path, location, ...other }) => {
+export const Layout: React.FC<{ path?: string, location?: any, data: any }> = ({ children, path, location, data }) => {
   // 404 page without layout
   // if (location.key === 'initial') return children;
-  console.log(other)
+
   return (
     <Provider store={store}>
-      <Container>
-        <Header />
-        {path === '/about/' ? children : <Content>{children}</Content>}
-        <Footer />
-        <BackToTop />
-        <Contribution />
-      </Container>
+       
+        <Container>
+          <Header />
+          {path === '/about/' ? children : <Content>{children}</Content>}
+          <Footer />
+          <BackToTop />
+          <Contribution />
+        </Container>
+
     </Provider>
   )
 };
