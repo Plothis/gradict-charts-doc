@@ -31,7 +31,8 @@
     "styled-components": "^5.2.1"
   },
   "scripts": {
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build",
+    "build:gh-page": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "start": "npm run clean & npm run develop",
     "serve": "gatsby serve",

@@ -20,7 +20,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     {
       allMdx(
-        sort: { order: ASC, fields: [frontmatter___order] }
         limit: 1000
       ) {
         edges {

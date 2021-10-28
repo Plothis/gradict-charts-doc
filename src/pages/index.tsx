@@ -12,7 +12,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { animated, useSpring } from 'react-spring';
 import { cloneDeep, forIn, isEmpty } from 'lodash'
 import SpecificButton from '../components/SpecificButton';;
-import Layout from '../layout/index';
+
 import ChartList from '../components/ChartList';
 import { ChartInfo, ChartProp, parseProps, parseChartFromMDX } from "../utils/parseMDX";
 import { Dispatch, RootState } from "../store/store";
@@ -186,6 +186,7 @@ export function Home(props) {
   }
   const changeSearch = (queryProp: ChartQuery) => {
     const newQueries = [...queries]
+
     const index = newQueries.findIndex((item) => item.type === queryProp.type && item.value === queryProp.value)
     if (index > -1) {
       newQueries.splice(index, 1)
@@ -203,14 +204,14 @@ export function Home(props) {
     if (queries.length === 0) {
       return [...chartList]
     }
-    // 按type归纳，同组的查询条件为or，不同type为and
+    // 按type + 值 归纳，同组的查询条件为or，不同type为and
     queries.forEach(query => {
       if (queryMap[query.type] === undefined) {
         queryMap[query.type] = []
       }
-      queryMap[query.type].push(query.value)
+      queryMap[query.type].push(`${query.type}-${query.value}`)
     })
-    
+
     for (const chartInfo of chartList) {
       let matchCount = 0
       const keysLen = Object.keys(queryMap).length

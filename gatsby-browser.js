@@ -6,15 +6,16 @@ import 'antd/lib/popover/style/index.css'
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 // 设计案例
-import DesignCase from './src/components/DesignCase';
+import DesignCase from './src/components/graphDetail/DesignCase';
 // 制作教程
-import { ProductionTutorials } from './src/components/ProductionTutorials';
+import { ProductionTutorials } from './src/components/graphDetail/ProductionTutorials';
 // 参考文献
-import { Reference } from './src/components/Reference';
+import { Reference } from './src/components/graphDetail/Reference';
 // 贡献者
-import { Contributors } from './src/components/Contributors';
+import { Contributors } from './src/components/graphDetail/Contributors';
 // 相似图表
-import { SimilarCharts } from './src/components/SimilarCharts';
+import { SimilarCharts } from './src/components/graphDetail/SimilarCharts';
+import { ChartProps } from './src/components/graphDetail/ChartProps';
 
 const PlaceHolder = ({ children }) => {
   return <em style={{ opacity: 0.65 }}>{children}</em>;
@@ -22,14 +23,18 @@ const PlaceHolder = ({ children }) => {
 
 // wrap App root components
 // provider must display here
-export const wrapRootElement = ({ element }) => (
-  <MDXProvider components={{
-    PlaceHolder,
-    DesignCaseContainer: DesignCase.Container,
-    DesignCaseItem: DesignCase.Item,
-    ProductionTutorials,
-    Reference,
-    Contributors,
-    SimilarCharts,
-  }}>{element}</MDXProvider>
-)
+export const wrapRootElement = ({ element}) => {
+
+  return (
+    <MDXProvider  components={{
+      PlaceHolder,
+      DesignCaseContainer: DesignCase.Container,
+      DesignCaseItem: DesignCase.Item,
+      ProductionTutorials,
+      Reference,
+      Contributors,
+      ChartProps,
+      SimilarCharts,
+    }}>{element}</MDXProvider>
+  )
+}

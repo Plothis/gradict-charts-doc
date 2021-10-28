@@ -1,31 +1,56 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React, { useMemo } from "react";
+import { StaticQuery, graphql } from 'gatsby'
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import "./document.less";
+import { parseChartFromMDX } from "../utils/parseMDX";
+import { ChartContext } from "../components/graphDetail/context";
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
+const Template = function Template({
+  path,
+  allFile,
 }) {
-  const { frontmatter, tableOfContents, body } = data.mdx
+
+  const { chartList } = useMemo(() => {
+    return parseChartFromMDX(allFile ? allFile.nodes : [])
+  }, [])
+  const pathList = path.split('/');
+  const fileName = pathList[pathList.length - 1];
+  const target = chartList.find(item => item.path === fileName)
 
   return (
-    <div className="chart-container">
-      <h1 className="chart-title">{frontmatter.title}</h1>
-      <div className="chart-context">
-        <MDXRenderer>{body}</MDXRenderer>
+    <ChartContext.Provider value={{chartList: chartList, currentChart: target}}>
+      <div className="chart-container pg-chart">
+        {/* <h1 className="chart-title">{frontmatter.title}</h1> */}
+        <div className="chart-context">
+          <MDXRenderer>{target ? target.body : null}</MDXRenderer>
+        </div>
       </div>
-    </div>
+      </ChartContext.Provider>
   )
 }
 
-export const pageQuery = graphql`
-  query($path: String!) {
-    mdx(fields: { slug: { eq: $path } }) {
-      frontmatter {
-        title
-      }
-      tableOfContents
-      body
-    }
-  }
-`;
+const TemplateWrap = (props) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          allFile {
+            nodes {
+              name
+              childMdx {
+                mdxAST
+                body
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        return <Template allFile={data.allFile} mdx={data.mdx} {...props} />
+      }}
+    />
+  )
+}
+export default TemplateWrap;
+
+

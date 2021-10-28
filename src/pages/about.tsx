@@ -281,8 +281,8 @@ const About = () => {
           </div>
         </Introduction>
         <div className="contributor-container">
-          {data.contributors.map((member) => (
-            <div className="contributor-detail" key={member.name}>
+          {data.contributors.map((member, index) => (
+            <div className="contributor-detail" key={index}>
               <GridCard>
                 <img src={member.avatar} alt={member.name} />
                 <div className="information">
