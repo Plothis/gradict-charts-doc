@@ -162,4 +162,3 @@ export const chartProps = [
     iconName: 'icon_feature',
   },
 ];
-

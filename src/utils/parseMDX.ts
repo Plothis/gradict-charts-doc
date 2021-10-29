@@ -7,11 +7,15 @@ interface MdxASTNode {
 }
 interface Node {
   name: string
+  extension?: string
   childMdx: null | {
     mdxAST: {
       children: MdxASTNode[]
     }
     body: string
+    tableOfContents: {
+      items: any[]
+    }
   }
 }
 export interface ChartProp {
@@ -38,7 +42,11 @@ export interface ChartInfo {
    * $searchMap: { 类型-属性值: 1 }
    */
   $searchMap: Record<string, number>
+
+  //-- graphql 数据 -//
   body: string
+  extension: string
+  tableOfContents: Node['childMdx']['tableOfContents']
 }
 
 export const zhCompletedKB = CKBJson('zh-CN', true);
@@ -119,6 +127,8 @@ export function parseChartFromMDX(nodes: Node[]) {
       chartInfo.category = chartKB.category
       chartInfo.purpose = chartKB.purpose
       chartInfo.body = node.childMdx.body
+      chartInfo.extension = node.extension
+      chartInfo.tableOfContents = node.childMdx.tableOfContents
       // 将属性转为map便于查找
       chartInfo.$searchMap = {}
       mapDeEmphasis(chartInfo.$searchMap, chartKB.family, 'family')
