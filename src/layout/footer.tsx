@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { navigate } from "@reach/router"
-import withWidth, { WithWidth } from '@material-ui/core/withWidth';
 import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles } from '@material-ui/core/styles';
+import { useWidth } from '../hooks/withWidth';
 // import DailogMask from './DailogMask';
 // import { scrollToTop } from '../utils/scroll';
 
@@ -89,10 +89,11 @@ const data = {
   copyright: '图之典.2019 沪ICP备 18040493号-3'
 };
 
-const Footer: React.FC<WithWidth> = ({ width }) => {
+const Footer: React.FC<{}> = () => {
   const classes = useStyles();
   const [open, setOpen] = useState<boolean>(false);
   const toggleFeedback = () => { setOpen(!open); };
+  const width = useWidth();
   return (
     <div>
       <div className="footer-container">
@@ -158,4 +159,4 @@ const Footer: React.FC<WithWidth> = ({ width }) => {
   );
 }
 
-export default withWidth()(Footer);
+export default Footer;

@@ -5,11 +5,10 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles } from '@material-ui/core/styles';
 import { Upload, Modal } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import uploadStyles from 'antd/lib/upload/style/index.css';
-import modelStyles from 'antd/lib/modal/style/index.css';
-import iconStyles from 'antd/lib/icon/style/index.css';
+
 import styled from 'styled-components';
-import { pick, get } from 'lodash';
+import pick from 'lodash/pick';
+import get from 'lodash/get';
 import { uploadURL } from '../constants/api';
 import { feedback, FeedbackParams } from '../api/common';
 import '../style/upload.less';
@@ -280,9 +279,7 @@ class FeedBackTable extends Component<Props, State> {
     );
     return (
       <div>
-        <style dangerouslySetInnerHTML={{ __html: uploadStyles }} />
-        <style dangerouslySetInnerHTML={{ __html: iconStyles }} />
-        <style dangerouslySetInnerHTML={{ __html: modelStyles }} />
+
         {status === 'edit' ? (
           <FeedBackContext>
             <div style={{ padding: '0 24px' }}>

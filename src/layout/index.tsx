@@ -32,15 +32,13 @@ export const Layout: React.FC<{ path?: string, location?: any, data: any }> = ({
 
   return (
     <Provider store={store}>
-       
-        <Container>
-          <Header />
-          {path === '/about/' ? children : <Content>{children}</Content>}
-          <Footer />
-          <BackToTop />
-          <Contribution />
-        </Container>
-
+      <Container>
+        <Header />
+        {path === '/about/' ? children : <Content>{children}</Content>}
+        <Footer />
+        <BackToTop />
+        <Contribution />
+      </Container>
     </Provider>
   )
 };

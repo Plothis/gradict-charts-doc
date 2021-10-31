@@ -1,4 +1,5 @@
 import { CKBJson } from '@antv/knowledge';
+import '../constants/charts';
 
 interface MdxASTNode {
   type: string
@@ -7,11 +8,15 @@ interface MdxASTNode {
 }
 interface Node {
   name: string
-  childMdx: null | {
+  extension?: string
+  childMdx:  {
     mdxAST: {
       children: MdxASTNode[]
     }
     body: string
+    tableOfContents: {
+      items: any[]
+    }
   }
 }
 export interface ChartProp {
@@ -38,12 +43,16 @@ export interface ChartInfo {
    * $searchMap: { 类型-属性值: 1 }
    */
   $searchMap: Record<string, number>
+
+  //-- graphql 数据 -//
   body: string
+  extension?: string
+  tableOfContents: Node['childMdx']['tableOfContents']
 }
 
 export const zhCompletedKB = CKBJson('zh-CN', true);
-
-function mapDeEmphasis(map, arr: any[], typeName?: string) {
+console.log(zhCompletedKB)
+function mapDeEmphasis(map: Record<string, any>, arr: any[], typeName?: string) {
   if (Array.isArray(arr)) {
     for (const iterator of arr) {
       const key = typeName ? `${typeName}-${iterator}` : iterator
@@ -119,6 +128,8 @@ export function parseChartFromMDX(nodes: Node[]) {
       chartInfo.category = chartKB.category
       chartInfo.purpose = chartKB.purpose
       chartInfo.body = node.childMdx.body
+      chartInfo.extension = node.extension
+      chartInfo.tableOfContents = node.childMdx.tableOfContents
       // 将属性转为map便于查找
       chartInfo.$searchMap = {}
       mapDeEmphasis(chartInfo.$searchMap, chartKB.family, 'family')
@@ -126,6 +137,7 @@ export function parseChartFromMDX(nodes: Node[]) {
       mapDeEmphasis(chartInfo.$searchMap, chartKB.category, 'category')
       mapDeEmphasis(chartInfo.$searchMap, chartKB.purpose, 'purpose')
     }
+
     if (childMdx && childMdx.mdxAST && Array.isArray(childMdx.mdxAST.children)) {
       let hasDetailOverview = false
       for (const ASTNode of childMdx.mdxAST.children) {

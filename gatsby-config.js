@@ -1,23 +1,25 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    // siteUrl: "https://tuzhidian.com",
+    title: "gradict-charts",
+  },
   pathPrefix: `/gradict-charts-doc`,
   plugins: [
+    "gatsby-plugin-image",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.md`, `.mdx`],
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
       options: {
         name: `charts`,
         path: `${__dirname}/charts`,
         ignore: [`**/.*`],  // only parse the first level
-      },
+      }
     },
-    `gatsby-plugin-mdx`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: 'gatsby-plugin-less',
       options: {
@@ -26,6 +28,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-layout`,
       options: {
@@ -33,4 +36,4 @@ module.exports = {
       },
     },
   ],
-}
+};

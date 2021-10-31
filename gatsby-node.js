@@ -5,12 +5,14 @@ const docTemplate = require.resolve(`./src/templates/document.tsx`);
 // https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === `Mdx`) {
-    const slug = createFilePath({ node, getNode, basePath: `charts/`, trailingSlash: false })
+
+  if (node.internal.type === `Mdx` || node.internal.type === "MarkdownRemark") {
+    const relativeFilePath  = createFilePath({ node, getNode, basePath: `src/charts`, trailingSlash: false})
+
     createNodeField({
       node,
       name: `slug`,
-      value: `/charts${slug}`
+      value: `/charts${relativeFilePath}`
     });
   }
 }
@@ -19,11 +21,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
     {
-      allMdx(
-        limit: 1000
-      ) {
+      allMdx {
         edges {
           node {
+            id
             fields {
               slug
             }
@@ -40,16 +41,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   // create markdown page via template
-  result.data.allMdx.edges.forEach(({ node }) => {
+  result.data.allMdx.edges.forEach(({node}) => {
     createPage({
       path: node.fields.slug,
       component: docTemplate,
+      // context: {a: 1}
     })
   })
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === "build-html") {
+  if (stage === "build-html" || stage === "develop-html") {
     actions.setWebpackConfig({
       module: {
         rules: [

@@ -1,7 +1,10 @@
 // require global css
 import './src/style/global.less';
 import './static/iconfont.css';
-import 'antd/lib/popover/style/index.css'
+import 'antd/lib/popover/style/index.css';
+import 'antd/lib/upload/style/index.css';
+import 'antd/lib/modal/style/index.css';
+import 'antd/lib/icon/style/index.css';
 
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
@@ -23,7 +26,7 @@ const PlaceHolder = ({ children }) => {
 
 // wrap App root components
 // provider must display here
-export const wrapRootElement = ({ element}) => {
+export const wrapPageElement = ({ element}) => {
 
   return (
     <MDXProvider  components={{

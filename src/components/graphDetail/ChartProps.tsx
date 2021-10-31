@@ -5,7 +5,7 @@ import { ChartContext } from './context';
 
 export const ChartProps: React.FC<{ name: string }> = (props) => {
   const { currentChart } = useContext(ChartContext);
-  let propsMap = {}
+  let propsMap: Record<string, string[]> = {}
   if (currentChart) {
     propsMap = {
       '形状': currentChart.shape,
