@@ -4,6 +4,7 @@ import { Popover } from 'antd';
 import size from 'lodash/size';
 import { ChartContext } from './context';
 import { getChartFileCommit } from '../../api/common';
+import dayjs from 'dayjs';
 
 const ContributeName = styled.span`
   margin: 0 10px;
@@ -47,19 +48,23 @@ export const Contributors: React.FC<Props> = ({ data = {}, merge }) => {
     }
     setContributorMap(Object.assign({}, map ))
   }
+  
   return (
     <div style={{ marginBottom: '18px' }}>
       {Object.keys(contributorMap).map((key, i) => {
         const info = contributorMap[key];
         const contentEl = (
           <>
-            {info.map((item, index) => <div key={index}>{item.date} {item.content}</div>)}
+            {info.map((item, index) => {
+              const date = typeof item.date === 'number' ? dayjs(item.date).format('YYYY-MM-DD') : item.date;
+              return <div key={index}>{date} {item.content}</div>
+            })}
           </>
         );
 
         return (
           <Iblock key={i}>
-            <Popover placement="right" content={contentEl}>
+            <Popover placement="top" content={contentEl} mouseLeaveDelay={0}>
               <ContributeName>{key}</ContributeName>
             </Popover>
             {size(contributorMap) !== i + 1 && '  •  '}
