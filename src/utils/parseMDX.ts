@@ -1,4 +1,5 @@
 import { CKBJson } from '@antv/knowledge';
+import '../constants/charts';
 
 interface MdxASTNode {
   type: string
@@ -8,7 +9,7 @@ interface MdxASTNode {
 interface Node {
   name: string
   extension?: string
-  childMdx: null | {
+  childMdx:  {
     mdxAST: {
       children: MdxASTNode[]
     }
@@ -45,13 +46,13 @@ export interface ChartInfo {
 
   //-- graphql 数据 -//
   body: string
-  extension: string
+  extension?: string
   tableOfContents: Node['childMdx']['tableOfContents']
 }
 
 export const zhCompletedKB = CKBJson('zh-CN', true);
-
-function mapDeEmphasis(map, arr: any[], typeName?: string) {
+console.log(zhCompletedKB)
+function mapDeEmphasis(map: Record<string, any>, arr: any[], typeName?: string) {
   if (Array.isArray(arr)) {
     for (const iterator of arr) {
       const key = typeName ? `${typeName}-${iterator}` : iterator

@@ -21,12 +21,13 @@ interface Props {
 // TODO antd v4 popover 没办法自己消失了...
 export const Contributors: React.FC<Props> = ({ data = {}, merge }) => {
   const { currentChart } = useContext(ChartContext);
-  const [contributorMap, setContributorMap] = useState({});
+  const [contributorMap, setContributorMap] = useState<Props['data']>({});
   useEffect(() => {
     getCommiter()
   }, [])
 
   const getCommiter = async () => {
+    if (!currentChart) { return }
     const commitList = await getChartFileCommit(`/charts/${currentChart.path}.${currentChart.extension}`);
     const map: Props['data'] = {};
     commitList.forEach(item => {

@@ -15,12 +15,15 @@ import { Dispatch, RootState } from "../store/store";
 import { useWidth } from "../hooks/withWidth";
 
 
-interface ChartQuery {
+interface ChartQuery { 
   name: string
   /** 属性类型 */
   type: string
   /** 属性值 */
   value: string
+}
+interface Props extends PageProps{
+  data: any
 }
 const Line = styled.div`
   display: flex;
@@ -128,14 +131,14 @@ const MobileLine = styled.div`
 `;
 
 
-export default function Home(props) {
+export default function Home(props: Props) {
 
   const showMobileFilters = useSelector((state: RootState) => state.indexPage.showMobileFilters)
   const dispatch = useDispatch<Dispatch>()
   const width = useWidth();
   const [showFilters, setShowFilters] = useState(true);
   const [queries, setQueries] = useState<ChartQuery[]>([]);
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState<ChartInfo[]>([]);
   const [springProps, animate] = useSpring(() => ({
     config: { tension: 2000, friction: 100, precision: 1 },
     from: { height: 0 },
@@ -253,7 +256,7 @@ export default function Home(props) {
                           // }
                           const active = isPropButtonActive(query.enName, propValue)
                           return (
-                            <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickPropButton(query, propValue)}>
+                            <SpecificButton key={j} variant="outlined" active={active ? 'active' : undefined} onClick={() => clickPropButton(query, propValue)}>
                               {/* {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null} */}
                               {propValue}
                             </SpecificButton>
@@ -306,7 +309,7 @@ export default function Home(props) {
                     {Array.isArray(query.children) && query.children.map((propValue, j) => {
                       const active = isPropButtonActive(query.enName, propValue)
                       return (
-                        <SpecificButton key={j} variant="outlined" active={active ? 'active' : null} onClick={() => clickPropButton(query, propValue)}>
+                        <SpecificButton key={j} variant="outlined" active={active ? 'active' : undefined} onClick={() => clickPropButton(query, propValue)}>
                           {/* {child.iconName ? <span className={`icon font_family icon-${child.iconName} ${active ? 'active' : ''}`} /> : null} */}
                           {propValue}
                         </SpecificButton>

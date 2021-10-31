@@ -52,7 +52,7 @@ export const useStyles = makeStyles({
   tabSelected: {},
 });
 
-const ifHide = (msg) => ({
+const ifHide = (msg: string) => ({
   borderBottom: !isEmpty(msg) ? '1px solid #e6e6e6' : 'none',
 });
 
@@ -63,11 +63,11 @@ export const SimilarCharts: React.FC<{}> = (props) => {
   const classes = useStyles();
 
 
-  const getChartLike = (type: string, or?: boolean) => {
+  const getChartLike = (type: keyof ChartInfo, or?: boolean) => {
     if (!currentChart) {
       return []
     }
-    const typeValues = currentChart[type]
+    const typeValues = currentChart[type] as string[]
     return chartList.filter((item) => {
       if(item.path === currentChart.path) {
         return false;
@@ -96,7 +96,7 @@ export const SimilarCharts: React.FC<{}> = (props) => {
     return aFunction.filter(item => item.path in map);
   }, [])
 
-  const handleChange = (event, value) => {
+  const handleChange = (event: any, value: number) => {
     setValue(value);
   };
   return (

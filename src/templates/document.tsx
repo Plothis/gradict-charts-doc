@@ -1,14 +1,17 @@
 import React, { useMemo } from "react";
-import { StaticQuery, graphql, useStaticQuery } from 'gatsby'
+import { StaticQuery, graphql, useStaticQuery, PageProps } from 'gatsby'
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import "./document.less";
 import { parseChartFromMDX } from "../utils/parseMDX";
 import { ChartContext } from "../components/graphDetail/context";
 
+interface Props extends PageProps {
+  data: any
+}
 const Template = function Template({
   data,
   path,
-}) {
+}: Props) {
   const { chartList } = useMemo(() => {
     return parseChartFromMDX(data.allFile ? data.allFile.nodes : [])
   }, [])
