@@ -5,7 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import styled from 'styled-components';
 import ChartList from '../ChartList';
-import { ChartInfo, parseChartFromMDX, zhCompletedKB } from '../../utils/parseMDX';
+import { ChartInfo } from '../../utils/parseMDX';
 import { ChartContext } from './context';
 import { makeStyles } from '@material-ui/styles';
 

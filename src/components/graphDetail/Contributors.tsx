@@ -59,7 +59,7 @@ export const Contributors: React.FC<Props> = ({ data = {}, merge }) => {
         return (
           <Iblock key={i}>
             <Popover placement="right" content={contentEl}>
-              <span><ContributeName>{key}</ContributeName></span>
+              <ContributeName>{key}</ContributeName>
             </Popover>
             {size(contributorMap) !== i + 1 && '  •  '}
           </Iblock>

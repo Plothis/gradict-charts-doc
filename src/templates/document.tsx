@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import "./document.less";
 import { parseChartFromMDX } from "../utils/parseMDX";
 import { ChartContext } from "../components/graphDetail/context";
-import CataLog from "../components/graphDetail/CataLog";
+// import CataLog from "../components/graphDetail/CataLog";
 
 const Wrap = styled.div`
   display: flex;
@@ -23,14 +23,14 @@ const Template = function Template({
   const pathList = path.split('/');
   const fileName = pathList[pathList.length - 1];
   const target = chartList.find(item => item.path === fileName)
-  const catalogData = Array.isArray(target.tableOfContents.items) && target.tableOfContents.items.length === 1 ? target.tableOfContents.items[0].items : []
+  const catalogData = target && Array.isArray(target.tableOfContents.items) && target.tableOfContents.items.length === 1 ? target.tableOfContents.items[0].items : []
   return (
     <ChartContext.Provider value={{chartList: chartList, currentChart: target}}>
       <div className="chart-container pg-chart">
         {/* <h1 className="chart-title">{frontmatter.title}</h1> */}
         <div className="chart-context">
           {/* <CataLog catalogData={catalogData} /> */}
-          <MDXRenderer>{target ? target.body : null}</MDXRenderer>
+          <MDXRenderer>{target ? target.body : ''}</MDXRenderer>
         </div>
       </div>
       </ChartContext.Provider>
@@ -62,6 +62,6 @@ const TemplateWrap = (props) => {
     />
   )
 }
-export default TemplateWrap;
+export default Template;
 
 
