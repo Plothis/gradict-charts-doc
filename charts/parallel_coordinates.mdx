@@ -1,0 +1,256 @@
+
+# 平行坐标系 - Parallel Coordinates
+
+
+<section class='chart-detail-overview'  id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/Z2MZCt4/cb1f6548482d0c171ffa64b1f89a4613.png)
+
+平行坐标系，是一种含有多个垂直平行坐标轴的统计图表。每个垂直坐标轴表示一个字段，每个字段又用刻度来标明范围。这样，一个多维的数据可以很容易的在每一条轴上找到“落点”，从而连接起来，形成一条折线。随着数据增多，折线堆叠，分析者则有可能从中发现特性和规律，比如发现数据之间的聚类关系。
+
+大约在一百多年前，就已经有人运用平行坐标，来对复杂事件做可视化。在20世纪70年代，作为一种统计图表，平行坐标系被特拉维夫大学的[Alfred Inselberg](#learning-resource-graph-detail)系统发展起来。尽管一开始饱受争议——批评者认为这种图表太过凌乱，但平行坐标系在处理多维数据上的优势，仍然是其他统计图难以比拟的。尤其是，当平行坐标系配合交互功能使用时，其价值就会立刻显现。英文中将平行坐标系的交互称为[“Brushing”](#unappropriate-scene-graph-detail)，即“刷子”的意思。基本操作是，用户可以在每一根垂直坐标轴上“刷”出自己想要的范围，处于范围内的折线高亮，其余的呈灰度。这样一来，我们既可以看到所有折线堆叠出来的整体景观，又可以自由订制想看的范围，可以说是“见树又见林”。
+
+尽管表面上类似[折线图](http://www.tuzhidian.com:3000/chart?id=5c56e1b34a8c5e048189c693)，但平行坐标系并不表示趋势，各个坐标轴之间也没有因果关系。因此，使用平行坐标系时，如何确定轴的顺序，是可以人为决定的。一般来说，顺序会影响阅读的感知和判断。两根坐标轴隔得越近，人们对二者的对比就感知的越强烈。因此，要得出最合适、美观的排序方式，往往需要经过多次的试验和比较。反过来讲，尝试不同的排布方式，也可能有助于得出更多的结论。
+
+此外，平行坐标系的每个坐标轴，很可能有不同的数据范围，这一点很容易造成读者误解。作图时，最好显著的标明每一根轴上的最小值、最大值。
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<ChartProps />
+
+## 图表详解
+
+### 元素构成
+
+<section id="constitution-graph-detail-content">
+
+某班主任想分析班级学生的优劣势科目，以及每个学生的偏科情况。
+![](//i.ibb.co/BTfcbV7/Wechat-IMG630-cc83865298ebe2cebbc914bfcde5eb8e.jpg)
+</section>
+
+### 适用场景
+
+最适用于多维数据（尤其是维度大于3个时，3个以内的维度可以用散点图）的分析和比较。例如，多个学科、多个考核指标、多个关键参数等。当然，前提是用来的比较的对象都具有这些维度。比如，一个经典的案例（[场景案例1](#usage-scene-graph-detail)），是用平行坐标系来比较世界各国汽车在性能上的差异。对于汽车而言，这些维度是共有的（包括耗油量、汽缸数、加速度等等），因而适合比较。
+
+### 不适用场景
+平行坐标系的弊端在于折线太多、看上去十分庞杂。
+
+最好的解决方法是加入交互——“Brushing”，用户可以通过“刷”的方法，在坐标轴上“刷”出他们想要探索的部分。操作体验可以参考[这个网站](https://syntagmatic.github.io/parallel-coordinates/examples/brushing.html)。当然，交互的设计可以不限于此，比如下图（Chang, no date）将平行坐标系与表格结合起来（[点击访问原网页](https://syntagmatic.github.io/parallel-coordinates/examples/table.html)），对于小型的数据集来说，会更加一目了然。
+
+![](//i.ibb.co/tmmK5jv/1547800491040-6093f424-4f49-4cbf-95e8-86c6fcd5d05e.png)
+
+此外，如下图所示（巫滨, 曹卫群, 杨波, 2017)，也可以通过技术将繁杂的折线“捆”在一起（Bundling Technique），这样，人们的视觉就更能集中于起始的刻度。
+
+![](//i.ibb.co/GTRvkQm/1548518674472-585237e5-113e-4431-8110-09ed5ad43e23.png)
+
+最后，需要提醒的是，平行坐标系与[折线图](http://www.tuzhidian.com:3000/chart?id=5c56e1b34a8c5e048189c693)完全不同。[折线图](http://www.tuzhidian.com:3000/chart?id=5c56e1b34a8c5e048189c693)的数据是通过时间组织起来的（每个数据点之间包含着时间前后的关系），但平行坐标轴并没有时间序列，它的坐标轴是可以人为设定顺序的，点与点之间也没有因果关系，折线并不代表趋势。
+
+
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<SimilarCharts/>
+
+## 设计案例
+
+<DesignCaseContainer>
+  <DesignCaseItem
+        description="将死板的坐标轴和刻度，变形为有“设计感”的圆；用颜色进行归类。下面的案例探讨了环保问题最左边是几种常见的食品，第二列表示每公斤需要消耗的能量；第三列表示蛋白质重量；第四列表示蛋白质所要的能量。数值大小对应了圆圈的大小。"
+        link="https://spectrum.ieee.org/static/the-energy-to-create-your-food"
+        image="//i.ibb.co/d5D4CDX/1544099283801-d6f36585-5550-453b-9a56-d0e697c20378-850ffb26e1d9efdebc44d6ecd0d3c943.png"
+    />
+    
+    <DesignCaseItem
+        description="线下布展。讨论了不同地区使用勺子和刀具的异同。"
+        link="http://dataphys.org/list/data-strings-physical-parallel-coordinates/"
+        image="//i.loli.net/2021/11/01/13ocvieZUw2CGYt.png"
+    />
+</DesignCaseContainer>
+
+## 使用场景
+
+1）在平行坐标系的众多简介中，几乎都会涉及到这个汽车的案例——数据包括上世纪70、80年代的32款汽车，以及这些汽车的气缸数(cylinders)、引擎大小（displacement）、每加仑汽油行驶的里程(MPG)、功率（horsepower）、重量（weight）等等。从图中（<span style={{"backgroundColor":"rgb(255, 255, 255)","color":"rgb(38, 38, 38)"}}>Evans, no date</span>），我们可以清晰的看出一些关系，例如从里程与气缸数呈负相关、气缸数与功率呈正相关。再比如，随着时间发展，汽车越来越轻了。通过“Brushing”功能，还有更多新奇发现。[[点击访问原作品网页]](http://www.columbia.edu/~cme2126/datavisuals/bigdata_parallelcoordinates.html)
+
+![](//i.ibb.co/mCYhqWs/1544358921675-77b8d24f-8a0c-452d-90c8-ec04a8d6b2c1.png)
+
+（2）该图（<span style={{"backgroundColor":"rgb(255, 255, 255)","color":"rgb(38, 38, 38)"}}>Fathom Information Design, no date</span>）总结了1955-2010年来的世界五百强公司排名、收入和利润情况。每一根竖轴代表一年的排名，通过将每家公司历年的排名描点、连线，就形成了一条折线。鼠标滑动时，相应的公司会高亮显示，方便读者探索它的兴衰变化。例如下图中，我们看到可口可乐公司的排名，尽管有所波动，但始终位于高位，并且稳中有升，在1994年达到巅峰，之后有所回落。[[点击访问原作品网页]](https://fathom.info/fortune500/)
+
+![](//i.ibb.co/vDvKXz2/1544099627149-d8e56fc0-6a06-4e23-84a3-9f288d487982.png)
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<ProductionTutorials
+  data={{
+  "BITools": {
+    "BI 工具": [
+      {
+        "link": "https://www.chezvoila.com/blog/parallel",
+        "linkText": "用excel作出平行坐标系（英文）"
+      }
+    ],
+    "PowerBI": [
+      {
+        "link": "https://community.powerbi.com/t5/Data-Stories-Gallery/Parallel-Coordinates-Example/td-p/221625",
+        "linkText": "复现汽车案例（可下载）"
+      }
+    ],
+    "Tableau": [
+      {
+        "link": "https://public.tableau.com/views/ParallelCoordinatesExample/ParallelCoordinatesExample?%3Aembed=y&%3AshowVizHome=no&%3Adisplay_count=y&%3Adisplay_static_image=y",
+        "linkText": "复现汽车案例（可下载）"
+      }
+    ],
+    "QlikView": [
+      {
+        "link": "https://qlikviewtaiwan.blogspot.com/2014/03/parallel-coordinates-in-qlikview.html",
+        "linkText": "案例下载"
+      }
+    ]
+  },
+  "代码库": {
+    "Echarts": [
+      {
+        "link": "http://echarts.baidu.com/examples/#chart-type-parallel",
+        "linkText": "官方实例"
+      }
+    ],
+    "AntV": [],
+    "D3": [
+      {
+        "link": "https://bl.ocks.org/mbostock/1341021",
+        "linkText": "基础图表"
+      },
+      {
+        "link": "https://bl.ocks.org/jasondavies/1341281",
+        "linkText": "增进版-可拖动调整轴的顺序"
+      }
+    ],
+    "matplotlib": [
+      {
+        "link": "https://python-graph-gallery.com/150-parallel-plot-with-pandas/",
+        "linkText": "基础图表"
+      },
+      {
+        "link": "http://benalexkeen.com/parallel-coordinates-in-matplotlib/",
+        "linkText": "matplotlib结合pandas读取csv文件，复现汽车案例（英文）"
+      }
+    ],
+    "ggplot2": [
+      {
+        "link": "https://rdrr.io/cran/GGally/man/ggparcoord.html",
+        "linkText": "使用GGally扩展包"
+      }
+    ]
+  },
+  "设计软件": {
+    "PS/AI": [],
+    "Sketch": []
+  }
+}}
+/>
+
+## 专项工具
+
+
+（1）[Rawgraphs](http://app.rawgraphs.io/)
+
+（2）[Alfred Inselberg开发的平行坐标专用工具，需要简单安装](https://www.xdat.org/)
+
+（3）[北京大学多维数据可视化与可视分析工具集](http://opendata.pku.edu.cn/dataset.xhtml?persistentId=doi:10.18170/DVN/PISQAQ)
+
+## 学习资源
+
+1）[【推荐】平行坐标系较完整的介绍（英文）](https://eagereyes.org/techniques/parallel-coordinates)<span style={{"color":"rgb(0, 102, 204)"}}>；</span>[中文翻译版。](http://www.zhaiqianfeng.com/2016/09/parallel-coordinates.html)
+
+（2）[平行坐标系发明者Alfred Inselberg的个人主页。](http://www.math.tau.ac.il/~aiisreal/)
+
+（3）[平行坐标系等可视化案例分享网站](http://www.vizinsight.com/category/awesome-infographics/平行坐标系/)<span style={{"color":"rgb(0, 102, 204)"}}>。</span>
+
+（4）[Kai Chang关于多维数据的视频分享（Youtube, 英文）。](https://www.youtube.com/watch?v=ypc7Ul9LkxA)
+
+（5）<span style={{"color":"rgb(0, 0, 0)","backgroundColor":"rgb(255, 255, 255)"}}>2009年，北大袁晓如教授提出了一种技术，将平心坐标图与散点图结合在一起，参见其</span>[论文](https://ieeexplore.ieee.org/abstract/document/5290705)。
+
+![](//i.ibb.co/BfrykqZ/1544017312409-3ad2131d-ce10-479b-90a9-a5e4e51fbb06.png)
+
+## 参考文献
+
+<!-- 为了以下部分有统一的样式，以及展开收起效果，只能手写 hmtl 了 -->
+
+<Reference>
+  1.Wikipedia. (n.d.). Parallel Coordinates. [online]. Available at: https://en.wikipedia.org/wiki/Parallel_coordinates [Accessed 20 December 2018].
+
+2.Inselberg, A. (1997, October). Multidimensional detective. In Information Visualization, 1997. Proceedings., IEEE Symposium on (pp. 100-107). IEEE.
+
+3.Chang, K. (n.d.). Brushing. [online]. Available at: https://syntagmatic.github.io/parallel-coordinates/examples/brushing.html [Accessed 20 December 2018].
+
+4.Chang, K. (n.d.). Linking with a data table. [online]. Available at: https://syntagmatic.github.io/parallel-coordinates/examples/table.html [Accessed 20 December 2018].
+
+5.巫滨, 曹卫群 and 杨波. (2017). 平行坐标系聚类数据绑定绘制评价方法. 计算机辅助设计与图形学学报, 29(11), pp.2047-2056.
+
+6.Keim, B. (n.d.). The Energy to Create Your Food. [online]. Available at: https://spectrum.ieee.org/static/the-energy-to-create-your-food [Accessed 20 December 2018].
+
+7.Dragicevic, P. (2015). 2014 – Data Strings: Physical Parallel Coordinates. [online]. Available at: http://dataphys.org/list/data-strings-physical-parallel-coordinates/ [Accessed 20 December 2018].
+
+8.Evans, C. (n.d.). Parallel Coordinates. [online]. Available at: http://www.columbia.edu/~cme2126/datavisuals/bigdata_parallelcoordinates.html [Accessed 20 December 2018].
+
+9.Fathom Information Design. (n.d.). The Fortune 500. [online]. Available at: https://fathom.info/fortune500/ [Accessed 20 December 2018].
+
+10.Gagnon, F. (2017). How to create parallel coordinates in Excel. [online]. Available at: https://www.chezvoila.com/blog/parallel [Accessed 20 December 2018].
+
+11.deldersveld. (2017). Parallel Coordinates Example. [online]. Available at: https://community.powerbi.com/t5/Data-Stories-Gallery/Parallel-Coordinates-Example/td-p/221625[Accessed 20 December 2018].
+
+12.Mako, J. (2013). Parallel Coordinates Example. [online]. Available at: https://public.tableau.com/profile/joe.mako#!/vizhome/ParallelCoordinatesExample/ParallelCoordinatesExample [Accessed 20 December 2018].
+
+13.CindyChang. (2014). Parallel Coordinates in QlikView {Big data 一定要看}. [online]. Available at: https://qlikviewtaiwan.blogspot.com/2014/03/parallel-coordinates-in-qlikview.html [Accessed 20 December 2018].
+
+14.Echarts team. (n.d.). 平行坐标系. [online]. Available at: https://echarts.baidu.com/examples/#chart-type-parallel [Accessed 20 December 2018].
+
+15.Bostock, M. (2018). Parallel Coordinates. [online]. Available at: https://bl.ocks.org/mbostock/1341021 [Accessed 20 December 2018].
+
+16.Davies, J. (2018). Parallel Coordinates. [online]. Available at: https://bl.ocks.org/jasondavies/1341281 [Accessed 20 December 2018].
+
+17.Holtz, Y. (n.d.). #150 Parallel plot with pandas. [online]. Available at: https://python-graph-gallery.com/150-parallel-plot-with-pandas/ [Accessed 20 December 2018].
+
+18.Keen, B.A. (2017). Parallel Coordinates in Matplotlib. [online]. Available at: http://benalexkeen.com/parallel-coordinates-in-matplotlib/ [Accessed 20 December 2018].
+
+19.Kosara, R. (2010). Parallel Coordinates. [online]. Available at: https://eagereyes.org/techniques/parallel-coordinates [Accessed 20 December 2018].
+
+20.翟前锋. (2016). 平行坐标系. [online]. Available at: http://www.zhaiqianfeng.com/2016/09/parallel-coordinates.html [Accessed 20 December 2018].
+
+21.BocoupLLC. (2013). Kai Chang - Visually Exploring Multidimensional Data. [Youtube video]. Available at: https://www.youtube.com/watch?v=ypc7Ul9LkxA [Accessed 20 December 2018].
+
+22.Yuan, X., Guo, P., Xiao, H., Zhou, H. and Qu, H. (2009). Scattering points in parallel coordinates. IEEE Transactions on Visualization and Computer Graphics, 15(6), pp.1001-1008.
+</Reference>
+
+## 贡献者
+
+<!-- 默认读取github commit记录，props.data可以自定义 -->
+
+<Contributors
+  data={{
+  "Olivia": [
+    {
+      "date": 1543593600000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ]
+}}
+  merge
+/>

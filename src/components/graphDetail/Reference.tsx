@@ -30,7 +30,7 @@ export const Reference: React.FC = ({ children }) => {
 
   const showAll = () => {
     setShow(true);
-    set({ to: { height: 'auto' } });
+    set({ height: 'auto' } );
   };
 
   return (

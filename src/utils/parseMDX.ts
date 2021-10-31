@@ -1,5 +1,5 @@
-import { CKBJson } from '@antv/knowledge';
-import '../constants/charts';
+// import { CKBJson } from '@antv/knowledge';
+import { CKBJson } from '../constants/charts';
 
 interface MdxASTNode {
   type: string
@@ -50,7 +50,7 @@ export interface ChartInfo {
   tableOfContents: Node['childMdx']['tableOfContents']
 }
 
-export const zhCompletedKB = CKBJson('zh-CN', true);
+export const zhCompletedKB = CKBJson('zh-CN');
 console.log(zhCompletedKB)
 function mapDeEmphasis(map: Record<string, any>, arr: any[], typeName?: string) {
   if (Array.isArray(arr)) {
@@ -141,14 +141,16 @@ export function parseChartFromMDX(nodes: Node[]) {
     if (childMdx && childMdx.mdxAST && Array.isArray(childMdx.mdxAST.children)) {
       let hasDetailOverview = false
       for (const ASTNode of childMdx.mdxAST.children) {
-        if (ASTNode.type === 'jsx' && ASTNode.value.includes(`<section class='chart-detail-overview'>`)) {
+        if (ASTNode.type === 'jsx' && (ASTNode.value.includes(`<section class='chart-detail-overview'`) || ASTNode.value.includes(`<section class="chart-detail-overview"`))) {
           hasDetailOverview = true
         }
+        console.log(ASTNode)
         if (hasDetailOverview) {
           if (ASTNode.type === 'paragraph') {
             for (const child of ASTNode.children) {
               if (child.type === 'image') {
                 chartInfo.image = child.url
+                continue
               }
             }
           }
