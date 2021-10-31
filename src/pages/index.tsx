@@ -1,21 +1,18 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components';
-import { StaticQuery, graphql } from 'gatsby'
-import { useTheme } from '@material-ui/core/styles';
+import { useStaticQuery, graphql, PageProps } from 'gatsby'
 import Collapse from '@material-ui/core/Collapse';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Drawer from '@material-ui/core/Drawer';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { animated, useSpring } from 'react-spring';
-import { cloneDeep, forIn, isEmpty } from 'lodash'
 import SpecificButton from '../components/SpecificButton';;
-
 import ChartList from '../components/ChartList';
 import { ChartInfo, ChartProp, parseProps, parseChartFromMDX } from "../utils/parseMDX";
 import { Dispatch, RootState } from "../store/store";
+import { useWidth } from "../hooks/withWidth";
 
 
 interface ChartQuery {
@@ -129,23 +126,12 @@ const MobileLine = styled.div`
     }
   }
 `;
-function useWidth() {
-  const theme = useTheme();
-  const keys = [...theme.breakpoints.keys].reverse();
-  return (
-    keys.reduce((output, key) => {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      const matches = useMediaQuery(theme.breakpoints.up(key));
-      return !output && matches ? key : output;
-    }, null) || 'xs'
-  );
-}
-
-const SHAPE_ENNAME = 'shape';
 
 
-export function Home(props) {
-  const { showMobileFilters, toggleMobileFilters } = props
+export default function Home(props) {
+
+  const showMobileFilters = useSelector((state: RootState) => state.indexPage.showMobileFilters)
+  const dispatch = useDispatch<Dispatch>()
   const width = useWidth();
   const [showFilters, setShowFilters] = useState(true);
   const [queries, setQueries] = useState<ChartQuery[]>([]);
@@ -166,9 +152,9 @@ export function Home(props) {
 
   useEffect(() => {
     if (queries.length > 0) {
-      animate({ to: { height: 'auto' } })
+      animate({ height: 'auto' })
     } else {
-      animate({ to: { height: 0 } })
+      animate({ height: 0 })
     }
     setFilters(queryChart())
   }, [queries])
@@ -307,7 +293,7 @@ export function Home(props) {
       )}
       {/* mobile */}
       {width === 'xs' && (
-        <Drawer open={showMobileFilters} anchor="top" onClose={toggleMobileFilters} PaperProps={{ className: 'mobile-filters-drawer' }}>
+        <Drawer open={showMobileFilters} anchor="top" onClose={dispatch.indexPage.toggleMobileFilters} PaperProps={{ className: 'mobile-filters-drawer' }}>
           <div className="mobile-filters">
             {chartProps.map((query, i) => (
               <MobileLine key={i}>
@@ -349,7 +335,7 @@ export function Home(props) {
             <div className="clear" onClick={clearFilter}>
               清空
             </div>
-            <div className="confirm" onClick={toggleMobileFilters}>
+            <div className="confirm" onClick={dispatch.indexPage.toggleMobileFilters}>
               确定
             </div>
           </div>
@@ -358,31 +344,17 @@ export function Home(props) {
     </div>
   )
 }
-const mapState = (state: RootState) => ({
-  showMobileFilters: state.indexPage.showMobileFilters,
-})
-const mapDispatch = (dispatch: Dispatch) => ({
-  toggleMobileFilters: () => dispatch.indexPage.toggleMobileFilters(),
-})
-const HomeConnectComponent = connect(mapState, mapDispatch)(Home)
 
-const HomeWrap = (props) => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query{
-          allFile {
-            nodes {
-              name
-              childMdx {
-                mdxAST
-              }
-            }
-          }
+
+export const pageQuery = graphql`
+  query{
+    allFile {
+      nodes {
+        name
+        childMdx {
+          mdxAST
         }
-      `}
-      render={data => <HomeConnectComponent data={data} {...props} />}
-    />
-  )
-}
-export default HomeWrap
+      }
+    }
+  }
+`

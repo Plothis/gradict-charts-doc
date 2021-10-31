@@ -136,6 +136,7 @@ export function parseChartFromMDX(nodes: Node[]) {
       mapDeEmphasis(chartInfo.$searchMap, chartKB.category, 'category')
       mapDeEmphasis(chartInfo.$searchMap, chartKB.purpose, 'purpose')
     }
+
     if (childMdx && childMdx.mdxAST && Array.isArray(childMdx.mdxAST.children)) {
       let hasDetailOverview = false
       for (const ASTNode of childMdx.mdxAST.children) {

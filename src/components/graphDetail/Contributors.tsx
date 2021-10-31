@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Popover } from 'antd';
-import { size } from 'lodash';
+import size from 'lodash/size';
 import { ChartContext } from './context';
 import { getChartFileCommit } from '../../api/common';
 

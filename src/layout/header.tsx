@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { useLocation } from '@reach/router';
-import withWidth, { WithWidth } from '@material-ui/core/withWidth';
 import Menu from '@material-ui/icons/Menu';
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 import ChevronRight from '@material-ui/icons/ChevronRight';
@@ -10,12 +9,14 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import { store } from '../store/store';
+import { useWidth } from '../hooks/withWidth';
 
 const { dispatch } = store
 const links = [{ url: '/', name: '首页' }, { url: '/introduce/', name: '本站介绍' }, { url: '/about/', name: '关于我们' }];
 
-const Header: React.FC<WithWidth> = ({ width }) => {
+const Header: React.FC<{}> = () => {
   const { pathname } = useLocation();
+  const width = useWidth();
   const [drawer, setDrawer] = useState<boolean>(false);
   const toggleDrawer = (status: boolean) => {
     setDrawer(status);
@@ -79,4 +80,4 @@ const Header: React.FC<WithWidth> = ({ width }) => {
   );
 }
 
-export default withWidth()(Header);
+export default Header;

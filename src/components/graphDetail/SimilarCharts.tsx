@@ -1,13 +1,13 @@
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 import React, { useContext, useMemo, useState } from 'react';
 
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import styled from 'styled-components';
 import ChartList from '../ChartList';
-import { ChartInfo } from '../../utils/parseMDX';
+import { ChartInfo, parseChartFromMDX, zhCompletedKB } from '../../utils/parseMDX';
 import { ChartContext } from './context';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const Container = styled.section`
   margin-top: 60px;

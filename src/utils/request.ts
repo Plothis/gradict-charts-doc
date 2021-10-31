@@ -1,5 +1,5 @@
 import Axios, { AxiosRequestConfig } from 'axios';
-import { isObjectLike } from 'lodash';
+import isObjectLike from 'lodash/isObjectLike';
 import { notification } from 'antd';
 import { apiPrefix } from '../constants/api';
 
