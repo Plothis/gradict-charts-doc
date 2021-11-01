@@ -1,0 +1,138 @@
+
+# 气泡图 - Bubble Chart
+
+
+<section  id="overview-graph-detail-content">
+
+![pie-chart-overview](https://i.loli.net/2021/09/27/gx8sTAEz53rSwcq.png)
+
+图表介绍内容
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<ChartProps />
+
+## 图表详解
+
+### 元素构成
+
+<PlaceHolder>这里少一张图</PlaceHolder>
+
+### 适用场景
+
+1. 想要突出表示某个部分在整体中所占比例，尤其该部分所占比例达到总体的 25%或 50%时。
+2. 分类数量最好小于 5 个。
+
+
+<img src="https://i.loli.net/2021/09/27/kj3sJKaqLXcxyrv.jpg" width="328" />
+
+### 不适用场景
+
+1. 如果变量之间相互独立，并不构成一个整体，那么不可以使用饼图。
+
+<img src="https://i.loli.net/2021/09/27/Vf7NPzm9TdhbF4O.jpg" width="532" />
+
+4. 此外，当类别过多时，不建议使用饼图，否则阅读会将很差（如下图）。可行的办法，一是将一些不重要的变量合并为“其他”，避免扇区超过 5 个；二是改用条形图或者表格。尤其是，如果你想让读者清楚的阅读到每一条数据，选用表格会更加直截了当。
+
+<img src="https://i.loli.net/2021/09/27/JYlLvdPAzVyjsIU.jpg" width="566" />
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<SimilarCharts/>
+
+## 设计案例
+
+<DesignCaseContainer>
+  <DesignCaseItem
+    description="用有冲击力的颜色突出最想表现的扇形，其余的则在视觉上弱化处理（比如用灰色处理）。此外，将文字注释巧妙的设计到图形中。"
+    link="https://multimedia.scmp.com/news/china/article/2170344/china-2025-aviation/index.html?src=follow-chapter"
+    image="http://139.224.62.3:3001/upload/images/2019/1543645728953-3a3e4054-58e3-449b-9edb-6d6f20d85ae8_bde10d6c48ff7b43d9bbb97907f1148d.png"
+  />
+  <DesignCaseItem
+    description="《南华早报》关于香港少数族裔的报道。蓝色表示男性，红色表示女性，符合一般认知。同时，除了男女占比外，还用圆形面积代表了总人数。特别的，它还将菲律宾人（香港最多的少数族裔）画成了灰色轮廓，固定在底图上，并加入交互功能。这样，用户在滑动到其他族裔（如美国人）时，就可以方便的比较它与菲律宾人的规模差别。这是把简单的饼图，设计的丰富、精巧的案例。"
+    link="http://multimedia.scmp.com/news/hong-kong/article/20th-handover/index.html"
+    image="http://139.224.62.3:3001/upload/images/2019/1543644866253-29992d89-cd08-4573-9f12-c4196364ffe9_5f3ef6cff573a83b1ca68cd0a74608c6.png"
+  />
+</DesignCaseContainer>
+
+## 使用场景
+
+1. 通常认为，已知最早的饼图是威廉·普莱菲于 1801 年在他的《统计学摘要》Statistical Breviary 中所作。这张饼图，描述了 1789 年以前土耳其帝国在亚洲、欧洲及非洲中所占的比例。为什么饼图适合表达这个话题呢？第一，其分类变量为亚、欧、非三洲，这三洲的国土构成了土耳其疆域的整体。而我们的目的正是为了表现它们的“占比”。此外，总共三个类别，数量不多不少，不会使饼图太过杂乱。第二，其连续变量为各洲的国土面积，有一个部分（亚洲）占比显著（60%左右），很好辨别。另外，欧洲占比约为 25%，在饼图中呈直角，也方便辨别（这也很可能是作者把欧洲放在 12 点钟方向的原因）。
+
+<img src="http://139.224.62.3:3001/upload/images/2019/1543463720192-d6a22b1a-93d7-4680-8b16-6955250aea8b_c26170ea0bd93bf7058536bbfdba757c.png" width="328" />
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<ProductionTutorials
+  data={{
+    'BI 工具': {
+      Excel: [
+        { link: 'https://support.office.com/zh-cn/article/%E6%B7%BB%E5%8A%A0%E9%A5%BC%E5%9B%BE-1a5f08ae-ba40-46f2-9ed0-ff84873b7863', linkText: '官方基础教程' }
+      ],
+      'Power BI': [{ link: 'https://www.jianshu.com/p/15a7bbdc464c', linkText: '基础教程' }],
+      Tableau: [{ link: 'https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_pie.htm', linkText: '官方基础教程' }],
+      QlikView: [{ link: 'https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Pie_Chart.htm', linkText: '官方基础文档' }],
+    },
+    代码库: {
+      Echarts: [{ link: 'http://echarts.baidu.com/examples/#chart-type-pie', linkText: '官方实例' }],
+      AntV: [{ link: 'https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/innerlabel.html', linkText: '官方实例' }],
+      D3: [
+        { link: 'https://beta.observablehq.com/@mbostock/d3-pie-chart', linkText: '基础饼图' },
+      ],
+      matplotlib: [{ link: 'https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html', linkText: '官方文档及案例' }],
+      ggplot2: [
+        { link: 'https://ggplot2.tidyverse.org/reference/coord_polar.html', linkText: '官方文档及案例' },
+      ],
+    },
+    设计软件: {
+      PS: [
+        { link: 'https://www.graphicadi.com/pie-chart-photoshop/', linkText: '官方文档及案例' }
+      ],
+      AI: [{ link: 'https://design.tutsplus.com/tutorials/how-to-create-an-editable-pie-chart-in-adobe-illustrator--cms-31336', linkText: 'AI分步教程' }],
+      Sketch: [
+        { link: 'httpshttp://www.iueux.com/1116.html', linkText: '3种基础方法' }
+      ],
+    },
+  }}
+/>
+
+## 专项工具
+
+1. <a href="https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=PieChart" target="__blank">
+     在线工具：visual-paradigm
+   </a>
+
+
+## 学习资源
+
+1. <a href="https://blog.usejournal.com/why-humans-love-pie-charts-9cd346000bdc" target="__blank">
+     【推荐】从历史和进化的角度看人类为何喜欢饼图（英文）
+   </a>
+
+
+## 参考文献
+
+
+<Reference>
+  <ol>
+    <li>Wikipedia. (n.d.). <em>Pie chart</em>. [online]. Available at: https://en.wikipedia.org/wiki/Pie_chart [Accessed 3 December 2018].</li>
+    <li>AntV墨者学院. (n.d.). 饼图的简介. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/pie.html[Accessed 3 December 2018].</li>
+  </ol>
+</Reference>
+
+## 贡献者
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+    贡献者: [{ date: '2018-12-01', content: '内容' }],
+  }}
+  merge
+/>

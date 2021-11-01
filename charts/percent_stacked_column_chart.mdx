@@ -1,0 +1,282 @@
+
+# 100%堆叠柱状图 - 100% Stacked Bar Chart
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/L1SJX9d/100-9d356a7b1e9672b225fc5ca9a3f5967e.png)
+
+100%堆叠式柱状图是一种特殊的[柱状图](<http://www.tuzhidian.com:3000/chart?id=5c56e2da4a8c5e048189c6bb>)，它的每根柱子是等长的，总额为100%。柱子内部被分割为多个部分，高度由该部分占总体的百分比决定。因此，与普通的[柱状图](<http://www.tuzhidian.com:3000/chart?id=5c56e2da4a8c5e048189c6bb>)或[堆叠柱状图](<http://www.tuzhidian.com:3000/chart?id=5c55b11b58461d3fa613673b>)不同，100%堆叠柱状图不显示数据的“绝对数值”，而是显示“相对比例”。但同时，它也仍然具有柱状图的固有功能，即“比较”——我们可以通过比较多个柱子的构成，分析数值之间的相对差异，或者得出数值变化的趋势。
+
+但是，“堆叠”也有一定的弊端。例如，当数据系列过多时，堆叠可能会导致杂乱和花哨；堆叠时，同一系列的数据无法落在一条水平线上，无形中增加了对比的难度，尤其当数值接近时，人眼的辨别就更加困难。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/r2vqN83/1549097617643-657d81fe-892d-45c0-9abc-cc2f0c43a67a.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+观察数据是如何构成的。我们可以通过比较多个柱子的构成，分析数值之间的相对差异，或者得出数值变化的趋势。例如，分析[某行业市场份额的变动情况。](<#usage-scene-graph-detail>)
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+堆叠式柱状图的一个主要缺点：柱形分段越多，图表就越难以阅读。
+
+另外，我们也较难比较不同分段，因为它们不在同一基线之上。
+
+![null](//i.ibb.co/fXsnqn1/1549105613173-5cafedd5-35e8-427a-a482-bf9ecff43608.jpg?x-oss-process=image/resize,w_520)
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="《纽约时报》的报道，欧洲是否正转向右翼？在每一个100%堆叠柱状图中，柱子按年份排列，右翼政党用红色表示，高度表示当年获得的支持率。而左翼和中间党派则用灰色表示，可以有效的衬托出重点。此外，作者还将各个国家排列在一起（这种方式称为small multiple），这样国家之间的差异也一目了然（例如匈牙利一直是红色居多，英国、捷克等国则一直红色很少）。"
+    link="https://www.nytimes.com/interactive/2016/05/22/world/europe/europe-right-wing-austria-hungary.html?_r=0"
+    image="//i.ibb.co/Kjnrkn0/31402fe534dbf8e4d732d0ea58a57fbd.png"
+/>
+            
+<DesignCaseItem
+    description="关于披头士乐队的数据可视化作品。每一根长条代表披头士1963-1970年间发行的一首歌，被分割成几种颜色。每种颜色代表乐队中的一位成员（灰色表示合作的其他艺术家），上面标有乐器的icon，表示这位成员在这首歌里弹奏的乐器，可以说是一份骨灰级的粉丝作品了。"
+    link="https://popchart.co/products/come-together-an-instrumental-investigation-of-the-beatles-catalog"
+    image="http://www.tuzhidian.com:3001/upload/images/2019/beatles_87956242df3756c05a9c596f2ebdf5c4.jpg"
+/>
+            
+<DesignCaseItem
+    description="美国的一项民意调查，对恐怖分子嫌疑人进行折磨是不是合理的？红色代表合理，蓝色代表不合理。每一根条形加起来都是100%，但在这张图的设计中，柱子是按照正负极排列的（原点在中间），整体的排序也是按照红色柱子从长到短排列，这样设计更利于突出主旨，即哪种类型的人更同意折磨恐怖分子。"
+    link="https://www.washingtonpost.com/news/wonk/wp/2014/12/16/from-moderate-democrats-to-white-evangelicals-nearly-every-demographic-group-believes-torture-can-be-justified/?noredirect=on&utm_term=.c879b53ff312"
+    image="http://www.tuzhidian.com:3001/upload/images/2019/146ed31b1c29009c895eee2c1a38fd25_b1b07802a094a64f335ba0cd0ca5a832.jpg"
+/>
+            
+<DesignCaseItem
+    description="一个探索电影剧本改编的交互项目。每一个条形代表一部好莱坞电影，按照时长切割为一个个场景，蓝色代表忠于原著，红色代表不同于原著，鼠标移动上去，你还可以看到每个场景的电影画面、电影中的情节，以及原著中的对照情节。"
+    link="https://informationisbeautiful.net/visualizations/based-on-a-true-true-story/"
+    image="http://www.tuzhidian.com:3001/upload/images/2019/4383b74a5938e78169a6ca5762986384_63dcdbceed46cad713971ef2bf24bfa3.jpg"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）用于分析市场份额的变化。例如，下图（吕昌, 张喆, 2018
+
+）展示了2008-2017年间，我国榨菜行业的主要玩家。由于100%堆叠柱状图都是等高的，我们很容易发现构成它的每个部分的变化情况：乌江榨菜始终占据行业第一，市场份额超过20%，并且在十年间稳步上升。而第二梯队的品牌有鱼泉、六必居、饭扫光、味聚特、铜钱桥等。可以发现，饭扫光在慢慢扩张，而铜钱桥则份额收缩，被多家品牌反超。最后，“其他”品牌市场空间也愈见狭小，说明该行业越来越向龙头集中。
+
+![null](//i.ibb.co/4RnK9Vg/1548332629663-5223996f-db4c-4a36-bdfe-e9dbd81f6953.png)
+
+（2）用于对比行为、态度上的差异，如男女的对比、党派的对比等。下图（Messing, 2014
+
+）统计了美国大选期间，民主党和共和党候选人在facebook上的表现。在100%堆叠柱状图上，每一根柱子代表一种行为，如发布竞选新闻、讨论时事等等，蓝色代表民主党，红色代表共和党。通过对比我们发现：共和党人更多会表达支持、谈论政策制定，而民主党则更多地宣传竞选活动和动员选民。[[点击访问原作品网页]](<https://www.facebook.com/notes/10152581594083859/>)
+
+![null](<//i.ibb.co/H2wZPYG/1549106412696-d3717b3a-520a-49a5-8a7d-d9301c89cb4c.png>)
+
+（3）观察配色情况，用于设计、时尚等领域。例如，提取模特身上的色彩，形成色卡。不过，这个案例（Wallpaper, 2011
+
+）中比较特别的是，色块没有按照大小排序，而是按照人从头到脚的顺序排列。与一般的统计图强调顺序与归纳不同，这样做可能更利于体现实际的“搭配”情况，例如头与脚上色系的呼应。
+
+![null](<//i.ibb.co/D47SStG/1548332232069-1108596e-672f-455c-871c-23cc44ebd9a4.png>)
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "视频教程",
+        "link": "https://www.bilibili.com/video/av26655735/"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "视频教程（英文）",
+        "link": "https://www.youtube.com/watch?v=8fgblujBoHg"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://kb.tableau.com/articles/howto/stacked-100-percent-bar-chart?lang=zh-cn"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "视频教程（英文）",
+        "link": "https://www.youtube.com/watch?v=Q1Rln9UeH38"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [],
+    "AntV": [
+      {
+        "linkText": "官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/column/stacked-percentage-column.html"
+      },
+      {
+        "linkText": "以G2为基础的demo",
+        "link": "https://beta.observablehq.com/@bbsqq/100-intervalstack-by-g2"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "100%堆叠柱状图（水平方向）",
+        "link": "https://beta.observablehq.com/@mbostock/d3-stacked-normalized-horizontal-bar-chart"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "基础100%堆叠柱状图",
+        "link": "https://chrisalbon.com/python/data_visualization/matplotlib_percentage_stacked_bar_plot/"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "100%堆叠柱状图详细教程",
+        "link": "http://t-redactyl.io/blog/2016/01/creating-plots-in-r-using-ggplot2-part-4-stacked-bar-plots.html"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [],
+    "Sketch": []
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+1.Aisch, G., Pearce, A. and Rousseau, B. (2016). How Far Is Europe Swinging to the Right?. [online]. Available at: https://www.nytimes.com/interactive/2016/05/22/world/europe/europe-right-wing-austria-hungary.html?_r=0 [Accessed 24 January 2019].
+
+2.POP CHART LAB. (n.d.). Come Together: An Instrumental Investigation of the Beatles Catalog.[online]. Available at: https://popchart.co/products/come-together-an-instrumental-investigation-of-the-beatles-catalog [Accessed 24 January 2019].
+
+3.Badger, A. (2014). From moderate Democrats to white Evangelicals, nearly every demographic group believes torture can be justified. [online]. Available at: https://www.washingtonpost.com/news/wonk/wp/2014/12/16/from-moderate-democrats-to-white-evangelicals-nearly-every-demographic-group-believes-torture-can-be-justified/?noredirect=on&utm_term=.c879b53ff312 [Accessed 24 January 2019].
+
+4.MacCandless, D., Kashan, O., Tomasevic, S., Webster, K. and DM. (2018). Based on a True True Story?. [online]. Available at: https://informationisbeautiful.net/visualizations/based-on-a-true-true-story/ [Accessed 24 January 2019].
+
+5.吕昌, 张喆. (2018). 涪陵榨菜——向上加速拐点已至，锋芒毕露势不可挡.申万宏源研报.
+
+6.Messing, S. (2014). Campaign Rhetoric and Style on Facebook in the 2014 U.S. Midterms. [online]. Available at: https://www.facebook.com/notes/10152581594083859/ [Accessed 24 January 2019].
+
+7.Wallpaper. (2011). ’Graphic Design: Now in Production’ at Walker Art Center, Minneapolis. [online]. Available at: https://www.wallpaper.com/gallery/art/graphic-design-now-in-production-at-walker-art-center-minneapolis#pic_63109 [Accessed 24 January 2019].
+
+8.Excel成长课堂. (2018). 12.堆积及百分比堆积条形图. [online]. Available at: https://www.bilibili.com/video/av26655735/ [Accessed 24 January 2019].
+
+9.laxmi skills. (2018). How to create 100% stacked column chart in power bi desktop in Telugu. part (9). [Youtube video]. Available at: https://www.youtube.com/watch?v=8fgblujBoHg [Accessed 24 January 2019].
+
+10.Tableau Help. (2013). 创建总计为 100% 的堆叠条形图. [online]. Available at: https://kb.tableau.com/articles/howto/stacked-100-percent-bar-chart?lang=zh-cn [Accessed 24 January 2019].
+
+11.Vidya Sagar. (2018). 100 Percent Stacked Bar in Qlik. [Youtube video]. Available at: https://www.youtube.com/watch?v=Q1Rln9UeH38 [Accessed 24 January 2019].
+
+12.AntV team. (n.d.). 堆叠柱状图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/column/stacked-percentage-column.html [Accessed 24 January 2019].
+
+13.xi li. (2018). Normalized Stacked Bar Chart by g2/antv, transpose it. [online]. Available at: https://beta.observablehq.com/@bbsqq/100-intervalstack-by-g2 [Accessed 24 January 2019].
+
+14.Bostock, M. (2018). D3 Stacked Normalized Horizontal Bar Chart. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-stacked-normalized-horizontal-bar-chart [Accessed 24 January 2019].
+
+15.Albon, C. (2017). Stacked Percentage Bar Plot In MatPlotLib. [online]. Available at: https://chrisalbon.com/python/data_visualization/matplotlib_percentage_stacked_bar_plot/ [Accessed 24 January 2019].
+
+16.Burchel, J. (2016). Creating plots in R using ggplot2 - part 4: stacked bar plots. [online]. Available at: http://t-redactyl.io/blog/2016/01/creating-plots-in-r-using-ggplot2-part-4-stacked-bar-plots.html [Accessed 24 January 2019].
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "xi": [
+    {
+      "content": "文档资料搜集、整理和编辑",
+      "date": 1546272000000
+    }
+  ],
+  "Olivia": [
+    {
+      "content": "文档资料搜集、整理和编辑",
+      "date": 1546272000000
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ]
+}}
+  merge
+/>

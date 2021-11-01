@@ -1,0 +1,378 @@
+
+# 柱状图 - Bar Chart
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/XbJ2ndv/9f39bc5bbcfe804eb645cb70806ebaeb.png)
+
+柱状图，是一种使用矩形条，对不同类别进行数值比较的统计图表。最基础的柱形图，需要一个分类变量和一个数值变量。在柱状图上，分类变量的每个实体都被表示为一个矩形（通俗讲即为“柱子”），而数值则决定了柱子的高度。
+
+与“柱状图”相近的概念还有“条形图”，二者在实际使用中可能产生不同理解。例如，在AntV的分类中，条形图是柱状图的子集，专指“横向的柱状图”。而在Excel2016的图表功能中，柱状图专指纵向、条形图专指横向。
+
+作为人们最常用的图表之一，柱状图也衍生出多种多样的图表形式。例如，将多个并列的类别聚类、形成一组，再在组与组之间进行比较，这种图表叫做“分组柱状图”或“簇状柱形图”。将类别拆分称多个子类别，形成“[堆叠柱状图](<http://www.tuzhidian.com:3000/chart?id=5c55b11b58461d3fa613673b>)”。再如将柱形图与[折线图](<http://www.tuzhidian.com:3000/chart?id=5c56e1b34a8c5e048189c693>)结合起来，共同绘制在一张图上，俗称“[双轴图](<#usage-scene-graph-detail>)”，等等。
+
+不过，早已“飞入寻常百姓家”的柱状图，仍存在被误用的情况。一个典型代表就是[篡改y轴](<#unappropriate-scene-graph-detail-content>)，对读者视觉造成误导。在使用柱状图时，务必要使原点位于0。此外，注意对柱状图进行排序。依据可视化的目的、以及想突出的重点信息，确定合理的排序标准，避免柱状图看起来杂乱无章。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/9ptRKBy/1549020386225-16886544-a69a-490d-bd2a-233753d0bedd.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+柱状图最适合对分类的数据进行比较。尤其是当数值比较接近时，由于人眼对于高度的感知优于其他视觉元素（如面积、角度等），因此，使用柱状图更加合适。
+
+![null](//i.ibb.co/C9PxPRY/1548843959370-e81a6eba-88d1-4f07-8a69-8625ff270700.jpg?x-oss-process=image/resize,w_880)
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+（1）柱状图要求至少一个分类变量，它们之间是离散的（如一班、二班、三班），绘制为柱状图时，柱子与柱子之间有间隔。如果是连续型变量（如班上同学的成绩），则应当使用[直方图](<http://www.tuzhidian.com:3000/chart?id=5c56e58b4a8c5e048189c736>)，绘制出每个区间的数值（如落在每个分数段的人数），柱子之间是连续的、没有间隔（有时为了美观会留出间隔，但间隔极小）。
+
+![null](//i.ibb.co/BCBvdS8/1549176359593-40cea5b4-8b43-4607-a60a-70bc154de67c.jpg?x-oss-process=image/resize,w_860)
+
+（2）柱状图最核心的功能是比较，比较的核心是高度。如果人为的改变高度，那么数据间的比例关系会失常。比如下图，y轴的起始被设置为90，此图中，值为107的蓝色柱子似乎有cheng se柱子（值为93）的5倍。因此，在使用柱状图时，要注意y轴的取值，从0开始。
+
+![null](<//i.ibb.co/58BRKXj/1549176967033-98504ab5-63b2-4af9-9484-ab96bb23fdaf.jpg?x-oss-process=image/resize,w_860>)
+
+有时候，这种高度上的“人为操作”，甚至会采用更隐蔽的形式。智利前总统Sebastian Piñera曾在竞选时展示自己的政绩，他执政的2010年有着最高的红色柱子，对手执政的2013年则矮的可怜。乍看之下颇有说服力，但仔细比对，几个柱子之间的数量关系明显失调（比如，2013与2016年相差4.5%，高度差却与蓝色的柱子，即22.8%差不多大；2010与2016年相差3.4%，高度差却远小于2013与2016年的4.5%）。显然，这张图也是动过手脚的。
+
+![null](<//i.ibb.co/zxYn9CJ/1547625190962-5187573e-e703-41d6-8a78-a78b0e06f18c.jpg?x-oss-process=image/resize,w_906>)
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="具象化、卡通化设计。"
+    link="http://johngrimwade.com/D11.html"
+    image="//i.ibb.co/0nLcSYX/2a8f40a022ae75042dc04f871b7562ba.png"
+/>
+            
+<DesignCaseItem
+    description="把重复的条形折过来，具有立体感的同时，拓宽了右边排字的空间。"
+    link="http://www.carolinaandreoli.com/"
+    image="//i.ibb.co/T47zWzg/87df24ed6167301028f0005bcd68a7a4.png"
+/>
+            
+<DesignCaseItem
+    description="实物摄影。"
+    link="https://www.pinterest.com/pin/439593613625712014/"
+    image="//i.loli.net/2021/11/02/GixmyOobV2e4ftp.png"
+/>
+            
+<DesignCaseItem
+    description="将柱状图作极坐标变形，结合文字、标记，形成一个综合性信息图。"
+    link="https://www.behance.net/gallery/23964523/Freedom-in-countries-La-LetturaPiccolomini"
+    image="//i.ibb.co/G2YYbhx/4957a250ea3b5c49fa3582dcdd9443cc.jpg"
+/>
+            
+<DesignCaseItem
+    description="这一案例讲述中国一年消费5481吨猪肉，成为全球最大猪肉消费国。它使用了视频动画，由最低到最高，一个个慢慢呈现条形。同时，在动画中加入人们熟知的“高大”建筑物，加以对比。这种具体的感知，加上画面切换的速度感，让观众更能感知到柱子间的高度差，最后到中国的时候，可谓十分震撼。"
+    link="https://www.bilibili.com/video/av35831321/"
+    image="http://www.tuzhidian.com:3001/upload/images/2019/猪肉_966a8d91dec26c0edb0ad211fddb5f86.png"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）用于分类数据的比较。下图（梅昕, 孙丹阳, 2018
+
+）展示了海底捞公司外卖收入的变化，也是一幅“双轴图”。柱状图表示外卖收入的金额，从2015年的7500万左右上涨到了2017年的2亿余元。折线则代表了外卖收入在总收入中的占比，2015年该比例不到2%，2016年涨幅较大，2017年则相对缓慢。
+
+![null](//i.ibb.co/6w1FHX5/1547966414396-7c3f78e4-b7f2-456a-a3f8-068ee3f3618d.png?x-oss-process=image/resize,w_768)
+
+（2）用柱状图做时间序列分析，记录历时、历年的变化情况，这也是近年比较热门的应用场景。比如这一案例（Blackburn, 2018
+
+），将柱状图折成一个圆圈，清晰美观的反映了1400-2013年陨石降落的情况。[[点击访问原作品网页]](<https://public.tableau.com/en-us/s/gallery/meteorite-landings?gallery=votd>)
+
+![null](<//i.ibb.co/R2qJGzf/1547626922702-1ac99e16-86cd-4288-99fd-fce7fd41277c.jpg?x-oss-process=image/resize,w_904>)
+
+（3）柱状图+m&m豆，用于儿童智力教育（Mrs. Thomas' Teachable Moments, 2015
+
+）。[[点击查看原作品网页]](<https://www.pinterest.com/pin/75576099973505021/>)
+
+![null](<//i.ibb.co/WPhkPFJ/1547569400929-e272fa9f-a4e2-4d01-b80e-b4714c3da1aa.jpg>)
+
+（4）柱状图应用于现场投票，一种游戏化的尝试（Kimbell, 2016
+
+）。[[点击访问原作品网页]](<http://www.lucykimbell.com/LucyKimbell/PhysicalBarCharts.html>)
+
+![null](<//i.ibb.co/5xVnBqY/1547628019775-2e0eef03-0ccb-4088-907b-f0dddc7cea10.png>)
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "官方基础教程",
+        "link": ""
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "制作多种柱形图",
+        "link": "https://www.jianshu.com/p/52a305a4532f"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "官方基础教程",
+        "link": ""
+      },
+      {
+        "linkText": "官方教程-创建分组条形图",
+        "link": "https://kb.tableau.com/articles/howto/creation-of-a-grouped-bar-chart?lang=zh-cn"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "官方基础教程",
+        "link": ""
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": ""
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "G2官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html#_%E6%9F%B1%E7%8A%B6%E5%9B%BE"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "基础柱状图",
+        "link": "https://beta.observablehq.com/@mbostock/d3-bar-chart"
+      },
+      {
+        "linkText": "交互可显示数据标签的柱状图",
+        "link": "http://bl.ocks.org/Caged/6476579"
+      },
+      {
+        "linkText": "螺旋形可交互柱状图",
+        "link": ""
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "官方文档及案例-matplotlib.pyplot.bar",
+        "link": ""
+      },
+      {
+        "linkText": "2个常见柱状图demo",
+        "link": "https://matplotlib.org/gallery/statistics/barchart_demo.html"
+      }
+    ],
+    "ggplot2": [
+      {
+        "linkText": "官方文档及案例",
+        "link": "https://ggplot2.tidyverse.org/reference/geom_bar.html"
+      },
+      {
+        "linkText": "多系列柱状图",
+        "link": "https://thepracticalr.wordpress.com/2016/11/11/make-a-bar-plot-with-ggplot/"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS": [],
+    "AI": [
+      {
+        "linkText": "用AI生成柱状图-分步详解",
+        "link": ""
+      }
+    ],
+    "Sketch": [
+      {
+        "linkText": "使用Chart插件",
+        "link": "https://zhuanlan.zhihu.com/p/33569562"
+      },
+      {
+        "linkText": "使用Sketch Transform插件",
+        "link": "https://plugins.tosketch.com/sketch-transform/"
+      }
+    ]
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[Chartbuilder-快速的生成和定制柱状、折线、散点图，可下载为图片、svg、json格式。](<https://quartz.github.io/Chartbuilder/>)
+
+（2）[Pictovia图形发生器，可导出图片或pdf。](<http://zh.pictovia.com/>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）
+
+[【推荐】漫谈条形图。](<https://cosx.org/2017/10/discussion-about-bar-graph/>)
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+ 1.Wikipedia. (n.d.). Bar chart. [online]. Available at: https://en.wikipedia.org/wiki/Bar_chart [Accessed 15 Jan 2019].
+
+2.from Data to viz. (n.d.). Barplot. [online]. Available at: https://www.data-to-viz.com/graph/barplot.html [Accessed 15 Jan 2019].
+
+3.wtf-viz. (2019). someone with an iq of 105 seems to be five times. [online]. Avaliable at: http://viz.wtf/post/182036716790/someone-with-an-iq-of-105-seems-to-be-five-times [Accessed 15 Jan 2019].
+
+4.wtf-viz.(2017). the former president of chile and now candidate. [online]. Avaliable at: http://viz.wtf/post/167382195183/the-former-president-of-chile-and-now-candidate#notes [Accessed 15 Jan 2019].
+
+5.Grimwade, J.(n.d.). Medal Exchange. [online]. Avaliable at: http://johngrimwade.com/D11.html [Accessed 15 Jan 2019].
+
+6.Andreoli, C.(n.d.). 56 DAYS WORTH OF FOOD. [online]. Avaliable at: http://www.carolinaandreoli.com/ [Accessed 15 Jan 2019].
+
+7.Illenberger, S.(2008). The Truth about Sex. [online]. Avaliable at: https://www.wallpaper.com/gallery/art/graphic-design-now-in-production-at-walker-art-center-minneapolis#pic_63100 [Accessed 15 Jan 2019].
+
+8.Piccolomini, S(2015). Freedom in countries. [online]. Avaliable at: https://www.behance.net/gallery/23964523/Freedom-in-countries-La-Lettura [Accessed 15 Jan 2019]
+
+9.金十财经(2018). 中国一年消费5481吨猪肉，成为全球最大猪肉消费国. [online]. Avaliable at: https://www.bilibili.com/video/av35831321/ [Accessed 15 Jan 2019].
+
+10.梅昕, 孙丹阳. (2018). 海底捞拟赴港IPO，火锅龙头亮相. 华泰证券研报.
+
+11.Blackburn, A.(2018). Meteorite Landings. [online]. Avaliable at: https://public.tableau.com/en-us/s/gallery/meteorite-landings?gallery=votd [Accessed 15 Jan 2019].
+
+12.Mrs. Thomas' Teachable Moments(2015). m&m's Bar Graph. [online]. Avaliable at: https://www.pinterest.com/pin/75576099973505021/ [Accessed 15 Jan 2019].
+
+13.Kimbell, L.(2006). Physical Bar Charts. [online]. Avaliable at: http://www.lucykimbell.com/LucyKimbell/PhysicalBarCharts.html [Accessed 15 Jan 2019].
+
+14.Office Support(n.d.). 使用柱形图显示数据. [online]. Avaliable at: https://support.office.com/zh-cn/article/使用柱形图显示数据-d89050ba-e6b6-47de-b090-e9ab353c4c00?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN [Accessed 15 Jan 2019].
+
+15.PowerBI星球(2018). 用PowerBI来搞懂柱形图的分类. [online]. Avaliable at: https://www.jianshu.com/p/52a305a4532f [Accessed 15 Jan 2019].
+
+16.Tableau Help(n.d.). 生成条形图. [online]. Avaliable at: https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_bar.htm [Accessed 15 Jan 2019].
+
+17.Tableau Help(2019). 创建分组条形图. [online]. Avaliable at: https://kb.tableau.com/articles/howto/creation-of-a-grouped-bar-chart?lang=zh-cn [Accessed 15 Jan 2019].
+
+18.QlikView Help(n.d.). 条形图. [online]. Avaliable at: https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Bar_Chart.htm [Accessed 15 Jan 2019].
+
+19.Echarts team(n.d.). 柱状图. [online]. Avaliable at: https://echarts.baidu.com/examples/#chart-type-bar [Accessed 15 Jan 2019].
+
+20.AntV team(n.d.). 柱状图. [online]. Avaliable at: https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html#_柱状图 [Accessed 15 Jan 2019].
+
+21.Bostock, M.(2017). D3 Bar Chart. [online]. Avaliable at: https://beta.observablehq.com/@mbostock/d3-bar-chart [Accessed 15 Jan 2019].
+
+22.Palmer, J.(2018). Using d3-tip to add tooltips to a d3 bar chart. [online]. Avaliable at: http://bl.ocks.org/Caged/6476579 [Accessed 15 Jan 2019].
+
+23.Narechania, A.(2018). Condegram Spiral Plot. [online]. Avaliable at: https://bl.ocks.org/arpitnarechania/027e163073864ef2ac4ceb5c2c0bf616 [Accessed 15 Jan 2019].
+
+24.Matplotlib team(n.d.). matplotlib.pyplot.bar. [online]. Avaliable at: https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html [Accessed 15 Jan 2019].
+
+25.Matplotlib team(n.d.). Barchart Demo. [online]. Avaliable at: https://matplotlib.org/gallery/statistics/barchart_demo.html [Accessed 15 Jan 2019].
+
+26.ggplot2 team(n.d.). Bar charts. [online]. Avaliable at: https://ggplot2.tidyverse.org/reference/geom_bar.html [Accessed 15 Jan 2019].
+
+27.Wszafranski(2016). Make a bar plot with ggplot. [online]. Avaliable at: https://thepracticalr.wordpress.com/2016/11/11/make-a-bar-plot-with-ggplot/ [Accessed 15 Jan 2019].
+
+28.数可视(2018). 如何用AI制作柱状图 | 干货. [online]. Avaliable at: http://wemedia.ifeng.com/65013746/wemedia.shtml [Accessed 15 Jan 2019].
+
+29.瞅瞅呗(2018). sketch插件-数据可视化图表. [online]. Avaliable at: https://zhuanlan.zhihu.com/p/33569562 [Accessed 15 Jan 2019].
+
+30.黄湘云, 李宇轩(2017). 漫谈条形图. [online]. Avaliable at: https://cosx.org/2017/10/discussion-about-bar-graph/ [Accessed 15 Jan 2019].
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "Olivia": [
+    {
+      "content": "文档资料搜集、整理和编辑",
+      "date": 1546272000000
+    }
+  ],
+  "Amphetamine": [
+    {
+      "date": 1546272000000,
+      "content": "绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图、贡献设计案例"
+    }
+  ]
+}}
+  merge
+/>

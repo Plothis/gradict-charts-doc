@@ -1,0 +1,278 @@
+
+# 力导向图 - Force-Directed Graph
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/pwZxYFJ/2b63d7c5f6fadc551ff5e7547b39a7b6.png)
+
+这种图表使用节点/顶点和连接线来显示事物之间的连接关系，并帮助阐明一组实体之间的关系类型。
+
+每个顶点，或节点（node），代表一个对象。每条连线（link）代表所连接的两个对象之间的关系。比如，节点代表人，连线代表某两个人之间是否认识；节点代表投资机构或者创业公司，一条有方向的连线代表某投资机构投资了某创业公司；等等。
+
+其中，节点的大小是可变的，可用来代表不同的变量。比如，用节点大小来表示人的年龄，或者人的朋友的数量，投资公司投资行为的数量，等等。而连线也可以用不同的颜色、粗细等来表示一些变量。但是，需要注意的是，在力导向图中，连线的长度、角度方向等是不能映射到变量上的。这是因为这些元素会影响图的“布局”，而在力导向图中，布局是被力导向算法限制住的。力导向图相对于笼统意义上的网络图，特点就在于这种确定的布局方式。它通过模拟物理上的节点间引力和斥力，来确定点之间的位置关系，然后再连上线。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/QNm716C/1549201754059-e24674c2-afc0-4237-8703-ef7786543ec0.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+描述事物间关系，比如人物关系、计算机网络关系等。更多用来表达抽象关系。
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+由于力导向图使用固定的布局算法来排列节点和链路，因此链路的长短是根据算法计算出来的，不能指定。因此，力导向图不适合用来表达有具体关系举例的场景。比如说每个节点代表一个省份，而且要按照真实地理位置布置好节点的位置，再用链路链接，表达各省间的某种关系。这种场景应该用一般网络图或者定制网络图，不适合用力导向算法来做布局。
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="纽约现代艺术馆（MoMA）根据抽象派大师们之间的熟识关系，制作了上面的力导布局图。每个节点代表一个抽象派艺术家，连线表示两个艺术家互相认识。人脉最广的艺术家，也就是连接最多的节点。可以从这个关系网中看出比较有影响力的艺术家，也可以看到艺术家之间联系比较紧密的小圈子。点击节点“Pablo Picasso”，还可以进一步查看著名艺术家毕加索的关系网络。"
+    link="http://www.moma.org/interactives/exhibitions/2012/inventingabstraction/?page=connections"
+    image="//i.ibb.co/rtB5SBV/66832100f032d66def1cacfd8999697e.jpg"
+/>
+            
+<DesignCaseItem
+    description={`莎士比亚悲剧人物关系图。上图中每一个小图都对应了莎士比亚的一个悲剧作品，小图下方的数据分别是节点数（左）和网络密度（右）。如果两个角色出现在同一场景中，则连接两个角色。节点大小和颜色强度与其加权程度成正比。多个力导向图对比来看，我们可以发现最长的悲剧《哈姆雷特》并不是结构最复杂的，其密度比《李尔王》和《奥赛罗》小。
+注：上图中“网络密度”用于度量图表完成的距离。一个完整的图（100％）在其节点之间具有所有可能的边。密度越大，该悲剧中人物之间的关系越复杂。`}
+    link="http://www.martingrandjean.ch/network-visualization-shakespeare/"
+    image="//i.ibb.co/r63Jkty/18be60d279ef7e1b17b44165f53e5f5b.jpg"
+/>
+            
+<DesignCaseItem
+    description="星球大战人物关系图。"
+    link="http://evelinag.com/blog/2015/12-15-star-wars-social-network/index.html#.VpG4fZVq1t5"
+    image="//i.ibb.co/BN77JsC/fca02f97a29a269b8598b82d38bf30e0.jpg"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）网站链接网络关系图。这幅图（DensityDesign Lab, 2013
+
+）表示的是能够让痴呆患者生活得更好的一些帮助性网站以及之间的关系。每个节点表示一个相关网站，两个节点间的连线表示这两个网站之间存在超链接。参与链接越多的点大小越大，由于力导向布局的原因，也就越可能靠近中心位置。[[点击访问原作品网页]](<https://www.flickr.com/photos/densitydesign/9183030077/in/album-72157634337815839/>)
+
+![null](//i.ibb.co/mDG70Km/1545570713877-6fe362f3-55ad-48dc-8bb7-d44aa8fb070f.jpg)
+
+（2）社交网络分析。国际知识产权合作委员会（SDN）基金的网络图（Grandjean, 2015
+
+）。超过800人连接近6000个边（代表10000多个关系，边按比例增加比例同时出现的人作为同一文件的演员）。节点的大小是人的中心程度（他们维持的连接数）的函数，而颜色表明他们的中间性（社交重要性）。[[点击访问原作品网页]](<https://en.wikipedia.org/wiki/File:SocialNetworkAnalysis.png>)
+
+![null](<//i.loli.net/2021/11/02/4p6zx7KyW8NqrRD.png?x-oss-process=image/resize,w_1494>)
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [],
+    "Power BI": [
+      {
+        "linkText": "英语博文",
+        "link": "https://www.mssqltips.com/sqlservertip/5208/graph-analysis-using-force-directed-graphs-in-power-bi-desktop/"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "网络图",
+        "link": "https://www.clearlyandsimply.com/clearly_and_simply/2012/12/build-network-graphs-in-tableau.html"
+      }
+    ],
+    "QlikView": []
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": "http://echarts.baidu.com/examples/editor.html?c=graph-force"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方案例",
+        "link": "https://antv.alipay.com/zh-cn/g6/2.x/demo/net/xiaomi.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "原作者实例",
+        "link": "https://beta.observablehq.com/@mbostock/d3-force-directed-graph"
+      },
+      {
+        "linkText": "官方API",
+        "link": "https://github.com/d3/d3-force"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "网络图",
+        "link": "https://python-graph-gallery.com/320-basic-network-from-pandas-data-frame/"
+      }
+    ],
+    "ggplot2": [
+      {
+        "linkText": "网络图",
+        "link": "https://briatte.github.io/ggnet/"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [],
+    "Sketch": []
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[cytoscape](<https://cytoscape.org/>)
+
+（2）[DyData](<https://dydata.io/chartView/tpl/4612096174443311109>)
+
+（3）[Gephi](<https://gephi.org/>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）[维基百科。](<https://en.wikipedia.org/wiki/Force-directed_graph_drawing>)
+
+（2）[d3官方API。](<https://github.com/d3/d3-force>)
+
+（3）[布朗大学力导向算法教材。](<http://cs.brown.edu/people/rtamassi/gdhandbook/chapters/force-directed.pdf>)
+
+（4）[力导向图简介。](<http://www.sohu.com/a/227069840_416207>)
+
+（5）[D3力导向图原理解释。](<https://www.jianshu.com/p/d11f0d2719ad>)
+
+<br />
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+1.HeyDelilah. (2017). D3力导向图. [online]. Avaliable at: https://www.jianshu.com/p/d11f0d2719ad [Accessed 20 January 2019].
+
+2.MoMA. (2012). Inventing Abstraction. [online]. Avaliable at: https://www.moma.org/interactives/exhibitions/2012/inventingabstraction/?page=connections [Accessed 20 January 2019].
+
+3.Gabasova, E. (2015). The Star Wars social network. [online]. Avaliable at: http://evelinag.com/blog/2015/12-15-star-wars-social-network/index.html#.XESKo88zbUK [Accessed 20 January 2019].
+
+4.Grandjean, M. (2015). Network visualization: mapping Shakespeare’s tragedies. [online]. Avaliable at: http://www.martingrandjean.ch/network-visualization-shakespeare/ [Accessed 20 January 2019].
+
+5.DensityDesign Lab. (2013). . [Photograph]. Avaliable at: https://www.flickr.com/photos/densitydesign/9183030077/in/album-72157634337815839/ [Accessed 20 January 2019].
+
+6.Grandjean, M. (2015). Social Network Analysis. [Photograph]. Avaliable at: https://en.wikipedia.org/wiki/File:SocialNetworkAnalysis.png [Accessed 20 January 2019].
+
+7.Mehta, S. (2017). Graph Analysis using Force Directed Graphs in Power BI Desktop. [online]. Avaliable at: https://www.mssqltips.com/sqlservertip/5208/graph-analysis-using-force-directed-graphs-in-power-bi-desktop/ [Accessed 20 January 2019].
+
+8.Mundigl, R. (2012). Build Network Graphs in Tableau. [online]. Avaliable at: https://www.clearlyandsimply.com/clearly_and_simply/2012/12/build-network-graphs-in-tableau.html [Accessed 20 January 2019].
+
+9.ECharts. (n.d.). 力引导布局. [online]. Avaliable at: https://echarts.baidu.com/examples/editor.html?c=graph-force [Accessed 20 January 2019].
+
+10.AntV Team. (n.d.). 小米关系图谱. [online]. Avaliable at: https://antv.alipay.com/zh-cn/g6/2.x/demo/net/xiaomi.html [Accessed 20 January 2019].
+
+11.Bostock, M. (2017). D3 Force-Directed Graph. [online]. Avaliable at: https://beta.observablehq.com/@mbostock/d3-force-directed-graph [Accessed 20 January 2019].
+
+12.Bostock, M. (n.d.). d3-force library. [online]. Avaliable at: https://github.com/d3/d3-force [Accessed 20 January 2019].
+
+Francois Briatte. (2015). ggnet2: network visualization with ggplot2. [online]. Avaliable at: https://briatte.github.io/ggnet/ [Accessed 20 January 2019].
+
+13.Holtz, Y. (n.d.). Basic Network from pandas data frame. [online]. Avaliable at: https://python-graph-gallery.com/320-basic-network-from-pandas-data-frame/ [Accessed 20 January 2019].
+
+14.Wikipedia. (n.d.). Force-directed graph drawing. [online]. Avaliable at: https://en.wikipedia.org/wiki/Force-directed_graph_drawing [Accessed 20 January 2019].
+
+15.Kobourov, S.G., 2004. Force-directed drawing algorithms.
+
+16.镝次元数据传媒实验室. (2018). 力导向图很陌生？一张关系图带你揭秘社交网络！. [online]. Avaliable at: http://www.sohu.com/a/227069840_416207 [Accessed 20 January 2019].
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "Neo": [
+    {
+      "date": 1546272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Olivia": [
+    {
+      "date": 1546272000000,
+      "content": "文档审核与编辑"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    }
+  ]
+}}
+  merge
+/>

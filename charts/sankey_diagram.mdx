@@ -2,183 +2,325 @@
 # 桑基图 - Sankey Diagram
 
 
-<section class='chart-detail-overview'>
+<section id="overview-graph-detail-content">
 
-![sankey-chart-overview](http://www.tuzhidian.com:3001/upload/images/2019/饼图_ff4270c4c477f75845ba82ff696bf904.png)
+![chart-overview](//i.ibb.co/T4QfbG7/f509cc30aa4cc6224f8f5c4ad2441e25.png)
 
 桑基图 (Sankey Diagram)，是一种表现流程的示意图，用于描述一组值到另一组值的流向。分支的宽度对应了数据流量的大小。
 
-1869年，查尔斯米纳德（Charles Minard）绘制了1812年拿破仑征俄图（Map of Napolean's Russian Campaign of 1812，见设计案例1），描绘了拿破仑大军在东进时，兵力是如何一步步削弱的。这也是目前公认较早的桑基图。
+1869年，查尔斯米纳德（Charles Minard）绘制了1812年拿破仑征俄图（Map of Napolean's Russian Campaign of 1812，见[设计案例1](<#design-case-graph-detail>)），描绘了拿破仑大军在东进时，兵力是如何一步步削弱的。这也是目前公认较早的桑基图。
 
 如今，也出现了更加现代意义上的桑基图，有时也被称为“冲积图”（Alluvial diagram）。这种图包含流入、流出的节点，以及曲线型的边，往往呈现出彩带一般的效果。其一大特点在于“能量守恒”，即起始流量和结束流量相同。不能在中间过程中创造出流量，流失的流量也不应莫名消失（可以流向表示损耗的节点）。也因为流出等于流入，桑基图的每条边，宽度应是保持不变的。
 
 使用桑基图时，应注意变量的归类和颜色的选择，避免太过花哨、影响阅读。必要时建议加入交互功能。
 
+
+
 </section>
 
 ## 图表属性
 
-- **形状：** 其他
-- **图类：** 示意图
-- **功能：** 比较 • 趋势
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
 
 ## 图表详解
 
 ### 元素构成
 
-<PlaceHolder>这里少一张图</PlaceHolder>
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/wW8DCrD/1548846487895-3919e22c-f9c3-4604-b02c-cfbbce814897-ed1892671402930085e52b3490c59d10.jpg)
+
+
+
+</section>
 
 ### 适用场景
 
-1. 适合表现分配情况、归类情况，以及变化和流动情况。
+<section id="appropriate-scene-graph-detail">
 
+适合表现分配情况、归类情况，以及变化和流动情况。
+
+
+
+</section>
 
 ### 不适用场景
 
-1. 桑基图遵循能量守恒原则，因此，每条边的宽度是保持不变的（即起始与结束时的宽度相同）。如果边的宽度不等（即数据结构是矩阵式的），推荐使用和弦图。
-2. 另外，在没有交互的情况下，变量如果太多，或者使用过多或过于相似的颜色，会导致“一团乱麻”的状态，使人难以聚焦，参考下图（Hirst, 2013）。这种情况下，建议先将变量进行必要的归类，并赋予具有辨识度、反差感的颜色。有进一步需求的话，加入交互功能，在鼠标点击时，仅突出显示一个支流。
+<section id="unappropriate-scene-graph-detail">
 
-<PlaceHolder>这里少一张图</PlaceHolder>
+（1）桑基图遵循能量守恒原则，因此，每条边的宽度是保持不变的（即起始与结束时的宽度相同）。如果边的宽度不等（即数据结
 
+构是矩阵式的），推荐使用[和弦图](<http://www.tuzhidian.com:3000/chart?id=5c56e33d4a8c5e048189c6cb>)。
+
+（2）另外，在没有交互的情况下，变量如果太多，或者使用过多或过于相似的颜色，会导致“一团乱麻”的状态，使人难以聚焦，参考下图（Hirst, 2013）。这种情况下，建议先将变量进行必要的归类，并赋予具有辨识度、反差感的颜色。有进一步需求的话，加入交互功能，在鼠标点击时，仅突出显示一个支流。
+
+![null](//i.ibb.co/RznBd0K/1543651067152-c8754295-f67b-4490-a3c9-28b8bf9bcec3-1828bf10c91fa6d4e86601831057687c.png)
+
+
+
+</section>
 
 ## 相似图形
 
-<PlaceHolder>这里需要统一处理图表基础信息</PlaceHolder>
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
 
 ## 设计案例
 
+<div id="design-case-graph-detail"></div>
+
 <DesignCaseContainer>
-  <DesignCaseItem
+  
+<DesignCaseItem
     description="1869年，查尔斯米纳德（Charles Minard）绘制的1812年拿破仑征俄图（Map of Napolean's Russian Campaign of 1812），该图形象的表现出，在深入俄国腹地时，拿破仑大军是如何迅速削减的。"
     link="https://en.wikipedia.org/wiki/Charles_Joseph_Minard"
-    image=""
-  />
-  <DesignCaseItem
+    image="//i.ibb.co/5F1JB0S/c9c6ad121acb15d0f2ba792118958082.png"
+/>
+            
+<DesignCaseItem
     description="2017信息之美时政类金奖作品《在他们的路上：外国战斗士之旅》，描画ISIS斗士出征的情况。致敬了拿破仑征俄图。主干使用黑色，代表出征，支干使用黄色，代表归来。菱形代表出征国家，该国穆斯林人口越多，面积越大。斗士人数占穆斯林人数越大，颜色越深。通过这个图，读者可以清楚的追看ISIS的全部行动。"
     link="https://www.informationisbeautifulawards.com/showcase/2323-on-their-way-the-journey-of-foreign-fighters"
-    image=""
-  />
-  <DesignCaseItem
+    image="//i.ibb.co/YQfVRqg/isis-da2cff26101be7fcb1016317c25afe0d.png"
+/>
+            
+<DesignCaseItem
     description="装饰性变形：川普攻击最多的人是谁？结果显示，并不是民主党，而是新闻媒体。严格来说，这个图并没有两个时间点的比较。主要是借鉴了桑基图的形态，实现了类似饼图的功能。"
     link="https://www.axios.com/who-trump-attacks-the-most-on-twitter-1513305449-f084c32e-fcdf-43a3-8c55-2da84d45db34.html"
-    image=""
-  />
-  <DesignCaseItem
+    image="//i.ibb.co/m9vSt6N/c030fa33abf851a4d1d28e176244d16e.png"
+/>
+            
+<DesignCaseItem
     description="合理用色，并保持类别间的区分度：《经济学人》在统计难民流向时，用蓝色表示难民来源国家，黄色表示迁移目的地，绿色表示成功入境，红色表示拒绝入境。"
     link="https://www.economist.com/graphic-detail/2015/05/12/seeking-safety"
-    image=""
-  />
-  <DesignCaseItem
+    image="//i.loli.net/2021/11/02/ebsmHg3vSQ2IJMT.png"
+/>
+            
+<DesignCaseItem
     description="用点阵实现运动的桑基图。作者统计了近年来印度发生的强奸事件，以及它们的处理结果。作品用一个个运动的点来代表每一桩强奸案，大部分流向了无疾而终，令人震撼。"
     link="https://adityajain15.github.io/Rape_In_India/"
-    image=""
-  />
+    image="//i.ibb.co/XCQSKTW/7bd026fa1e7dd04bfa42968b76ff7d8c.png"
+/>
+            
 </DesignCaseContainer>
 
 ## 使用场景
 
-1. 追踪用户状态。下图[6]对某平台一周内的用户转化情况进行了描画，包括有多少用户加入购物车，又在这之后进行了付款，多少注册用户转换为了活跃用户等等。例如，2017年1月1日“加入购物车”的用户中，有较大一部分在次日下单，较小一部分在次日付款。[点击访问原作品网页]
-<PlaceHolder>这里少一张图</PlaceHolder>
-<img src="" width="328" />
+<div id="usage-scene-graph-detail-content"></div>
 
-2. 追踪跑票、变动、迁移等。《经济学人》[7]分析了历年美国报纸对于总统候选人的提及率，制作了如下桑基图。最左为1988年，最右为2016年，每一个节点吧代表当年的一位总统候选人。节点的宽度由其在报纸上的提及率决定，蓝色表示民主党候选人、红色表示共和党候选人。从中我们可以发现许多有趣的现象，首先是舆论在党派之间的切换。例如1988年，报纸对共和党候选人老布什的提及率远超过对手，但到1992年，其中相当一部分流量流向了民主党候选人克林顿，这种流量的变化展现了党派在舆论场上的交锋。其次，舆论与最终的胜选也显示出相关性。在桑基图上方，作者用小圆点标出了当年最终胜出的党派，例如1988年共和党胜利、1992年民主党胜利，这与桑基图呈现的流量信息是可以对应的。按此规律，我们看到，截止作者发稿时，2016年似乎是希拉里必胜的一年。但事实证明，数据也是可能被逆转的。[点击访问原作品网页]
-<PlaceHolder>这里少一张图</PlaceHolder>
-<img src="" width="396" />
+（1）追踪用户状态。下图（王小美吖, 2017
+
+）对某平台一周内的用户转化情况进行了描画，包括有多少用户加入购物车，又在这之后进行了付款，多少注册用户转换为了活跃用户等等。例如，2017年1月1日“加入购物车”的用户中，有较大一部分在次日下单，较小一部分在次日付款。[[点击访问原作品网页]](<https://me.bdp.cn/share/index.html?shareId=sdo_667cd39c7baa7ee3e8e6ca97109ec6b0>)
+
+
+
+（2）追踪跑票、变动、迁移等。《经济学人》（The Economist, 2016
+
+）分析了历年美国报纸对于总统候选人的提及率，制作了如下桑基图。最左为1988年，最右为2016年，每一个节点吧代表当年的一位总统候选人。节点的宽度由其在报纸上的提及率决定，蓝色表示民主党候选人、红色表示共和党候选人。从中我们可以发现许多有趣的现象，首先是舆论在党派之间的切换。例如1988年，报纸对共和党候选人老布什的提及率远超过对手，但到1992年，其中相当一部分流量流向了民主党候选人克林顿，这种流量的变化展现了党派在舆论场上的交锋。其次，舆论与最终的胜选也显示出相关性。在桑基图上方，作者用小圆点标出了当年最终胜出的党派，例如1988年共和党胜利、1992年民主党胜利，这与桑基图呈现的流量信息是可以对应的。按此规律，我们看到，截止作者发稿时，2016年似乎是希拉里必胜的一年。但事实证明，数据也是可能被逆转的。[[点击访问原作品网页]](<https://www.economist.com/graphic-detail/2016/11/03/american-newspapers-resoundingly-reject-donald-trump>)
+
+
+
+
 
 ## 制作教程
 
 <!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
 
+<div id="production-tutorial-graph-detail"></div>
+
 <ProductionTutorials
   data={{
-    'BI 工具': {
-      Excel: [
-        { link: '', linkText: '--' },
-      ],
-      'Power BI': [{ link: 'https://powerbi.microsoft.com/en-us/blog/visual-awesomeness-unlocked-sankey-diagram/', linkText: '视频教程' }],
-      Tableau: [{ link: 'https://www.theinformationlab.co.uk/2018/03/09/build-sankey-diagram-tableau-without-data-prep-beforehand/', linkText: 'Tableau制作桑基图分步详解' }],
-      QlikView: [{ link: 'https://github.com/brianwmunz/d3sankey-QV11', linkText: '可参考的扩展' }],
-    },
-    代码库: {
-      Echarts: [{ link: 'http://echarts.baidu.com/examples/#chart-type-sankey', linkText: '官方实例' }],
-      AntV: [{ link: 'https://antv.alipay.com/zh-cn/g2/3.x/demo/relation/sankey-layouts.html', linkText: 'G2官方实例' },
-            { link: 'https://antv.alipay.com/zh-cn/g6/2.x/demo/flow/table-sankey.html', linkText: 'G6官方实例' }
-      ],
-      D3: [
-        { link: 'https://beta.observablehq.com/@mbostock/d3-sankey-diagram', linkText: '基本图形的实现' },
-        { link: 'https://bost.ocks.org/mike/sankey/', linkText: '使用D3的sankey plugin' },
-      ],
-      matplotlib: [{ link: 'https://matplotlib.org/api/sankey_api.html', linkText: 'matplotlib.sankey官方文档' },
-        { link: 'http://pyecharts.org/#/zh-cn/charts_base?id=sankey%EF%BC%88%E6%A1%91%E5%9F%BA%E5%9B%BE%EF%BC%89', linkText: 'pyecharts' }],
-      ggplot2: [
-        { link: 'https://cran.r-project.org/web/packages/ggalluvial/vignettes/ggalluvial.html', linkText: '使用ggalluvial包' },
-      ],
-    },
-    设计软件: {
-      PS: [
-        { link: '', linkText: '--' },
-      ],
-      AI: [{ link: '', linkText: '建议用专项工具生成桑基图后，下载svg文件，再在AI中进行编辑' }],
-      Sketch: [
-        { link: 'https://www.zcool.com.cn/work/ZMzI2MjQ4NTY=.html', linkText: '分步详细教程' },
-      ],
-    },
-  }}
+  "BI工具": {
+    "Excel": [],
+    "Power BI": [
+      {
+        "linkText": "视频教程",
+        "link": "https://powerbi.microsoft.com/en-us/blog/visual-awesomeness-unlocked-sankey-diagram/"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "Tableau制作桑基图分步详解",
+        "link": "https://www.theinformationlab.co.uk/2018/03/09/build-sankey-diagram-tableau-without-data-prep-beforehand/"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "可参考的扩展",
+        "link": "https://github.com/brianwmunz/d3sankey-QV11"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": "http://echarts.baidu.com/examples/#chart-type-sankey"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "G2官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/relation/sankey-layouts.html"
+      },
+      {
+        "linkText": "G6官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g6/2.x/demo/flow/table-sankey.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "基本图形的实现",
+        "link": "https://beta.observablehq.com/@mbostock/d3-sankey-diagram"
+      },
+      {
+        "linkText": "使用D3的sankey plugin",
+        "link": "https://bost.ocks.org/mike/sankey/"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "matplotlib.sankey官方文档",
+        "link": "https://matplotlib.org/api/sankey_api.html"
+      },
+      {
+        "linkText": "pyecharts",
+        "link": "http://pyecharts.org/#/zh-cn/charts_base?id=sankey%EF%BC%88%E6%A1%91%E5%9F%BA%E5%9B%BE%EF%BC%89"
+      }
+    ],
+    "ggplot2": [
+      {
+        "linkText": "使用ggalluvial包",
+        "link": "https://cran.r-project.org/web/packages/ggalluvial/vignettes/ggalluvial.html"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS": [],
+    "AI": [
+      {
+        "linkText": "建议用专项工具生成桑基图后，下载svg文件，再在AI中进行编辑"
+      }
+    ],
+    "Sketch": [
+      {
+        "linkText": "分步详细教程",
+        "link": "https://www.zcool.com.cn/work/ZMzI2MjQ4NTY=.html"
+      }
+    ]
+  }
+}}
 />
+
 
 ## 专项工具
 
-1. <a href="http://app.rawgraphs.io/" target="__blank">
-     Rawgraphs
-   </a>
-2. <a href="http://sankeymatic.com/build/" target="__blank">
-     Sankeymatic
-   </a>
-3. <a href="https://dydata.io/chart" target="__blank">
-    镝数
-</a>
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[Rawgraphs](<http://app.rawgraphs.io/>)
+
+（2）[Sankeymatic](<http://sankeymatic.com/build/>)
+
+（3）[镝数](<https://dydata.io/chart>)
+
 
 
 ## 学习资源
 
-1. <a href="https://www.zhihu.com/question/45502919" target="__blank">
-     桑基图有何作用，桑基图又是怎么做出来的？
-   </a>
-2. <a href="http://ecowest.org/2013/05/06/sankey-energy/" target="__blank">
-     桑基图历史：在能源业上的应用。
-   </a>
-3. <a href="https://www.azavea.com/blog/2017/08/09/six-sankey-diagram-tool/" target="__blank">
-     如何制作桑基图？6种工具推荐。
-   </a>
+<div id="learning-resource-graph-detail"></div>
+
+（1）[桑基图有何作用，桑基图又是怎么做出来的？](<https://www.zhihu.com/question/45502919>)
+
+（2）[桑基图历史：在能源业上的应用。](<http://ecowest.org/2013/05/06/sankey-energy/>)
+
+（3）[如何制作桑基图？6种工具推荐。](<https://www.azavea.com/blog/2017/08/09/six-sankey-diagram-tool/>)
+
+
 
 ## 参考文献
 
-<!-- 为了以下部分有统一的样式，以及展开收起效果，只能手写 hmtl 了 -->
+<div id="reference-graph-detail"></div>
 
 <Reference>
-  <ol>
-    <li>Sankey diagram, https://en.wikipedia.org/wiki/Sankey_diagram [Accessed 10 December 2018].</li>
-    <li>DensityDesign Lab. (2017). On Their Way: the Journey of Foreign Fighters. [online]. Available at: https://www.informationisbeautifulawards.com/showcase/2323-on-their-way-the-journey-of-foreign-fighters [Accessed 10 December 2018].</li>
-    <li>The Economist. (2015). Seeking safety. [online]. Available at: https://www.economist.com/graphic-detail/2015/05/12/seeking-safety [Accessed 10 December 2018].</li>
-    <li>Kight, S.W. (2017). Who Trump attacks the most on Twitter. [online]. Available at: https://www.axios.com/who-trump-attacks-the-most-on-twitter-1513305449-f084c32e-fcdf-43a3-8c55-2da84d45db34.html [Accessed 10 December 2018].</li>
-    <li>Jain, A. (2018). RAPE IN INDIA A visual exploration of systemic rape culture. [online]. Available at: https://adityajain15.github.io/Rape_In_India/ [Accessed 10 December 2018].</li>
-    <li>王小美吖. (2017). 桑基图. [online]. Available at: https://me.bdp.cn/share/index.html?shareId=sdo_667cd39c7baa7ee3e8e6ca97109ec6b0 [Accessed 10 December 2018].</li>
-    <li>The Economist. (2016). American newspapers resoundingly reject Donald Trump. [online]. Available at: https://www.economist.com/graphic-detail/2016/11/03/american-newspapers-resoundingly-reject-donald-trump [Accessed 10 December 2018].</li>
-    <li>Cindy etc. (2017). 桑基图有何作用，桑基图又是怎么做出来的？. [online]. Available at: https://www.zhihu.com/question/45502919 [Accessed 10 January 2019].</li>
-    <li>Tobin, M. (2013). GO WITH THE FLOW: SANKEY DIAGRAMS ILLUSTRATE ENERGY ECONOMY. [online]. Available at: http://ecowest.org/2013/05/06/sankey-energy/ [Accessed 10 January 2019].</li>
-    <li>Heslin, J. (2017). Sankey Diagrams: Six Tools for Visualizing Flow Data. [online]. Available at: https://www.azavea.com/blog/2017/08/09/six-sankey-diagram-tool/ [Accessed 10 January 2019].</li>
-    <li>Hirst, T. (2013). Reshaping Horse Import/Export Data to Fit a Sankey Diagram. [online]. Available at: https://blog.ouseful.info/2013/02/18/reshaping-horse-importexport-data-to-fit-a-sankey-diagram/ [Accessed 19 February 2019].</li>
-  </ol>
+1.Wikipedia. (n.d.). Sankey diagram. [online]. Available at: https://en.wikipedia.org/wiki/Sankey_diagram [Accessed 10 December 2018].
+
+2.DensityDesign Lab. (2017). On Their Way: the Journey of Foreign Fighters. [online]. Available at: https://www.informationisbeautifulawards.com/showcase/2323-on-their-way-the-journey-of-foreign-fighters [Accessed 10 December 2018].
+
+3.The Economist. (2015). Seeking safety. [online]. Available at: https://www.economist.com/graphic-detail/2015/05/12/seeking-safety [Accessed 10 December 2018].
+
+4.Kight, S.W. (2017). Who Trump attacks the most on Twitter. [online]. Available at: https://www.axios.com/who-trump-attacks-the-most-on-twitter-1513305449-f084c32e-fcdf-43a3-8c55-2da84d45db34.html [Accessed 10 December 2018].
+
+5.Jain, A. (2018). RAPE IN INDIA A visual exploration of systemic rape culture. [online]. Available at: https://adityajain15.github.io/Rape_In_India/ [Accessed 10 December 2018].
+
+6.王小美吖. (2017). 桑基图. [online]. Available at: https://me.bdp.cn/share/index.html?shareId=sdo_667cd39c7baa7ee3e8e6ca97109ec6b0 [Accessed 10 December 2018].
+
+7.The Economist. (2016). American newspapers resoundingly reject Donald Trump. [online]. Available at: https://www.economist.com/graphic-detail/2016/11/03/american-newspapers-resoundingly-reject-donald-trump [Accessed 10 December 2018].
+
+8.Netz, A. (2015). Visual Awesomeness Unlocked – Sankey diagram. [online]. Available at: https://powerbi.microsoft.com/en-us/blog/visual-awesomeness-unlocked-sankey-diagram/ [Accessed 10 December 2018].
+
+9.Baldwin, I. (2018). How to build a Sankey diagram in Tableau without any data prep beforehand. [online]. Available at: https://www.theinformationlab.co.uk/2018/03/09/build-sankey-diagram-tableau-without-data-prep-beforehand/ [Accessed 10 December 2018].
+
+10.Echarts team. (n.d.). 桑基图. [online]. Available at: https://echarts.baidu.com/examples/#chart-type-sankey [Accessed 10 December 2018].
+
+11.AntV team. (n.d.). 桑基图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/relation/sankey-layouts.html [Accessed 10 December 2018].
+
+12.AntV team. (n.d.). 表格桑基图. [online]. Available at: https://antv.alipay.com/zh-cn/g6/2.x/demo/flow/table-sankey.html [Accessed 10 December 2018].
+
+13.Bostock, M. (2018). D3 Sankey Diagram. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-sankey-diagram [Accessed 10 December 2018].
+
+14.Bostock, M. (2012). Sankey Diagram. [online]. Available at: https://bost.ocks.org/mike/sankey/ [Accessed 10 December 2018].
+
+15.Matplotlib team. (n.d.). sankey. [online]. Available at: https://matplotlib.org/api/sankey_api.html [Accessed 10 December 2018].
+
+16.Brunson, J.C. (n.d.). Alluvial Diagrams in ggplot2. [online]. Available at: https://cran.r-project.org/web/packages/ggalluvial/vignettes/ggalluvial.html [Accessed 10 December 2018].
+
+17.Gaia_pang. (2019). 【sketch教程】一分钟搞定桑基图. [online]. Available at: https://www.zcool.com.cn/work/ZMzI2MjQ4NTY=.html [Accessed 10 January 2019].
+
+18.Cindy etc. (2017). 桑基图有何作用，桑基图又是怎么做出来的？. [online]. Available at: https://www.zhihu.com/question/45502919 [Accessed 10 January 2019].
+
+19.Tobin, M. (2013). GO WITH THE FLOW: SANKEY DIAGRAMS ILLUSTRATE ENERGY ECONOMY. [online]. Available at: http://ecowest.org/2013/05/06/sankey-energy/ [Accessed 10 January 2019].
+
+20.Heslin, J. (2017). Sankey Diagrams: Six Tools for Visualizing Flow Data. [online]. Available at: https://www.azavea.com/blog/2017/08/09/six-sankey-diagram-tool/ [Accessed 10 January 2019].
+
+21.Hirst, T. (2013). Reshaping Horse Import/Export Data to Fit a Sankey Diagram. [online]. Available at: https://blog.ouseful.info/2013/02/18/reshaping-horse-importexport-data-to-fit-a-sankey-diagram/ [Accessed 19 February 2019].
 </Reference>
 
 ## 贡献者
 
-<!-- 由于一些工作不体现在 github 提交上，所以还是维持之前手工维护的方式 -->
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
 
 <Contributors
   data={{
-    Olivia: [{ date: '2018年12月', content: '文档资料搜集、整理和编辑' }],
-    Gaia: [{ date: '2019年1月', content: '贡献sketch教程' },{ date: '2019年2月', content: '绘图' }],
-    Neo: [{ date: '2019年2月', content: '文档审核与编辑' }],
-  }}
+  "Olivia": [
+    {
+      "date": 1543593600000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    },
+    {
+      "date": 1546272000000,
+      "content": "贡献sketch教程"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ]
+}}
+  merge
 />

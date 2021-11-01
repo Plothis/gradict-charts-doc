@@ -1,0 +1,329 @@
+
+# 弦图 - Chord Diagram
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/ygsqKZY/bfe60ee122e9aeee86fc7b67374c765d.png)
+
+弦图，是一种表示实体之间相互关系的图形方法。直观的看，弦图由节点分段和弧形的边构成。节点分段沿圆周排列，节点之间的关系通过使用弧线或[贝塞尔曲线](<https://zh.wikipedia.org/zh/%E8%B2%9D%E8%8C%B2%E6%9B%B2%E7%B7%9A>)相互连接。值得注意的是，这些弧线是有宽度的，且起止宽度可以不一样。这本质上是因为，弧线的宽度反映了一种矩阵关系（例如A[1,2]=3，A[2,1]=4），因此取值是双向的。
+
+弦图所应用的这种表达方法，称为[“分层的边缘捆绑”](<#learning-resource-graph-detail>)（hierarchical edge bundling），它可以在“多类别+复杂关系”的情况下，有效降低视觉复杂度。就场景而言，弦图最常被用来表现复杂的关系、以及数据的流动情况等。
+
+对于弦图来说，交互往往是必要的。加入高亮、数据标签等功能，可以让读者更容易的阅读图表、进行自由探索。有时候，由于图表确实比较复杂，制图者也会选择制作故事线，一步步带领读者领会。
+
+设计上，建议使用不同的颜色，将数据分组到不同的类别，有助于比较和区分。同时，注意用色的区分度，避免画面杂乱。对于弦的着色，可以自行设定标准，如采用颜色渐变，或者[根据数值较大的那一方来着色](<#usage-scene-graph-detail>)。
+
+在弦图布局上，一般建议使用符合最少重叠原则的布局。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/44SDrYC/c378c637bd1d5025dc020019ea529e71.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+适合数据的类别很多、关系很复杂时，特别是双向关系（数据是矩阵形态的）。弦图最常用来表现复杂的关系（例如[人与其他物种之间基因的联系](<#design-case-graph-detail>)）、以及数据的流动情况（如[手机市场份额流动](<#usage-scene-graph-detail>)）等。
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+当数据量较大，特别是没有交互功能时，要慎用弦图，否则会非常影响阅读。下图的案例（Crimi, 2016）用和弦图表现了人大脑中各个区域的联系。由于数据量很大、关系很复杂，尽管有交互，也很难辨识。
+
+![null](//i.ibb.co/fG4KGcZ/2-86965402736ee15b4b5998f1cf687fe6.png)
+
+因此，作者还辅以了矩阵布局，这样，读者其实更容易找到每对数据，及其对应的值。
+
+![null](<http://www.alessandrocrimi.com/chords/initial_0579_03.jpg>)
+
+或者，如果希望描摹数据间的关系网、找出其中的关键节点等，可以使用[力导向图](<http://www.tuzhidian.com:3000/chart?id=5c56e3134a8c5e048189c6c4>)。
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="早在2007年，纽约时报就用和弦图展示人与其他物种之间基因的联系。着色的类别从左到右分别是老鼠、恒河猴、黑猩猩、鸡。相似的基因，被连接到了下方的“人类”部分。颜色的选择上，区分度很大，一目了然。在排版上也加入了小图和适当的介绍，方便阅读。"
+    link="https://archive.nytimes.com/www.nytimes.com/imagepages/2007/01/22/science/20070123_SCI_ILLO.html"
+    image="//i.ibb.co/ctdJ6y1/b70a2e3bc7afe88c14ac0cf7b2c6ebad.png"
+/>
+            
+<DesignCaseItem
+    description="这是一个交互弦图。点击的时候，只显示与点击对象相关的线条，因此看上去很干净。同时，作者对连线的弧度做了柔化，因此看上去像温柔的树枝。在这个案例中，“和弦”的宽度没有数量上的意义，因此是按渐变色着色的。"
+    link="http://well-formed.eigenfactor.org/radial.html"
+    image="//i.ibb.co/LzbDSsF/c44a95b1dca775c5bda209214d84038c.png"
+/>
+            
+<DesignCaseItem
+    description="作者用弦图画出的π的小数位置关系，展现出数学的天然之美，用色缤纷但并不杂乱。"
+    link="https://fineartamerica.com/featured/three-friends-2-cristian-vasile.html"
+    image="//i.ibb.co/V9c3FfF/pai-8160479e1388ad5d0f50e6ad71b637a9.jpg"
+/>
+            
+<DesignCaseItem
+    description="实物弦图，创意马赛克。"
+    link="https://sperlingmosaics.com/2012/05/wip-wednesday-chord-diagram-9-may-2012/"
+    image="//i.ibb.co/B223Rqx/bfc3092a3fe2f455e3b03125f172c76a.png"
+/>
+            
+<DesignCaseItem
+    description="此作品将弦图与地图相结合，构思新颖、布局颇具设计感。"
+    link="https://www.behance.net/gallery/236395/Digital-Nostalgia"
+    image="//i.ibb.co/RDFcZ38/035fc3c67c5e1675acb30bfbb26765c7.jpg"
+/>
+            
+<DesignCaseItem
+    description="以讲故事方法推进的大型交互项目，讲述了世界难民流动情况。"
+    link="https://csaladenes.wordpress.com/2015/06/21/a-visual-exploratory-of-refugee-flows-over-the-world-using-dynamic-chord-diagrams/"
+    image="//i.loli.net/2021/11/02/LADT84z9HaReJjh.png"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）d3创始人Mike Bostock（2012）用Uber数据做的旧金山周边的打车情况，可交互。“弦”的宽度表示两地之间打车的相对频率，越宽代表越频繁的乘坐。“和弦”的颜色由数值大的那一方决定，比如，有2.2％的人从南部市场（蓝色）打车到市中心（粉色），但只有1.2％的人从市中心打车到南部市场，因此它们之间的和弦为蓝色。[[点击访问原作品网站]](<https://bost.ocks.org/mike/uberdata/>)
+
+![null](http://www.tuzhidian.com:3001/upload/images/2019/屏幕快照 2018-12-22 下午7.09.32_705943f71ecd5f55f7de19d1c65c4440.png)
+
+（2）这一案例（Bremer, 2014
+
+）很好的展示了各大手机品牌的竞争情况。着色上，同样按“量多者”着色。例如，左图意在表示，许多使用诺基亚的用户，转而使用了三星。但原本使用三星的用户，换成诺基亚的却很少。因此，该和弦使用了三星的颜色，即紫色。这个案例的特别之处还在于，并不一开始就把复杂的弦图摆在你面前，而是用讲故事的方法一步步展开。[[点击访问原作品网站]](<https://www.visualcinnamon.com/2014/12/using-data-storytelling-with-chord.html>)
+
+![null](<//i.ibb.co/Gcr8RwR/378d7f6314df083ca4e836b7eb236088.png>)
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [],
+    "Power BI": [
+      {
+        "linkText": "使用Chord插件",
+        "link": "https://appsource.microsoft.com/en-us/product/power-bi-visuals/WA104380761?tab=Overview"
+      },
+      {
+        "linkText": "基本操作教程",
+        "link": "http://dy.163.com/v2/article/detail/CQ7Q589A0524HOUN.html"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "tableau public实例",
+        "link": "https://public.tableau.com/profile/datainsight2610#!/vizhome/PhoneChord_0/ChordDiagramBarChart"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "使用extension功能",
+        "link": "https://biexperience.wordpress.com/2014/05/07/chord-diagram-extension-object/"
+      },
+      {
+        "linkText": "使用extension功能2",
+        "link": "https://github.com/VizMatt/QlikSense_ChordDiagram"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例:echarts2版本",
+        "link": "https://echarts.baidu.com/echarts2/doc/example.html"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "G2官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/relation/chord.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "官方API说明",
+        "link": "https://d3-wiki.readthedocs.io/zh_CN/master/Chord-Layout/"
+      },
+      {
+        "linkText": "基础实例",
+        "link": "https://beta.observablehq.com/@mbostock/d3-chord-diagram"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "Plotly：实现基本和弦图教程",
+        "link": "https://plot.ly/python/filled-chord-diagram/"
+      },
+      {
+        "linkText": "Bokeh：基本和弦图实例",
+        "link": "https://python-graph-gallery.com/231-chord-diagram-with-bokeh/"
+      }
+    ],
+    "ggplot2": [
+      {
+        "linkText": "Circlize package: 基本和弦图实例",
+        "link": "http://www.r-graph-gallery.com/123-circular-plot-circlize-package-2/"
+      },
+      {
+        "linkText": "Circlize package: 双层和弦图实例",
+        "link": "http://www.r-graph-gallery.com/122-a-circular-plot-with-the-circlize-package/"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS": [],
+    "AI": [],
+    "Sketch": []
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[Flourish](<https://app.flourish.studio/@flourish/chord-diagram>)
+
+（2）[Circos](<http://circos.ca>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）[“分层的边缘捆绑”概念的提出，参见论文。](<https://ieeexplore.ieee.org/abstract/document/4015425>)
+
+（2）[由场景案例2作者撰写，复盘如何用d3玩转和弦图，做出类似桑基图的效果。](<https://www.visualcinnamon.com/2015/08/stretched-chord.html>)
+
+（3）[基于R语言的Circlize库，支持各种圆形图表／图案的绘制。](<https://github.com/jokergoo/circlize>)
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+1.Holten, D. (2006). Hierarchical edge bundles: Visualization of adjacency relations in hierarchical data. IEEE Transactions on visualization and computer graphics, 12(5), pp.741-748.
+
+2.AntV墨者学院. (n.d.). 和弦图. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/chord.html [Accessed 3 December 2018].
+
+3.The New York Times. (2007). Close-ups of the Genome, Species by Species by Species. [online]. Available at: https://archive.nytimes.com/www.nytimes.com/imagepages/2007/01/22/science/20070123_SCI_ILLO.html [Accessed 26 December 2018].
+
+4.Eigenfactor. (n.d.). Citation Patterns. [online]. Available at: http://well-formed.eigenfactor.org/radial.html [Accessed 26 December 2018].
+
+5.Vasile, C. (2014). Three Friends #2. [online]. Available at: https://fineartamerica.com/featured/three-friends-2-cristian-vasile.html [Accessed 26 December 2018].
+
+6.Sperling, J. (2012). WIP Wednesday: “Chord Diagram” (9 May 2012). [online]. Available at: https://sperlingmosaics.com/2012/05/wip-wednesday-chord-diagram-9-may-2012/ [Accessed 26 December 2018].
+
+7.Button, P. (2009). Digital Nostalgia. [online]. Available at: https://www.behance.net/gallery/236395/Digital-Nostalgia [Accessed 1 February 2019].
+
+8.Bostock, M. (2012). Uber Rides by Neighborhood. [online]. Available at: https://bost.ocks.org/mike/uberdata/ [Accessed 26 December 2018].
+
+9.Bremer, N. (2014). Using “Data Storytelling” with a chord diagram. [online]. Available at: https://www.visualcinnamon.com/2014/12/using-data-storytelling-with-chord.html [Accessed 26 December 2018].
+
+10.Csala, D. (2015). A visual exploratorium of refugee flows over the world using dynamic chord diagrams. [online]. Available at: https://csaladenes.wordpress.com/2015/06/21/a-visual-exploratory-of-refugee-flows-over-the-world-using-dynamic-chord-diagrams/ [Accessed 26 December 2018].
+
+11.Excel数据分析. (2017). Excel&Power BI双剑合璧：和弦图（Chord）. [online]. Available at: http://dy.163.com/v2/article/detail/CQ7Q589A0524HOUN.html [Accessed 26 December 2018].
+
+12.DataInsight. (2015). PhoneChord. [online]. Available at: https://public.tableau.com/profile/datainsight2610#!/vizhome/PhoneChord_0/ChordDiagramBarChart [Accessed 26 December 2018].
+
+13.Vitantonio, J.I. (2014). Chord diagram extension object. [online]. Available at: https://biexperience.wordpress.com/2014/05/07/chord-diagram-extension-object/ [Accessed 26 December 2018].
+
+14.Echarts team. (n.d.). 和弦图. [online]. Available at: https://echarts.baidu.com/echarts2/doc/example.html [Accessed 26 December 2018].
+
+15.AntV team. (n.d.). 和弦图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/relation/chord.html [Accessed 26 December 2018].
+
+16.Bostock, M. (2018). D3 Chord Diagram. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-chord-diagram [Accessed 26 December 2018].
+
+17.Plotly. (n.d.). Filled Chord Diagram in Python. [online]. Available at: https://plot.ly/python/filled-chord-diagram/ [Accessed 26 December 2018].
+
+18.Holtz, Y. (n.d.). #231 Chord diagram with Bokeh. [online]. Available at: https://python-graph-gallery.com/231-chord-diagram-with-bokeh/ [Accessed 26 December 2018].
+
+19.The R Graph Gallery. (n.d.). #122 A CIRCULAR PLOT WITH THE CIRCLIZE PACKAGE. [online]. Available at: http://www.r-graph-gallery.com/122-a-circular-plot-with-the-circlize-package/ [Accessed 26 December 2018].
+
+20.The R Graph Gallery. (n.d.). #123 CIRCULAR PLOT – CIRCLIZE PACKAGE (2). [online]. Available at: http://www.r-graph-gallery.com/123-circular-plot-circlize-package-2/ [Accessed 26 December 2018].
+
+21.Bremer, N. (2015). Hacking a chord diagram to visualize a flow. [online]. Available at: https://www.visualcinnamon.com/2015/08/stretched-chord.html [Accessed 26 December 2018].
+
+22.Crimi, A. (2016). Chord diagrams with d3js. [online]. Available at: http://www.alessandrocrimi.com/chords/test_chord.html [Accessed 19 February 2019].
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "Olivia": [
+    {
+      "content": "文档资料搜集、整理和编辑",
+      "date": 1543593600000
+    }
+  ],
+  "​Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图、贡献设计案例"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ]
+}}
+  merge
+/>

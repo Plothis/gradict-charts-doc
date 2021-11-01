@@ -141,7 +141,7 @@ export function parseChartFromMDX(nodes: Node[]) {
     if (childMdx && childMdx.mdxAST && Array.isArray(childMdx.mdxAST.children)) {
       let hasDetailOverview = false
       for (const ASTNode of childMdx.mdxAST.children) {
-        if (ASTNode.type === 'jsx' && (ASTNode.value.includes(`<section class='chart-detail-overview'`) || ASTNode.value.includes(`<section class="chart-detail-overview"`))) {
+        if (ASTNode.type === 'jsx' && (ASTNode.value.includes(`<section id="overview-graph-detail-content"`) || ASTNode.value.includes(`<section class="chart-detail-overview"`))) {
           hasDetailOverview = true
         }
         console.log(ASTNode)

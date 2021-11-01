@@ -2,178 +2,285 @@
 # 折线图 - Line Chart
 
 
-<section class='chart-detail-overview'>
+<section id="overview-graph-detail-content">
 
-![chart-overview](http://www.tuzhidian.com:3001/upload/images/2019/%E6%8A%98%E7%BA%BF%E5%9B%BE_fd5faae15fa0d92fd29936a0c56807aa.png)
+![chart-overview](//i.ibb.co/JQTK3f0/fd5faae15fa0d92fd29936a0c56807aa.png)
 
-<div id="overview-graph-detail-content">
-
-折线图是是一个由[笛卡尔坐标系](https://zh.wikipedia.org/zh/%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB)（直角坐标系），一些点和线组成的统计图表，常用来表示数值随连续时间间隔或有序类别的变化。在折线图中，x轴通常用作连续时间间隔或有序类别（比如阶段1，阶段2，阶段3）。y轴用于量化的数据，如果为负值则绘制于y轴下方。连线用于连接两个相邻的数据点。
+折线图是是一个由[笛卡尔坐标系](<https://zh.wikipedia.org/zh/%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB>)（直角坐标系），一些点和线组成的统计图表，常用来表示数值随连续时间间隔或有序类别的变化。在折线图中，x轴通常用作连续时间间隔或有序类别（比如阶段1，阶段2，阶段3）。y轴用于量化的数据，如果为负值则绘制于y轴下方。连线用于连接两个相邻的数据点。
 
 折线图用于分析事物随时间或有序类别而变化的趋势。如果有多组数据，则用于分析多组数据随时间变化或有序类别的相互作用和影响。折线的方向表示正/负变化。折线的斜率表示变化的程度。
 
 从数据上来说，折线图需要一个连续时间字段或一个分类字段和至少一个连续数据字段。
-</div>
+
+
+
 </section>
 
 ## 图表属性
 
-<ChartProps />
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
 
 ## 图表详解
 
 ### 元素构成
 
+<section id="chart-detail-graph-detail-content">
+
 由笛卡尔坐标系，至少两个定量数据点，连线组成。x轴代表连续时间数据或有序类别，y轴代表连续定量数据。定量数据点分别在x轴和y轴做映射。连线连接两个相邻数据点显示变化趋势。
-![](http://139.224.62.3:3001/upload/images/network/1550046325665-82b39640-116d-49f3-8eb7-ce2e140af4a0.png)
+
+
+
+![null](//i.ibb.co/n3KbmkM/1550046325665-82b39640-116d-49f3-8eb7-ce2e140af4a0.png)
+
+
+
+</section>
 
 ### 适用场景
 
-（1）同一变量随时间或有序类别的变化。下图（Nudelman, 2017）展示了2000到2016年mac销售额在苹果利润的占比的变化趋势。
+<section id="appropriate-scene-graph-detail">
 
-![](http://139.224.62.3:3001/upload/images/network/1547818461434-379f5863-1b5a-42f1-a443-a12c93c31247.png?x-oss-process=image/resize,w_796)
+（1）同一变量随时间或有序类别的变化。下图（Nudelman, 2017
 
-（2）多个随时间或有序类别变化的变量对比，如下图（Gabriel, no date）。
+）展示了2000到2016年mac销售额在苹果利润的占比的变化趋势。
 
-![](http://139.224.62.3:3001/upload/images/network/1548740361196-3f4c2f34-92c6-480b-a5a4-699b97edd9a1.png?x-oss-process=image/resize,w_802)
+![null](//i.ibb.co/7vV9Thp/1547818461434-379f5863-1b5a-42f1-a443-a12c93c31247.png?x-oss-process=image/resize,w_796)
+
+（2）多个随时间或有序类别变化的变量对比，如下图（Gabriel, no date
+
+）。
+
+![null](<//i.ibb.co/Bs33j2z/1548740361196-3f4c2f34-92c6-480b-a5a4-699b97edd9a1.png?x-oss-process=image/resize,w_802>)
+
+
+
+</section>
 
 ### 不适用场景
 
-（1）x轴节点过多，如下图（Matson, 2016）。
+<section id="unappropriate-scene-graph-detail">
+
+（1）x轴节点过多，如下图（Matson, 2016
+
+）。
+
+![null](//i.ibb.co/26jDGQ5/1547820464720-69ddcde6-2393-458c-959d-f773fce76e0d.png)
+
+（2）数据样本过多，导致折线堆积，难以聚焦到重点。例如，彭博的这篇文章（Randall and Migliozzi, 
+
+2018）分析了1880-2017年的全球气温状况，每一根折线代表一年的逐月气温，因此折线多达上百根。解决办法：作者巧妙的加入了交互和动画，让折线一根根渐次出现，同时只保留相对重要的年份，其他的年份都用灰色隐去，大大减少了视觉干扰。[[点击访问原作品网页]](<https://www.bloomberg.com/graphics/hottest-year-on-record/?utm_content=buffer56227&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer>)
+
+![null](<//i.ibb.co/JtHRq47/1547820281158-843fcc9f-5ed7-4db9-a6d9-6e961adfaf08.png>)
+
+（3）变量数值大多情况下在0，如下图（Matson, 2016
+
+）。
+
+![null](<//i.ibb.co/nzWmSDS/1547820404130-56053a08-e745-436e-8484-5314bc31092a.png>)
 
 
-![](http://139.224.62.3:3001/upload/images/network/1547820464720-69ddcde6-2393-458c-959d-f773fce76e0d.png)
 
-（2）数据样本过多，导致折线堆积，难以聚焦到重点。例如，彭博的这篇文章（<span style={{"backgroundColor":"rgb(255, 255, 255)"}}>Randall and Migliozzi, </span>2018）分析了1880-2017年的全球气温状况，每一根折线代表一年的逐月气温，因此折线多达上百根。解决办法：作者巧妙的加入了交互和动画，让折线一根根渐次出现，同时只保留相对重要的年份，其他的年份都用灰色隐去，大大减少了视觉干扰。[[点击访问原作品网页]](https://www.bloomberg.com/graphics/hottest-year-on-record/?utm_content=buffer56227&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer)
-
-![](http://139.224.62.3:3001/upload/images/network/1547820281158-843fcc9f-5ed7-4db9-a6d9-6e961adfaf08.png)
+</section>
 
 ## 相似图形
 
-<SimilarCharts></SimilarCharts>
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
 
 ## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
 <DesignCaseContainer>
-    <DesignCaseItem
-        description="删去不必要的网格线及坐标轴线。在折线图上可标记出重要的节点，并给予讲解。"
-        link="https://www.thepaper.cn/newsDetail_forward_2928719"
-        image="http://www.tuzhidian.com:3001/upload/images/2019/数说｜春节催婚旺季将至，其实你们和爸妈说的都没错_993d968ff6204c62ecac4802080b7d44.jpg"
-    />
-    
-    <DesignCaseItem
-        description="实物折线。"
-        link="http://www.topdesignmag.com/9-unique-and-extremely-interesting-styled-infographics/"
-        image="http://www.tuzhidian.com:3001/upload/images/2019/实物_a3aeea426b487263206a61f477c9d3aa.png"
-    />
-    
-    <DesignCaseItem
-        description="人体互动。"
-        link="https://laughingsquid.com/photographer-uses-physical-objects-to-create-ingenious-photographic-infographics/"
-        image="http://www.tuzhidian.com:3001/upload/images/2019/人体_3d32d3610d586e62c9a25254879cfae7.jpeg"
-    />
-    
-    <DesignCaseItem
-        description="对于数据点过多的情况，可以做成可交互版本。在交互版本可以给x轴添加scale或者可滑动的选区。这样既可以避免数据点过于密集的情况，也能让用户集中在一个特定的时间选区。"
-        link="https://nbremer.github.io/babynames/"
-        image="http://www.tuzhidian.com:3001/upload/images/2019/交互_083adca06162ed03da5e5ff2446bc5a0.png"
-    />
+  
+<DesignCaseItem
+    description="删去不必要的网格线及坐标轴线。在折线图上可标记出重要的节点，并给予讲解。"
+    link="https://www.thepaper.cn/newsDetail_forward_2928719"
+    image="http://www.tuzhidian.com:3001/upload/images/2019/数说｜春节催婚旺季将至，其实你们和爸妈说的都没错_993d968ff6204c62ecac4802080b7d44.jpg"
+/>
+            
+<DesignCaseItem
+    description="实物折线。"
+    link="http://www.topdesignmag.com/9-unique-and-extremely-interesting-styled-infographics/"
+    image="//i.ibb.co/hHxZwCQ/a3aeea426b487263206a61f477c9d3aa.png"
+/>
+            
+<DesignCaseItem
+    description="人体互动。"
+    link="https://laughingsquid.com/photographer-uses-physical-objects-to-create-ingenious-photographic-infographics/"
+    image="//i.ibb.co/s6ZbhB1/3d32d3610d586e62c9a25254879cfae7.jpg"
+/>
+            
+<DesignCaseItem
+    description="对于数据点过多的情况，可以做成可交互版本。在交互版本可以给x轴添加scale或者可滑动的选区。这样既可以避免数据点过于密集的情况，也能让用户集中在一个特定的时间选区。"
+    link="https://nbremer.github.io/babynames/"
+    image="//i.ibb.co/YhJW95T/083adca06162ed03da5e5ff2446bc5a0.png"
+/>
+            
 </DesignCaseContainer>
 
 ## 使用场景
 
-<div id="usage-scene-graph-detail-content" class="rich-text-html">
+<div id="usage-scene-graph-detail-content"></div>
 
-<span style={{"color":"rgb(51, 51, 51)"}}>（1）折线图最早的出处和时间不详，可能在10-11世纪的一本叫《De cursu per zodiacum 黄道带的周期》的手稿的附录里。图中用空间-时间的网格展现了行星周期性的运动，其中x轴代表了时间。从图中可以不难看出7个行星的运动周期（</span><span style={{"color":"rgb(38, 38, 38)","backgroundColor":"rgb(255, 255, 255)"}}>镝次元数据传媒实验室</span><span style={{"backgroundColor":"rgb(255, 255, 255)"}}>, 2017</span><span style={{"color":"rgb(51, 51, 51)"}}>）。</span>[[点击阅读更多]](https://www.dydata.io/article/p/926614701425762304)
+（1）折线图最早的出处和时间不详，可能在10-11世纪的一本叫《De cursu per zodiacum 黄道带的周期》的手稿的附录里。图中用空间-时间的网格展现了行星周期性的运动，其中x轴代表了时间。从图中可以不难看出7个行星的运动周期（
 
-![](http://139.224.62.3:3001/upload/images/network/1547825655279-d84a3c44-1d3f-48a4-b22c-4ff5fdce646b.png?x-oss-process=image/resize,w_872)
+镝次元数据传媒实验室
 
-<span style={{"color":"rgb(51, 51, 51)"}}>（2）"澎湃新闻"（徐雪晴</span><span style={{"backgroundColor":"rgb(255, 255, 255)"}}>, 王亚赛, 2019</span><span style={{"color":"rgb(51, 51, 51)"}}>）用折线图对比了不同时代日本人均每日消耗5种肉类的消费量，并高亮出鲸肉的曲线。单看鲸肉曲线可以发现人均每日鲸肉消费量呈下降趋势。同时跟其他肉类相比，从上个世纪17年代左右开始便是消费量最低的肉类。数据源包括了一个连续时间字段（1960年到2016年），5个类别字段（海鲜不含鲸肉、鸡肉、猪肉、牛肉、鲸肉），以及5组数值（以克为单位用来表示人均消费量）。</span>[[点击访问原作品网页]](https://www.thepaper.cn/newsDetail_forward_2861250)
+, 2017
 
-![](http://139.224.62.3:3001/upload/images/network/1547826128788-dee53483-7579-459e-8bc0-44630a596964.jpeg)
+）。
 
-（3）下列报告（<span style={{"backgroundColor":"rgb(255, 255, 255)"}}>任泽平, 熊柴, 周哲, 2019</span>）中用折线图（图1）展示了从1950到2018的出生人口统计数据，并用另外的颜色展示了2019到2050的预测数据。两者结合在同一图表中来支持‘出生人口即将大幅下降’的观点。同时用折线图展示和对比了联合国关于中国人口预测的几个方案。
+[[点击阅读更多]](<https://www.dydata.io/article/p/926614701425762304>)
+
+![null](//i.loli.net/2021/11/02/lrgKRpXOq1SZmzx.png?x-oss-process=image/resize,w_872)
+
+（2）"澎湃新闻"（徐雪晴
+
+, 王亚赛, 2019
+
+）用折线图对比了不同时代日本人均每日消耗5种肉类的消费量，并高亮出鲸肉的曲线。单看鲸肉曲线可以发现人均每日鲸肉消费量呈下降趋势。同时跟其他肉类相比，从上个世纪17年代左右开始便是消费量最低的肉类。数据源包括了一个连续时间字段（1960年到2016年），5个类别字段（海鲜不含鲸肉、鸡肉、猪肉、牛肉、鲸肉），以及5组数值（以克为单位用来表示人均消费量）。
+
+[[点击访问原作品网页]](<https://www.thepaper.cn/newsDetail_forward_2861250>)
+
+![null](<//i.ibb.co/M1jt9vh/1547826128788-dee53483-7579-459e-8bc0-44630a596964.jpg>)
+
+（3）下列报告（任泽平, 熊柴, 周哲, 2019
+
+）中用折线图（图1）展示了从1950到2018的出生人口统计数据，并用另外的颜色展示了2019到2050的预测数据。两者结合在同一图表中来支持‘出生人口即将大幅下降’的观点。同时用折线图展示和对比了联合国关于中国人口预测的几个方案。
 
 图1的数据包括了一个连续时间字段（从1950年到2050年），一组分类字段（实际出生和预测两个类别），一组数值（单位万人表示从1960到2018的出生人口）以及另外一组数值（表示2019到2050的预测出生人口）。
 
-图2的数据包括一个一个连续时间字段（从1950年到2100年），一组分类字段（包括联合国高方案，种方案等5个预测方案和一个实际中国人口一共6个类别）一组数值（单位亿人表示中国人口的实际数量），5组数值（分别用来表示5个预测方案的中国人口）。[[点击访问原作品网页]](https://www.huxiu.com/article/279375.html)
+图2的数据包括一个一个连续时间字段（从1950年到2100年），一组分类字段（包括联合国高方案，种方案等5个预测方案和一个实际中国人口一共6个类别）一组数值（单位亿人表示中国人口的实际数量），5组数值（分别用来表示5个预测方案的中国人口）。[[点击访问原作品网页]](<https://www.huxiu.com/article/279375.html>)
 
-![](http://139.224.62.3:3001/upload/images/network/1548744049564-e5212e8a-639c-43de-a014-a83239ed4318.png?x-oss-process=image/resize,w_608)![](http://139.224.62.3:3001/upload/images/network/1548744054232-fed85385-1684-4c2e-a65a-5f9f6d4b6cda.png?x-oss-process=image/resize,w_612)
-</div>
+![null](<//i.ibb.co/JcvYqfZ/1548744049564-e5212e8a-639c-43de-a014-a83239ed4318.png?x-oss-process=image/resize,w_608>)
+![null](<//i.loli.net/2021/11/02/cwnPZAumlO3e645.png?x-oss-process=image/resize,w_612>)
+
+
 
 ## 制作教程
 
 <!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
 
+<div id="production-tutorial-graph-detail"></div>
+
 <ProductionTutorials
   data={{
-    'BI 工具':{
-      "Excel": [
-        {
-          "linkText": "官方基础教程",
-          "link": "https://support.office.com/zh-cn/article/在散点图或折线图中显示数据-4570a80f-599a-4d6b-a155-104a9018b86e?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN"
-        }
-      ],
-      "Power BI": [
-        {
-          "linkText": "基础教程",
-          "link": "https://www.jianshu.com/p/ca3e5412ffcd"
-        }
-      ],
-      "Tableau": [
-        {
-          "linkText": "官方基础教程",
-          "link": "https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_line.htm"
-        }
-      ],
-      "QlikView": [
-        {
-          "linkText": "官方基础教程",
-          "link": "https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Line_Chart.htm"
-        }
-      ]
-    },
-    代码库: {
-      Echarts: [{ link: 'http://echarts.baidu.com/examples/#chart-type-pie', linkText: '官方实例' }],
-      AntV: [{ link: 'https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/innerlabel.html', linkText: '官方实例' }],
-      D3: [
-        { link: 'https://beta.observablehq.com/@mbostock/d3-pie-chart', linkText: '基础饼图' },
-      ],
-      matplotlib: [{ link: 'https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html', linkText: '官方文档及案例' }],
-      ggplot2: [
-        { link: 'https://ggplot2.tidyverse.org/reference/coord_polar.html', linkText: '官方文档及案例' },
-      ],
-    },
-    设计软件: {
-      PS: [
-        { link: 'https://www.graphicadi.com/pie-chart-photoshop/', linkText: '官方文档及案例' }
-      ],
-      AI: [{ link: 'https://design.tutsplus.com/tutorials/how-to-create-an-editable-pie-chart-in-adobe-illustrator--cms-31336', linkText: 'AI分步教程' }],
-      Sketch: [
-        { link: 'httpshttp://www.iueux.com/1116.html', linkText: '3种基础方法' }
-      ],
-    },
-  }}
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://support.office.com/zh-cn/article/在散点图或折线图中显示数据-4570a80f-599a-4d6b-a155-104a9018b86e?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "基础教程",
+        "link": "https://www.jianshu.com/p/ca3e5412ffcd"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_line.htm"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Line_Chart.htm"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": "https://echarts.baidu.com/examples/#chart-type-line"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方实例-基础折线图",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/line/basic.html"
+      },
+      {
+        "linkText": "官方实例-多折线图",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/line/line10.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "基础折线图",
+        "link": "https://beta.observablehq.com/@mbostock/d3-line-chart"
+      },
+      {
+        "linkText": "多折线图",
+        "link": "https://beta.observablehq.com/@mbostock/d3-multi-line-chart"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "基础折线图",
+        "link": "https://matplotlib.org/gallery/lines_bars_and_markers/simple_plot.html"
+      },
+      {
+        "linkText": "带数据点的折线图",
+        "link": "https://matplotlib.org/gallery/subplots_axes_and_figures/subplot.html"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "基础教程（英文）",
+        "link": "http://t-redactyl.io/blog/2015/12/creating-plots-in-r-using-ggplot2-part-1-line-plots.html"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [
+      {
+        "linkText": "钢笔工具"
+      }
+    ],
+    "Sketch": [
+      {
+        "linkText": "直线工具/钢笔工具"
+      }
+    ]
+  }
+}}
 />
+
 
 ## 专项工具
 
-1. <a href="https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=PieChart" target="__blank">
-     在线工具：visual-paradigm
-   </a>
+<div id="specialty-tool-graph-detail"></div>
+
 
 
 ## 学习资源
 
-1. <a href="https://blog.usejournal.com/why-humans-love-pie-charts-9cd346000bdc" target="__blank">
-     【推荐】从历史和进化的角度看人类为何喜欢饼图（英文）
-   </a>
+<div id="learning-resource-graph-detail"></div>
+
+（1）[折线图详解。](<https://www.dydata.io/article/p/926614701425762304>)
+
+（2）[设计折线图时的注意事项（英文）。](<https://uxdesign.cc/line-chart-design-made-simple-a1b823510674>)
+
 
 
 ## 参考文献
 
+<div id="reference-graph-detail"></div>
 
 <Reference>
-  1.Antv墨者学院. (n.d.). 折线图 - AntV. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/line.html [Accessed 18 Jan 2019].
+ 1.Antv墨者学院. (n.d.). 折线图 - AntV. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/line.html [Accessed 18 Jan 2019].
 
   2.Data Viz Project. (n.d.). Line Graph. [online]. Available at: https://datavizproject.com/data-type/line-chart/ [Accessed 19 Jan 2019].
 
@@ -227,10 +334,12 @@
 
   27.Artiles, A. (2015). Creating plots in R using ggplot2 - part 1: line plots. [online]. Available at: http://t-redactyl.io/blog/2015/12/creating-plots-in-r-using-ggplot2-part-1-line-plots.html [Accessed 29 Jan 2019].
 
-  28.Kateryna, R. (2018). Line chart design made simple. [online]. Available at: https://uxdesign.cc/line-chart-design-made-simple-a1b823510674 [Accessed 29 Jan 2019].
+  28.Kateryna, R. (2018). Line chart design made simple. [online]. Available at: https://uxdesign.cc/line-chart-design-made-simple-a1b823510674 [Accessed 29 Jan 2019].  
 </Reference>
 
 ## 贡献者
+
+<div id="contributor-graph-detail"></div>
 
 <!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
 

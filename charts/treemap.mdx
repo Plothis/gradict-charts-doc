@@ -1,0 +1,379 @@
+
+# 树图 - Treemap
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/cx88wfp/ca3665e6170300a6b1a7d762a9b8b428.png)
+
+树图，或者矩形树图，是一个由不同大小的嵌套式矩形来显示树状结构数据的统计图表。在矩形树图中，父子层级由矩形的嵌套表示。在同一层级中，所有矩形依次无间隙排布，他们的面积之和代表了整体的大小。单个矩形面积由其在同一层级的占比决定
+
+。
+
+在布局上，一般来说同级别的分类块，占比大的会偏向于左上角。而在每个块里，子分类块的切割顺序，一般是先竖着切一刀，再横着切，再竖着切，以此类推。当然，这只是一种常见的布局方式，还可以选择其他很多种布局逻辑，详见[维基百科](<https://en.wikipedia.org/wiki/Treemapping>)。
+
+相比树形结构图、径向树图，矩形树图虽然在“层级”的表示上没有那么直观、明确，却能有效利用空间来展示“占比”，具有节点大小的易读性。不过，矩形树图也有一些不适用的场景。例如，当各个子节点分布特别均匀的时候，很难通过视觉突出重点；当子节点占比太小的时候，文本排版也很困难。
+
+从数据的角度来看，矩形树图需要树形结构 ( 至少有一个父级节点 )数据，且子节点需要有权重（比如子节点1占父节点的20%，子节点2占父节点的80%）。对于不带权重的树形结构数据，应用树形结构图或径向树图来表示。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/jRwLg6p/1549043414397-2984af2b-35cc-4d40-b2ea-f46c69982723.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+（1）表示带权重的树形结构数据的时候。
+
+（2）有限固定的绘图空间内要表示层级占比时。
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+（1）树形结构数据不带权重。如下图（AntV墨者学院, no date）的公司的职能部门划分。这种时候如果用矩形树图来划分就显得层次不清，用常用的分叉树图会更合适。
+
+
+
+（2）子节点占比太小。下图（Cook, no date）这种情况下，排布文字会很困难。
+
+
+
+（3）当子节点占比差不多的时候，不容易突出视觉重点。
+
+
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="采用相邻色相的不同渐变色来绘制矩形。如下图，按矩形比例的大小，由红到黄，既区分了不同类别，又突出了重点矩形信息。还能在视觉上达到统一性和协调性。"
+    link="https://informationisbeautiful.net/visualizations/trillions-what-is-a-trillion-dollars/"
+    image="//i.ibb.co/qM4Y15K/35166724bd88f95b09e0dfa88f87c2cc.png"
+/>
+            
+<DesignCaseItem
+    description="用单个颜色（突出）或双色（对比）想要强调的分类。同时弱化其余分类的颜色。在矩形占比太小的时候，去掉所有文案或去掉类别文案。"
+    link="https://www.thepaper.cn/newsDetail_forward_2139084"
+    image="//i.ibb.co/4Rw2V3s/33646e315fd2e791677e261f2c9099da.jpg"
+/>
+            
+<DesignCaseItem
+    description="可以适当用分类的插图来帮助用户更加快速和直接的获取分类信息。但是插图的设计不应该占据视觉重点，不宜设计得过于花哨。"
+    link="https://www.thepaper.cn/newsDetail_forward_2446047"
+    image="//i.loli.net/2021/11/02/TmfeX8Za4gYcqt3.jpg"
+/>
+            
+<DesignCaseItem
+    description="图解各个地区的国旗常用色，使用基础树图，让人一目了然。"
+    link="http://flagstories.co/post/132213995433/most-used-flag-colours-by-continents#132213995433"
+    image="//i.ibb.co/R77ChS2/39949d467ed97cad0829e8ca4fd7e05f.png"
+/>
+            
+<DesignCaseItem
+    description="生活艺术案例：眼影盘。"
+    link="undefined"
+    image="//i.ibb.co/Qd20P0j/cd13f3c07bbe6a96ea8a232ddd5084b3.png"
+/>
+            
+<DesignCaseItem
+    description="生活艺术案例：重绘油画。"
+    link="undefined"
+    image="//i.ibb.co/LgfSprJ/bb85c7fc8745f91f9644455f37570169.png"
+/>
+            
+<DesignCaseItem
+    description="生活艺术案例：珠宝设计。"
+    link="undefined"
+    image="//i.ibb.co/cLkN7sK/85cc537a39f784e26b4e8c6e9706f990.png"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）Treemap最早是在1990年由Ben Shneiderman提出来的。在当时有个普遍的问题就是硬盘常常被装满。并且硬盘被好几个用户一起使用时，你很难找到哪些空间被使用，以及他们是用来做什么的。同时也很难找到倒是哪些用户消费了最大面积的硬盘。为了解决这个问题，同时避免传统分叉树图浪费空间的问题，Ben Shneiderman设计矩形数图（Shneiderman and Plaisant, 2014
+
+）。如下图，你可以很快获取在硬盘的什么位置储存了什么内容，且这些内容是什么类型（文字，图片等）。而从宏观的角度来看，也可以对类型的分布和占比有个大体的印象。[[点击阅读更多]](<http://www.cs.umd.edu/hcil/treemap-history/>)
+
+
+
+（2）好奇心日报的一遍报道（唐云路, 2019
+
+）中整理了中国企业过去一年抛售的海外物业的估价占比。图中用矩形树图清楚的展示了各个被抛售的海外物业的估价以及他们的估价在总估价中占得多还是少。[[点击访问原作品网页]](<http://www.qdaily.com/articles/60647.html>)
+
+![null](http://www.tuzhidian.com:3001/upload/images/2019/屏幕快照 2019-02-19 上午12.07.57_2ae064e799305ac5ccd50e455c34a46d.png)
+
+
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "基础教程",
+        "link": "http://blog.sina.com.cn/s/blog_49f78a4b0102wg91.html"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "基础教程",
+        "link": "https://www.jianshu.com/p/6077dc857991"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_treemap.htm"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://help.qlik.com/zh-CN/sense/September2018/Subsystems/Hub/Content/Sense_Hub/Visualizations/TreeMap/treemap.htm"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": "http://echarts.baidu.com/echarts2/doc/example/treemap.html"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/component/label-treemap.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "官方文档-矩形树布局",
+        "link": "https://github.com/d3/d3/wiki/%E7%9F%A9%E5%BD%A2%E6%A0%91%E5%B8%83%E5%B1%80"
+      },
+      {
+        "linkText": "基础教程（英文）",
+        "link": "https://beta.observablehq.com/@mbostock/d3-treemap"
+      },
+      {
+        "linkText": "zoomable treemap（英文）",
+        "link": "http://mbostock.github.io/d3/talk/20111018/treemap.html"
+      },
+      {
+        "linkText": "source treemap（英文）",
+        "link": "https://bl.ocks.org/mbostock/8fe6fa6ed1fa976e5dd76cfa4d816fec"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "基础教程（英文）",
+        "link": "https://scipy-cookbook.readthedocs.io/items/Matplotlib_TreeMap.html"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "基础教程（英文）",
+        "link": "https://github.com/wilkox/treemapify"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [
+      {
+        "linkText": "如何绘制矩形/圆角矩形",
+        "link": "https://www.youtube.com/watch?v=2FS4cGqsV-c"
+      },
+      {
+        "linkText": "如何绘制矩形/圆角矩形2",
+        "link": "https://www.youtube.com/watch?v=4sPsW1JRl2U"
+      }
+    ],
+    "Sketch": [
+      {
+        "linkText": "如何绘制矩形/单个圆角矩形",
+        "link": "https://www.jianshu.com/p/410f2ef8b424"
+      }
+    ]
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[treemap4.1. 需要在java1.4环境上运行](<http://www.cs.umd.edu/hcil/treemap/doc4.1/toc.html>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）[驭数有“树”——矩形树图的可视化之术。](<https://zhuanlan.zhihu.com/p/32292058>)
+
+（2）[树图在设计上的10个注意事项。](<https://www.juiceanalytics.com/writing/10-lessons-treemap-design>)
+
+（3）[马里兰大学关于树图研究的历史综述。](<http://www.cs.umd.edu/hcil/treemap-history/>)
+
+（4）[树图的延伸-着色排列树图。](<https://medium.com/@groupvisualio/a-more-intuitive-treemap-f1f6de1dca1c>)
+
+<br />
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+ 1.Antv墨者学院. (n.d.). 矩形树图 - AntV. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/treemap.html [Accessed 23 Dec. 2018].
+
+2.Data Visualisation Catalogue. (n.d.). Treemap - Learn about this chart and tools to create it. [online]. Available at: https://datavizcatalogue.com/methods/treemap.html [Accessed 23 Dec. 2018].
+
+3.Data Viz Project. (n.d.). Treemap | Data Viz Project. [online]. Available at: https://datavizproject.com/data-type/treemap/ [Accessed 23 Dec. 2018].
+
+4.McCandless, D. (n.d.). Trillions – What is a trillion dollars? — Information is Beautiful. [online]. Available at: https://informationisbeautiful.net/visualizations/trillions-what-is-a-trillion-dollars/ [Accessed 28 Jan. 2019].
+
+5.邹熳云, 王亚赛. (2018). 图解｜这家扩张神速的咖啡店背后，是我们买咖啡的方式变了. [online]. Available at: https://www.thepaper.cn/newsDetail_forward_2139084 [Accessed 28 Jan. 2019].
+
+6.王亚赛, 何伟, 杜海燕. (2018). 丰收·动图 | 我国秋粮有望15连丰，上海历年单产最高. [online]. Available at: https://www.thepaper.cn/newsDetail_forward_2446047 [Accessed 28 Jan. 2019].
+
+7.Shneiderman, B. and Plaisant, C. (2014). Treemaps for space-constrained visualization of hierarchies. [online]. Available at: http://www.cs.umd.edu/hcil/treemap-history/ [Accessed 23 Dec. 2018].
+
+8.唐云路. (2019). 中国人连续六年成为美国房产市场最大买家，2018 年的新热点是德国和东南亚地区_商业_好奇心日报. [online]. Available at: http://www.qdaily.com/articles/60647.html [Accessed 28 Jan. 2019].
+
+9.腔调设计. (2018). 电脑程序矩形树形重新诠释经典肖像油画，腔调设计文章. [online]. Available at: https://www.wenlc.com/weixin/20180410A03PND00.html [Accessed 23 Dec. 2018].
+
+10.Office Support. (n.d.). 在 Office 中创建树状图. [online]. Available at: https://support.office.com/zh-cn/article/%E5%9C%A8-office-%E4%B8%AD%E5%88%9B%E5%BB%BA%E6%A0%91%E7%8A%B6%E5%9B%BE-dfe86d28-a610-4ef5-9b30-362d5c624b68 [Accessed 28 Jan. 2019].
+
+11.PowerBI星球. (2018). PowerBI绘制树状图就是这么简单. [online]. Available at: https://www.jianshu.com/p/6077dc857991 [Accessed 28 Jan. 2019].
+
+12.Tableau Help. (2018). 生成树状图. [online]. Available at: https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_treemap.htm [Accessed 28 Jan. 2019].
+
+13.Qlik Help. (n.d.). 树形图. [online]. Available at: https://help.qlik.com/zh-CN/sense/September2018/Subsystems/Hub/Content/Sense_Hub/Visualizations/TreeMap/treemap.htm [Accessed 28 Jan. 2019].
+
+14.Echarts team. (n.d.). 手机占有率. [online] Available at: https://echarts.baidu.com/echarts2/doc/example/treemap.html [Accessed 28 Jan. 2019].
+
+15.AntV team. (n.d.). 矩形树图 label. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/component/label-treemap.html [Accessed 28 Jan. 2019].
+
+16.tianxuzhang. (2015). 矩形树布局. [online]. Available at: https://github.com/d3/d3/wiki/矩形树布局 [Accessed 28 Jan. 2019].
+
+17.Bostock, M. (2011). treemap. [online]. Available at: http://mbostock.github.io/d3/talk/20111018/treemap.html [Accessed 28 Jan. 2019].
+
+18.Bostock, M. (2017). D3 Treemap. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-treemap [Accessed 28 Jan. 2019].
+
+19.Bostock, M. (2016). D3 Source Treemap. [online]. Available at: https://bl.ocks.org/mbostock/8fe6fa6ed1fa976e5dd76cfa4d816fec [Accessed 28 Jan. 2019].
+
+20.SciPy Cookbook. (2019). Matplotlib: treemap — SciPy Cookbook documentation. [online]. Available at: https://scipy-cookbook.readthedocs.io/items/Matplotlib_TreeMap.html [Accessed 28 Jan. 2019].
+
+21.wilkok. (2019). wilkox/treemapify. [Github]. Available at: https://github.com/wilkox/treemapify [Accessed 28 Jan. 2019].
+
+22.電腦學習園地. (2019). 【Illustrator CC 教學Ai】10 矩形工具【201702】. [Youtube video]. Available at: https://www.youtube.com/watch?v=2FS4cGqsV-c [Accessed 28 Jan. 2019].
+
+23.電腦學習園地. (2017). 【Illustrator CC 教學Ai】11 圓角矩形工具與橢圓工具【201702】. [Youtube video]. Available at:https://www.youtube.com/watch?v=4sPsW1JRl2U [Accessed 28 Jan. 2019].
+
+24.黄方闻. (2016). 实用Sketch小技巧03——输入框的运算和圆角的设置. [online]. Available at: https://www.jianshu.com/p/410f2ef8b424 [Accessed 28 Jan. 2019].
+
+25.rzly. (2017). 驭数有“树”——矩形树图的可视化之术 ｜ 图表家族#镝数. [online]. Available at: https://zhuanlan.zhihu.com/p/32292058 [Accessed 28 Jan. 2019].
+
+26.Gemignani, Z. (2009). 10 Lessons in Treemap Design. [online]. Available at: https://www.juiceanalytics.com/writing/10-lessons-treemap-design [Accessed 28 Jan. 2019].
+
+27.GroupVisual.io. (2017). A More Intuitive Treemap?. [online]. Available at: https://medium.com/@groupvisualio/a-more-intuitive-treemap-f1f6de1dca1c [Accessed 28 Jan. 2019].
+
+28.Cook, P. (n.d.). Layouts. [online]. Available at: https://d3indepth.com/layouts/ [Accessed 19 Feb 2019]. 
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "小虾": [
+    {
+      "date": 1546272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Olivia": [
+    {
+      "date": 1546272000000,
+      "content": "文档审核与编辑"
+    }
+  ],
+  "Amphetamine": [
+    {
+      "date": 1546272000000,
+      "content": "绘图"
+    }
+  ],
+  "​Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核与编辑"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "贡献设计案例、绘图"
+    }
+  ]
+}}
+  merge
+/>

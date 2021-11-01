@@ -2,194 +2,369 @@
 # 饼图 - Pie Chart
 
 
-<section class='chart-detail-overview'>
+<section id="overview-graph-detail-content">
 
-![pie-chart-overview](https://i.loli.net/2021/09/27/gx8sTAEz53rSwcq.png)
+  ![chart-overview](//i.ibb.co/mcdGmr6/ff4270c4c477f75845ba82ff696bf904.png)
 
-饼图，或称饼状图，是一个划分为几个扇形的圆形统计图表。在饼图中，每个扇形的弧长（以及圆心角和面积）大小，表示该种类占总体的比例，且这些扇形合在一起刚好是一个完全的圆形。
+  饼图，或称饼状图，是一个划分为几个扇形的圆形统计图表。在饼图中，每个扇形的弧长（以及圆心角和面积）大小，表示该种类占总体的比例，且这些扇形合在一起刚好是一个完全的圆形。
 
-饼图最显著的功能在于表现“占比”。习惯上，人们也用饼图来比较扇形的大小，从而获得对数据的认知。但是，由于人类对“角度”的感知力并不如“长度”，在需要准确的表达数值（尤其是当数值接近、或数值很多）时，饼图常常不能胜任，建议用柱状图代替。
+饼图最显著的功能在于表现“占比”。习惯上，人们也用饼图来比较扇形的大小，从而获得对数据的认知。但是，由于人类对“角度”的感知力并不如“长度”，在需要准确的表达数值（尤其是[当数值接近](<#unappropriate-scene-graph-detail>)、或数值很多）时，饼图常常不能胜任，建议用[柱状图](<http://www.tuzhidian.com:3000/chart?id=5c56e2da4a8c5e048189c6bb>)代替。
 
 从数据来看，饼图一般需要一个分类数据字段、一个连续数据字段。值得注意的是，分类字段的数据，在图表使用的语境下，应当构成一个整体（例如一班、二班、三班，构成了整个高一年级），而不能是独立、无关的。
 
-使用时，须确认各个扇形的数据加起来等于 100%；避免扇区超过 5 个，尽量让图表简洁明了；注意扇形的排布顺序，一般情况下，将最大的扇形放在 12 点钟方向，接下来按面积依次排列；最后，正确使用颜色，既区分出需要强调的扇形，又不致于让人眼花缭乱。
+使用时，须确认各个扇形的数据加起来等于100%；避免扇区超过5个，尽量让图表简洁明了；注意扇形的排布顺序，一般情况下，将最大的扇形放在12点钟方向，接下来按面积依次排列；最后，正确使用颜色，既区分出需要强调的扇形，又不致于让人眼花缭乱。
+
+
 
 </section>
 
 ## 图表属性
 
-<ChartProps />
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+  <ChartProps />
+</section>
 
 ## 图表详解
 
 ### 元素构成
 
-<PlaceHolder>这里少一张图</PlaceHolder>
+<section id="chart-detail-graph-detail-content">
+ 
+![constitution](//i.ibb.co/z8JH4MP/8a5ef2ac-6872-4595-b8f6-5087bbbd16ed.jpg "constitution")
+
+
+</section>
 
 ### 适用场景
 
-1. 想要突出表示某个部分在整体中所占比例，尤其该部分所占比例达到总体的 25%或 50%时。
-2. 分类数量最好小于 5 个。
-3. 各不同分类间的占比差异明显。
-4. 需要确定的图表绘制空间大小（不会随着分类增多有增大画布空间）。
+<section id="appropriate-scene-graph-detail">
+  （1）想要突出表示某个部分在整体中所占比例，尤其该部分所占比例达到总体的25%或50%时。
 
-<img src="https://i.loli.net/2021/09/27/kj3sJKaqLXcxyrv.jpg" width="328" />
+（2）分类数量最好小于5个。
+
+（3）各不同分类间的占比差异明显。
+
+（4）需要确定的图表绘制空间大小（不会随着分类增多有增大画布空间）。
+
+![null](<//i.ibb.co/QfNCwbB/1548843706598-f5925a02-c6e2-4c69-aa86-8e6d194ce00d.jpg>)
+
+
+</section>
 
 ### 不适用场景
 
-1. 如果变量之间相互独立，并不构成一个整体，那么不可以使用饼图。
-2. 饼图也不能用来表现趋势。
-3. 由于饼图用面积取代了长度，从而加大了对各个数据进行比较的难度。以下图为例，五个变量中，并没有一个占比特别明显的变量，彼此之间十分接近。如果用饼图表示，人们很难分辨大小。因此，当需要对数据进行比较，分清孰大孰小，尤其是当数据接近时，柱状图更加合适。
+<section id="unappropriate-scene-graph-detail">
+  （1）如果变量之间相互独立，并不构成一个整体，那么不可以使用饼图。
 
-<img src="https://i.loli.net/2021/09/27/Vf7NPzm9TdhbF4O.jpg" width="532" />
+（2）饼图也不能用来表现趋势。
 
-4. 此外，当类别过多时，不建议使用饼图，否则阅读会将很差（如下图）。可行的办法，一是将一些不重要的变量合并为“其他”，避免扇区超过 5 个；二是改用条形图或者表格。尤其是，如果你想让读者清楚的阅读到每一条数据，选用表格会更加直截了当。
+（3）由于饼图用面积取代了长度，从而加大了对各个数据进行比较的难度。以下图为例，五个变量中，并没有一个占比特别明显的变量，彼此之间十分接近。如果用饼图表示，人们很难分辨大小。因此，当需要对数据进行比较，分清孰大孰小，尤其是当数据接近时，[柱状图](<http://www.tuzhidian.com:3000/chart?id=5c56e2da4a8c5e048189c6bb>)更加合适。
 
-<img src="https://i.loli.net/2021/09/27/JYlLvdPAzVyjsIU.jpg" width="566" />
+![null](<//i.ibb.co/C9PxPRY/1548843959370-e81a6eba-88d1-4f07-8a69-8625ff270700.jpg>)
+
+（4）此外，当类别过多时，不建议使用饼图，否则阅读会将很差（如下图）。可行的办法，一是将一些不重要的变量合并为“其他”，避免扇区超过5个；二是改用条形图或者表格。尤其是，如果你想让读者清楚的阅读到每一条数据，选用表格会更加直截了当。
+
+![null](<//i.ibb.co/NpRVKFg/1548844025444-ce1af3f7-a65a-4075-8d37-748d560335f7.jpg>)
+
+
+</section>
 
 ## 相似图形
 
-<SimilarCharts></SimilarCharts>
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+<SimilarCharts/>
 
 ## 设计案例
 
+<div id="design-case-graph-detail"></div>
+
 <DesignCaseContainer>
-  <DesignCaseItem
+  
+<DesignCaseItem
     description="用有冲击力的颜色突出最想表现的扇形，其余的则在视觉上弱化处理（比如用灰色处理）。此外，将文字注释巧妙的设计到图形中。"
     link="https://multimedia.scmp.com/news/china/article/2170344/china-2025-aviation/index.html?src=follow-chapter"
-    image="http://139.224.62.3:3001/upload/images/2019/1543645728953-3a3e4054-58e3-449b-9edb-6d6f20d85ae8_bde10d6c48ff7b43d9bbb97907f1148d.png"
-  />
-  <DesignCaseItem
+    image="//i.ibb.co/jLzV2FY/1543645728953-3a3e4054-58e3-449b-9edb-6d6f20d85ae8-bde10d6c48ff7b43d9bbb97907f1148d.png"
+/>
+            
+<DesignCaseItem
     description="《南华早报》关于香港少数族裔的报道。蓝色表示男性，红色表示女性，符合一般认知。同时，除了男女占比外，还用圆形面积代表了总人数。特别的，它还将菲律宾人（香港最多的少数族裔）画成了灰色轮廓，固定在底图上，并加入交互功能。这样，用户在滑动到其他族裔（如美国人）时，就可以方便的比较它与菲律宾人的规模差别。这是把简单的饼图，设计的丰富、精巧的案例。"
-    link="http://multimedia.scmp.com/news/hong-kong/article/20th-handover/index.html"
-    image="http://139.224.62.3:3001/upload/images/2019/1543644866253-29992d89-cd08-4573-9f12-c4196364ffe9_5f3ef6cff573a83b1ca68cd0a74608c6.png"
-  />
-  <DesignCaseItem
+    link=" http://multimedia.scmp.com/news/hong-kong/article/20th-handover/index.html"
+    image="//i.ibb.co/Bwy5dP5/1543644866253-29992d89-cd08-4573-9f12-c4196364ffe9-5f3ef6cff573a83b1ca68cd0a74608c6.png"
+/>
+            
+<DesignCaseItem
     description="给扇形以装饰，使其更直观、美观的表现所属类别。"
     link="http://www.emilyschramm.com/blog/2017/12/8/thanksgiving-pie-chart"
-    image="http://139.224.62.3:3001/upload/images/2019/1543470251577-be0d1f79-89a6-407c-b352-695d8b979f70_57ce59274d9c552e69f643c134510798.png"
-  />
-  <DesignCaseItem
+    image="//i.ibb.co/nLJzkdh/1543470251577-be0d1f79-89a6-407c-b352-695d8b979f70-57ce59274d9c552e69f643c134510798.png"
+/>
+            
+<DesignCaseItem
     description="创意性的使用实物拍摄。"
     link="https://www.sweetspot.com/en/2014/10/21/focus-visualizations-pie-charts/"
-    image="http://139.224.62.3:3001/upload/images/2019/1543469706699-b6fd6fbb-809e-43ae-8b83-5ade89f118dd_c7a101e1b16e67dd1b8c60728f9d350a.png"
-  />
-  <DesignCaseItem
+    image="//i.ibb.co/188RNHN/1543469706699-b6fd6fbb-809e-43ae-8b83-5ade89f118dd-c7a101e1b16e67dd1b8c60728f9d350a.png"
+/>
+            
+<DesignCaseItem
     description="实物装饰+变形处理。"
     link="http://www.peterorntoft.com/infographicsincontext.html"
-    image="http://139.224.62.3:3001/upload/images/2019/1544011569937-afbad9d1-68e1-4a9a-98cb-ee989c2cacd9_569001048365d3c3eca890060890e07c.png"
-  />
-  <DesignCaseItem
+    image="//i.loli.net/2021/10/25/t3fkI6jFuiZGxbh.png"
+/>
+            
+<DesignCaseItem
     description="《纽约时报》对比了民主党和共和党人士爱用词语的差异。对饼图进行变形（并不从圆心开始划分，而是左右划分），这样很好的契合了政治上两派相争、一左一右的概念，同时方便多个饼图排版——蓝色越多、民主党更爱提、越靠左；红色越多、共和党更爱提、越靠右。"
     link="https://archive.nytimes.com/www.nytimes.com/interactive/2012/09/06/us/politics/convention-word-counts.html#Businesshttp://"
-    image="http://139.224.62.3:3001/upload/images/2019/1543480079659-6dc37188-ff73-498f-a84f-620c020d36e1_b26c17b1961748fa8da6e524f39cca96.png"
-  />
+    image="//i.ibb.co/K9Z3Fc2/1543480079659-6dc37188-ff73-498f-a84f-620c020d36e1-b26c17b1961748fa8da6e524f39cca96.png"
+/>
+            
 </DesignCaseContainer>
 
 ## 使用场景
+<div id="usage-scene-graph-detail-content"></div>
 
-1. 通常认为，已知最早的饼图是威廉·普莱菲于 1801 年在他的《统计学摘要》Statistical Breviary 中所作。这张饼图，描述了 1789 年以前土耳其帝国在亚洲、欧洲及非洲中所占的比例。为什么饼图适合表达这个话题呢？第一，其分类变量为亚、欧、非三洲，这三洲的国土构成了土耳其疆域的整体。而我们的目的正是为了表现它们的“占比”。此外，总共三个类别，数量不多不少，不会使饼图太过杂乱。第二，其连续变量为各洲的国土面积，有一个部分（亚洲）占比显著（60%左右），很好辨别。另外，欧洲占比约为 25%，在饼图中呈直角，也方便辨别（这也很可能是作者把欧洲放在 12 点钟方向的原因）。
+（1）通常认为，已知最早的饼图是威廉·普莱菲于1801年在他的《统计学摘要》*Statistical Breviary*中所作。这张饼图，描述了1789年以前土耳其帝国在亚洲、欧洲及非洲中所占的比例。为什么饼图适合表达这个话题呢？第一，其分类变量为亚、欧、非三洲，这三洲的国土构成了土耳其疆域的整体。而我们的目的正是为了表现它们的“占比”。此外，总共三个类别，数量不多不少，不会使饼图太过杂乱。第二，其连续变量为各洲的国土面积，有一个部分（亚洲）占比显著（60%左右），很好辨别。另外，欧洲占比约为25%，在饼图中呈直角，也方便辨别（这也很可能是作者把欧洲放在12点钟方向的原因）。
 
-<img src="http://139.224.62.3:3001/upload/images/2019/1543463720192-d6a22b1a-93d7-4680-8b16-6955250aea8b_c26170ea0bd93bf7058536bbfdba757c.png" width="328" />
+[[点击阅读更多]](<https://en.wikipedia.org/wiki/Pie_chart>)
 
-2. 作为最常见的图表之一，饼图大量的用于各行各业的报告中。例如，研报中经常会出现市场份额的分析。据中金公司研报，2017 年我国的餐饮业营收额中，火锅占到 22%，其次是自助餐（12%）、川菜（8%）、小吃快餐（8%）、西餐（6%）。这 5 种类型的餐饮，营收额占到了整个市场的 56%，尤其以火锅占据绝对优势。
+![null](<//i.ibb.co/W0q4r6W/1543463720192-d6a22b1a-93d7-4680-8b16-6955250aea8b-c26170ea0bd93bf7058536bbfdba757c.png>)
 
-<img src="http://139.224.62.3:3001/upload/images/2019/1549124264533-2e97509a-ff16-4225-bb7d-c9947e13f1e1_7ea3f8d7ce721dc202cf8f9081f5c5b9.png" width="396" />
+（2）作为最常见的图表之一，饼图大量的用于各行各业的报告中。例如，研报中经常会出现市场份额的分析。据中金公司研报，2017年我国的餐饮业营收额中，火锅占到22%，其次是自助餐（12%）、川菜（8%）、小吃快餐（8%）、西餐（6%）。这5种类型的餐饮，营收额占到了整个市场的56%，尤其以火锅占据绝对优势。
+
+![null](<//i.ibb.co/p233bvj/1549124264533-2e97509a-ff16-4225-bb7d-c9947e13f1e1-7ea3f8d7ce721dc202cf8f9081f5c5b9.png>)
+
+
 
 ## 制作教程
 
 <!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
 
+<div id="production-tutorial-graph-detail"></div>
 <ProductionTutorials
   data={{
-    'BI 工具': {
-      Excel: [
-        { link: 'https://support.office.com/zh-cn/article/%E6%B7%BB%E5%8A%A0%E9%A5%BC%E5%9B%BE-1a5f08ae-ba40-46f2-9ed0-ff84873b7863', linkText: '官方基础教程' },
-        { link: 'https://zhuanlan.zhihu.com/p/23350815', linkText: '使用颜色插件、调整标签位置' },
-        { link: 'https://www.ruhe8.com/article/2539.html', linkText: '画半圆饼图' },
-      ],
-      'Power BI': [{ link: 'https://www.jianshu.com/p/15a7bbdc464c', linkText: '基础教程' }],
-      Tableau: [{ link: 'https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_pie.htm', linkText: '官方基础教程' }],
-      QlikView: [{ link: 'https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Pie_Chart.htm', linkText: '官方基础文档' }],
-    },
-    代码库: {
-      Echarts: [{ link: 'http://echarts.baidu.com/examples/#chart-type-pie', linkText: '官方实例' }],
-      AntV: [{ link: 'https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/innerlabel.html', linkText: '官方实例' }],
-      D3: [
-        { link: 'https://beta.observablehq.com/@mbostock/d3-pie-chart', linkText: '基础饼图' },
-        { link: 'https://bl.ocks.org/santi698/f3685ca8a1a7f5be1967f39f367437c0', linkText: '基础饼图2' },
-      ],
-      matplotlib: [{ link: 'https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html', linkText: '官方文档及案例' }],
-      ggplot2: [
-        { link: 'https://ggplot2.tidyverse.org/reference/coord_polar.html', linkText: '官方文档及案例' },
-        { link: 'http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-start-guide-r-software-and-data-visualization', linkText: '基础饼图教程' },
-      ],
-    },
-    设计软件: {
-      PS: [
-        { link: 'https://www.graphicadi.com/pie-chart-photoshop/', linkText: '官方文档及案例' },
-        { link: 'https://www.techwalla.com/articles/how-do-i-make-a-pie-chart-in-photoshop', linkText: '扭曲切割法' },
-      ],
-      AI: [{ link: 'https://design.tutsplus.com/tutorials/how-to-create-an-editable-pie-chart-in-adobe-illustrator--cms-31336', linkText: 'AI分步教程' }],
-      Sketch: [
-        { link: 'httpshttp://www.iueux.com/1116.html', linkText: '3种基础方法' },
-        { link: 'https://medium.com/d-d-mag/%E7%94%A8-sketch-%E8%99%9B%E7%B7%9A%E5%81%9A%E7%94%9C%E7%94%9C%E5%9C%88%E5%92%8C%E5%9C%93%E9%A4%85-c78e5bb995fc', linkText: '虚线法' },
-      ],
-    },
-  }}
+  "BI工具": {
+    "Excel": [
+      {
+        "link": "https://support.office.com/zh-cn/article/%E6%B7%BB%E5%8A%A0%E9%A5%BC%E5%9B%BE-1a5f08ae-ba40-46f2-9ed0-ff84873b7863",
+        "linkText": "官方基础教程"
+      },
+      {
+        "link": "https://zhuanlan.zhihu.com/p/23350815",
+        "linkText": "使用颜色插件、调整标签位置"
+      },
+      {
+        "link": "https://www.ruhe8.com/article/2539.html",
+        "linkText": "画半圆饼图"
+      }
+    ],
+    "Power BI": [
+      {
+        "link": "https://www.jianshu.com/p/15a7bbdc464c",
+        "linkText": "基础教程"
+      }
+    ],
+    "Tableau": [
+      {
+        "link": "https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_pie.htm",
+        "linkText": "官方基础教程"
+      }
+    ],
+    "QlikView": [
+      {
+        "link": "https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Pie_Chart.htm",
+        "linkText": "官方基础文档"
+      }
+    ]
+  },
+  "代码库": {
+    "Echarts": [
+      {
+        "link": "http://echarts.baidu.com/examples/#chart-type-pie",
+        "linkText": "官方实例"
+      }
+    ],
+    "AntV": [
+      {
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/innerlabel.html",
+        "linkText": "官方实例"
+      }
+    ],
+    "D3": [
+      {
+        "link": "https://beta.observablehq.com/@mbostock/d3-pie-chart",
+        "linkText": "基础饼图"
+      },
+      {
+        "link": "https://bl.ocks.org/santi698/f3685ca8a1a7f5be1967f39f367437c0",
+        "linkText": "基础饼图2"
+      }
+    ],
+    "matplotlib": [
+      {
+        "link": "https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html",
+        "linkText": "官方文档及案例"
+      }
+    ],
+    "ggplot2": [
+      {
+        "link": "https://ggplot2.tidyverse.org/reference/coord_polar.html",
+        "linkText": "官方文档及案例"
+      },
+      {
+        "link": "http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-start-guide-r-software-and-data-visualization",
+        "linkText": "基础饼图教程"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS": [
+      {
+        "link": "https://www.graphicadi.com/pie-chart-photoshop/",
+        "linkText": "官方文档及案例"
+      },
+      {
+        "link": "https://www.techwalla.com/articles/how-do-i-make-a-pie-chart-in-photoshop",
+        "linkText": "扭曲切割法"
+      }
+    ],
+    "AI": [
+      {
+        "link": "https://design.tutsplus.com/tutorials/how-to-create-an-editable-pie-chart-in-adobe-illustrator--cms-31336",
+        "linkText": "AI分步教程"
+      }
+    ],
+    "Sketch": [
+      {
+        "link": "httpshttp://www.iueux.com/1116.html",
+        "linkText": "3种基础方法"
+      },
+      {
+        "link": "https://medium.com/d-d-mag/%E7%94%A8-sketch-%E8%99%9B%E7%B7%9A%E5%81%9A%E7%94%9C%E7%94%9C%E5%9C%88%E5%92%8C%E5%9C%93%E9%A4%85-c78e5bb995fc",
+        "linkText": "虚线法"
+      }
+    ]
+  }
+}}
 />
 
-## 专项工具
 
-1. <a href="https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=PieChart" target="__blank">
-     在线工具：visual-paradigm
-   </a>
-2. <a href="https://www.visme.co/pie-chart-maker/" target="__blank">
-     在线工具：visme
-   </a>
+## 专项工具
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[在线工具](<https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=PieChart>)
+
+（2）[在线工具](<https://www.visme.co/pie-chart-maker/>)
+
+
 
 ## 学习资源
+<div id="learning-resource-graph-detail"></div>
 
-1. <a href="https://blog.usejournal.com/why-humans-love-pie-charts-9cd346000bdc" target="__blank">
-     【推荐】从历史和进化的角度看人类为何喜欢饼图（英文）
-   </a>
-2. <a href="https://www.sweetspot.com/en/2014/10/21/focus-visualizations-pie-charts/" target="__blank">
-     饼状图入门及使用原则（英文）
-   </a>
-3. <a href="https://www.businessinsider.com/pie-charts-are-the-worst-2013-6" target="__blank">
-     迫不得已不要用饼图（英文）
-   </a>
+（1）[【推荐】从历史和进化的角度看人类为何喜欢饼图（英文）。](<https://blog.usejournal.com/why-humans-love-pie-charts-9cd346000bdc>)
+
+（2）[饼状图入门及使用原则（英文）。](<https://www.sweetspot.com/en/2014/10/21/focus-visualizations-pie-charts/>)
+
+（3）[迫不得已不要用饼图（英文）。](<https://www.businessinsider.com/pie-charts-are-the-worst-2013-6>)
+
+
 
 ## 参考文献
-
-<!-- 为了以下部分有统一的样式，以及展开收起效果，只能手写 hmtl 了 -->
+<div id="reference-graph-detail"></div>
 
 <Reference>
-  <ol>
-    <li>Wikipedia. (n.d.). <em>Pie chart</em>. [online]. Available at: https://en.wikipedia.org/wiki/Pie_chart [Accessed 3 December 2018].</li>
-    <li>AntV墨者学院. (n.d.). 饼图的简介. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/pie.html[Accessed 3 December 2018].</li>
-    <li>Wong, D. (2018). Can ‘Made in China 2025’ help turn the nation’s domestic aerospace industry into a world leader?. [online]. Available at: https://multimedia.scmp.com/news/china/article/2170344/china-2025-aviation/index.html?src=follow-chapter [Accessed 3 December 2018].</li>
-    <li>Duhalde, M., Wong, D., Arranz, A., Hernandez, M. (n.d.). Twenty years, 20 visualisations. [online]. Available at: http://multimedia.scmp.com/news/hong-kong/article/20th-handover/index.html [Accessed 3 December 2018].</li>
-    <li>Schramm, E. (2017). Thanksgiving Pie Chart. [online]. Available at: http://www.emilyschramm.com/blog/2017/12/8/thanksgiving-pie-chart [Accessed 3 December 2018].</li>
-    <li>sweetspot. (2014). A focus on visualizations: Pie charts. [online]. Available at: https://www.sweetspot.com/en/2014/10/21/focus-visualizations-pie-charts/ [Accessed 3 December 2018].</li>
-    <li>Orntoft, P. (n.d.). Infographics in context. [online]. Available at: http://www.peterorntoft.com/infographicsincontext.html [Accessed 3 December 2018].</li>
-    <li>Bostock, M., Carter, S., Ericson, M. (2012). At the National Conventions, the Words They Used.[online]. Available at: https://archive.nytimes.com/www.nytimes.com/interactive/2012/09/06/us/politics/convention-word-counts.html#Businesshttp:// [Accessed 3 December 2018].</li>
-    <li>Design your way. (n.d.). Mobile UI Design Inspiration: Charts And Graphs. [online]. Available at: https://www.designyourway.net/blog/inspiration/mobile-ui-design-inspiration-charts-and-graphs/[Accessed 3 December 2018].</li>
-    <li>Lima, M. (2018). Why humans love pie charts：An historical and evolutionary perspective. [online]. Available at: https://blog.usejournal.com/why-humans-love-pie-charts-9cd346000bdc [Accessed 3 December 2018].</li>
-    <li>McKendry, H. (2014). A focus on visualizations: Pie charts. [online]. Available at: https://www.sweetspot.com/en/2014/10/21/focus-visualizations-pie-charts/ [Accessed 3 December 2018].</li>
-    <li>Hickey, W. (2013). The Worst Chart In The World. [online]. Available at: https://www.businessinsider.com/pie-charts-are-the-worst-2013-6 [Accessed 3 December 2018].</li>
-  </ol>
+1.Wikipedia. (n.d.). Pie chart. [online]. Available at: https://en.wikipedia.org/wiki/Pie_chart [Accessed 3 December 2018].
+
+2.AntV墨者学院. (n.d.). 饼图的简介. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/pie.html[Accessed 3 December 2018].
+
+3.Wong, D. (2018). Can ‘Made in China 2025’ help turn the nation’s domestic aerospace industry into a world leader?. [online]. Available at: https://multimedia.scmp.com/news/china/article/2170344/china-2025-aviation/index.html?src=follow-chapter [Accessed 3 December 2018].
+
+4.Duhalde, M., Wong, D., Arranz, A., Hernandez, M. (n.d.). Twenty years, 20 visualisations. [online]. Available at: http://multimedia.scmp.com/news/hong-kong/article/20th-handover/index.html [Accessed 3 December 2018].
+
+5.Schramm, E. (2017). Thanksgiving Pie Chart. [online]. Available at: http://www.emilyschramm.com/blog/2017/12/8/thanksgiving-pie-chart [Accessed 3 December 2018].
+
+6.sweetspot. (2014). A focus on visualizations: Pie charts. [online]. Available at: https://www.sweetspot.com/en/2014/10/21/focus-visualizations-pie-charts/ [Accessed 3 December 2018].
+
+7.Orntoft, P. (n.d.). Infographics in context. [online]. Available at: http://www.peterorntoft.com/infographicsincontext.html [Accessed 3 December 2018].
+
+8.Bostock, M., Carter, S., Ericson, M. (2012). At the National Conventions, the Words They Used.[online]. Available at: https://archive.nytimes.com/www.nytimes.com/interactive/2012/09/06/us/politics/convention-word-counts.html#Businesshttp:// [Accessed 3 December 2018].
+
+9.Design your way. (n.d.). Mobile UI Design Inspiration: Charts And Graphs. [online]. Available at: https://www.designyourway.net/blog/inspiration/mobile-ui-design-inspiration-charts-and-graphs/[Accessed 3 December 2018].
+
+10.Office Support. (n.d.). 添加饼图. [online]. Available at: https://support.office.com/zh-cn/article/%E6%B7%BB%E5%8A%A0%E9%A5%BC%E5%9B%BE-1a5f08ae-ba40-46f2-9ed0-ff84873b7863[Accessed 3 December 2018].
+
+11.EasyCharts. (2016). Excel绘制多种风格“饼图”. [online]. Available at: https://zhuanlan.zhihu.com/p/23350815 [Accessed 3 December 2018].
+
+12.Excel技巧精选. (2018). 你想要的Excel半圆饼图来了. [online]. Available at: https://www.ruhe8.com/article/2539.html [Accessed 3 December 2018].
+
+13.PowerBI星球. (2018). PowerBI制作饼图和圆环图. [online]. Available at: https://www.jianshu.com/p/15a7bbdc464c [Accessed 3 December 2018].
+
+14.Tableau Help. (2018). 生成饼图. [online]. Available at: https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_pie.htm [Accessed 3 December 2018].
+
+15.QlikView Help. (n.d.). 饼图. [online]. Available at: https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Pie_Chart.htm [Accessed 3 December 2018].
+
+16.Echarts team. (n.d.). 饼图. [online]. Available at: https://echarts.baidu.com/examples/#chart-type-pie [Accessed 3 December 2018].
+
+17.AntV team. (n.d.). 饼图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/innerlabel.html [Accessed 3 December 2018].
+
+18.Bostock, M. (2018). D3 Pie Chart. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-pie-chart [Accessed 3 December 2018].
+
+19.Ocamica, S. (2016). Pie Chart (d3js v4). [online]. Available at: https://bl.ocks.org/santi698/f3685ca8a1a7f5be1967f39f367437c0 [Accessed 3 December 2018].
+
+20.Matplotlib team. (n.d.). matplotlib.pyplot.pie. [online]. Available at: https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html [Accessed 3 December 2018].
+
+21.ggplot2 team. (n.d.). Polar coordinates. [online]. Available at: https://ggplot2.tidyverse.org/reference/coord_polar.html [Accessed 3 December 2018].
+
+22.STHDA. (n.d.). ggplot2 pie chart : Quick start guide - R software and data visualization. [online]. Available at: http://www.sthda.com/english/wiki/ggplot2-pie-chart-quick-start-guide-r-software-and-data-visualization [Accessed 3 December 2018].
+
+23.Weedmark, D. (n.d.). How Do I Make a Pie Chart in Photoshop?. [online]. Available at: https://www.techwalla.com/articles/how-do-i-make-a-pie-chart-in-photoshop [Accessed 3 December 2018].
+
+24.GRAPHICADI. (2018). How to Create Adjustable Pie Chart in Photoshop. [online]. Available at: https://www.graphicadi.com/pie-chart-photoshop/ [Accessed 3 December 2018].
+
+25.Marius, A. (2018). How to Create an Editable Pie Chart in Adobe Illustrator. [online]. Available at: https://design.tutsplus.com/tutorials/how-to-create-an-editable-pie-chart-in-adobe-illustrator--cms-31336 [Accessed 3 December 2018].
+
+26.夜雨. (2018). 最快30秒，几招用Sketch绘制饼图的方法. [online]. Available at: http://www.iueux.com/1116.html [Accessed 3 December 2018].
+
+27.Pan, S. (2018). 用 Sketch 虛線做甜甜圈和圓餅. [online]. Available at: https://medium.com/d-d-mag/用-sketch-虛線做甜甜圈和圓餅-c78e5bb995fc [Accessed 3 December 2018].
+
+28.Lima, M. (2018). Why humans love pie charts：An historical and evolutionary perspective. [online]. Available at: https://blog.usejournal.com/why-humans-love-pie-charts-9cd346000bdc [Accessed 3 December 2018].
+
+29. McKendry, H. (2014). A focus on visualizations: Pie charts. [online]. Available at: https://www.sweetspot.com/en/2014/10/21/focus-visualizations-pie-charts/ [Accessed 3 December 2018].
+
+30.Hickey, W. (2013). The Worst Chart In The World. [online]. Available at: https://www.businessinsider.com/pie-charts-are-the-worst-2013-6 [Accessed 3 December 2018].
 </Reference>
 
 ## 贡献者
 
-<!-- 由于一些工作不体现在 github 提交上，所以还是维持之前手工维护的方式 -->
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
 
 <Contributors
   data={{
-    Olivia: [{ date: '2018年12月', content: '文档资料搜集、整理和编辑' }],
-    Neo: [{ date: '2019年1月', content: '文档审核与编辑' }],
-    Gaia: [{ date: '2019年2月', content: '绘图' }],
-    小虾: [{ date: '2019年2月', content: '绘图' }],
-  }}
+  "Olivia": [
+    {
+      "date": 1543593600000,
+      "content": " 文档资料搜集、整理和编辑"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1546272000000,
+      "content": " 文档审核与编辑"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    }
+  ],
+  "小虾": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    }
+  ]
+}}
+  merge
 />
