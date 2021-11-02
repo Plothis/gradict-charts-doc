@@ -49,7 +49,7 @@ class CataLog extends Component<Props, {}> {
     }, []);
 
     titleList.forEach(item => this.aNodeMap[item.innerText] = item);
-    console.log(titleList, this.aNodeMap)
+
     const each = (arr: TableOfContentItem[]) => {
       Array.isArray(arr) &&
         arr.forEach((item) => {
