@@ -1,0 +1,344 @@
+
+# 箱形图 - Box plot
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/NjgsSSc/c3529eff0539dd77de85c1e4b02cd09b.png)
+
+箱形图是一种用作显示一组数据分布情况的
+
+统计图，因型状如箱子而得名。1977
+
+年由美国著名统计学家约翰·图基（John Tukey）发明。它能显示出一组数据的最大值、最小值、中位数及上下四分位数。
+
+箱子的顶端和底端，分别代表上下四分位数。箱子中间的是中位数线，它将箱子一分为二。从箱子延伸出去的线条展现出了上下四分位数以外的数据，由于这两根延伸出去的线像是胡须，因此箱形图也被称为盒须图。有时，箱形图上也会出现个别的点，在胡须的末端值以外，这代表离群值，也可称之为异常值。箱形图是非参数的：它们显示统计总体样本的变化，而不对基础统计分布做任何假设。框的不同部分之间的间距表示数据中的分散程度（扩散）和偏斜，并显示异常值。 
+
+箱形图最大的优势是，它以一种简单的方式，概括出一个或多个数值变量的分布，同时又不会占据太多空间。通过箱形图，我们可以很快知道一些关键的统计值，如中位数、上下四分位数等；也可以分析是否存在离群值、离群值分别是多少；整体来看，还可以检验数据是否对称、是否有偏向性，如果有，它偏向于哪一边；最后，我们还可以用多个箱型图，比较多组数据的分布，从而快速获得对数据结构、数据质量的认知。
+
+箱型图展示出了四分位数，通常盒子中间的一条线就是第二四分位数（中位数）。但是胡须的末端值（上边缘，下边缘）可以代表几种不同的值，其中包括：
+
+（1）所有数据中的最大值和最小值；
+
+（2）在[Q1-1.5IQR, Q3+1.5IQR]范围里的极小值和极大值 （通常被称为Tukey Boxplot）；
+
+（3）在平均数的基础上上下浮动一个标准差；
+
+（4）第9百分位数，第91百分位数；
+
+（5）第2百分位数，第98百分位数。
+
+其中Tukey Boxplot的应用比较广泛，故本章将针对这一类型的 boxplot进行详细的描述。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.loli.net/2021/11/02/l2e9MBocnXrTxYy.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+适用于展示单组数据的分布概况（只有一个箱线的情况）或多组数据间的分布对比（多个箱线的情况）。
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+（1）分组过多的情况，箱线太多不容易查看（Statsinthewild, 2012
+
+）。
+
+
+
+（2）每组内需要看详细分布的情况（箱线图只能提供概况，要看详细分布可以考虑小提琴图）。
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="极简箱线图的绘制：将最大值和最小值的横线去除，直接通过从上下四分位延伸出去的直线来替代。将中位数用白线表示，与整个箱线图形成颜色上的反差，更加的突出。"
+    link="http://biochemres.com/beautiful-minimalist-boxplots-with-r-and-ggplot2"
+    image="//i.ibb.co/NZfy57G/889ef637936b1e6cd84587b5961d1b3c.png"
+/>
+            
+<DesignCaseItem
+    description="在基础箱形图上，箱形图的宽度将根据样本数量的大小进行有比列的变化。在原有的分布信息上展现出更多的信息。"
+    link="https://www.r-graph-gallery.com/266-ggplot2-boxplot-with-variable-width/"
+    image="//i.ibb.co/prqrHdW/f3a1292dc96a219123f13ee767b7ff29.png"
+/>
+            
+<DesignCaseItem
+    description="此可视化作品用箱形图的方式展示了过去八个世纪中的最重要的90位画家的平生，并着重标注了其中40位画家他们的杰作，分析了作品的主要用色、尺寸和绘画技艺。从而更好地帮助分析了绘画在过去八百年中的变化。"
+    link="https://www.flickr.com/photos/accurat/8248959211/"
+    image="//i.ibb.co/ZWW53FP/3f4dc8dcce23684e05f13dcdebb1b7f7.jpg"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）通过绘制箱线图来阐明工资调整前后的状况：工资分布比调整前更加集中，在合适的范围内既拉开了差距，又不至于差距太悬殊，还针对特殊情况进行了特殊处理。这种工资分布具有
+
+[激励](<https://wiki.mbalib.com/wiki/%E6%BF%80%E5%8A%B1>)作用，可以说工资调整达到预期目的（
+
+MBAlib, no date
+
+）。
+
+[[点击阅读更多]](<https://wiki.mbalib.com/wiki/%E7%AE%B1%E7%BA%BF%E5%9B%BE>)
+
+
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://support.office.com/zh-cn/article/%E5%88%9B%E5%BB%BA%E7%9B%92%E9%A1%BB%E5%9B%BE-62f4219f-db4b-4754-aca8-4743f6190f0d"
+      },
+      {
+        "linkText": "详细实例教程",
+        "link": "https://jingyan.baidu.com/article/27fa7326be83d046f8271fc6.html"
+      }
+    ],
+    "Power BI": [],
+    "Tableau": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_boxplot.htm"
+      }
+    ],
+    "QlikView": []
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": "https://echarts.baidu.com/examples/#chart-type-boxplot"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/box/basic.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "箱型图例1",
+        "link": "https://beta.observablehq.com/@youbastard/nhl-point-scorers-over-the-last-40-seasons-1977-2017"
+      },
+      {
+        "linkText": "箱型图例2",
+        "link": "https://beta.observablehq.com/@simonhearne/crux-analysis"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "官方文档及案例",
+        "link": "https://matplotlib.org/api/_as_gen/matplotlib.pyplot.boxplot.html?highlight=plot%20boxplot#matplotlib.pyplot.boxplot"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "箱型图案例",
+        "link": "https://www.r-graph-gallery.com/boxplot/"
+      },
+      {
+        "linkText": "基础箱型图案例",
+        "link": "https://www.r-graph-gallery.com/262-basic-boxplot-with-ggplot2/"
+      },
+      {
+        "linkText": "箱型图(WITH VARIABLE WIDTH)",
+        "link": "https://www.r-graph-gallery.com/266-ggplot2-boxplot-with-variable-width/"
+      },
+      {
+        "linkText": "基础箱型图教程",
+        "link": "http://www.sthda.com/english/wiki/ggplot2-box-plot-quick-start-guide-r-software-and-data-visualization"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [],
+    "Sketch": []
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[在线生成工具 box plot generator](<https://www.desmos.com/calculator/h9icuu58wn>)
+
+（2）[在线生成 Plotly](<https://plot.ly/create/box-plot/#/>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）[【适合初次接触箱线图的人】简单扼要的阐述了何为箱线图，以及箱线图的绘制方法和应用举例。](<https://wenku.baidu.com/view/582e3c2658fb770bf78a5566.html>)
+
+（2）[【适合要深入研究箱线图的人】国外的文献，讲述箱线图的由来以及深入应用。](<http://vita.had.co.nz/papers/boxplots.pdf>)
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+  
+
+1. AntV墨者学院, (n.d.). 箱型图的简介. [online]. Available at https://antv.alipay.com/zh-cn/vis/chart/box.html [Accessed 2 January 2019].
+
+
+2. Baidu百科, (n.d.).四分位数. [online]. Available at https://baike.baidu.com/item/%E5%9B%9B%E5%88%86%E4%BD%8D%E6%95%B0/5040599?fr=aladdin [Accessed 2 January 2019].
+
+
+3. Biochemistry Resources, (n.d.). Beautiful, Minimalist Boxplots with R and ggplot2. [online]. Available at http://biochemres.com/beautiful-minimalist-boxplots-with-r-and-ggplot2  [Accessed 19 January 2019].
+
+
+4. MBAlib, (n.d.). 箱线图.  [online]. Available at https://wiki.mbalib.com/wiki/%E7%AE%B1%E7%BA%BF%E5%9B%BE [Accessed 19 January 2019].
+
+
+5. Office Support, (n.d.). 创建盒须图. [online]. Available at https://support.office.com/zh-cn/article/%E5%88%9B%E5%BB%BA%E7%9B%92%E9%A1%BB%E5%9B%BE-62f4219f-db4b-4754-aca8-4743f6190f0d [Accessed 19 January 2019].
+
+
+6. 加内特的梦, (2017). EXCEL箱形图绘制. [online]. Available at https://jingyan.baidu.com/article/27fa7326be83d046f8271fc6.html [Accessed 19 January 2019].
+
+
+7. Tableau Help, (2018). 生成盒形图. [online]. Available at https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_boxplot.htm [Accessed 19 January 2019].
+
+
+8. Echarts team, (n.d.). 盒须图. [online]. Available at https://echarts.baidu.com/examples/#chart-type-boxplot [Accessed 19 January 2019].
+
+
+9. AntV team. (n.d.). 基础箱形图. [online]. Available at https://antv.alipay.com/zh-cn/g2/3.x/demo/box/basic.html [Accessed 19 January 2019].
+
+
+10,Ortenzio, N., (2018). NHL Point Scorers over the last 40 Seasons (1977-2017). [online]. Available at  https://beta.observablehq.com/@youbastard/nhl-point-scorers-over-the-last-40-seasons-1977-2017 [Accessed 19 January 2019].
+
+
+11. Hearne, S., (2018). CrUX Analysis. [online]. Available at https://beta.observablehq.com/@simonhearne/crux-analysis [Accessed 19 January 2019].
+
+
+12. Matplotlib team, (n.d.). matplotlib.pyplot.boxplot. [online]. Available at https://matplotlib.org/api/_as_gen/matplotlib.pyplot.boxplot.html?highlight=plot%20boxplot#matplotlib.pyplot.boxplot [Accessed 19 January 2019].
+
+
+13. Holtz, Y., (n.d). boxplot. [online]. Available at https://www.r-graph-gallery.com/boxplot/ [Accessed 19 January 2019].
+
+
+14. Holtz, Y., (n.d). boxplot. [online]. Available at https://www.r-graph-gallery.com/262-basic-boxplot-with-ggplot2/ [Accessed 19 January 2019].
+
+
+15. Holtz, Y., (n.d). boxplot. [online]. Available at https://www.r-graph-gallery.com/266-ggplot2-boxplot-with-variable-width/ [Accessed 19 January 2019].
+
+
+16. Accurat (2012). Painters in the making. [online]. Available at: https://www.flickr.com/photos/accurat/8248959211/[Accessed 09 February 2019]
+
+
+17. STHDA, (n.d.). ggplot2 box plot : Quick start guide - R software and data visualization. [online]. Available at http://www.sthda.com/english/wiki/ggplot2-box-plot-quick-start-guide-r-software-and-data-visualization [Accessed 18 January 2019].
+
+
+18. Wickham, H and Stryjewski, L., (2011). 40 years of boxplots. [online] available at http://vita.had.co.nz/papers/boxplots.pdf [Accessed 18 January 2019].
+
+
+19. Ribecca, S., (n.d.). Box and Whisker Plot. [online]. Available at https://datavizcatalogue.com/methods/box_plot.html [Accessed 25 January 2019].
+
+
+20. Holtz, Y. and Healy, C., (n.d). boxplot. [online]. Available at https://www.data-to-viz.com/#boxplot [Accessed 25 January 2019].
+
+
+21. Statsinthewild, (2012). Olympics Boxplot. [online]. Available at https://statsinthewild.com/2012/07/09/olympics-boxplot/ [Accessed 25 January 2019].
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "Mia": [
+    {
+      "date": 1546272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Olivia": [
+    {
+      "date": 1546272000000,
+      "content": "文档审核"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图、贡献案例"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ]
+}}
+  merge
+/>

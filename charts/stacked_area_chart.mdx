@@ -1,0 +1,344 @@
+
+# 堆叠面积图 - Stacked Area Graph
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/5j2jLdt/0f8690b8c2dbb32e299c3f4e78a8938f.png)
+
+堆叠面积图与[面积图](<http://www.tuzhidian.com:3000/chart?id=5c56e5284a8c5e048189c726>)类似，都是在[折线图](<http://www.tuzhidian.com:3000/chart?id=5c56e1b34a8c5e048189c693>)的基础上，将折线与自变量坐标轴之间区域填充起来的统计图表，主要用于表示数值随时间的变化趋势。而堆叠面积图的特点在于，有多个数据系列，它们一层层的堆叠起来，每个数据系列的起始点是上一个数据系列的结束点。
+
+堆叠面积图适合观察几个数据系列随时间的变化情况，既能看到各数据系列的走势，又能看到整体的规模。但是，过多的系列，也会导致难以分辨，这种情况下建议加入交互。此外，在使用堆叠面积图时，要特别注意它与[堆叠柱状图](<http://www.tuzhidian.com:3000/chart?id=5c55b11b58461d3fa613673b>)的区别。当数据没有时间上的关联时，须使用[堆叠柱状图](<http://www.tuzhidian.com:3000/chart?id=5c55b11b58461d3fa613673b>)。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/bFLXCJg/1549171615251-5b516b44-e76e-4778-8159-bbb048be1a42.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+适用于观察几个数据系列随时间的变化情况，且既能看到整体又能看到各数据系列的走势。
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+· 当x轴为分类数据时，不应使用堆叠面积图而应使用堆叠柱状图。例如，比较各种游戏类型(分类数据)的销售情况（AntV墨者学院, no date）：
+
+
+
+· 不适合带有负值的数据系列。
+
+· 当数据系列过多时，往往造成难以观察(与饼图同理)，所以建议使用堆叠面积图时数据系列最好不要超过7个。
+
+· 由于堆叠面积图绘制在笛卡尔坐标系上，有时候并不如流图灵活，后者可以把数据分散到一个变化的中心基准线上。例如，下图（镝次元数据传媒实验室, 2017）
+
+展示了1896-1932年，世界各国在奥运会上奖牌数量的变化情况，使用流图显然比堆叠面积图更容易阅读。
+
+
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="《经济学人》在介绍英国持刀犯罪的普遍现象的文章《Knife-crime in Britain is rising almost everywhere》中，通过 地图 + 堆积面积图 同时展现了 英国各个地区的持刀犯罪数量(地图) + 伦敦与外省随时间变化的持刀犯罪数量(堆积面积图)。通过两张可视化图，便很立体且多维度地展现了很多数据"
+    link="https://www.economist.com/graphic-detail/2018/11/13/knife-crime-in-britain-is-rising-almost-everywhere"
+    image="//i.ibb.co/8mGBqz5/45b9b43f90bd7a1a22453a031626d039.png"
+/>
+            
+<DesignCaseItem
+    description="《经济学人》在介绍自1990年后，全世界夭折儿童越来越少的文章《Reductions in childhood mortality have prevented 100m deaths since 1990》中，通过 堆叠面积图 + 折线图，分别表示了世界各地区5岁以下儿童夭折的人数并有汇总数(堆叠面积图) + 各地区千人中的夭折数(折线图)，以达到 总 - 分 的数据多维度展现形式。"
+    link="https://www.economist.com/graphic-detail/2018/09/19/reductions-in-childhood-mortality-have-prevented-100m-deaths-since-1990"
+    image="//i.ibb.co/S35dLmK/b2850838d332229680f505d03fb7be37.png"
+/>
+            
+<DesignCaseItem
+    description="将堆叠面积图与堆叠柱状图做了非常好的结合。"
+    link="https://zhuanlan.zhihu.com/p/25627270"
+    image="//i.ibb.co/R6GVcH1/3606dc6b7f50ece2c1b3fbfbf5d436e0.png"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）分析产品构成及利润来源。下图（VISUAL CAPITALIST, 2018
+
+）分析了1977年以来音乐产业的利润构成。早期，黑胶唱片（vinyl）是最大的利润来源，到80年代之后，磁带（cassette）风靡一时，但从1985开始，光盘（compact disc）又迅速崛起，到2000年时整个音乐产业的利润达到巅峰。其后，市场开始收缩，mp3、流媒体等新兴媒介出现，但总体利润已大不如前。[[点击访问原作品网页]](<https://beta.grafiti.io/facts/197359>)
+
+
+
+（2）应用于金融市场。下图（Werner, 2015
+
+）反映了全球债券市场的增长情况，累计债务越来越高。分结构来看，1989年12月31日，美国债券市场（U.S.）占全球的60.7%。但此后，美国债券市场占全球债券市场的比例呈下降趋势，其他发达国家（Developed ex U.S.）债务比例增加。近年来，新兴市场国家(EM)的债务增长也十分迅速。
+
+[[点击访问原作品网页]](<https://twitter.com/wrnrm/status/653158474101182464/photo/1>)
+
+
+
+（3）分析社会结构的变化。下图（The Economist, 2016
+
+）反映了90年代以来，工作人口的人数及结构变化。整体来看，工作人口的总人数的增加。而分阶层来看，极度贫穷（extremely poor）的人口减少、中产（developing middle class）、小康和富裕阶层（developed middle class and above）扩大。尤其是中产阶级扩大最明显。[[点击访问原作品网页]](<https://www.economist.com/graphic-detail/2016/01/20/labour-market-woes>)
+
+<br />
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "堆叠面积图(YouTube)",
+        "link": "https://www.youtube.com/watch?v=DrHgT3jgk4Y"
+      },
+      {
+        "linkText": "教程（英文）",
+        "link": "https://trumpexcel.com/area-chart/"
+      },
+      {
+        "linkText": "复刻设计案例3：堆积的面积图+百分比柱形图",
+        "link": "https://zhuanlan.zhihu.com/p/25627270"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "堆叠面积图(YouTube)",
+        "link": "https://www.youtube.com/watch?v=UP2NwtuEaoU"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "堆叠面积图(YouTube)",
+        "link": "https://www.youtube.com/watch?v=qvJIY-9z_N0"
+      }
+    ],
+    "QlikView": []
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": "http://echarts.baidu.com/examples/editor.html?c=area-stack"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/area/area3.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "堆叠面积图(V3)",
+        "link": "http://bl.ocks.org/anaeliaovalle/e57763e85def2a95be931c69eff6bfa6"
+      },
+      {
+        "linkText": "堆叠面积图(V4)",
+        "link": "https://beta.observablehq.com/@mbostock/d3-stacked-area-chart"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "官方demo",
+        "link": "https://matplotlib.org/gallery/lines_bars_and_markers/stackplot_demo.html#sphx-glr-gallery-lines-bars-and-markers-stackplot-demo-py"
+      },
+      {
+        "linkText": "示例及代码",
+        "link": "https://python-graph-gallery.com/stacked-area-plot/"
+      }
+    ],
+    "ggplot2": [
+      {
+        "linkText": "示例及代码",
+        "link": "https://www.r-graph-gallery.com/136-stacked-area-chart/"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [],
+    "Sketch": []
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）[I hate stacked area charts-堆叠面积图的缺点。](<https://leancrew.com/all-this/2011/11/i-hate-stacked-area-charts/>)
+
+（2）[Effective Use of Area Charts-如何有效的使用面积图。](<https://msktc.org/sites/default/files/Charts_Tool_Area_508c.pdf>)
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+  
+
+1. AntV墨者学院. (n.d.). 堆叠面积图. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/stacked-area.html [Accessed 16 January 2019].
+
+
+2. AnyChart. (n.d.). Stacked Area Chart. [online]. Available at: https://www.anychart.com/chartopedia/chart-type/stacked-area-chart/ [Accessed 16 January 2019].
+
+
+3. AnyChart. (n.d.). Percent Stacked Area Chart. [online]. Available at: https://www.anychart.com/chartopedia/chart-type/percent-stacked-area-chart/ [Accessed 16 January 2019].
+
+
+4. 镝次元数据传媒实验室. (2017). 堆积图表界的翘楚！河流图如何搞定“巨量”数据 ｜图表家族#34 . [online]. Available at: http://www.sohu.com/a/227722377_416207 [Accessed 27 January 2019]. 
+
+
+5. The Economist. (2019). Knife-crime in Britain is rising almost everywhere. [online]. Available at: https://www.economist.com/graphic-detail/2018/11/13/knife-crime-in-britain-is-rising-almost-everywhere [Accessed 27 January 2019]. 
+
+
+6. The Economist. (2018). Reductions in childhood mortality have prevented 100m deaths since 1990. [online]. Available at: https://www.economist.com/graphic-detail/2018/09/19/reductions-in-childhood-mortality-have-prevented-100m-deaths-since-1990 [Accessed 27 January 2019]. 
+
+
+7. 刘万祥ExcelPro. (2017). 一图两用：堆积的面积图+百分比柱形图. [知乎]. Available at: https://zhuanlan.zhihu.com/p/25627270  [Accessed 27 January 2019]. 
+
+
+8. VISUAL CAPITALIST. (2018). Visualizing 40 Years of Music Industry Sales. [online]. Available at: https://beta.grafiti.io/facts/197359  [Accessed 27 January 2019]. 
+
+
+9. Mark-Jan Werner. (2015). there's a lot of debt. [online]. Available at: https://twitter.com/wrnrm/status/653158474101182464  [Accessed 27 January 2019]. 
+
+
+10. The Economist. (2016). Labour-market woes. [online]. Available at: https://www.economist.com/graphic-detail/2016/01/20/labour-market-woes [Accessed 27 January 2019]. 
+
+
+11. Excel (A-Z) (2016). How to Create 2D Stacked Area Chart in MS Excel 2013. [Youtube video]. Available at: https://www.youtube.com/watch?v=DrHgT3jgk4Y [Accessed 27 January 2019]. 
+
+
+12. Trumpexcel, D. (n.d.). How to Create an Area Chart in Excel (explained with Examples)?. [online]. Available at: https://trumpexcel.com/area-chart/ [Accessed 27 January 2019]. 
+
+
+13. laximi skills (2018). How to create Stacked area chart in power bi desktop || laxmi skills power bi desktop part (16). [Youtube video]. Available at: https://www.youtube.com/watch?v=UP2NwtuEaoU [Accessed 27 January 2019]. 
+
+
+14. Agarrwal, A. (2018). Tableau Tutorial 22 | How to Create Area Chart in Tableau | Tableau Area Chart. [Youtube video]. Available at: https://www.youtube.com/watch?v=qvJIY-9z_N0 [Accessed 27 January 2019]. 
+
+
+15. Echarts team. (n.d.). 堆叠面积图. [online]. Available at: http://echarts.baidu.com/examples/editor.html?c=area-stack [Accessed 27 January 2019]. 
+
+
+16. AntV team. (n.d.). 堆叠面积图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/area/area3.html [Accessed 27 January 2019]. 
+
+
+17. Bostock, M. (2018). D3 Stacked Area Chart Example. [online]. Available at: http://bl.ocks.org/anaeliaovalle/e57763e85def2a95be931c69eff6bfa6 [Accessed 27 January 2019]. 
+
+
+18. Bostock, M. (2018). D3 Stacked Area Chart. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-stacked-area-chart [Accessed 27 January 2019]. 
+
+
+19. Matplotlib team. (n.d.). 堆叠面积图. [online]. Available at: https://matplotlib.org/gallery/lines_bars_and_markers/stackplot_demo.html#sphx-glr-gallery-lines-bars-and-markers-stackplot-demo-py [Accessed 27 January 2019]. 
+
+
+20. THE PYTHON GRAPH GALLERY team. (n.d.). STACKED AREA PLOT. [online]. Available at: https://python-graph-gallery.com/stacked-area-plot/ [Accessed 27 January 2019]. 
+
+
+21. THE R GRAPH GALLERY team. (n.d.). 堆叠面积图. [online]. Available at: https://www.r-graph-gallery.com/136-stacked-area-chart/ [Accessed 27 January 2019]. 
+
+
+22. Dr. Drang. (2011). I hate stacked area charts. [online]. Available at: https://leancrew.com/all-this/2011/11/i-hate-stacked-area-charts/ [Accessed 27 January 2019]. 
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "子龙": [
+    {
+      "date": 1546272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Olivia": [
+    {
+      "date": 1546272000000,
+      "content": "文档审核与编辑、补充案例"
+    }
+  ],
+  "Amphetamine": [
+    {
+      "date": 1546272000000,
+      "content": "绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    }
+  ]
+}}
+  merge
+/>

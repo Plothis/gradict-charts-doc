@@ -2,137 +2,396 @@
 # 气泡图 - Bubble Chart
 
 
-<section  id="overview-graph-detail-content">
+<section id="overview-graph-detail-content">
 
-![pie-chart-overview](https://i.loli.net/2021/09/27/gx8sTAEz53rSwcq.png)
+![chart-overview](//i.ibb.co/rdnWRN9/8008101a536d0ee7bdcf62ca871d5ac0.png)
 
-图表介绍内容
+气泡图是一种多变量的统计图表，由[笛卡尔坐标系](<https://zh.wikipedia.org/zh/%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB>)（直角坐标系）和大小不一的圆组成，可以看作是[散点图](<http://www.tuzhidian.com:3000/chart?id=5c56e4ae4a8c5e048189c713>)的变形。在气泡图中，一般情况下，每一个气泡都代表着一组三个维度的数据（v1，v2，v3）。其中两个决定了气泡在笛卡尔坐标系中的位置（即x，y轴上的值），另外一个则通过气泡的大小来表示。例如，x轴表示产品销量，y轴表示产品利润，气泡大小代表产品市场份额百分比。
+
+气泡图通常用于展示和比较数据之间的关系和分布，通过比较气泡位置和大小来分析数据维度之间的相关性。也可以用作研究两个变量与时间变量的关系。例如，著名的卫生学教授、统计学家Hans Rosling，曾用气泡图展示历史上世界各国人均收入、人口数量和寿命的关系（见[场景案例1](<#usage-scene-graph-detail>)）。
+
+
 
 </section>
 
 ## 图表属性
 
 <!-- 自动识别，勿修改 -->
-<ChartProps />
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
 
 ## 图表详解
 
 ### 元素构成
 
-<PlaceHolder>这里少一张图</PlaceHolder>
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.loli.net/2021/11/02/lP7xeo53XgGNdbz.jpg)
+
+
+
+</section>
 
 ### 适用场景
 
-1. 想要突出表示某个部分在整体中所占比例，尤其该部分所占比例达到总体的 25%或 50%时。
-2. 分类数量最好小于 5 个。
+<section id="appropriate-scene-graph-detail">
+
+（1）多维数据。一般而言气泡图需要3个变量，其中2个决定了气泡在笛卡尔坐标系中的位置（即x，y轴上的值），另外一个则通过气泡的大小来表示。当然，气泡图也可以容纳更多维的数据，例如用第4个变量决定气泡的颜色、透明度等。
+
+（2）特殊地，气泡图也可以用于二维数据。即，y轴和气泡大小使用同一维度的数据（y轴和气泡大小的双视觉编码）。这种情况下，它实际上是作为柱状图的替代，用于表示分类数据对比，但比柱状图更加简洁美观。例如，下图表示了2014年每个季度的sales。x轴代表时间，y轴和气泡大小代表了销售业绩。
 
 
-<img src="https://i.loli.net/2021/09/27/kj3sJKaqLXcxyrv.jpg" width="328" />
+
+
+
+</section>
 
 ### 不适用场景
 
-1. 如果变量之间相互独立，并不构成一个整体，那么不可以使用饼图。
+<section id="unappropriate-scene-graph-detail">
 
-<img src="https://i.loli.net/2021/09/27/Vf7NPzm9TdhbF4O.jpg" width="532" />
+（1）气泡数量、数据维度过多且没有交互进行信息补充或筛选。下图（McCandless, 2016
 
-4. 此外，当类别过多时，不建议使用饼图，否则阅读会将很差（如下图）。可行的办法，一是将一些不重要的变量合并为“其他”，避免扇区超过 5 个；二是改用条形图或者表格。尤其是，如果你想让读者清楚的阅读到每一条数据，选用表格会更加直截了当。
+）如果作为一幅平面作品，就会显得比较乱，没有视觉重点。因此作者加入了交互功能，鼠标悬浮上去，相应的气泡会放大、同时出现详细信息。[[点击访问原作品网页]](<https://informationisbeautiful.net/visualizations/the-hollywood-insider/>)
 
-<img src="https://i.loli.net/2021/09/27/JYlLvdPAzVyjsIU.jpg" width="566" />
+
+
+（2）绘制气泡图时，需注意数值应体现为面积，而非半径。以下图（Column Five, 2015
+
+）为例，如果两个数值是1：2的关系，如果按照半径1：2来绘制，那么实际的圆面积，将会是1：4的比例，这就夸大了数据之间的差异。
+
+
+
+
+
+</section>
 
 ## 相似图形
 
 <!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
 <SimilarCharts/>
 
 ## 设计案例
 
+<div id="design-case-graph-detail"></div>
+
 <DesignCaseContainer>
-  <DesignCaseItem
-    description="用有冲击力的颜色突出最想表现的扇形，其余的则在视觉上弱化处理（比如用灰色处理）。此外，将文字注释巧妙的设计到图形中。"
-    link="https://multimedia.scmp.com/news/china/article/2170344/china-2025-aviation/index.html?src=follow-chapter"
-    image="http://139.224.62.3:3001/upload/images/2019/1543645728953-3a3e4054-58e3-449b-9edb-6d6f20d85ae8_bde10d6c48ff7b43d9bbb97907f1148d.png"
-  />
-  <DesignCaseItem
-    description="《南华早报》关于香港少数族裔的报道。蓝色表示男性，红色表示女性，符合一般认知。同时，除了男女占比外，还用圆形面积代表了总人数。特别的，它还将菲律宾人（香港最多的少数族裔）画成了灰色轮廓，固定在底图上，并加入交互功能。这样，用户在滑动到其他族裔（如美国人）时，就可以方便的比较它与菲律宾人的规模差别。这是把简单的饼图，设计的丰富、精巧的案例。"
-    link="http://multimedia.scmp.com/news/hong-kong/article/20th-handover/index.html"
-    image="http://139.224.62.3:3001/upload/images/2019/1543644866253-29992d89-cd08-4573-9f12-c4196364ffe9_5f3ef6cff573a83b1ca68cd0a74608c6.png"
-  />
+  
+<DesignCaseItem
+    description="用颜色来做强调作用的时候注意不要用太多色相，那样会使得用户眼花缭乱，没有重点。最好是使用两三种同一色系或相邻色相的颜色。另外这个案例中用y轴作为时间轴，也跟人们心中气泡浮动的心理模型不谋而合。"
+    link="https://informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/"
+    image="//i.loli.net/2021/11/02/jfeEtH9rY6VqDo2.png"
+/>
+            
+<DesignCaseItem
+    description="下面这个案例中，每个气泡都有透明度。透明度可作为一个视觉编码提现一个维度的数据，同时，透明度也会使有重叠的气泡显得有层次感。另外这个案例在普通的气泡图中加了一条趋势线，来表示气泡数据的相关性。"
+    link="https://www.instagram.com/p/BJ-WcywgYih/"
+    image="//i.loli.net/2021/11/02/zbfd9caQv3YRTDm.png"
+/>
+            
+<DesignCaseItem
+    description="这个案例对传统的气泡图做了一个极坐标的变形。"
+    link="https://gdblogs.shu.ac.uk/b3033247/2014/11/25/insane-choices-you-face-at-the-drugstore/"
+    image="//i.loli.net/2021/11/02/93nE2qsGFLCyokf.png"
+/>
+            
+<DesignCaseItem
+    description="交互设计作品《Listen to Wikipedia》，此作品对维基百科的实时数据进行了可视化和可听化设计，给予人视觉和听觉的双重享受。"
+    link="http://listen.hatnote.com/"
+    image="//i.ibb.co/nbxzYB9/6449622e8dd691b2bf56212560d30e76.png"
+/>
+            
+<DesignCaseItem
+    description="生活艺术案例：月球表面。"
+    link="https://collection.sciencemuseum.org.uk/documents/aa110069461/photographic-print-lm-descent-monitoring-chart-apollo-mission-10"
+    image="//i.ibb.co/pRZC1B1/e52bed3a3c7656bd8d0690c089c88944.jpg"
+/>
+            
+<DesignCaseItem
+    description="全世界冰淇淋的消耗量。"
+    link="https://www.behance.net/gallery/29013205/Il-Corriere-della-Sera-LaLettura-Ice-creams?tracking_source=search%257Csara%2Bpiccolomini"
+    image="//i.ibb.co/ydCVxKD/1f7d5206bd7849f48e73ae4fd1c5b0f6.png"
+/>
+            
 </DesignCaseContainer>
 
 ## 使用场景
 
-1. 通常认为，已知最早的饼图是威廉·普莱菲于 1801 年在他的《统计学摘要》Statistical Breviary 中所作。这张饼图，描述了 1789 年以前土耳其帝国在亚洲、欧洲及非洲中所占的比例。为什么饼图适合表达这个话题呢？第一，其分类变量为亚、欧、非三洲，这三洲的国土构成了土耳其疆域的整体。而我们的目的正是为了表现它们的“占比”。此外，总共三个类别，数量不多不少，不会使饼图太过杂乱。第二，其连续变量为各洲的国土面积，有一个部分（亚洲）占比显著（60%左右），很好辨别。另外，欧洲占比约为 25%，在饼图中呈直角，也方便辨别（这也很可能是作者把欧洲放在 12 点钟方向的原因）。
+<div id="usage-scene-graph-detail-content"></div>
 
-<img src="http://139.224.62.3:3001/upload/images/2019/1543463720192-d6a22b1a-93d7-4680-8b16-6955250aea8b_c26170ea0bd93bf7058536bbfdba757c.png" width="328" />
+（1）Hans Rosling经典的交互式演讲（BBC, 2010
+
+）。它用气泡图展示了自1810年来，世界上200个国家、200年来的人口与经济变迁。纵轴表示国民的预期寿命，横轴表示人均收入，也就是说越靠近左下角，意味着贫穷和疾病，而越靠近右上角，意味着富裕和长寿。气泡图的大小代表该国总人口，不同的颜色代表不同的大洲。随着时间的演进， 气泡图变动越来越剧烈，整个世界在工业革命后走向富裕，欧洲国家率先崛起，美国、日本、中国相继赶超……这一切，都在Rosling栩栩如生的讲述中进行。数据源包括一个时间数据（年份），两组分类数据（国家，大洲），三组数值（预期寿命，人均收入，国家总人口）。[[点击访问原作品网页]](<https://www.youtube.com/watch?v=jbkSRLYSojo>)
+
+
+
+（2）“澎湃新闻”（邹熳云, 王亚赛, 2018
+
+）用气泡图分析了新税法对中国不同地区，不同行业的从业人员的影响。每个气泡代表一个行业，横轴表示该行业的月平均工资，纵轴代表税改后能减少几成的个人所得税。气泡的大小代表该行业的就业人数。黄色气泡代表第二产业，红色气泡代表第三产业。同时，这张图还对地域做了区分，分为东部、中部、西部、东北，因此整体信息量非常大。例如，我们可以发现东部地区有最多人，在税改后不用缴税；西部和东北的许多第三产业行业，也都不再需要缴税。数据源包括三组分类数据（产业分类，月平均工资分类，地区分类），一组数值（就业人数）。[[点击访问原作品网页]](<https://www.thepaper.cn/newsDetail_forward_2406595>)
+
+
+
+（3）《纽约时报》（Ashkena et al., 2012
+
+）的交互作品，用气泡图展示了科技巨头公司的市值变化。横轴代表IPO年份，纵轴和气泡大小都代表市值。2012年之前，Google是市值最大（280亿美元）的科技公司，但当Facebook上市时，市值迅速超越谷歌，达到1040亿美元。该图还探讨了这些公司在上市一天后的市值变化，以及上市三年后的市值变化。
+
+数据源包括一组分类数据（公司），一组时间数据（IPO年份），一组数值（市值）。[[点击访问原作品网页]](<https://archive.nytimes.com/www.nytimes.com/interactive/2012/05/17/business/dealbook/how-the-facebook-offering-compares.html?hp>)
+
+
 
 ## 制作教程
 
 <!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
 
+<div id="production-tutorial-graph-detail"></div>
+
 <ProductionTutorials
   data={{
-    'BI 工具': {
-      Excel: [
-        { link: 'https://support.office.com/zh-cn/article/%E6%B7%BB%E5%8A%A0%E9%A5%BC%E5%9B%BE-1a5f08ae-ba40-46f2-9ed0-ff84873b7863', linkText: '官方基础教程' }
-      ],
-      'Power BI': [{ link: 'https://www.jianshu.com/p/15a7bbdc464c', linkText: '基础教程' }],
-      Tableau: [{ link: 'https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_pie.htm', linkText: '官方基础教程' }],
-      QlikView: [{ link: 'https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Pie_Chart.htm', linkText: '官方基础文档' }],
-    },
-    代码库: {
-      Echarts: [{ link: 'http://echarts.baidu.com/examples/#chart-type-pie', linkText: '官方实例' }],
-      AntV: [{ link: 'https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/innerlabel.html', linkText: '官方实例' }],
-      D3: [
-        { link: 'https://beta.observablehq.com/@mbostock/d3-pie-chart', linkText: '基础饼图' },
-      ],
-      matplotlib: [{ link: 'https://matplotlib.org/api/_as_gen/matplotlib.pyplot.pie.html', linkText: '官方文档及案例' }],
-      ggplot2: [
-        { link: 'https://ggplot2.tidyverse.org/reference/coord_polar.html', linkText: '官方文档及案例' },
-      ],
-    },
-    设计软件: {
-      PS: [
-        { link: 'https://www.graphicadi.com/pie-chart-photoshop/', linkText: '官方文档及案例' }
-      ],
-      AI: [{ link: 'https://design.tutsplus.com/tutorials/how-to-create-an-editable-pie-chart-in-adobe-illustrator--cms-31336', linkText: 'AI分步教程' }],
-      Sketch: [
-        { link: 'httpshttp://www.iueux.com/1116.html', linkText: '3种基础方法' }
-      ],
-    },
-  }}
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "基础教程",
+        "link": "https://support.office.com/zh-cn/article/%E5%9C%A8%E6%B0%94%E6%B3%A1%E5%9B%BE%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE-424d7bda-93e8-4983-9b51-c766f3e330d9"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "基础教程",
+        "link": "https://docs.microsoft.com/zh-cn/power-bi/visuals/power-bi-visualization-scatter"
+      },
+      {
+        "linkText": "动态气泡图教程（英文）",
+        "link": "https://www.mssqltips.com/sqlservertip/4694/power-bi-animated-scatter-and-bubble-charts/"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "基础教程",
+        "link": "https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_bubbles.htm"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "基础教程（英文）",
+        "link": "http://blog.keyrus.co.uk/building_a_custom_bubble_chart_in_qlikview.html"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例-基础气泡图",
+        "link": "https://echarts.baidu.com/examples/editor.html?c=bubble-gradient"
+      },
+      {
+        "linkText": "官方实例-可选择范围查看的气泡图",
+        "link": "https://echarts.baidu.com/examples/editor.html?c=scatter-aqi-color"
+      },
+      {
+        "linkText": "官方实例-复刻Hans Rosling的动态气泡图",
+        "link": "https://echarts.baidu.com/examples/editor.html?c=scatter-life-expectancy-timeline"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方实例-带文本的气泡图",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/point/bubble-text.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "基础气泡图",
+        "link": "https://beta.observablehq.com/@mbostock/d3-bubble-chart"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "基础教程",
+        "link": "https://glowingpython.blogspot.com/2011/11/how-to-make-bubble-charts-with.html"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "基础教程",
+        "link": "https://ggplot2.tidyverse.org/reference/geom_point.html"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [
+      {
+        "linkText": "自带圆形工具"
+      }
+    ],
+    "Sketch": [
+      {
+        "linkText": "自带圆形工具"
+      }
+    ]
+  }
+}}
 />
+
 
 ## 专项工具
 
-1. <a href="https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=PieChart" target="__blank">
-     在线工具：visual-paradigm
-   </a>
+<div id="specialty-tool-graph-detail"></div>
+
+（1）
+[在线制作气泡图](<https://online.visual-paradigm.com/cn/features/chart-maker/bubble-chart-maker/>)
+
 
 
 ## 学习资源
 
-1. <a href="https://blog.usejournal.com/why-humans-love-pie-charts-9cd346000bdc" target="__blank">
-     【推荐】从历史和进化的角度看人类为何喜欢饼图（英文）
-   </a>
+<div id="learning-resource-graph-detail"></div>
+
+（1）[【推荐】Hans Rosling等人创立的非营利基金会Gapminder，通过统计数据的可视化，以及提供免费的教学资源，使世界变得可理解。](<https://www.gapminder.org/tools/?from=world#$chart-type=bubbles>)
+
+（2）[详解气泡图——比散点图更懂你的心。](<https://www.dydata.io/article/p/927191168698228736>)
+
 
 
 ## 参考文献
 
+<div id="reference-graph-detail"></div>
 
 <Reference>
-  <ol>
-    <li>Wikipedia. (n.d.). <em>Pie chart</em>. [online]. Available at: https://en.wikipedia.org/wiki/Pie_chart [Accessed 3 December 2018].</li>
-    <li>AntV墨者学院. (n.d.). 饼图的简介. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/pie.html[Accessed 3 December 2018].</li>
-  </ol>
+  
+
+1. Antv墨者学院. (n.d). 气泡图 - AntV. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/bubble.html [Accessed 23 Dec. 2018].
+
+
+2. Data Viz Project. (n.d.). Bubble Chart | Data Viz Project. [online]. Available at: https://datavizproject.com/data-type/bubble-chart/ [Accessed 23 Dec. 2018].
+
+
+3. Tufte, E. and Graves-Morris, P. (2014). The visual display of quantitative information,1983.
+
+
+4. McCandless, D. (2016). The Hollywood In$ider. [online]. Available at: https://informationisbeautiful.net/visualizations/the-hollywood-insider/ [Accessed 28 Jan. 2019].
+
+
+5. Column Five. (2015). Data Visualization 101: Bubble Charts. [online] Column Five. Available at: https://www.columnfivemedia.com/data-visualization-101-bubble-charts [Accessed 28 Jan. 2019].
+
+
+6. McCandless, D. (2018). World’s Biggest Data Breaches & Hacks. [online]. Available at: https://informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/ [Accessed 28 Jan. 2019].
+
+
+7. the.visual.agency. (2016). A chart a day 005 - Scatter plot and line of best fit. [online]. Available at: https://www.instagram.com/p/BJ-WcywgYih/ [Accessed 28 Jan. 2019].
+
+
+8. Thorpe, R. (2014). Insane Choices You Face At The Drugstore. [online]. Available at: https://gdblogs.shu.ac.uk/b3033247/2014/11/25/insane-choices-you-face-at-the-drugstore/ [Accessed 28 Jan. 2019].
+
+
+9. Hatnote, LaPorte, S. and Hashemi, M. (n.d.). Listen to Wikipedia. [online]. Available at: http://listen.hatnote.com/ [Accessed 28 Jan. 2019].
+
+
+10. BBC. (2010). Hans Rosling's 200 Countries, 200 Years, 4 Minutes - The Joy of Stats - BBC Four. [online]. Available at: https://www.youtube.com/watch?v=jbkSRLYSojo [Accessed 28 Jan. 2019].
+
+
+11. 邹熳云, 王亚赛. (2018). 我们用18个行业的平均工资，估算了新个税法对工资单的影响. [online]. Available at: https://www.thepaper.cn/newsDetail_forward_2406595 [Accessed 28 Jan. 2019].
+
+
+12. Ashkenas, J., Bloch, M., Carter, S. and Cox, A. (2012). The Facebook Offering: How It Compares. [online]. Available at: https://archive.nytimes.com/www.nytimes.com/interactive/2012/05/17/business/dealbook/how-the-facebook-offering-compares.html?hp [Accessed 28 Jan. 2019].
+
+
+13. Science Museum Group. (n.d.). Photographic print: LM Descent Monitoring Chart, Apollo Mission 10 | Science Museum Group Collection. [online]. Available at: https://collection.sciencemuseum.org.uk/documents/aa110069461/photographic-print-lm-descent-monitoring-chart-apollo-mission-10 [Accessed 23 Dec. 2018].
+
+
+14. Office Support. (n.d.). 在气泡图中显示数据. [online]. Available at: https://support.office.com/zh-cn/article/%E5%9C%A8%E6%B0%94%E6%B3%A1%E5%9B%BE%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE-424d7bda-93e8-4983-9b51-c766f3e330d9 [Accessed 28 Jan. 2019].
+
+
+15. Hart, M. and olprod. (2018). Power BI 中的散点图、气泡图和点图. [online]. Available at: https://docs.microsoft.com/zh-cn/power-bi/visuals/power-bi-visualization-scatter [Accessed 28 Jan. 2019].
+
+
+16. Murray, S. (2017). Power BI Animated Scatter and Bubble Charts. [online]. Available at: https://www.mssqltips.com/sqlservertip/4694/power-bi-animated-scatter-and-bubble-charts/ [Accessed 28 Jan. 2019].
+
+
+17. Tableau Help. (2018). 生成填充气泡图. [online]. Available at: https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_bubbles.htm [Accessed 28 Jan. 2019].
+
+
+18. Browne, D. and Fogden, L. (2016). Building a Custom Bubble Chart in QlikView. [online]. Available at: http://blog.keyrus.co.uk/building_a_custom_bubble_chart_in_qlikview.html [Accessed 28 Jan. 2019].
+
+
+19. Echarts team. (n.d.). 1990 与 2015 年各国家人均寿命与 GDP. [online]. Available at: https://echarts.baidu.com/examples/editor.html?c=bubble-gradient [Accessed 28 Jan. 2019].
+
+
+20. Echarts team. (n.d.). AQI指数. [online]. Available at: https://echarts.baidu.com/examples/editor.html?c=scatter-aqi-color [Accessed 28 Jan. 2019].
+
+
+21. Echarts team. (n.d.). 各国人均寿命与GDP关系演变. [online]. Available at: https://echarts.baidu.com/examples/editor.html?c=scatter-life-expectancy-timeline [Accessed 28 Jan. 2019].
+
+
+22. AntV team. (n.d.). 带文本的气泡图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/point/bubble-text.html [Accessed 28 Jan. 2019].
+
+
+23. Bostock, M. (2017). D3 Bubble Chart. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-bubble-chart [Accessed 28 Jan. 2019].
+
+
+24. The Growing Python. (2011). How to make Bubble Charts with matplotlib. [online]. Available at: https://glowingpython.blogspot.com/2011/11/how-to-make-bubble-charts-with.html [Accessed 28 Jan. 2019].
+
+
+25. ggplot2 team. (n.d.). Points — geom_point. [online]. Available at: https://ggplot2.tidyverse.org/reference/geom_point.html [Accessed 28 Jan. 2019].
+
+
+26. Gapminder. (2018). Gapminder Tools. [online]. Available at: https://www.gapminder.org/tools/?from=world#$state$time$value=2018;;&chart-type=bubbles [Accessed 28 Jan. 2019].
+
+
+27. 镝次元数据传媒实验室. (2017). 气泡图——比散点图更懂你的心 | 图表家族#13. [online] Available at: https://www.dydata.io/article/p/927191168698228736 [Accessed 28 Jan. 2019].
+
 </Reference>
 
 ## 贡献者
+
+<div id="contributor-graph-detail"></div>
 
 <!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
 
 <Contributors
   data={{
-    贡献者: [{ date: '2018-12-01', content: '内容' }],
-  }}
+  "小虾": [
+    {
+      "content": "文档资料搜集、整理和编辑",
+      "date": 1546272000000
+    }
+  ],
+  "​Olivia": [
+    {
+      "date": 1546272000000,
+      "content": "文档审核与编辑、贡献案例"
+    }
+  ],
+  "​Amphetamine": [
+    {
+      "date": 1546272000000,
+      "content": "绘图"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1563273456122,
+      "content": "贡献设计案例"
+    },
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    },
+    {
+      "date": 1546272000000,
+      "content": "贡献设计案例"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ]
+}}
   merge
 />

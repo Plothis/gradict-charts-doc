@@ -1,0 +1,331 @@
+
+# 六边形分箱图 - Hexagonal Binning
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/jZkFxjL/22971d1da1c245a08f961fe8ab231f6f.png)
+
+六边形分箱图（Hexagonal Binning），也称六边形箱体图，或简称六边形图，是一种由六边形为主要元素的统计图表。它是一种比较特殊的图表，既是[散点图](<http://www.tuzhidian.com:3000/chart?id=5c56e4ae4a8c5e048189c713>)的延伸，又兼具[直方图](<http://www.tuzhidian.com:3000/chart?id=5c56e58b4a8c5e048189c736>)和[热力图](<http://www.tuzhidian.com:3000/chart?id=5c56e4284a8c5e048189c6fe>)的特征。
+
+一般来说，人们习惯用[散点图](<http://www.tuzhidian.com:3000/chart?id=5c56e4284a8c5e048189c6fe>)来分析变量之间的关系，以及寻找趋势。但是，随着数据集越来越庞大，画面上的散点也越来越多。这时，数据点很可能会重叠在一起、互相覆盖，以至于很难分辨出趋势、发现集群。
+
+因此，为了解决这个问题，我们可以引入“密度”的概念，即以特定的区域为单位，统计出这个区域里散点出现的频数，然后借鉴[热力图](<http://www.tuzhidian.com:3000/chart?id=5c56e4284a8c5e048189c6fe>)，用颜色代表频数的高低。这样一来，散点的分布就一目了然了。为何要使用六边形来框定范围呢？这是因为，比起矩形，六边形更像一个圆，这样可以更有效的围绕着图形中心聚合数据。此外，六边形也方便衔接，排列起来也非常美观。
+
+使用六边形分箱图，可以大幅降低[散点图](<http://www.tuzhidian.com:3000/chart?id=5c56e4284a8c5e048189c6fe>)带来的视觉困难。尤其是在面对大规模数据集时，它就显得尤为高效。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/qCjQQYG/1549215972325-4e1bdb55-c1cd-4e22-b300-1db37a25b378.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+适用于大规模的数据集，可以将散点聚合起来，更好的反映数据的聚集情况、发现变量之间的关系。大致原理如下图（Booden, 2014
+
+）所示：
+
+![null](//i.ibb.co/7kpHsXh/1548850694691-01bd9abe-2f60-4fbf-948b-a214418229a1.png)
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+· 数据少时，可以直接用[散点图](<http://www.tuzhidian.com:3000/chart?id=5c56e4284a8c5e048189c6fe>)，没有聚合的必要。
+
+· 正如直方图需要确定组距（bin）的大小，绘制六边形分箱图时，也需要确定六边形的大小。六边形越大，相当于精度越低。不同的大小，也可能带来不同的结论，因此建议多次尝试。
+
+· 六边形分箱图是一种2D密度图（2D Density Plot），但并非唯一的一种。如下图（from Data to Viz, no date
+
+）所示，聚合的方式其实有很多种，彼此之间的精度、外观都有所区别。使用时，可选择最适合的一种。
+
+![null](//i.ibb.co/jy2jXxM/1548853258927-15206183-bdcc-47b6-99ab-49e3850a25fa.png?x-oss-process=image/resize,w_1180)
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="在篮球的半场图里，用六边形的点表示了不同位置的得分情况。颜色上有比较明显的冷暖对比，点的大小表示投篮次数，而颜色表示得分次数。大块的红色点表示重点得分区域，而大块绿色则表示命中率不高的区域。"
+    link="http://www.vizinsight.com/2012/06/热火战雷霆/"
+    image="//i.ibb.co/rH8r9gB/6b4617521c0198da0aa04ca1168b1523.png"
+/>
+            
+<DesignCaseItem
+    description="美国各州人口可视化。每个州用一个六边形表示，抹去了实际的地理样貌，但阅读起来似乎更轻松了。"
+    link="https://www.highcharts.com/demo/honeycomb-usa"
+    image="//i.ibb.co/J25wXDB/e29a4b37d3a297a43e1d10f4c95ec5c9.png"
+/>
+            
+<DesignCaseItem
+    description="作者对全球冬季的海洋生产力进行了可视化。六边形拼贴，具有马赛克一般的效果。配上明亮的颜色，营造出一种扁平、可爱的风格。"
+    link="https://twitter.com/datavizcowboy/status/925297747888148480"
+    image="//i.loli.net/2021/11/02/3TPQuby7conN6Lk.png"
+/>
+            
+<DesignCaseItem
+    description="由于六边形分箱图本身就是热力图与直方图的结合，六边形的颜色越深代表频数越高，因此它也比较适合3d效果。"
+    link="https://medium.com/@northernjamie/making-a-hex-bin-layer-for-greater-manchester-c1d177a2476f"
+    image="//i.loli.net/2021/11/02/WDoXqeuIKi7YmSU.png"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）大规模数据的可视化与相关性检验。例如，下图（Stucchio, 2012
+
+）来自一项针对教师能力的研究。横轴和纵轴分别代表教师在英语、数学两科的VAM（纽约市教育局发布的教师评估方法）分数。将超过5000位教师的数据录入、聚合后，得到六边形分箱图（右图为2008年度，左图为2009年度）。两幅图都能看出正相关关系，说明教英语的老师，教数学也不错。而通过对比两个年份，又可以很快看出评分的变化。[[点击访问原作品网页]](<https://www.chrisstucchio.com/blog/2012/dont_use_scatterplots.html>)
+
+![null](//i.ibb.co/9YBYbNw/1548856006154-dcda4977-6658-4ede-ba3f-fe1b2dbf19e3.png?x-oss-process=image/resize,w_1492)
+
+（2）体育行业的可视分析。例如，下图（Sheinin and Emamdjomeh, 2017
+
+）将棒球运动员的命中情况进行了可视化。[[点击访问原作品网页]](<https://www.washingtonpost.com/graphics/sports/mlb-launch-angles-story/?noredirect=on&utm_term=.8b19e0a7b408>)
+
+![null](<//i.ibb.co/gwFNfXH/1548815214652-34f921eb-ea63-4a41-a24f-e7d0815c0fa7.png>)
+
+（3）性能分析、观察设备利用率。下图是国外设计师设计的一款服务界面（Campanelli, no date
+
+），它将复杂系统进行聚合、简洁化，用户就可以直观的查看存储情况、管理计算容量。[[点击访问原作品网页]](<http://www.luciocampanelli.com/obox.html>)
+
+![null](<//i.ibb.co/Sn83qpr/1548843288736-de4164a6-c58c-42f2-bf60-24ad63515d26.jpg?x-oss-process=image/resize,w_844>)
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [],
+    "Power BI": [
+      {
+        "linkText": "视频教程（英文）",
+        "link": "https://www.youtube.com/watch?v=So5sbNzSNW8"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "视频教程（英文）",
+        "link": "https://www.youtube.com/watch?v=PuReHF8H_n8"
+      }
+    ],
+    "QlikView": []
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例-篮球场场景",
+        "link": "https://echarts.baidu.com/examples/editor.html?c=custom-hexbin"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方实例-直角坐标系",
+        "link": "https://antvis.github.io/g2/demo/18-other/hot-hex.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "基础教程",
+        "link": "https://beta.observablehq.com/@mbostock/d3-hexbin"
+      },
+      {
+        "linkText": "使用d3 hexbin plugin",
+        "link": "https://www.visualcinnamon.com/2013/07/self-organizing-maps-creating-hexagonal"
+      },
+      {
+        "linkText": "用d3给六边形分箱图添加边界",
+        "link": "https://www.visualcinnamon.com/2013/07/self-organizing-maps-adding-boundaries"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "matplotlib方法",
+        "link": "https://matplotlib.org/examples/pylab_examples/hexbin_demo.html"
+      },
+      {
+        "linkText": "pandas方法",
+        "link": "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.hexbin.html"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "官方文档及案例",
+        "link": "https://ggplot2.tidyverse.org/reference/geom_hex.html"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [],
+    "Sketch": []
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）
+
+[Rawgraphs](<http://app.rawgraphs.io/>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+  
+
+1. ferdio. (n.d.). Hexagonal Binning. [online]. Available at: https://datavizproject.com/data-type/hexagonal-binning/ [Accessed 30 January 2019].
+
+
+2. Booden, B. (2014). Hexagonal Binning #QlikSense extension vs scatter plot of real data. Getting there! . [online]. Available at: https://twitter.com/brian_booden/status/534648882899472384 [Accessed 30 January 2019].
+
+
+3. from Data to Viz. (n.d.). 2D DENSITY PLOT. [online]. Available at: https://www.data-to-viz.com/graph/density2d.html [Accessed 30 January 2019].
+
+
+4. 视物 | 致知. (2012). 热火战雷霆. [online]. Available at: http://www.vizinsight.com/2012/06/热火战雷霆/ [Accessed 30 January 2019].
+
+
+5. Highcharts. (n.d.). U.S. states by population in 2016 . [online]. Available at: https://www.highcharts.com/demo/honeycomb-usa [Accessed 30 January 2019].
+
+
+6. Jorge Martinez-Rey. (2017). Hexagonal binning is so cute. [online]. Available at: https://twitter.com/datavizcowboy/status/925297747888148480 [Accessed 30 January 2019].
+
+
+7. Whyte, J. (2017). Making a Hex Bin Layer for Greater Manchester. [online]. Available at: https://medium.com/@northernjamie/making-a-hex-bin-layer-for-greater-manchester-c1d177a2476f [Accessed 30 January 2019].
+
+
+8. Stucchio, C. (2012). Don't use Scatterplots. [online]. Available at: https://www.chrisstucchio.com/blog/2012/dont_use_scatterplots.html [Accessed 30 January 2019].
+
+
+9. Sheinin, D. and Emamdjomeh, A. (2017). These days in baseball, every batter is trying to find an angle. [online]. Available at: https://www.washingtonpost.com/graphics/sports/mlb-launch-angles-story/?noredirect=on&utm_term=.c3441759a478 [Accessed 30 January 2019].
+
+
+10. Campanelli, L. (n.d.). O-BOX HYPER-CONVERGED CLOUD PLATFORM. [online]. Available at: http://www.luciocampanelli.com/obox.html [Accessed 30 January 2019].
+
+
+11. Pragmatic Works. (2016). Power BI Custom Visuals - Hexbin Scatterplot. [Youtube video]. Available at: https://www.youtube.com/watch?v=So5sbNzSNW8 [Accessed 30 January 2019].
+
+
+12. SuperDataScience. (2017). TABLEAU HEXBINS CHART PART I. [Youtube video]. Available at: https://www.youtube.com/watch?v=PuReHF8H_n8 [Accessed 30 January 2019].
+
+
+13. Echarts team. (n.d.). Kawhi Leonard. [online]. Available at: https://echarts.baidu.com/examples/editor.html?c=custom-hexbin [Accessed 30 January 2019].
+
+
+14. AntV team. (n.d.). 分块热力图(六边形). [online]. Available at: https://antvis.github.io/g2/demo/18-other/hot-hex.html [Accessed 30 January 2019].
+
+
+15. Bostock, M. (2018). D3 Hexbin. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-hexbin [Accessed 30 January 2019].
+
+
+16. Bremer, N. (2013a). Creating hexagonal heatmaps with d3.js. [online]. Available at: https://www.visualcinnamon.com/2013/07/self-organizing-maps-creating-hexagonal [Accessed 30 January 2019].
+
+
+17. Bremer, N. (2013b). Adding boundaries inside a hexagonal heatmap with d3.js. [online]. Available at: https://www.visualcinnamon.com/2013/07/self-organizing-maps-adding-boundaries [Accessed 30 January 2019].
+
+
+18,matplotlib team. (n.d.). pylab_examples example code: hexbin_demo.py. [online]. Available at: https://matplotlib.org/examples/pylab_examples/hexbin_demo.html [Accessed 30 January 2019].
+
+
+19,pandas team. (n.d.). pandas.DataFrame.plot.hexbin. [online]. Available at: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.hexbin.html [Accessed 30 January 2019].
+
+
+20. ggplot2 team. (n.d.). Hexagonal heatmap of 2d bin counts. [online]. Available at: https://ggplot2.tidyverse.org/reference/geom_hex.html [Accessed 30 January 2019].
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "徐堃": [
+    {
+      "content": "文档资料搜集、整理和编辑",
+      "date": 1546272000000
+    }
+  ],
+  "Olivia": [
+    {
+      "content": "文档资料搜集、整理和编辑",
+      "date": 1546272000000
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ]
+}}
+  merge
+/>

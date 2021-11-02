@@ -1,0 +1,359 @@
+
+# 热力图 - Heatmap
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/nfc5x8R/0768ef96553ef6f8eaf629dcfc9d55ba.png)
+
+热力图，是一种通过对色块着色来显示数据的统计图表。绘图时，需指定颜色映射的规则。例如，较大的值由较深的颜色表示，较小的值由较浅的颜色表示；较大的值由偏暖的颜色表示，较小的值由较冷的颜色表示，等等。
+
+从数据结构来划分，热力图一般分为两种。第一，表格型热力图，也称色块图。它需要2个分类字段+1个数值字段，分类字段确定x、y轴，将图表划分为规整的矩形块。数值字段决定了矩形块的颜色。第二，非表格型热力图，或曰平滑的热力图，它需要3个数值字段，可绘制在平行坐标系中（2个数值字段分别确定x、y轴，1个数值字段确定着色）。
+
+热力图适合用于查看总体的情况、发现异常值、显示多个变量之间的差异，以及检测它们之间是否存在任何相关性。
+
+值得注意的是，绘制热力图时，建议选择恰当的调色板，既在视觉上便于区分，也符合所要传达的主旨。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/kqLbTFN/1549106749671-1c993ab5-8af0-4b28-91a7-e3e39b7f5598.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+（1）热力图的优势在于“空间利用率高”，可以容纳较为庞大的数据。热力图不仅有助于发现数据间的关系、找出极值，也常用于刻画数据的整体样貌，方便在数据集之间进行比较（例如将每个运动员的历年成绩都浓缩成一张热力图，再进行比较）。
+
+（2）如果将某行或某列设置为时间变量，热力图也可用于展示数据随时间的变化。例如，用热力图来反映一个[城市一年中的温度变化](<#usage-scene-graph-detail>)，气候的冷暖走向，一目了然。
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+（1）尽管热力图能够容纳较多的数据，但反过来说，人们很难将其中的色块转换为精确的数字。因此，当需要清楚知道数值的时候，可能需要额外的标注。
+
+（2）此外，也出现了热力图的极坐标变形，即环状的热力图。需要提醒的是，这一图表与[旭日图](<http://www.tuzhidian.com:3000/chart?id=5c55ac7458461d3fa6136711>)等图表外观有相似之处，但功能却是完全不同的，使用时需谨慎。
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="使用反差色，冷暖对比。"
+    link="https://multimedia.scmp.com/culture/article/SCMP-printed-graphics-memory/lonelyGraphics/201712A151.html"
+    image="//i.loli.net/2021/11/02/JnXSRLKq5zChpIe.png"
+/>
+            
+<DesignCaseItem
+    description="使用单色，明暗对比。"
+    link="http://neoformix.com/2013/Toronto311.html"
+    image="//i.ibb.co/tz7kNYr/dbfed112f933aa45c61cbfb5b7304128.png"
+/>
+            
+<DesignCaseItem
+    description="圆形布局（一般是有时间变量时）。"
+    link="https://www.pinterest.com/pin/325033298099204007/"
+    image="//i.ibb.co/MRKWzyq/78722fee01bc49eb61e99a16d29f61d7.png"
+/>
+            
+<DesignCaseItem
+    description="搭配其他图表，加入交互。这个案例将历年出生的人数可视化了，用户可以输入自己的生日，探索自己落在哪个区间。"
+    link="https://public.tableau.com/en-us/s/gallery/significant-birthdays-throughout-history"
+    image="//i.loli.net/2021/11/02/LvRpzGq6WxFscYP.png"
+/>
+            
+<DesignCaseItem
+    description="热力图结合折线图。"
+    link="https://www.pinterest.com/pin/503981014527978173/"
+    image="//i.ibb.co/cDyM3cq/211e108c619865ea762047aeb2cc193c.png"
+/>
+            
+<DesignCaseItem
+    description="这一作品将几位著名棒球运动员的成绩进行了可视化，我们不仅能观察每一位运动员的表现，还能在运动员之间进行对比。"
+    link="https://public.tableau.com/profile/datavizard#!/vizhome/2017MLBPitcherHeatmaps/MLB"
+    image="//i.ibb.co/swSqM0z/7b77c2a32c040efad079ef13e04ec1e1.png"
+/>
+            
+<DesignCaseItem
+    description="下图将香港立法会2012-2015年、共70位议员的投票记录进行了可视化，研究所谓的“建制”和“泛民”是否团结。特别是，为了辅助理解，还配上了有趣的讲解视频，大大降低了理解难度。"
+    link="https://theinitium.com/article/20150812-hongkong-legcoanalysis/"
+    image="//i.ibb.co/yYLvVTP/03d221a4af9b2e27b150fb3155714fa6.png"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）用于监测环境变化。例如，这个案例（Toyo Keizai Inc, 2018
+
+）追踪例如日本东京140年里的夏季气温，绘制成热力图。每一小格代表一天。从中，我们能非常直观的看到，东京变得越来越热了。[[点击访问原作品网页]](<https://toyokeizai.net/sp/visual/tko/temperature/>)
+
+
+
+（3）用于界面设计、广告与营销。例如，下图（Hall, 2018
+
+）通过统计网页元素的被点击次数、制成热力图，能够很准确的展示出，哪些地方更容易被点击，而哪些地方可能没有被用户注意到，以此来为网页的布局及广告的投放提供支持。[[点击访问原作品网页]](<https://www.crazyegg.com/blog/understanding-using-heatmaps-studies/>)
+
+
+
+（4）用于表现道路拥堵、或运动强度等。下图（Sison, 2013
+
+）是一款运动追踪产品，可以记录下跑步者的运动路线，以及跑步速度，颜色越红，表示当时的时速越快。[[点击访问原作品网页]](<https://dribbble.com/shots/1336122-Run-Data-Exploration>)
+
+
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "使用“条件格式”制作热力图",
+        "link": "https://www.jianshu.com/p/dbbf2b98db40"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "生成简单热力图（英文）",
+        "link": "https://www.tutorialgateway.org/heat-map-in-power-bi/"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "生成简单热力图",
+        "link": "https://zhuanlan.zhihu.com/p/51513031"
+      },
+      {
+        "linkText": "高阶-沿坐标轴生成平滑热力图",
+        "link": "https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_density.htm"
+      }
+    ],
+    "QlikView": []
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": "https://echarts.baidu.com/examples/#chart-type-heatmap"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "G2官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html#_%E7%83%AD%E5%8A%9B%E5%9B%BE"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "表格式热力图",
+        "link": "http://bl.ocks.org/tjdecke/5558084"
+      },
+      {
+        "linkText": "径向热力图",
+        "link": "https://beta.observablehq.com/@khxu/spiral-time-series-ccsf-apache-access-logs-8-18-2018-to-9-1-201"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "比较简单的方法",
+        "link": "https://blog.csdn.net/sunchengquan/article/details/78573244"
+      },
+      {
+        "linkText": "seaborn参数介绍",
+        "link": "https://www.jianshu.com/p/363bbf6ec335"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "生成基础热力图",
+        "link": "https://blog.csdn.net/reallocing1/article/details/52816724"
+      },
+      {
+        "linkText": "热力图样式调整",
+        "link": "https://site.douban.com/240668/widget/notes/16983503/note/402577409/"
+      },
+      {
+        "linkText": "详细分步教程（英文）",
+        "link": "https://flowingdata.com/2010/01/21/how-to-make-a-heatmap-a-quick-and-easy-solution/"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS": [
+      {
+        "linkText": "矩形工具"
+      }
+    ],
+    "AI": [
+      {
+        "linkText": "矩形工具"
+      }
+    ],
+    "Sketch": [
+      {
+        "linkText": "矩形工具"
+      }
+    ]
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）
+
+[Heatmapper](<http://www.heatmapper.ca/>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）[热力图的历史（英文）。](<http://www.datavis.ca/papers/HeatmapHistory-tas.2009.pdf>)
+
+（2）[如何用热力图可视分析游戏中的行为数据。](<http://www.vizinsight.com/2013/01/可视分析游戏中的行为数据/>)
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+
+ 1.AntV墨者学院. (n.d.). 热力图. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/heatmap.html [Accessed 10 January 2019].
+
+2.AntV墨者学院. (n.d.). 色块图. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/color-map.html [Accessed 10 January 2019].
+
+3.Hernandez, M. (2017). How they score. [online]. Available at: https://multimedia.scmp.com/culture/article/SCMP-printed-graphics-memory/lonelyGraphics/201712A151.html [Accessed 10 January 2019].
+
+4.Clark, J. (2013). Toronto 311 Visualization. [online]. Available at: http://neoformix.com/2013/Toronto311.html [Accessed 10 January 2019].
+
+5.deloitte. (n.d.). deloitte.com. [Pinterest]. Available at: https://www.pinterest.com/pin/325033298099204007/ [Accessed 10 January 2019].
+
+6.Harris, C. (n.d.). Significant Birthdays Throughout History. [online]. Available at: https://public.tableau.com/en-us/s/gallery/significant-birthdays-throughout-history [Accessed 10 January 2019].
+
+7.Info Porn. (n.d.). Bot or not?. [Pinterest]. Available at: https://www.pinterest.com/pin/503981014527978173/ [Accessed 10 January 2019].
+
+8.Toyo Keizai Inc. (2018). 東京の夏は着実に｢暑く･長く｣なっている. [Pinterest]. Available at: https://toyokeizai.net/sp/visual/tko/temperature/ [Accessed 10 January 2019].
+
+9.Olsufka, J. (2017). 2017 MLB Pitcher Heatmaps. [online]. Available at: https://public.tableau.com/profile/datavizard#!/vizhome/2017MLBPitcherHeatmaps/MLB [Accessed 10 January 2019].
+
+10.Hall, S.H. (2018). What is a Heat Map, How to Create One, Examples and Case Studies. [online]. Available at: https://www.crazyegg.com/blog/understanding-using-heatmaps-studies/ [Accessed 10 January 2019].
+
+11.Sison, R. (2013). Run Data Exploration. [dribbble]. Available at: https://dribbble.com/shots/1336122-Run-Data-Exploration [Accessed 10 January 2019].
+
+12.端Lab. (2015). 20萬條投票紀錄帶你解碼香港立法會. [online]. Available at: https://theinitium.com/article/20150812-hongkong-legcoanalysis/ [Accessed 10 January 2019].
+
+13.生信札记. (2018). 使用Excel绘制热图heatmap（可得到矢量图）. [online]. Available at: https://www.jianshu.com/p/dbbf2b98db40 [Accessed 10 January 2019].
+
+14.Tutorial Gateway. (n.d.). Heat Map in Power BI. [online]. Available at: https://www.tutorialgateway.org/heat-map-in-power-bi/ [Accessed 10 January 2019].
+
+15.陈熊猫. (2018). Tableau | 生成简单热力图. [online]. Available at: https://zhuanlan.zhihu.com/p/51513031 [Accessed 10 January 2019].
+
+16.Tableau帮助. (2018). 使用密度标记进行构建（热图）. [online]. Available at: https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_density.htm [Accessed 10 January 2019].
+
+17.Echarts team. (n.d.). 热力图. [online]. Available at: https://echarts.baidu.com/examples/#chart-type-heatmap [Accessed 10 January 2019].
+
+18.AntV team. (n.d.). 热力图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html#_%E7%83%AD%E5%8A%9B%E5%9B%BE [Accessed 10 January 2019].
+
+19.May, T. (2018). Day / Hour Heatmap. [online]. Available at: http://bl.ocks.org/tjdecke/5558084 [Accessed 10 January 2019].
+
+20.Xu, K. (2018). Spiral Time Series. [online]. Available at: https://beta.observablehq.com/@khxu/spiral-time-series-ccsf-apache-access-logs-8-18-2018-to-9-1-201 [Accessed 10 January 2019].
+
+21.sunchengquan. (2017). Python-Seaborn热图绘制. [online]. Available at: https://blog.csdn.net/sunchengquan/article/details/78573244 [Accessed 10 January 2019].
+
+22.leenard. (2017). Python可视化：Seaborn库热力图使用进阶. [online]. Available at: https://www.jianshu.com/p/363bbf6ec335 [Accessed 10 January 2019].
+
+23.教育数据挖掘小小子. (2016). 教你快速的使用ggplot2画热图. [online]. Available at: https://blog.csdn.net/reallocing1/article/details/52816724 [Accessed 10 January 2019].
+
+24.放暑假的小学生. (2014). 数据可视化：使用ggplot画热图. [online]. Available at: https://site.douban.com/240668/widget/notes/16983503/note/402577409/ [Accessed 10 January 2019].
+
+25.Yau, N. (2010). How to Make a Heatmap – a Quick and Easy Solution. [online]. Available at: https://flowingdata.com/2010/01/21/how-to-make-a-heatmap-a-quick-and-easy-solution/ [Accessed 10 January 2019].
+
+26.Wilkinson, L. and Friendly, M. (2009). The history of the cluster heat map. The American Statistician, 63(2), pp.179-184.
+
+27.视物|致知. (2013). 可视分析游戏中的行为数据. [online]. Available at: http://www.vizinsight.com/2013/01/可视分析游戏中的行为数据/ [Accessed 10 January 2019]. 
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "Olivia": [
+    {
+      "date": 1546272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Amphetamine": [
+    {
+      "date": 1546272000000,
+      "content": "绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ]
+}}
+  merge
+/>
