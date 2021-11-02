@@ -1,0 +1,316 @@
+
+# 漏斗图 - Funnel Chart
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/TRLx1sT/b9721a6b205cd30f4a28105913dc1bcd.png)
+
+漏斗图，形如“漏斗”，用于单流程分析，在开始和结束之间由N个流程环节组成。漏斗图的起始总是100%，并在各个环节依次减少，每个环节用一个梯形来表示，整体形如漏斗。一般来说，所有梯形的高度应是一致的，这会有助人们辨别数值间的差异。
+
+需要注意的是，漏斗图的各个环节，有逻辑上的顺序关系。同时，漏斗图的所有环节的流量都应该使用同一个度量。漏斗图最适宜用来呈现业务流程的推进情况，如用户的转化情况、订单的处理情况、招聘的录用情况等。通过漏斗图，可以较直观的看出流程中各部分的占比、发现流程中的问题，进而做出决策。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/F3nSs6S/1549047793504-0c2ea261-11e8-4b22-9263-531db4fab021.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+（1）数据是有序的，彼此之间有逻辑上的顺序关系，阶段最好大于3个。
+
+（2）该流程应是“消耗性”的流程，如在电商领域，注册用户一定是经过层层消耗，才到达下单环节；在人力领域，收到的简历一定经过多轮筛选，才进入终面。
+
+（3）在实际应用中，漏斗图很适合于跟踪用户的转化率和保留率、跟踪点击广告/市场营销活动的进度和成功率，以及揭示线性流程中的瓶颈。在新闻领域，漏斗图也较适合社会平等、阶层分化、资源分配等的话题。
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+（1）漏斗图不适合没有逻辑关系的数据，换句话说，如果数据不构成“流程”，那么不能使用漏斗图。
+
+（2）此外，我们常常见到漏斗图在报告中作为一种“装饰”存在。但严格来说，作为一种统计图表，漏斗图的“长相”，本质上是由数据决定的。梯形的高度、面积都是有意义的，不应想当然的篡改。以下图为例，这张图来自于福布斯网站（wtf-viz, 2016a
+
+），本意是想表现男性和女性在STEM领域的表现差异，但是漏斗的形状与实际的数据完全对不上。
+
+![null](//i.ibb.co/1LfKQRT/1547955314707-f2fd6628-4071-46d3-959c-e6a8f2af137f.png)
+
+（3）再者，在传达数据时，漏斗图是通过“面积”表示的，对于人眼来说，面积的识别本来就不太容易。如果我们在制作漏斗图时，再人为的改变漏斗中每一个梯形的高度，那么识别起来就十分困难。以下图（wtf-viz, 2016b
+
+）为例，抹掉数字后，你几乎不可能知道第一层是第二层的三倍。
+
+![null](<//i.ibb.co/KzBBL1H/1547955906725-2f72d6c2-a59f-42d8-8f74-2001bac73124.png>)
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="《经济学人》用漏斗图，描绘出英国、法国、德国三国的薪资收入差距。明显看出，英国的职业收入差距最大。作图规范、用色简单清晰，避免了一般漏斗图有的花哨。"
+    link="https://www.economist.com/graphic-detail/2017/08/01/are-women-paid-less-than-men-for-the-same-work"
+    image="//i.ibb.co/SN9S2d0/1e37de2c79ccb056b152bad3fccbaa80.png"
+/>
+            
+<DesignCaseItem
+    description="对漏斗做一些设计上的变形，增加立体感和装饰感。"
+    link="https://www.pinterest.com/pin/500532946068884467/"
+    image="//i.ibb.co/cCg7nkS/20c0ba6778336be131738216118f250a.png"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）电商、物流等流程管理。例如，追踪用户从访问、注册，到下单、成功购买的转化率（小草莓, 2016
+
+）。[[点击阅读更多]](<https://www.zhihu.com/question/19856899>)
+
+![null](//i.ibb.co/XCQ5s6T/1547962015200-f05dd533-90b2-4b8d-a3c5-234691f500cc.png)
+
+（2）互联网产品的AARRR模型（圣侨资讯, 2016
+
+），包含了获客、日活、留存、转化、变现等一系列追踪指标。[[点击阅读更多]](<#learning-resource-graph-detail>)
+
+![null](<//i.ibb.co/YbsSjJX/1547963542335-13be9484-dca6-4b09-a18e-3b682c21d99e.png>)
+
+（3）漏斗图也可用于分析社会现象。如美国的“篮球漏斗”（Sleeper, 2014
+
+）。最上方是在高中打篮球的男孩，最后是进入nba打职业篮球的男孩。[[点击访问原作品网页]](<http://www.osmguy.com/2014/01/odds-going-pro-sports-visualization/>)
+
+![null](<//i.ibb.co/JcHRx2w/1545474190595-febdc4b6-0b5e-4283-b7d5-271ea739d1d4.png>)
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "官方说明及基本操作",
+        "link": "https://support.office.com/zh-cn/article/%E5%88%9B%E5%BB%BA%E6%BC%8F%E6%96%97%E5%9B%BE-ba21bcba-f325-4d9f-93df-97074589a70e?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "官方说明及基本操作",
+        "link": "https://docs.microsoft.com/zh-cn/power-bi/visuals/power-bi-visualization-funnel-charts"
+      },
+      {
+        "linkText": "制作几种常见的漏斗图",
+        "link": "https://www.jianshu.com/p/3bed2cf700f2"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "漏斗图的三种制作方法-知乎专栏",
+        "link": "https://zhuanlan.zhihu.com/p/28061599"
+      },
+      {
+        "linkText": "构建漏斗图的三种不同方法-译自外文社区",
+        "link": "https://cloud.tencent.com/developer/news/278128"
+      },
+      {
+        "linkText": "视频讲解",
+        "link": "https://www.youtube.com/watch?v=7fBNcgGVaoQ"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "官方说明及基本操作",
+        "link": "https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/funnel_chart.htm"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": "http://echarts.baidu.com/examples/#chart-type-funnel"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "G2官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html#_%E6%BC%8F%E6%96%97%E5%9B%BE"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "实例代码",
+        "link": "http://bl.ocks.org/denisemauldin/12e819cfba9cf3119db588bcef54272c"
+      },
+      {
+        "linkText": "漏斗图library：d3-funnel",
+        "link": "https://www.npmjs.com/package/d3-funnel"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "用Plotly实现",
+        "link": "https://moderndata.plot.ly/funnel-charts-in-python-using-plotly/"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "复现《经济学人》的分组漏斗图",
+        "link": "https://zhuanlan.zhihu.com/p/30631439"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [],
+    "Al": [],
+    "Sketch": []
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[在线工具](<https://www.onlinecharttool.com/graph?selected_graph=pyramid>)
+
+（2）[在线工具](<https://online.visual-paradigm.com/features/chart-maker/funnel-chart-maker/>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）[漏斗图简介。](<http://mp.163.com/v2/article/detail/D7LJ1CKH05118F5T.html>)
+
+（2）[产品分析模型：AARRR模型](<https://zhuanlan.zhihu.com/p/32696403>)。
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+
+1. AntV墨者学院. (n.d.). 漏斗图. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/funnel.html [Accessed 30 December 2018].
+
+2. ferdio. (n.d.). Funnel Chart. [online]. Available at: https://datavizproject.com/data-type/funnel-chart/ [Accessed 30 December 2018].
+
+3. wtf-viz.(2016), Found this beautiful funnel on Forbes.com. Available at: http://viz.wtf/post/141613230330/found-this-beautiful-funnel-on-forbescom#notes [Accessed 20 Jan 2019]
+
+4. wtf-viz.(2016), The “ratio” of sizes of the various funnel sections. Available at: http://viz.wtf/post/139063476689/the-ratio-of-sizes-of-the-various-funnel#notes [Accessed 20 Jan 2019]
+
+5. The Economist. (2017). Are women paid less than men for the same work?. [online]. Available at: https://www.economist.com/graphic-detail/2017/08/01/are-women-paid-less-than-men-for-the-same-work [Accessed 30 December 2018].
+
+6. Lean. (n.d.). The Lean Marketing Funnel. [Pinterest]. Available at: https://www.pinterest.com/pin/500532946068884467/ [Accessed 30 December 2018].
+
+7. 小草莓. (2016). 怎么制作数据漏斗图（除Excel外）？. [知乎]. Available at: https://www.zhihu.com/question/19856899 [Accessed 30 December 2018].
+
+8. 圣侨资讯. (2016). 流量成长指标 AARRR理论 | 圣侨资讯. [online]. Available at: https://www.sjcorp.com.tw/cn/blog/blog_view-85 [Accessed 30 December 2018].
+
+9. PowerBI星球. (2018). PowerBI制作几种常见的漏斗图. [online]. Available at: https://www.jianshu.com/p/3bed2cf700f2 [Accessed 30 December 2018].
+
+10. Sleeper, R. (2014). What are the Odds of Going Pro in Sports. [online]. Available at: http://www.osmguy.com/2014/01/odds-going-pro-sports-visualization/ [Accessed 30 December 2018].
+
+11. Office Support. (n.d.). 创建漏斗图. [online]. Available at: https://support.office.com/zh-cn/article/创建漏斗图-ba21bcba-f325-4d9f-93df-97074589a70e?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN [Accessed 30 December 2018].
+
+12. Hart, M., olprod. (2018). 漏斗图. [online]. Available at: https://docs.microsoft.com/zh-cn/power-bi/visuals/power-bi-visualization-funnel-charts [Accessed 30 December 2018].
+
+13. 阿达. (2018). 举个栗子！Tableau技巧（33）：实用漏斗图的三种制作方法. [online]. Available at: https://zhuanlan.zhihu.com/p/28061599 [Accessed 30 December 2018].
+
+14. Tableau社区. (2018). 在 Tableau 中构建漏斗图的三种不同方法. [online]. Available at: https://cloud.tencent.com/developer/news/278128 [Accessed 30 December 2018].
+
+15. SuperDataScience. (2018). TABLEAU FUNNEL CHART TUTORIAL. [Youtube video]. Available at: https://www.youtube.com/watch?v=7fBNcgGVaoQ [Accessed 30 December 2018].
+
+16. QlikView Help. (n.d.). 漏斗图. [online]. Available at: https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/funnel_chart.htm [Accessed 30 December 2018].
+
+17. Echarts team. (n.d.). 漏斗图. [online]. Available at: https://echarts.baidu.com/examples/#chart-type-funnel [Accessed 30 December 2018].
+
+18. AntV team. (n.d.). 漏斗图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html#_漏斗图 [Accessed 30 December 2018].
+
+19. Mauldin, D. (2018). Funnel Chart Layout built in d3.js. [online]. Available at: http://bl.ocks.org/denisemauldin/12e819cfba9cf3119db588bcef54272c [Accessed 30 December 2018].
+
+20. 杜雨. (2017). 商务图表案例——仿经济学人分组漏斗图. [online]. Available at: https://zhuanlan.zhihu.com/p/30631439 [Accessed 30 December 2018].
+
+21. 镝次元数据. (2018). 这个图表神器不简单！产品、运营、销售、HR都爱它！ | 图表家族#22. [online]. Available at: http://mp.163.com/v2/article/detail/D7LJ1CKH05118F5T.html [Accessed 30 December 2018].
+
+22. 安安. (2018). 重要的产品分析模型：AARRR模型. [online]. Available at: https://zhuanlan.zhihu.com/p/32696403 [Accessed 30 December 2018].
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "Olivia": [
+    {
+      "content": "文档资料搜集、整理和编辑",
+      "date": 1543593600000
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ]
+}}
+  merge
+/>

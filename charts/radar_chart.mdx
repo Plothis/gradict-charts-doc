@@ -1,0 +1,369 @@
+
+# 雷达图 - Radar Chart
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/GRD8PpR/80acfa2af8a26d9769b130f36a3ea527.png)
+
+雷达图是一种显示多变量数据的图形方法。通常从同一中心点开始等角度间隔地射出三个以上的轴，每个轴代表一个定量变量，各轴上的点依次连接成线或几何图形。
+
+雷达图可以用来在变量间进行对比，或者查看变量中有没有异常值。另外，多幅雷达图之间或者雷达图的多层数据线之间，还可以进行总体数值情况的对比。
+
+轴的相对位置和角度通常是无信息的。每个变量都具有自己的轴，彼此间的距离相等，所有轴都有相同的刻度。在将数据映射到这些轴上时，需要注意预先对数值进行标准化处理，保证各个轴之间的数值比例能够做同级别的比较。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+小明用雷达图对自己进行能力评估。能力分为：沟通能力、协作能力、领导能力、学习能力、创新能力、技术能力，每项为0-10分。
+
+
+
+![null](//i.ibb.co/Vj74ZTD/1549122861149-078040d1-409b-4717-a2d6-54fd62f03b8d.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+在某一数据对象由多个特征类别构成的情况下，用雷达图来描绘这个数据对象。比如：
+
+· 篮球运动员的能力（得分能力、篮板能力、抢断能力、助攻能力、盖帽能力）
+
+· 食品的营养成分（糖、维生素、矿物质、脂肪、水）
+
+要求特征类别是有限的，不能过多。而且都可以归一化，或者按照统一标准来标准化。比如，身高和体重，虽然单位不同数值分布也不同，但是都可以划分为一个从最小值到最大值（或0到1）的分数（或指数），或者干脆离散化为（差、普通、优异）。
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+分类过多，或者不可在统一程度上标准化的情况。
+
+雷达图中层叠的多边形过多的情况。
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="《Cut the Fruits》同济大学学生作品，ChinaVis Visap 2018 参展作品。对苹果、桃子、梨三种水果，分别选取不同的品种，对每种品种的各个营养成分进行分析计算，每一种品种做成一张雷达图。这样可以在不同品种的苹果间进行比较。"
+    link="http://shanghai-visual.org/tongji/MA/datastories/datastory-fruits.html"
+    image="//i.ibb.co/0sY3Gh3/a2de4c83e577a686a18c1c6414b3503c.png"
+/>
+            
+<DesignCaseItem
+    description="这是一个描述各大作家代表作是在人生什么阶段写成的一个作品，非常有创意。严格意义上来说，这并不是一种标准的雷达图。但是，也可以说每一个张都是一种特殊的雷达图，即一种多轴（100岁，每岁1个轴）单刻度（每个轴上只有一个最外层刻度）的雷达图。"
+    link="https://www.flickr.com/photos/accurat/11052331736/"
+    image="//i.ibb.co/j69sgx9/be3689c036ce41eafb9c0983fe282e2f.jpg"
+/>
+            
+<DesignCaseItem
+    description="2013NBA东部全明星球员能力雷达图。运动员能力雷达图其实在媒体和游戏中都非常常见，这个作品比较值得借鉴的想法是，它将雷达图中间的几何体部分涂上了特别的颜色。这些色轮分为主色和副色，对应的是球员所在球队的配色。通过几何体中的颜色来映射了球队这一个信息，很巧妙。"
+    link="http://www.fastcodesign.com/1671897/infographic-the-nbas-best-players-visualized-as-statistical-snowflakes"
+    image="//i.ibb.co/r7TL7Vf/nba-3765525eca9273ec93caa935ac76a027.jpg"
+/>
+            
+<DesignCaseItem
+    description="这个作品比较知名。其中雷达图带来的思考是线和面的关系。可以看到图中并没有画出各个 zone 的轴，实际上数据点是在轴上的。而用来分割各个 zone 的方式是面，这样也许更能表现出 zone 这个地理空间的间隔概念。"
+    link="https://www.flickr.com/photos/densitydesign/8100153188/in/album-72157631774207511/"
+    image="//i.loli.net/2021/11/02/iCuKsZyNMlBDtOb.png"
+/>
+            
+<DesignCaseItem
+    description="这种雷达图设计，主要特点是将几何图形的边缘连线从直线变成了曲线。本质上并不严谨，但是有些情况下可能是可用的，另外外观上看也是一种特别的设计。"
+    link="https://www.visualcinnamon.com/2015/10/different-look-d3-radar-chart.html"
+    image="//i.ibb.co/5WFmxvd/4736dc8bc0b88120c8ed4f55847aaa87.png"
+/>
+            
+<DesignCaseItem
+    description="这个设计在最外层对轴做了归类。"
+    link="https://www.behance.net/gallery/27726193/Wired-Inside-the-music-of-Mika-visualization"
+    image="//i.ibb.co/hK7fDD7/b79213e30b15ea8a3335d4048504e650.png"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）学校里的那些事。2017年某中学进行了第一次模拟考，三年级中3个班级的平均成绩数据如下表，我们要对这三个班级的整体成绩做出评估，为接下来的教学计划做出指导。
+
+![null](//i.ibb.co/nmDbpMr/1547991998996-60e180f4-d782-4d66-aa6b-6e2d346f5bd6.png)
+
+我们用雷达图进行分析：
+
+![null](<//i.ibb.co/qrrkSvk/1547991999051-9dae65be-0134-4121-821a-97eadc8c5043.png>)
+
+通过这个雷达图可以看到很多信息，比如2班的语文和外语成绩最差，其余三科成绩都不错，有偏科现象，1班的外语和物理成绩最差，需要追赶，3班的化学和数学成绩较差等（小壹, 2017
+
+）。[[点击阅读更多]](<https://zhuanlan.zhihu.com/p/27945886>)
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "教程",
+        "link": "https://www.extendoffice.com/zh-CN/documents/excel/2135-excel-create-radar-chart.html"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "教程和案例",
+        "link": "https://www.jianshu.com/p/9edc3de5a82e"
+      },
+      {
+        "linkText": "显示指标变动",
+        "link": "https://blog.csdn.net/jessica_seiya/article/details/83012444"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "教程1",
+        "link": "https://zhuanlan.zhihu.com/p/24863323"
+      },
+      {
+        "linkText": "教程2",
+        "link": "https://www.jianshu.com/p/5a6378a1ae73"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "官方帮助文档",
+        "link": "https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Radar_Chart.htm"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例-标准雷达图",
+        "link": "https://echarts.baidu.com/examples/editor.html?c=radar"
+      },
+      {
+        "linkText": "官方实例-定制雷达图",
+        "link": "https://echarts.baidu.com/examples/editor.html?c=radar-custom"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方实例-面型雷达图",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/radar/basic.html"
+      },
+      {
+        "linkText": "官方实例-线型雷达图",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/radar/with-line.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "教程1",
+        "link": "http://xgfe.github.io/2015/11/24/chenwubai/d3-basicCharts-radar/"
+      },
+      {
+        "linkText": "教程2",
+        "link": "https://www.visualcinnamon.com/2013/09/making-d3-radar-chart-look-bit-better.html"
+      },
+      {
+        "linkText": "教程3",
+        "link": "https://www.visualcinnamon.com/2015/10/different-look-d3-radar-chart.html"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "教程",
+        "link": "https://python-graph-gallery.com/391-radar-chart-with-several-individuals/"
+      }
+    ],
+    "ggplot2": [
+      {
+        "linkText": "教程1",
+        "link": "https://www.r-graph-gallery.com/143-spider-chart-with-saveral-individuals/"
+      },
+      {
+        "linkText": "教程2",
+        "link": "https://www.r-graph-gallery.com/142-basic-radar-chart/"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [],
+    "Sketch": []
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[雷达图简单在线生成器](<http://chachart.net/radar-chart-en/>)
+
+（2）[雷达图复杂在线生成器](<https://www.onlinecharttool.com/graph?selected_graph=radar>)
+
+（3）[图表制作工具](<https://online.visual-paradigm.com/features/chart-maker/radar-chart-maker/>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）[雷达图简介。](<https://www.jianshu.com/p/aa67c6b1b081>)
+
+（2）[3大案例告诉你如何用雷达图做分析。](<https://zhuanlan.zhihu.com/p/27945886>)
+
+（3）[AntV雷达图介绍。](<https://antv.alipay.com/zh-cn/vis/chart/radar.html>)
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+  
+
+1. Wikipedia. (n.d.). Radar chart. [online]. Available at: https://en.wikipedia.org/wiki/Radar_chart[Accessed 20 January 2019].
+
+
+2. Ribecca, S. (n.d.). 雷达图. [online]. Available at: https://datavizcatalogue.com/ZH/方法/雷达图.html [Accessed 20 January 2019].
+
+
+3. AntV Team. (n.d.). 雷达图. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/radar.html[Accessed 20 January 2019].
+
+
+4. Du Xiaojun et al. (2018). Cut the Fruits!. [online]. Available at: http://shanghai-visual.org/tongji/MA/datastories/datastory-fruits.html [Accessed 20 January 2019].
+
+
+5. Bremer, N. (2015). A different look for the d3.js radar chart. [online]. Available at: https://www.visualcinnamon.com/2015/10/different-look-d3-radar-chart.html [Accessed 20 January 2019].
+
+
+6. ExtendOffice. (n.d.). 如何在Excel中创建雷达图表/蜘蛛图表?. [online]. Available at: https://www.extendoffice.com/zh-CN/documents/excel/2135-excel-create-radar-chart.html [Accessed 20 January 2019].
+
+
+7. PowerBI星球. (2018). 使用PowerBI制作雷达图就是这么简单. [online]. Available at: https://www.jianshu.com/p/9edc3de5a82e [Accessed 20 January 2019].
+
+
+8. 紫玉斋. (2018). Power BI ：利用雷达图（蛛网图）显示某一个体指标变动情况. [online]. Available at: https://blog.csdn.net/jessica_seiya/article/details/83012444 [Accessed 20 January 2019].
+
+
+9. 阿达. (2018). 举个栗子！Tableau技巧（14）：巧妙绘制雷达图（Radar Chart）. [online]. Available at: https://zhuanlan.zhihu.com/p/24863323 [Accessed 20 January 2019].
+
+
+10. Aaron_Alphabet. (2017.). Tableau-雷达图（Radar）. [online]. Available at: https://www.jianshu.com/p/5a6378a1ae73 [Accessed 20 January 2019].
+
+
+11. QlikViewHelp. (n.d.). 雷达图. [online]. Available at: https://help.qlik.com/zh-CN/qlikview/November2017/Subsystems/Client/Content/Radar_Chart.htm [Accessed 20 January 2019].
+
+
+12. ECharts Team. (n.d.). 基础雷达图. [online]. Available at: https://echarts.baidu.com/examples/editor.html?c=radar [Accessed 20 January 2019].
+
+
+13. ECharts Team. (n.d.). 自定义雷达图. [online]. Available at: https://echarts.baidu.com/examples/editor.html?c=radar-custom [Accessed 20 January 2019].
+
+
+14. AntV Team. (n.d.). 基础雷达图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/radar/basic.html [Accessed 20 January 2019].
+
+
+15. AntV Team. (n.d.). 基础雷达图（线）. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/radar/with-line.html [Accessed 20 January 2019].
+
+
+16. chenwubai. (2015). 基于D3.js的雷达图的实现. [online]. Available at: http://xgfe.github.io/2015/11/24/chenwubai/d3-basicCharts-radar/ [Accessed 20 January 2019].
+
+
+17. Bremer, N. (2013). Making the d3.js radar chart look a bit better. [online]. Available at: https://www.visualcinnamon.com/2013/09/making-d3-radar-chart-look-bit-better.html [Accessed 20 January 2019].
+
+
+18. Holtz, Y. (n.d.). Radar chart with several individuals. [online]. Available at: https://python-graph-gallery.com/391-radar-chart-with-several-individuals/ [Accessed 20 January 2019].
+
+
+19. Holtz, Y. (n.d.). SPIDER CHART WITH SEVERAL INDIVIDUALS. [online]. Available at: https://www.r-graph-gallery.com/143-spider-chart-with-saveral-individuals/ [Accessed 20 January 2019].
+
+
+20. Holtz, Y. (n.d.). BASIC RADAR CHART. [online]. Available at: https://www.r-graph-gallery.com/142-basic-radar-chart/ [Accessed 20 January 2019].
+
+
+21. DataHunter小数. (2017). 数据可视化·图表篇】雷达图. [online]. Available at: https://www.jianshu.com/p/aa67c6b1b081 [Accessed 20 January 2019].
+
+
+22. 小壹. (2017). 3大案例告诉你如何用雷达图做分析. [online]. Available at: https://zhuanlan.zhihu.com/p/27945886 [Accessed 20 January 2019].
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "Neo": [
+    {
+      "date": 1546272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Olivia": [
+    {
+      "date": 1546272000000,
+      "content": "文档审核"
+    }
+  ],
+  "Amphetamine": [
+    {
+      "date": 1546272000000,
+      "content": "绘图"
+    }
+  ]
+}}
+  merge
+/>

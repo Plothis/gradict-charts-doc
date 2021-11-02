@@ -1,0 +1,333 @@
+
+# 直方图 - Histogram
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/ysmt9Fq/90d08a95da2f8bfc1e8f0937a58ef439.png)
+
+直方图，又称质量分布图，用于表示数据的分布情况，是一种常见的统计图表。 一般用横轴表示数据区间，纵轴表示分布情况，柱子越高，则落在该区间的数量越大。根据数据分布状况不同，直方图展示的数据有不同的模式，包括对称单峰、偏左单峰、偏右单峰、双峰、多峰以及对称多峰。
+
+构建直方图，首先要确定“组距”、对数值的范围进行分区，通俗的说即是划定有几根柱子（例如0-100分，每隔20分划一个区间，共5个区间）。接着，对落在每个区间的数值进行频次计算（如落在80-100分的10人，60-80分的20人，以此类推）。 最后，绘制矩形，高度由频数决定。
+
+值得一提的是，选择不同的“组距”，绘制出的图表也不同，也可能使我们得出不同的结论。为了避免片面的情况，建议多次调试组距。有时，人们也会把几个直方图叠在一起比较（如[场景案例1](<#usage-scene-graph-detail>)），但类别最好不超过3个。
+
+直方图与[柱状图](<http://www.tuzhidian.com:3000/chart?id=5c56e2da4a8c5e048189c6bb>)看似相像，实则完全不同。前者反映数据分布情况，后者则不具备此功能，只能对数值进行比较。从数据结构来说，[柱状图](<http://www.tuzhidian.com:3000/chart?id=5c56e2da4a8c5e048189c6bb>)需要1个分类变量，是离散的（如一班、二班、三班），因此柱子间有空隙。但直方图的数据均为连续的数值变量（如成绩），因此柱子间是没有空隙的。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/7nyfjKK/1549174272072-69b45f68-bfd4-4074-8534-2110b457b97a.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+分析数据的分布情况。
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+直方图并不等于柱状图，不能对分类的数据进行比较。
+
+![null](//i.ibb.co/BCBvdS8/1549176359593-40cea5b4-8b43-4607-a60a-70bc154de67c.jpg?x-oss-process=image/resize,w_860)
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="一个非常有趣的项目，作者统计了不同曲目中，钢琴琴键的实际使用频次，绘制成这样的“钢琴直方图”。"
+    link="http://joeycloud.net/v/pianogram/"
+    image="//i.ibb.co/74ZyVJJ/d71de9359fcfaaa6f892cfeaae231ff4.png"
+/>
+            
+<DesignCaseItem
+    description="这是一个交互设计项目，详细解释了直方图是如何得来的。用户随着文章往下滑动时，右侧的可视化图表也相应互动。"
+    link="http://tinlizzie.org/histograms/"
+    image="http://www.tuzhidian.com:3001/upload/images/2019/7edb481c657526e340220771e93d4288_0ced9b97b73bb6ee5b9aad6785e0d860.jpg"
+/>
+            
+<DesignCaseItem
+    description="这个项目可以读取任意一张图片，分析其像素点的颜色，然后组成颜色的直方图。"
+    link="https://anvaka.github.io/pixchart/?d=4"
+    image="//i.ibb.co/Fn7zZjD/9e2293bb04f356b01a67c9b8c28f98bd.gif"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）房价分布。作者（Dodd, 2018
+
+）爬取了纽约曼哈顿地图的Airbnb数据，发现房租大多分布在0-500美元／晚，而整租的价格又高于单间，最便宜的是多人分享一个房间。[[点击访问原作品网页]](<https://nycdatascience.com/blog/student-works/scraping-airbnb-manhattan-listings>)
+
+![null](//i.ibb.co/SQrJWyY/1547994266025-2ba5e6ba-1490-4e5d-a3c4-2546ed7e253e.png?x-oss-process=image/resize,w_776)
+
+（2）人口分布。《纽约时报》（The New York Times, 2011
+
+）的这个案例，用直方图对美国（尤其是“婴儿潮”以来）的人口结构进行了反思。例如，下图显示了美国1950年的人口结构，深蓝色表示65岁以上的老龄人口，占总人口的8.3%。作品加入了交互功能，读者可以拖动时间线，观察人口老龄化是如何一步步演进的，也可以选择自动播放。[[点击访问原作品网页]](<http://archive.nytimes.com/www.nytimes.com/interactive/2011/02/04/business/aging-population.html?_r=0>)
+
+![null](<//i.ibb.co/SVPLc9M/1547994523178-01e77aca-0dbb-479d-aa39-afcf599036b8.png>)
+
+（3）摄影、设计领域，常常会遇到颜色通道直方图。整体上，可以看照片是否偏暗、偏亮、是否过曝。此外还可以看各个颜色通道的明暗。例如在下面这样图片（McKinnell, 2011
+
+）中，高光并不强烈，中调相对饱满。蓝色集中于亮部和暗部，红、绿则集中于中间调。[[点击阅读更多]](<https://digital-photography-school.com/histograms-for-beginners/>)
+
+![null](<//i.ibb.co/yNq5nqn/1547992083651-268c1db6-dd64-4f13-8607-7a705a0e58e3.jpg>)
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://support.office.com/zh-cn/article/在-excel-中创建直方图-85680173-064b-4024-b39d-80f17ff2f4e8"
+      },
+      {
+        "linkText": "画直方图的两种方法",
+        "link": "http://blog.sina.com.cn/s/blog_436a9a6c0102w62u.html"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://docs.microsoft.com/zh-cn/power-bi/visuals/service-histograms"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_histogram.htm"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "官方视频教程（英文）",
+        "link": "https://www.youtube.com/watch?v=p97tIzZeZeQ"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方教程",
+        "link": "https://echarts.baidu.com/blog/2017/05/08/echarts-histogram-tutorial.html"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "G2官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/column/histogram.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "基础直方图",
+        "link": "https://bl.ocks.org/mbostock/1933560"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "用python写出直方图的5种方法",
+        "link": "https://segmentfault.com/a/1190000015659597"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "官方教程",
+        "link": "https://ggplot2.tidyverse.org/reference/geom_histogram.html"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [
+      {
+        "linkText": "柱状图工具，间隔为0"
+      }
+    ],
+    "Sketch": [
+      {
+        "linkText": "矩形工具"
+      }
+    ]
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）
+
+[在线生成直方图](<https://www.socscistatistics.com/descriptive/histograms/>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）[如何分清直方图和柱状图？](<https://dydata.io/article/p/999864213992316928>)
+
+（2）[视频讲解：点图、直方图和箱形图的对比。](<https://open.163.com/movie/2018/4/1/8/MDDKJDNEF_MDDKJN918.html>)
+
+（3）[What's so hard about histograms? -讲解直方图的交互设计项目（英文）](<http://tinlizzie.org/histograms/>)[。](<http://tinlizzie.org/histograms/>)
+
+（4）[如何看懂照片的直方图？](<https://www.zhihu.com/question/20511799>)
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+  
+
+1. Wikipedia. (n.d.). Histogram. [online]. Available at: https://en.wikipedia.org/wiki/Histogram [Accessed 3 December 2018].
+
+
+2. Lunzer, A and McNamara, A. (n.d.). What's so hard about histograms?. [online]. Available at: http://tinlizzie.org/histograms/ [Accessed 3 March 2019].
+
+
+3. JoeyCloud. (2015). The Pianogram. [online]. Available at: http://joeycloud.net/v/pianogram/ [Accessed 20 Jan 2019].
+
+
+4. Kaschcha, A. (n.d.). Pixel Chart. [online]. Available at: https://anvaka.github.io/pixchart/?d=4 [Accessed 20 Jan 2019].
+
+
+5. Dodd, A. (2018). Scraping Airbnb: Manhattan Listings. [online]. Available at: https://nycdatascience.com/blog/student-works/scraping-airbnb-manhattan-listings/ [Accessed 20 Jan 2019].
+
+
+6. The New York Times. (2011). The Aging of America. [online]. Available at: http://archive.nytimes.com/www.nytimes.com/interactive/2011/02/04/business/aging-population.html?_r=0 [Accessed 20 Jan 2019].
+
+
+7. McKinnell, A. (2011). Histograms for Beginners. [online]. Available at: https://digital-photography-school.com/histograms-for-beginners/ [Accessed 20 Jan 2019].
+
+
+8. Office Support(n.d.). 在 Excel 中创建直方图. [online]. Avaliable at: https://support.office.com/zh-cn/article/在-excel-中创建直方图-85680173-064b-4024-b39d-80f17ff2f4e8 [Accessed 15 Jan 2019].
+
+
+9. Rayli_wong(2016). 成绩直方图的画法. [online]. Avaliable at: http://blog.sina.com.cn/s/blog_436a9a6c0102w62u.html [Accessed 15 Jan 2019].
+
+
+10. Hart, M. and olprod (2018). 直方图. [online]. Avaliable at: https://docs.microsoft.com/zh-cn/power-bi/visuals/service-histograms [Accessed 15 Jan 2019].
+
+
+11. Tableau Help. (2018). 生成直方图. [online]. Avaliable at: https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_histogram.htm [Accessed 15 Jan 2019].
+
+
+12. Qlik Help. (2017). Histogram chart - Qlik Sense. [Youtube video]. Avaliable at: https://www.youtube.com/watch?v=p97tIzZeZeQ [Accessed 15 Jan 2019].
+
+
+13. Echarts team. (2017). 那些年我们一起学过的直方图. [online]. Avaliable at: https://echarts.baidu.com/blog/2017/05/08/echarts-histogram-tutorial.html [Accessed 15 Jan 2019].
+
+
+14. AntV team. (n.d.). 直方图. [online]. Avaliable at: https://antv.alipay.com/zh-cn/g2/3.x/demo/column/histogram.html [Accessed 15 Jan 2019].
+
+
+15. Bostock, M. (2016). Histogram Chart. [online]. Avaliable at: https://bl.ocks.org/mbostock/1933560 [Accessed 15 Jan 2019].
+
+
+16. xiaoyu. (2017). 5种方法教你用Python玩转histogram直方图. [online]. Avaliable at: https://segmentfault.com/a/1190000015659597 [Accessed 15 Jan 2019].
+
+
+17. ggplot2 team. (2018). Histograms and frequency polygons. [online]. Available at: https://ggplot2.tidyverse.org/reference/geom_histogram.html [Accessed 20 Jan 2019].
+
+
+18. 镝次元. (2018). 能分清直方图和柱状图，你就是图表届的“头号”玩家｜图表家族#36. [online]. Available at: https://dydata.io/article/p/999864213992316928 [Accessed 20 Jan 2019].
+
+
+19. 可汗学院. (2018). 点图、直方图和箱形图的对比. [online]. Available at: https://open.163.com/movie/2018/4/1/8/MDDKJDNEF_MDDKJN918.html [Accessed 20 Jan 2019].
+
+
+20. Thomas看看世界. (2017). 如何看懂照片的直方图？. [online]. Available at: https://www.zhihu.com/question/20511799 [Accessed 20 Jan 2019].
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "Olivia": [
+    {
+      "content": "文档资料搜集、整理和编辑",
+      "date": 1546272000000
+    }
+  ],
+  "Amphetamine": [
+    {
+      "date": 1546272000000,
+      "content": "绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    }
+  ]
+}}
+  merge
+/>

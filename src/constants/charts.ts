@@ -1,5 +1,8 @@
 import { CKBJson, addChart, ChartKnowledge, Language, TransKnowledgeProps } from '@antv/knowledge';
 
+export { CKBJson }
+
+
 const parallel_coordinates: ChartKnowledge = {
   id: 'parallel_coordinates',
   name: 'Parallel Coordinates',
@@ -52,4 +55,30 @@ addChart(
   { 'zh-CN': sunburst_chart_trans } as Record<Language, TransKnowledgeProps>
 );
 
-export { CKBJson }
+
+// TODO 待完善
+const hexagonal_binning: ChartKnowledge = {
+  id: 'hexagonal_binning',
+  name: 'Hexagonal Binning',
+  alias: [],
+  family: ['LineCharts'],
+  def: '',
+  purpose: ['Composition'],
+  coord: [],
+  category: ['Statistic'],
+  shape: ['Round'],
+  dataPres: [{ minQty: 1, maxQty: 1, fieldConditions: ['Interval'] }],
+  channel: [],
+  recRate: "" as any,
+};
+
+const hexagonal_binning_trans: TransKnowledgeProps = {
+  name: '六边形分箱图',
+  alias: [],
+  def: '六边形图，是一种由六边形为主要元素的统计图表',
+};
+
+addChart(
+  hexagonal_binning,
+  { 'zh-CN': hexagonal_binning_trans } as Record<Language, TransKnowledgeProps>
+);

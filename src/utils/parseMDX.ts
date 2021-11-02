@@ -51,7 +51,7 @@ export interface ChartInfo {
 }
 
 export const zhCompletedKB = CKBJson('zh-CN');
-console.log(zhCompletedKB)
+
 function mapDeEmphasis(map: Record<string, any>, arr: any[], typeName?: string) {
   if (Array.isArray(arr)) {
     for (const iterator of arr) {
@@ -141,10 +141,10 @@ export function parseChartFromMDX(nodes: Node[]) {
     if (childMdx && childMdx.mdxAST && Array.isArray(childMdx.mdxAST.children)) {
       let hasDetailOverview = false
       for (const ASTNode of childMdx.mdxAST.children) {
-        if (ASTNode.type === 'jsx' && (ASTNode.value.includes(`<section class='chart-detail-overview'`) || ASTNode.value.includes(`<section class="chart-detail-overview"`))) {
+        if (ASTNode.type === 'jsx' && (ASTNode.value.includes(`id="overview-graph-detail-content"`) || ASTNode.value.includes(`class="chart-detail-overview"`))) {
           hasDetailOverview = true
         }
-        console.log(ASTNode)
+
         if (hasDetailOverview) {
           if (ASTNode.type === 'paragraph') {
             for (const child of ASTNode.children) {

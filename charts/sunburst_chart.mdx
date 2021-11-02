@@ -2,109 +2,145 @@
 # 旭日图 - Sunburst Chart
 
 
-<section class='chart-detail-overview'>
+<section id="overview-graph-detail-content">
 
-![](//i.ibb.co/Yh3Hv55/7a4ac7abc023ecffb2a7d0cc6587ca34.png)
-旭日图是一种表现层级数据的图表。它以父子层次结构来显示数据，并构成一个同心圆，因此又被成为称为多层饼图。离原点越近，数据的层级越高。换句话说，相邻的两层，内层是外层的“父”。同时，一个“父”可以有多个“子”——即某一个环形又可以被分割成多个环形。环形的弧度由它在“父”层中所占比例来决定。若无占比关系，则处理成均分。
+  ![chart-overview](//i.ibb.co/Yh3Hv55/7a4ac7abc023ecffb2a7d0cc6587ca34.png)
 
-旭日图的本质是树状关系，与[树图](http://www.tuzhidian.com:3000/chart?id=5c56e2434a8c5e048189c6a5)是等价的，因此也被称为极坐标下的矩形树图。它可以在承载大量数据的同时，清晰的显示数据间的结构关系。在许多工具中，旭日图被赋予交互功能，方便读图者自行探索。如支持鼠标悬浮高亮、筛选、显示当前层级等等。
+  旭日图是一种表现层级数据的图表。它以父子层次结构来显示数据，并构成一个同心圆，因此又被成为称为多层饼图。离原点越近，数据的层级越高。换句话说，相邻的两层，内层是外层的“父”。同时，一个“父”可以有多个“子”——即某一个环形又可以被分割成多个环形。环形的弧度由它在“父”层中所占比例来决定。若无占比关系，则处理成均分。
+
+旭日图的本质是树状关系，与[树图](<http://www.tuzhidian.com:3000/chart?id=5c56e2434a8c5e048189c6a5>)是等价的，因此也被称为极坐标下的矩形树图。它可以在承载大量数据的同时，清晰的显示数据间的结构关系。在许多工具中，旭日图被赋予交互功能，方便读图者自行探索。如支持鼠标悬浮高亮、筛选、显示当前层级等等。
 
 圆形图表在设计上有着天然的优势，除旭日图外，还出现了径向热量图、径向直方图、径向折线图等图表类型，它们可视为是基于直角坐标系的径向变形（相当于把直角坐标卷起来），在设计上都能达到炫酷的效果。不过，尽管外形相似，但这些图表各有不同的功能。使用时，需要特别注意这些图表之间的差异，选择适合的图表。
+
+
 
 </section>
 
 ## 图表属性
 
 <!-- 自动识别，勿修改 -->
-<ChartProps />
+<section id="chart-property-graph-detail">
+  <ChartProps />
+</section>
 
 ## 图表详解
 
 ### 元素构成
 
-![](//i.ibb.co/3pwkS4h/1549040278516-455d722d-fa63-4581-9c5c-108cf0ec7d0e.jpg)
+<section id="chart-detail-graph-detail-content">
+
+  ![null](//i.ibb.co/3pwkS4h/1549040278516-455d722d-fa63-4581-9c5c-108cf0ec7d0e.jpg)
+
+
+</section>
 
 ### 适用场景
 
-适合表现有多个层级的数据。在加入交互功能后，如下图（<span style={{"backgroundColor":"rgb(255, 255, 255)","color":"rgb(38, 38, 38)"}}>SITOOLS2, no date</span>），尤其适合探索性的阅读图表。
+<section id="appropriate-scene-graph-detail">
+  适合表现有多个层级的数据。在加入交互功能后，如下图（SITOOLS2, no date
+
+），尤其适合探索性的阅读图表。
 
 尽管和树图是等价的，但旭日图的形状在设计上往往显得更美观、大气，并具备更多变形的可能性。
 
-![](//i.ibb.co/KDFPcNv/cb1f6548482d0c171ffa64b1f89a4613.png)
+![null](//i.ibb.co/7WT0v5q/1549108094765-bcefdbea-f40a-45e0-a279-e729d5033e43-4aa9c052850eaa7a3d849cfba13a4132.gif)
 
 
-<img src="https://i.loli.net/2021/09/27/kj3sJKaqLXcxyrv.jpg" width="328" />
+</section>
 
 ### 不适用场景
 
-不适用于没有层级关系的数据。也不适用于时间序列的展现（这一点上，它与径向热量图、径向直方图等有混淆的可能性）。
+<section id="unappropriate-scene-graph-detail">
+  不适用于没有层级关系的数据。也不适用于时间序列的展现（这一点上，它与径向热量图、径向直方图等有混淆的可能性）。
 
-同时，如果层级太多，而又没有交互，将导致极大的阅读困难。此外，颜色上也要注意区分。下图（CBINSIGHTS, no date）中，多个区域颜色相近，即使在有图例的情况下，也很难辨识。这些情况下，不建议使用旭日图。建议直接用思维导图或表格来表示。
+同时，如果层级太多，而又没有交互，将导致极大的阅读困难。此外，颜色上也要注意区分。下图（CBINSIGHTS, no date
 
-![](//i.ibb.co/tQ9wBRm/1547801818037-c47aac22-3945-48a3-b6ba-1e5c9084ecf5.png)
+）中，多个区域颜色相近，即使在有图例的情况下，也很难辨识。这些情况下，不建议使用旭日图。建议直接用思维导图或表格来表示。
+
+![null](//i.ibb.co/tQ9wBRm/1547801818037-c47aac22-3945-48a3-b6ba-1e5c9084ecf5.png)
+
+
+</section>
 
 ## 相似图形
 
 <!-- 自动识别，勿修改 -->
-<SimilarCharts></SimilarCharts>
+<div id="resemble-chart-graph-detail"></div>
+<SimilarCharts/>
 
 ## 设计案例
 
+<div id="design-case-graph-detail"></div>
+
 <DesignCaseContainer>
-  <DesignCaseItem
-        description="这张图使用了便于区分的颜色，展现了美国近300种威士忌的种类和产地，整体较为简洁美观。"
-        link="https://public.tableau.com/profile/adam.e.mccann#!/vizhome/WhiskeyWheel/WhiskeyWheel"
-        image="//i.ibb.co/5nqmkp6/41f2ea80f9e6a7e3c2f621c26cb4ace4.png"
-    />
-    
-    <DesignCaseItem
-        description="对于树状结构，设计时可以适当灵活处理。"
-        link="https://www.behance.net/gallery/23336987/Annual-Report-poster-2014"
-        image="//i.ibb.co/WxnNRSF/62c93f72b5d4bb3d773328fcf8999c66.png"
-    />
-    
-    <DesignCaseItem
-        description="实物设计。"
-        link="https://www.behance.net/gallery/4636643/Journey-to-the-East"
-        image="//i.ibb.co/L1pqZHz/b7b2e19bae4d38820a10fc091036834a.png"
-    />
-    
-    <DesignCaseItem
-        description="可借鉴穹顶投影，做出类似disco的视觉效果。"
-        link="https://www.paulprudence.com/?p=547"
-        image="//i.ibb.co/KGq2fYB/26f7161fea4a65ca18448c955d0796b0.png"
-    />
+  
+<DesignCaseItem
+    description="这张图使用了便于区分的颜色，展现了美国近300种威士忌的种类和产地，整体较为简洁美观。"
+    link="https://public.tableau.com/profile/adam.e.mccann#!/vizhome/WhiskeyWheel/WhiskeyWheel"
+    image="//i.ibb.co/5nqmkp6/41f2ea80f9e6a7e3c2f621c26cb4ace4.png"
+/>
+            
+<DesignCaseItem
+    description="对于树状结构，设计时可以适当灵活处理。"
+    link="https://www.behance.net/gallery/23336987/Annual-Report-poster-2014"
+    image="//i.ibb.co/WxnNRSF/62c93f72b5d4bb3d773328fcf8999c66.png"
+/>
+            
+<DesignCaseItem
+    description="实物设计。"
+    link="https://www.behance.net/gallery/4636643/Journey-to-the-East"
+    image="//i.ibb.co/L1pqZHz/b7b2e19bae4d38820a10fc091036834a.png"
+/>
+            
+<DesignCaseItem
+    description="可借鉴穹顶投影，做出类似disco的视觉效果。"
+    link="https://www.paulprudence.com/?p=547"
+    image="//i.ibb.co/KGq2fYB/26f7161fea4a65ca18448c955d0796b0.png"
+/>
+            
 </DesignCaseContainer>
 
 ## 使用场景
+<div id="usage-scene-graph-detail-content"></div>
 
-1）硬盘分区展示。下图为硬盘分区软件[DaisyDisk](https://daisydiskapp.com/)的首页概念图。
+（1）硬盘分区展示。下图为硬盘分区软件[DaisyDisk](<https://daisydiskapp.com/>)的首页概念图。
 
-![](//i.ibb.co/y67pR2m/1548519574079-2ecc3eed-a2f0-448f-b859-a1598f8d504b.png)
+![null](//i.ibb.co/y67pR2m/1548519574079-2ecc3eed-a2f0-448f-b859-a1598f8d504b.png)
 
-（2）旭日图可以用于呈现事物是如何构成的。例如，下图（<span style={{"backgroundColor":"rgb(255, 255, 255)","color":"rgb(38, 38, 38)"}}>Davies, no date</span>）将“咖啡家族”进行了梳理，形成一张“咖啡口味之轮”。第一层分为了口味（taste）和香味（aromas），而口味又进而分为了酸（sour）、甜（sweet）、咸（salt）、苦（bitter）。咸味下一层又分为了温和（bland）和强烈（sharp）等等。同时，它的交互功能使用户可以一层层的进入结构中探索。[[点击访问原作品网页]](https://www.jasondavies.com/coffee-wheel/)
+（2）旭日图可以用于呈现事物是如何构成的。例如，下图（Davies, no date
 
-[![](//i.ibb.co/8BjjpDr/1545568958428-7b5b8d9d-53b3-4c43-bf98-f3393a1d44c4.png)](https://www.jasondavies.com/coffee-wheel/)
+）将“咖啡家族”进行了梳理，形成一张“咖啡口味之轮”。第一层分为了口味（taste）和香味（aromas），而口味又进而分为了酸（sour）、甜（sweet）、咸（salt）、苦（bitter）。咸味下一层又分为了温和（bland）和强烈（sharp）等等。同时，它的交互功能使用户可以一层层的进入结构中探索。[[点击访问原作品网页]](<https://www.jasondavies.com/coffee-wheel/>)
 
-（3）层级关系的另一个典型运用，在于描绘公司的结构。下图（<span style={{"backgroundColor":"rgb(255, 255, 255)","color":"rgb(38, 38, 38)"}}>Gabor, no date</span>）很清晰的梳理了一个集团下，子母公司的附属关系，以及子公司之间的并列关系。[[点击访问原作品网页]](http://www.typogabor.com/Media/Graphis_Diagrams_SignGr/Graphis_Diagrams_DSC_6822.jpg)
+[![null](<//i.ibb.co/8BjjpDr/1545568958428-7b5b8d9d-53b3-4c43-bf98-f3393a1d44c4.png>)](<https://www.jasondavies.com/coffee-wheel/>)
 
-![](//i.ibb.co/mF0cykZ/1544952992428-aa811a51-3746-423c-aa24-dd688f1a05a4.png)
+（3）层级关系的另一个典型运用，在于描绘公司的结构。下图（Gabor, no date
 
-（4）此外，旭日图还可用于分析“历时”的变化，例如用户的行为。例如，下图（<span style={{"backgroundColor":"rgb(255, 255, 255)","color":"rgb(38, 38, 38)"}}>Mode analytics, no date</span>）展示的项目，尝试从用户登陆（login）开始，追踪其行为。例如，点亮的这一系列数据显示，有3.02%的人，进行了“登陆-首页-点赞-首页-查看信息”这一串连续的行为。交互的使用，也让数据结构更加一目了然。[[点击访问原作品网页]](https://modeanalytics.com/modeanalytics/reports/43dfbec3efe1)
+）很清晰的梳理了一个集团下，子母公司的附属关系，以及子公司之间的并列关系。[[点击访问原作品网页]](<http://www.typogabor.com/Media/Graphis_Diagrams_SignGr/Graphis_Diagrams_DSC_6822.jpg>)
 
-![](//i.ibb.co/47Rfm7x/1544946880587-033bfb36-712f-43c9-934e-4658b2bc2a76.png)
+![null](<//i.ibb.co/mF0cykZ/1544952992428-aa811a51-3746-423c-aa24-dd688f1a05a4.png>)
 
-（5）社交网络上的舆论演变，也可以用旭日图分析。下图（<span style={{"backgroundColor":"rgb(255, 255, 255)","color":"rgb(38, 38, 38)"}}>Machine Learning Visualization Lab, no date</span>）展示了马航事件之后，国外社交媒体上的讨论，是如何一步步演化、分层的。[[点击访问原作品网页]](https://mlvl.github.io/Hierarchie/)
+（4）此外，旭日图还可用于分析“历时”的变化，例如用户的行为。例如，下图（Mode analytics, no date
 
-![](//i.loli.net/2021/11/01/3qVm1ctMgv6Sdjp.png)
+）展示的项目，尝试从用户登陆（login）开始，追踪其行为。例如，点亮的这一系列数据显示，有3.02%的人，进行了“登陆-首页-点赞-首页-查看信息”这一串连续的行为。交互的使用，也让数据结构更加一目了然。[[点击访问原作品网页]](<https://modeanalytics.com/modeanalytics/reports/43dfbec3efe1>)
+
+![null](<//i.ibb.co/47Rfm7x/1544946880587-033bfb36-712f-43c9-934e-4658b2bc2a76.png>)
+
+（5）社交网络上的舆论演变，也可以用旭日图分析。下图（Machine Learning Visualization Lab, no date
+
+）展示了马航事件之后，国外社交媒体上的讨论，是如何一步步演化、分层的。[[点击访问原作品网页]](<https://mlvl.github.io/Hierarchie/>)
+
+![null](<//i.loli.net/2021/11/01/3qVm1ctMgv6Sdjp.png>)
+
+
 
 ## 制作教程
 
 <!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
 
+<div id="production-tutorial-graph-detail"></div>
 <ProductionTutorials
   data={{
-  "BI 工具": {
+  "BI工具": {
     "Excel": [
       {
         "linkText": "官方基础操作说明",
@@ -194,7 +230,7 @@
       }
     ]
   },
-  "设计软件": {
+  "设计工具": {
     "PS": [],
     "AI": [],
     "Sketch": []
@@ -202,78 +238,89 @@
 }}
 />
 
+
 ## 专项工具
+<div id="specialty-tool-graph-detail"></div>
 
-（1）[Rawgraphs](http://app.rawgraphs.io/)
+（1）[Rawgraphs](<http://app.rawgraphs.io/>)
 
-（2）[在线生成工具（提供demo）](https://www.aculocity.com/labs/sunburst-chart)
+（2）[在线生成工具（提供demo）](<https://www.aculocity.com/labs/sunburst-chart>)
+
+<br />
+
 
 
 ## 学习资源
+<div id="learning-resource-graph-detail"></div>
 
-1）[office官方对旭日图的讲解。](https://www.microsoft.com/en-us/microsoft-365/blog/2015/08/11/breaking-down-hierarchical-data-with-treemap-and-sunburst-charts/)
+（1）[office官方对旭日图的讲解。](<https://www.microsoft.com/en-us/microsoft-365/blog/2015/08/11/breaking-down-hierarchical-data-with-treemap-and-sunburst-charts/>)
 
-（2）[树形结构图的历史渊源。](https://www.wired.com/2014/04/tree-diagrams-the-most-important-data-viz-tool-in-history/#slide-8)
+（2）[树形结构图的历史渊源。](<https://www.wired.com/2014/04/tree-diagrams-the-most-important-data-viz-tool-in-history/#slide-8>)
+
 
 
 ## 参考文献
-
+<div id="reference-graph-detail"></div>
 
 <Reference>
- 1.The Data Visualisation Catalogue. (n.d.). Sunburst diagram. [online]. Available at: https://datavizcatalogue.com/methods/sunburst_diagram.html [Accessed 24 December 2018].
 
-2.SITOOLS2. (n.d.). Dataset Explorer Sunburst D3+extjs4. [online]. Available at: https://idoc-projets.ias.u-psud.fr/redmine/projects/sitools2/wiki/Dataset_Explorer_Sunburst_D3+extjs4[Accessed 24 December 2018].
+1. The Data Visualisation Catalogue. (n.d.). Sunburst diagram. [online]. Available at: https://datavizcatalogue.com/methods/sunburst_diagram.html [Accessed 24 December 2018].
 
-3.CBINSIGHTS. (n.d.). Goldman Sachs Strategy Teardown: Goldman Attacks Lending Club & Prosper, Courts Main Street. Available at: https://www.cbinsights.com/research/report/goldman-sachs-strategy-teardown/ [Accessed 15 Jan 2019]
+2. SITOOLS2. (n.d.). Dataset Explorer Sunburst D3+extjs4. [online]. Available at: https://idoc-projets.ias.u-psud.fr/redmine/projects/sitools2/wiki/Dataset_Explorer_Sunburst_D3+extjs4[Accessed 24 December 2018].
 
-4.McCann, A. (2016). American Whiskey Wheel. [online]. Available at: https://public.tableau.com/profile/adam.e.mccann#!/vizhome/WhiskeyWheel/WhiskeyWheel [Accessed 24 December 2018].
+3. CBINSIGHTS. (n.d.). Goldman Sachs Strategy Teardown: Goldman Attacks Lending Club & Prosper, Courts Main Street. Available at: https://www.cbinsights.com/research/report/goldman-sachs-strategy-teardown/ [Accessed 15 Jan 2019]
 
-5.Widjaja, A.M. (2012). Journey to the East. [online]. Available at: https://www.behance.net/gallery/4636643/Journey-to-the-East [Accessed 24 December 2018].
+4. McCann, A. (2016). American Whiskey Wheel. [online]. Available at: https://public.tableau.com/profile/adam.e.mccann#!/vizhome/WhiskeyWheel/WhiskeyWheel [Accessed 24 December 2018].
 
-6.YAAH CH. (2015). Annual Report Results as a Christmas Present Poster. [online]. Available at: https://www.behance.net/gallery/23336987/Annual-Report-poster-2014 [Accessed 24 December 2018].
+5. Widjaja, A.M. (2012). Journey to the East. [online]. Available at: https://www.behance.net/gallery/4636643/Journey-to-the-East [Accessed 24 December 2018].
 
-7.Prudence, P. (2015). Full Dome Lumophore. [online]. Available at: https://www.paulprudence.com/?p=547 [Accessed 24 December 2018].
+6. YAAH CH. (2015). Annual Report Results as a Christmas Present Poster. [online]. Available at: https://www.behance.net/gallery/23336987/Annual-Report-poster-2014 [Accessed 24 December 2018].
 
-8.Piccolomini.S. (2014). The Black Data of Piemonte. [online]. Available at: https://visual.ly/community/infographic/transportation/black-data-piemonte [Accessed 24 December 2018].
+7. Prudence, P. (2015). Full Dome Lumophore. [online]. Available at: https://www.paulprudence.com/?p=547 [Accessed 24 December 2018].
 
-9.Mode analytics. (n.d.). Sunburst chart. [online]. Available at: https://modeanalytics.com/modeanalytics/reports/43dfbec3efe1 [Accessed 24 December 2018].
+8. Piccolomini.S. (2014). The Black Data of Piemonte. [online]. Available at: https://visual.ly/community/infographic/transportation/black-data-piemonte [Accessed 24 December 2018].
 
-10.Gabor, P. (n.d.). Sperry Rand Corporation New York. [online]. Available at: http://www.typogabor.com/Media/Graphis_Diagrams_SignGr/Graphis_Diagrams_DSC_6822.jpg[Accessed 24 December 2018].
+9. Mode analytics. (n.d.). Sunburst chart. [online]. Available at: https://modeanalytics.com/modeanalytics/reports/43dfbec3efe1 [Accessed 24 December 2018].
 
-11.Machine Learning Visualization Lab. (n.d.). HIERARCHIE. [online]. Available at: https://mlvl.github.io/Hierarchie/#/ [Accessed 24 December 2018].
+10. Gabor, P. (n.d.). Sperry Rand Corporation New York. [online]. Available at: http://www.typogabor.com/Media/Graphis_Diagrams_SignGr/Graphis_Diagrams_DSC_6822.jpg[Accessed 24 December 2018].
 
-12.Davies, J. (n.d.). Coffee Flavour Wheel. [online]. Available at: https://www.jasondavies.com/coffee-wheel/ [Accessed 24 December 2018].
+11. Machine Learning Visualization Lab. (n.d.). HIERARCHIE. [online]. Available at: https://mlvl.github.io/Hierarchie/#/ [Accessed 24 December 2018].
 
-13.Office Support. (n.d.). 在 Office 中创建旭日图. [online]. Available at: https://support.office.com/zh-cn/article/在-office-中创建旭日图-4a127977-62cd-4c11-b8c7-65b84a358e0c?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN [Accessed 24 December 2018].
+12. Davies, J. (n.d.). Coffee Flavour Wheel. [online]. Available at: https://www.jasondavies.com/coffee-wheel/ [Accessed 24 December 2018].
 
-14.Eugene O'Loughlin. (2017). How To... Create and Modify a Sunburst Diagram in Excel 2016. [Youtube Video]. Available at: https://www.youtube.com/watch?v=7GCkNwsokRQ [Accessed 24 December 2018].
+13. Office Support. (n.d.). 在 Office 中创建旭日图. [online]. Available at: https://support.office.com/zh-cn/article/在-office-中创建旭日图-4a127977-62cd-4c11-b8c7-65b84a358e0c?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN [Accessed 24 December 2018].
 
-15.SuperDataScience. (2017). SUNBURST CHART TABLEAU TUTORIAL PART 1. [Youtube Video]. Available at: https://www.youtube.com/watch?v=GEf-k5iPAW8 [Accessed 24 December 2018].
+14. Eugene O'Loughlin. (2017). How To... Create and Modify a Sunburst Diagram in Excel 2016. [Youtube Video]. Available at: https://www.youtube.com/watch?v=7GCkNwsokRQ [Accessed 24 December 2018].
 
-16.CharlieHTableau. (2016). Radial charts. [online]. Available at:https://learningtableaublog.wordpress.com/2016/07/15/radial-charts/ [Accessed 24 December 2018].
+15. SuperDataScience. (2017). SUNBURST CHART TABLEAU TUTORIAL PART 1. [Youtube Video]. Available at: https://www.youtube.com/watch?v=GEf-k5iPAW8 [Accessed 24 December 2018].
 
-17.Echarts team. (n.d.). 旭日图. [online]. Available at: https://echarts.baidu.com/examples/#chart-type-sunburst [Accessed 24 December 2018].
+16. CharlieHTableau. (2016). Radial charts. [online]. Available at:https://learningtableaublog.wordpress.com/2016/07/15/radial-charts/ [Accessed 24 December 2018].
 
-18.AntV team. (n.d.). 极坐标系下的矩形树图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/relation/polar-treemap.html [Accessed 24 December 2018].
+17. Echarts team. (n.d.). 旭日图. [online]. Available at: https://echarts.baidu.com/examples/#chart-type-sunburst [Accessed 24 December 2018].
 
-19.Bostock, M. (2018a). D3 Sunburst. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-sunburst [Accessed 24 December 2018].
+18. AntV team. (n.d.). 极坐标系下的矩形树图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/relation/polar-treemap.html [Accessed 24 December 2018].
 
-20.Bostock, M. (2018b). D3 Zoomable Sunburst. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-zoomable-sunburst [Accessed 24 December 2018].
+19. Bostock, M. (2018a). D3 Sunburst. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-sunburst [Accessed 24 December 2018].
 
-21.Vinicius. (2018). d3-bilevelLabelTooltip. [online]. Available at: http://bl.ocks.org/vgrocha/1580af34e56ee6224d33 [Accessed 24 December 2018].
+20. Bostock, M. (2018b). D3 Zoomable Sunburst. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-zoomable-sunburst [Accessed 24 December 2018].
 
-22.Rodden, K. (2019). Sequences sunburst. [online]. Available at: https://bl.ocks.org/kerryrodden/7090426 [Accessed 3 January 2019].
+21. Vinicius. (2018). d3-bilevelLabelTooltip. [online]. Available at: http://bl.ocks.org/vgrocha/1580af34e56ee6224d33 [Accessed 24 December 2018].
 
-23.Icer. (2018). Sunburst for your skill map. [online]. Available at: http://bl.ocks.org/wizicer/f662a0b04425fc0f7489 [Accessed 3 January 2019].
+22. Rodden, K. (2019). Sequences sunburst. [online]. Available at: https://bl.ocks.org/kerryrodden/7090426 [Accessed 3 January 2019].
 
-24.sirex. (2017). Python version of sunburst diagram using matplotlib bars in polar projection. [online]. Available at: https://stackoverflow.com/questions/12926779/how-to-make-a-sunburst-plot-in-r-or-python [Accessed 24 December 2018].
+23. Icer. (2018). Sunburst for your skill map. [online]. Available at: http://bl.ocks.org/wizicer/f662a0b04425fc0f7489 [Accessed 3 January 2019].
 
-25.Excel Team. (2015). Breaking down hierarchical data with Treemap and Sunburst charts. [online]. Available at: https://www.microsoft.com/en-us/microsoft-365/blog/2015/08/11/breaking-down-hierarchical-data-with-treemap-and-sunburst-charts/ [Accessed 24 December 2018].
+24. sirex. (2017). Python version of sunburst diagram using matplotlib bars in polar projection. [online]. Available at: https://stackoverflow.com/questions/12926779/how-to-make-a-sunburst-plot-in-r-or-python [Accessed 24 December 2018].
 
-26.Vanhemert, K. (2014). 900 YEARS OF TREE DIAGRAMS, THE MOST IMPORTANT DATA VIZ TOOL IN HISTORY. [online]. Available at: https://www.wired.com/2014/04/tree-diagrams-the-most-important-data-viz-tool-in-history/#slide-8 [Accessed 24 December 2018].
+25. Excel Team. (2015). Breaking down hierarchical data with Treemap and Sunburst charts. [online]. Available at: https://www.microsoft.com/en-us/microsoft-365/blog/2015/08/11/breaking-down-hierarchical-data-with-treemap-and-sunburst-charts/ [Accessed 24 December 2018].
+
+26. Vanhemert, K. (2014). 900 YEARS OF TREE DIAGRAMS, THE MOST IMPORTANT DATA VIZ TOOL IN HISTORY. [online]. Available at: https://www.wired.com/2014/04/tree-diagrams-the-most-important-data-viz-tool-in-history/#slide-8 [Accessed 24 December 2018].
+
 </Reference>
 
 ## 贡献者
+
+<div id="contributor-graph-detail"></div>
 
 <!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
 

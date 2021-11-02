@@ -1,0 +1,325 @@
+
+# 堆叠柱状图 - Stacked Bar Chart
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/S0LcZxz/d430245a883c411aeafaff37104ca0cd.png)
+
+堆叠柱状图（Stacked Column Chart），又称堆叠柱形图，是一种用来分解整体、比较各部分的图。与柱状图类似，堆叠柱状图常被用于比较不同类别的数值。而且，它的每一类数值内部，又被划分为多个子类别，这些子类别一般用不同的颜色来指代。
+
+如果说[柱状图](<http://www.tuzhidian.com:3000/chart?id=5c56e2da4a8c5e048189c6bb>)可以帮助我们观察“总量”，那么堆叠柱状图则可以同时反映“总量”与“结构”，即，总量是多少？它又是由哪些部分构成的？进而，我们还可以探究哪一部分比例最大，以及每一部分的变动情况，等等。
+
+但是，堆叠柱状图也有它的劣势。例如，在堆叠的情况下，构成柱子的各部分并不处于同一水平线上，它们之间相互错落，很难比较大小（尤其是在数值比较接近的时候）。这种情况下，采用分组柱状图可能是更好的选择（所有柱子都处于同一水平线）。此外，随着类别或数据系列的添加，堆叠柱状图会变得复杂，妨碍其可读性。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/hVgf2d8/a668eebbfff97100922b03874035d54a.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+对比不同类别数据的数值大小，同时对比每一类别数据中，子类别的构成及大小。
+
+例如：如下图（AntV墨者学院, no date）显示的是每种化妆品在各个城市的销售情况，通过堆叠柱状图，我们可以很清晰对比同一种化妆品到底在哪个城市销售更好。
+
+![null](//i.ibb.co/qsfWNrN/1547128224473-93df7826-685d-461e-a985-f3be8782f08c.png)
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+（1）对于堆叠柱状图来说，很多色块不处于同一水平线上，因此难以比较。所以，如果需要清楚的比较数值，建议采用分组柱状图，让每一根柱子的高度都显而易见。 或者，为了解决每个柱子不在一个水平线上的问题，可以借鉴下图（Acampora, 2013
+
+），制作动态堆叠柱形图，通过交互，随时调整将不同类别的柱子放在底部，以便对比。
+
+![null](https://cdn.nlark.com/yuque/0/2019/gif/185307/1548470352207-9c8bb1ac-a119-4930-9199-9f72eb3efb9f.gif)
+
+（2）当堆叠的类型过多，很容易让人眼花缭乱， 如下图（wtf-viz, no date
+
+）。
+
+![null](<//i.ibb.co/1mPGqWx/1548381585865-6366468e-36f0-42f1-8875-4cde9f5832c6.png>)
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="这个案例对2007-2017年的Billboard榜单进行了可视化，每年选取Top5的歌曲，柱子长短由每分钟节拍数决定，简单雷说，柱子越短表示歌曲越慢，每种颜色代表一种音乐类型（如流行、乡村、说唱等）。可以看到，美国音乐市场始终由流行音乐占据，说唱、放克等门类也占有一席之地。"
+    link="https://www.behance.net/gallery/69971933/Billboard-Music-Evolution-Data-Visualisation"
+    image="//i.loli.net/2021/11/02/ngldP7QpjHaeNWU.png"
+/>
+            
+<DesignCaseItem
+    description="把堆叠柱状图倒过来，视觉上仿佛流血的效果，正好契合了伊拉克战争伤亡主题。"
+    link="http://visualoop.com/infographics/iraqs-bloody-toll"
+    image="//i.ibb.co/Hdcvgz7/42ff52ff0d585db869afe0a6fc05751d.jpg"
+/>
+            
+<DesignCaseItem
+    description="一个专门研究国旗的项目。把各国的国旗，拆分成了几种基本形状，然后进行了计数和颜色统计。"
+    link="http://flagstories.co/"
+    image="//i.ibb.co/NTwxt14/tumblr-oknktgt-HXn1ue9mkyo2-r2-1280-3f0f5cbfe89d46b73ebb185fa4b68f3d.png"
+/>
+            
+<DesignCaseItem
+    description="交互案例：做一个女性公众人物，究竟需要承受些什么？这个项目找到了4位印度的著名女性，统计她们一天之中收到的twitter信息，提取、分析了其中的负面词汇（政治的、宗教的、种族的、性别的，以及直接的语言暴力），以堆叠柱形图呈现。呈现上，有一个计数器，时间流逝的同时，下方的柱状图会同步点亮。"
+    link="https://www.hindustantimes.com/interactives/lets-talk-about-trolls/whats-it-like-to-get-trolled-all-day-long/"
+    image="//i.ibb.co/n7QKTqw/f0c4521138b8ee322b211a92c29a582e.png"
+/>
+            
+<DesignCaseItem
+    description="icon设计"
+    link="https://www.iconfinder.com/icons/2958547/analysis_bar_chart_graph_growth_planning_stats_stacked_column_icon"
+    image="//i.ibb.co/sQDKhpm/icon-eda3fe8b99d1bf6a5b24a6b16e913c45.png"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）分析市场结构，如人力资源服务市场的构成及规模（诸海滨, 赵昊, 2018
+
+）。
+
+![null](//i.ibb.co/0JJ4RJq/1548513407374-1867d881-f6da-44fb-8ed9-04412e32d683.png?x-oss-process=image/resize,w_948)
+
+(2) 历时性分析，查看波动及结构的变化。下图（Stiles, 2012
+
+）表现了1986年到2010年间美国制造的枪支情况。除了能看到枪支的总数外，还可以发现枪支种类的变化，包括步枪、手枪、猎枪和左轮手枪。
+
+[[点击访问原作品网页]](<http://thedailyviz.com/2012/08/07/charting-u-s-gun-manufacturing/>)
+
+![null](<//i.ibb.co/LgghLRP/1548474212701-1e9b2232-ebfe-4c52-bb30-144135a9d21f.png>)
+
+（3）比较分析。例如，下图（mongoDB team, no date
+
+）分析了10位电影大导演的奖项数量，以及他们执导的电影流派。[[点击访问原作品网页]](<https://docs.mongodb.com/charts/master/chart-type-reference/column-bar-chart/>)
+
+![null](<//i.ibb.co/bBPPQN6/1548470646125-27c2522a-7e51-488c-9760-f7201b35abfd.png?x-oss-process=image/resize,w_870>)
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "基础教程（英文） ",
+        "link": "https://www.extendoffice.com/documents/excel/2455-excel-stacked-bar-chart-or-stacked-column-chart.html"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "youtube视频（英文）",
+        "link": "https://www.youtube.com/watch?v=uqIxYmJJFAU"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://kb.tableau.com/articles/howto/stacked-bar-chart-multiple-measures?lang=zh-cn"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "YouTube视频（英文）",
+        "link": "https://www.youtube.com/watch?v=r5IP8cIxYpc"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": "https://echarts.baidu.com/examples/editor.html?c=bar-y-category-stack"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/column/stacked-column.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "官方实例",
+        "link": "https://beta.observablehq.com/@mbostock/d3-stacked-bar-chart"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "官方实例",
+        "link": "https://matplotlib.org/gallery/lines_bars_and_markers/bar_stacked.html"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "代码教程（英文）",
+        "link": "https://rstudio-pubs-static.s3.amazonaws.com/3256_bb10db1440724dac8fa40da5e658ada5.html"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [],
+    "Sketch": []
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）
+
+[制作堆叠柱状图时需要注意什么？](<https://blog.datawrapper.de/stacked-column-charts>)
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+
+1. Kosara, R. (2016). Stacked Bars Are the Worst. [online]. Available at: https://eagereyes.org/techniques/stacked-bars-are-the-worst. [Accessed 26 January 2019].
+
+2. Acampora, J. (2013). Stacked Column Bar Chart Alternatives – Find the Missing Trends [online].  Available at :https://www.excelcampus.com/charts/dynamic-stacked-column-bar-chart-find-the-missing-trends/ [Accessed 26 January 2019].
+
+3. wtf-viz. (n.d.). math enrolments drop to lowest rate in 50 years. [online]. Available at: http://viz.wtf/post/150780948819/maths-enrolments-drop-to-lowest-rate-in-50-years#notes [Accessed 26 January 2019].
+
+4. Yee, J. (2018). Billboard Music Evolution | Data Visualisation. [online]. Available at: https://www.behance.net/gallery/69971933/Billboard-Music-Evolution-Data-Visualisation [Accessed 26 January 2019].
+
+5. ferdio. (2018). Flag Stories. [online]. Available at: http://flagstories.co/ [Accessed 26 January 2019].
+
+6. Howcolour. (2018). stacked column icon. [online]. Available at: https://www.iconfinder.com/icons/2958547/analysis_bar_chart_graph_growth_planning_stats_stacked_column_icon [Accessed 26 January 2019].
+
+7. Stevens, H. and Aggarwal, P. (2017). What’s it like to get trolled all day long?. [online]. Available at: https://www.hindustantimes.com/interactives/lets-talk-about-trolls/whats-it-like-to-get-trolled-all-day-long/ [Accessed 26 January 2019].
+
+8. 诸海滨, 赵昊. (2018). 从有才天下猎聘(6100.HK)看人才获取服务行业的发展逻辑, 安信证券研报.
+
+Stiles,  M. (2012). Charting U.S. Gun Manufacturing. [online]. Available at: http://thedailyviz.com/2012/08/07/charting-u-s-gun-manufacturing/ [Accessed 3 December 2018].
+
+9. mongoDB team. (n.d.). Column and Bar Charts. [online]. Available at: https://docs.mongodb.com/charts/master/chart-type-reference/column-bar-chart/ [Accessed 26 January 2019].
+
+10. ExtendOffice. (n.d.). How To Create Stacked Bar/Column Chart In Excel?. [online]. Available at: https://www.extendoffice.com/documents/excel/2455-excel-stacked-bar-chart-or-stacked-column-chart.html [Accessed 26 January 2019].
+
+11. Excel (A-Z). (2016). How to Create Stacked Bar Chart in Power BI Desktop. [Youtube video]. Available at: https://www.youtube.com/watch?v=uqIxYmJJFAU [Accessed 26 January 2019].
+
+12. Tableau Help. (2013). 使用多个度量创建堆叠条形图. [online]. Available at: https://kb.tableau.com/articles/howto/stacked-bar-chart-multiple-measures?lang=zh-cn [Accessed 26 January 2019].
+
+13. Agarrwal, A. (2013). QlikView Tutorials | Stacked Bar Chart | Data and Tools. [Youtube video]. Available at:https://www.youtube.com/watch?v=uqIxYmJJFAU [Accessed 26 January 2019].
+
+14. Echarts team. (n.d.). 堆叠柱状图. [online]. Available at: https://vis.baidu.com/chartusage/stacked-bar/l[Accessed 26 January 2019].
+
+AntV  team. (n.d.). 堆叠柱状图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/column/stacked-column.html [Accessed 26 January 2019].
+
+15. Bostock, M. (2018). D3 Stacked Bar Chart. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-stacked-bar-chart [Accessed 26 January 2019].
+
+16. matplotlib team. (n.d.). Stacked Bar Graph. [online]. Available at: https://matplotlib.org/gallery/lines_bars_and_markers/bar_stacked.html [Accessed 26 January 2019].
+
+17. Catalpa, J., Zrenchik, K. and Yang, Y. (n.d.). How to Make a Stacked Bar Chart in R Using ggplot2. [online]. Available at: https://rstudio-pubs-static.s3.amazonaws.com/3256_bb10db1440724dac8fa40da5e658ada5.html [Accessed 26 January 2019].
+
+18. Rost, L.C. (2018) .What to consider when creating stacked column charts.[online].Available at: https://blog.datawrapper.de/stacked-column-charts/ [Accessed 26 January 2019].
+
+19. Scarr, S. (2015). Iraq's bloody toll. [online]. Available at: http://visualoop.com/infographics/iraqs-bloody-toll [Accessed 20 Jan 2019].
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "xi": [
+    {
+      "date": 1546272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Olivia": [
+    {
+      "date": 1546272000000,
+      "content": "文档审核与编辑、贡献设计案例"
+    }
+  ],
+  "Amphetamine": [
+    {
+      "date": 1546272000000,
+      "content": "绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "绘图"
+    }
+  ]
+}}
+  merge
+/>

@@ -1,0 +1,384 @@
+
+# 散点图 - Scatter plot
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.loli.net/2021/11/02/JCfYdow2R3IZ1HK.png)
+
+散点图，又名点图、散布图、X-Y图，英文Scatter plot或Scatter gram。
+
+散点图是将所有的数据以点的形式展现在平面直角坐标系上的统计图表。它至少需要两个不同变量，一个沿x轴绘制，另一个沿y轴绘制。每个点在X、Y轴上都有一个确定的位置。众多的散点叠加后，有助于展示数据集的“整体景观”，从而帮助我们分析两个变量之间的相关性，或找出趋势和规律。此外，我们还可以添加附加的变量，来给散点分组、着色、确定透明度等等。
+
+散点图常被用于分析变量之间的相关性。如果两个变量的散点看上去都在一条直线附近波动，则称变量之间是线性相关的；如果所有点看上去都在某条曲线（非直线）附近波动，则称此相关为非线形相关的；如果所有点在图中没有显示任何关系，则称变量间是不相关的。
+
+如果散点图呈现出一个集中的大致趋势，这种趋势通常可以用一条光滑的曲线来近似，这样近似的过程被称为曲线拟合，而这条曲线则被称为最佳拟合线或趋势线。如果图中存在个别远离集中区域的数据点，这样的点被称为离群点或异常值。
+
+不过，分析时需注意，相关性并不等于因果关系。例如，有统计表明，冰棒卖得越多，游泳死亡人数就越高。若是在散点图上，二者应当呈正相关，但实际上，两种现象都是由天气炎热引起的，并无直接因果关系。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.loli.net/2021/11/02/YwK7yDpncOEbiSx.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+（1）散点图适用于分析变量之间是否存在某种关系或相关性。
+
+如果散点图呈现出一系列随机分布的数据点，那两个变量之间可能并没有相互关系；如果大部分的数据点都相对密集地分布且呈现出某种趋势，那两个变量之间可能存在某种相关性。数据的相关关系主要分为：正相关（两个变量值同时增加）、负相关（一个变量值增加另一个变量值下降）、不相关、线性相关、指数相关、U形相关等等。
+
+![null](//i.ibb.co/3rW22b7/1549178073202-b0afb938-4300-4cc3-bc27-a9471bd7a42b.jpg)
+
+（2）散点图适用于分析变量之间相关性的强弱，我们可以通过查看图上数据点的密度来确定相关性的强弱。
+
+
+
+（3）散点图适用于在不考虑时间的情况下比较大量的数据点，数据点越多，比较的效果就越明显。
+
+
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+（1）对于数据量较少的数据集不建议使用，分析结果会存在较大的偶然性
+
+（如下图，3个点无法确定变量之间是否就是正相关）。
+
+
+
+（2）不适用于数据点过大、过多的情况，会影响图表的可读性，导致无法进行分析。可以通过减小点的大小、调整透明度、减少数据量、数据分组、建立3D模型等等的方法进行优化，可参见[六边形分箱图](<http://www.tuzhidian.com:3000/chart?id=5c6662a7372bb033b9c2fa04>)。
+
+
+
+（3）数据分类过多，无法快速识别，失去可视化的意义和价值。
+
+
+
+（4）通过观察散点图得出的变量之间的相关性并不等同于确定的因果关系。例如，有统计表明，冰棒卖得越多，游泳死亡人数就越高，也就是游泳死亡人数和冰棒销量之间呈正相关，但我们并不能得出“吃冰棍就会增加游泳死亡率”这样的结论。因为这两个事件都是由于夏天气温升高所致，而吃不吃冰棍和游泳死亡风险根本没有任何因果关系。
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="该可视化作品从诺贝尔奖的几大类别、获奖者的学历、被授奖时的年龄、所就读的大学和出生的城市这几个维度，分析了从1901年至1912年的诺贝尔奖获奖者。多种图表结合使用、排版特别、色彩搭配合理，以报纸发行，十分夺人眼球。"
+    link="https://www.accurat.it/works/la-lettura/"
+    image="//i.loli.net/2021/11/02/rpQWJ61RhbcBo9i.jpg"
+/>
+            
+<DesignCaseItem
+    description="这个网格装置艺术由800个气球组成，标记了一个人的真实年龄和其希望离世的年龄，装置对比了不同性别的信息。人们不想去世的时间点以白色气球标记，希望离世的时间点以黑色气球标记。不禁让人感慨生命的无常和短暂。"
+    link="http://domesticstreamers.com/2014/project/lifeline/"
+    image="//i.loli.net/2021/11/02/Jt7PLiNEslMHWc2.jpg"
+/>
+            
+<DesignCaseItem
+    description="作品展示了近20年各国登山者攀登珠穆朗玛峰和K2的记录。"
+    link="https://www.behance.net/gallery/52188015/AINT-NO-MOUNTAIN-HIGH-ENOUGH-Corriere-della-Sera"
+    image="//i.loli.net/2021/11/02/PCTpFu3Vfiq7oYX.jpg"
+/>
+            
+<DesignCaseItem
+    description="以上海外滩的历史为背景，用普通的散点图稍做变形，将外滩1号至33号建筑的历史变迁映射到时间与空间交织的维度中。"
+    link="https://www.zcool.com.cn/work/ZMjk1NTQyMTY=.html"
+    image="//i.ibb.co/rfntt4V/a31705e1f885b62b80db10e8c2e60ae5.png"
+/>
+            
+<DesignCaseItem
+    description="图片类型散点图，使用权力的游戏中的人物头像来置换数据点，很形象地表达了人物的颜值系数和性格好坏。"
+    link="https://www.nytimes.com/interactive/2017/08/09/upshot/game-of-thrones-chart.html"
+    image="//i.ibb.co/FqfJmtz/86533fcedfbb538cfa38f5cdd9d92f6d.png"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+（1）利用散点图可做
+
+相关性分析、 了解数据分布情况，如下图可分析
+
+不同来源流量与网站总流量的关系。
+
+下图展示了某公司主站的新访客各来源渠道与总新访客量。结论很直观：direct（直接访问来源）和organic（自然搜索来源）和总的新访客有明显的正相关关系（direct与newuv相关系数达到0.89，direct来源的占比达到60%）。因此，我们知道这个公司大部分访客来源于口碑，而且其潜力还相当大，因为direct和organic图显示新访客对direct的弹性比较高，没有出现像sem（蓝色）图那样的边际效益递减的情况（胡晨川, 2015）。[[点击阅读更多]](<https://www.jianshu.com/p/6ed9082a52df>)
+
+![null](//i.ibb.co/BPQg3dY/1547523270643-d182b66c-cdc0-44b2-8909-fb9e96808616.jpg)
+
+（2）散点图通常用于显示和比较数值，不光可以显示趋势，还能显示数据集群的形状，以及在数据云团中各数据点的关系。如下图（AntV墨者学院, no date）某年级所有学生身高和体重的数据可绘制成一幅散点图。从身高和体重这两个维度进行比较，我们可以看到所有的数据点比较集中，呈正相关关系，即身高越高，相应的体重会越大；且平均身高和平均体重的辅助线将散点图分为四个象限，这样我们便可以更好的看出数据的分布情况；而不同颜色的点则可以看出不同性别身高和体重数据的分布。[[点击阅读更多]](<https://antv.alipay.com/zh-cn/vis/chart/scatter.html>)
+
+![null](<//i.loli.net/2021/11/02/qDd3SwRkZnBPgJm.jpg>)
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://support.office.com/zh-cn/article/%E5%9C%A8%E6%95%A3%E7%82%B9%E5%9B%BE%E6%88%96%E6%8A%98%E7%BA%BF%E5%9B%BE%E4%B8%AD%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE-4570a80f-599a-4d6b-a155-104a9018b86e?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN"
+      },
+      {
+        "linkText": "多种风格多数据系列散点图",
+        "link": "https://zhuanlan.zhihu.com/p/23143598"
+      }
+    ],
+    "Power BI": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://docs.microsoft.com/zh-cn/power-bi/visuals/power-bi-visualization-scatter"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_scatter.htm"
+      }
+    ],
+    "QlikView": [
+      {
+        "linkText": "官方基础教程",
+        "link": "https://help.qlik.com/zh-CN/qlikview/12.1/Subsystems/Client/Content/Scatter_Chart.htm"
+      }
+    ]
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例",
+        "link": "https://echarts.baidu.com/examples/editor.html?c=scatter-simple"
+      },
+      {
+        "linkText": "基础",
+        "link": "https://blog.csdn.net/weiweitb8/article/details/78190236"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/point/scatter.html"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS": [
+      {
+        "linkText": "如何用ps画分散的点或图案",
+        "link": "https://jingyan.baidu.com/article/59703552e890f98fc00740a9.html"
+      }
+    ],
+    "AI": [
+      {
+        "linkText": "基础教程（英文）",
+        "link": "https://digitalsplashmedia.com/wp-content/uploads/2014/03/How-to-Make-a-Scatter-Plot-in-Adobe-Illustrator.pdf"
+      }
+    ],
+    "Sketch": [
+      {
+        "linkText": "基础教程",
+        "link": "https://www.zcool.com.cn/work/ZMzI4NTk3NzY=.html"
+      }
+    ]
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[visme：可选择各式散点图模版，复制粘贴数据形成散点图，免费版可下载为jpg。](<https://www.visme.co/scatter-plot-maker/>)
+
+（2）[meta-chart：可自定义样式生成散点图，可导出多种文件格式。](<https://www.meta-chart.com/scatter>)
+
+（3）[flourish：可选择模版、调整参数生成自定义样式的散点图。](<https://app.flourish.studio/templates>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）[散点图的起源与发展（英文）。](<http://datavis.ca/papers/friendly-scat.pdf>)
+
+（2）[深入探讨散点图。](<https://zhuanlan.zhihu.com/p/39525392>)
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+  
+
+1. AntV墨者学院. (n.d.). 散点图的简介. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/scatter.html [Accessed 22 January 2019].
+
+
+2. 数据可视化工具目录. (n.d.).散点图. [online]. Available at: https://datavizcatalogue.com/ZH/方法/散点图.html [Accessed 22 January 2019].
+
+
+3. Accurat (2014). Nobels no degrees. [online]. Available at:https://www.accurat.it/works/la-lettura/ [Accessed 22 January 2019].
+
+
+4. Domestic Data Streamers (2014). Lifeline. [online]. Available at:http://domesticstreamers.com/2014/project/lifeline/ [Accessed 22 January 2019].
+
+
+5. Valerio Pellegrini(2017). Ain't no mountain high enough. [Behance]. Uploaded 8 August 2017. Available at: https://www.behance.net/gallery/52188015/AINT-NO-MOUNTAIN-HIGH-ENOUGH-Corriere-della-Sera [Accessed 22 January 2019].
+
+
+6. Plothis (2018). 百年外滩变迁史. [Zcool]. Uploaded 10 August 2018. Available at: https://www.zcool.com.cn/work/ZMjk1NTQyMTY=.html [Accessed 22 January 2019].
+
+
+7. Aisch, G., Darlin, D., Harris, R., Katz, J., Pearce, A. and Quealy, K. (2017). Good, Evil, Ugly, Beautiful: Help Us Make a ‘Game of Thrones’ Chart. [online]. Uploaded 13 August 2017. Available at: https://www.nytimes.com/interactive/2017/08/09/upshot/game-of-thrones-chart.html [Accessed 22 January 2019].
+
+
+8. 胡晨川 (2015).数据产品开发前的必修课（二）——不要小看散点图. [简书]. Written 19 July 2015. Available at: https://www.jianshu.com/p/6ed9082a52df [Accessed 22 January 2019].
+
+
+9. Office Support.(n.d.). 在散点图或折线图中显示数据. [online]. Available at: https://support.office.com/zh-cn/article/在散点图或折线图中显示数据-4570a80f-599a-4d6b-a155-104a9018b86e?omkt=zh-CN&ui=zh-CN&rs=zh-CN&ad=CN [Accessed 22 January 2019].
+
+
+10. EasyCharts.(2016). Excel绘制多种风格“多数据系列散点图”. [online]. Available at: https://zhuanlan.zhihu.com/p/23143598 [Accessed 22 January 2019].
+
+
+11. Hart, M. and Olprod. (2018). Power BI 中的散点图、气泡图和点图. [online]. Available at: https://docs.microsoft.com/zh-cn/power-bi/visuals/power-bi-visualization-scatter [Accessed 22 January 2019].
+
+
+12. Tableau Help. (2018). 生成散点图. [online]. Available at: https: https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/buildexamples_scatter.htm [Accessed 22 January 2019].
+
+
+13. QlikView Help. (n.d.). 散点图. [online]. Available at: https://help.qlik.com/zh-CN/qlikview/12.1/Subsystems/Client/Content/Scatter_Chart.htm [Accessed 22 January 2019].
+
+
+14. Echarts team. (n.d.). Basic Scatter Chart. [online]. Available at: https://www.echartsjs.com/examples/editor.html?c=scatter-simple [Accessed 22 January 2019].
+
+
+15. weiweitb8. (2017). Echarts基础(一)：散点图. [online]. Available at: https://blog.csdn.net/weiweitb8/article/details/78190236 [Accessed 22 January 2019]
+
+
+AntV team. (n.d.). 散点图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/point/scatter.html [Accessed 22 January 2019].
+
+
+16. Bostock, M. (2018). D3 Scatterplot. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-scatterplot [Accessed 22 January 2019].
+
+
+17. Bostock, M. (2018). D3 Scatterplot Matrix. [online]. Available at: https://beta.observablehq.com/@mbostock/d3-scatterplot-matrix [Accessed 22 January 2019].
+
+
+18. Matplotlib team. (n.d.). Scatter plot. [online]. Available at: https://matplotlib.org/gallery/shapes_and_collections/scatter.html [Accessed 22 January 2019].
+
+
+莫烦. (2016). Scatter 散点图. [online]. Available at: https://morvanzhou.github.io/tutorials/data-manipulation/plt/3-1-scatter/ [Accessed 22 January 2019].
+
+
+19. taoyan. (2017). ggplot2学习笔记系列之利用ggplot2绘制散点图. [简书]. Available at: https://www.jianshu.com/p/006784394182 [Accessed 22 January 2019].
+
+
+20. Prabhakaran, S. (n.d.). Top 50 ggplot2 Visualizations - The Master List (With Full R Code). [online]. Available at: http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html [Accessed 22 January 2019].
+
+
+21. 百度经验. (2014). ps设计教程：[71]如何画分散的点或者图案. [online]. Available at: https://jingyan.baidu.com/article/59703552e890f98fc00740a9.html [Accessed 22 January 2019].
+
+
+22. Bennett, J. (n.d.). How to make a scatter plot in Adobe Illustrator. [PDF]. Available at: https://digitalsplashmedia.com/wp-content/uploads/2014/03/How-to-Make-a-Scatter-Plot-in-Adobe-Illustrator.pdf [Accessed 22 January 2019].
+
+
+23. Gaia_pang. (2019). 【sketch教程】一分钟搞定散点图. [站酷]. Available at: https://www.zcool.com.cn/work/ZMzI4NTk3NzY=.html [Accessed 22 January 2019].
+
+
+24. Friendly, M. and Denis, D. (2005). The early origins and development of the scatterplot. [PDF]. Available at:http://datavis.ca/papers/friendly-scat.pdf [Accessed 22 January 2019].
+
+
+25. 黄小伟 (2018). 深入探讨散点图系列. [知乎]. Available at: https://zhuanlan.zhihu.com/p/39525392 [Accessed 22 January 2019].
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "Gaia": [
+    {
+      "date": 1546272000000,
+      "content": "贡献sketch教程、绘图"
+    },
+    {
+      "date": 1546272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Olivia": [
+    {
+      "date": 1546272000000,
+      "content": "文档审核、纠错和编辑"
+    }
+  ],
+  "Amphetamine": [
+    {
+      "date": 1546272000000,
+      "content": "绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ]
+}}
+  merge
+/>
