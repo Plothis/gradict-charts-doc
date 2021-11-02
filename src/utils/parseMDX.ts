@@ -119,24 +119,26 @@ export function parseChartFromMDX(nodes: Node[]) {
     const { name, childMdx } = node
     const chartKB = zhCompletedKB[name];
 
-    const chartInfo: ChartInfo = {} as ChartInfo
-    if (chartKB) {
-      chartInfo.name = chartKB.name
-      chartInfo.path = name
-      chartInfo.family = chartKB.family
-      chartInfo.shape = chartKB.shape
-      chartInfo.category = chartKB.category
-      chartInfo.purpose = chartKB.purpose
-      chartInfo.body = node.childMdx.body
-      chartInfo.extension = node.extension
-      chartInfo.tableOfContents = node.childMdx.tableOfContents
-      // 将属性转为map便于查找
-      chartInfo.$searchMap = {}
-      mapDeEmphasis(chartInfo.$searchMap, chartKB.family, 'family')
-      mapDeEmphasis(chartInfo.$searchMap, chartKB.shape, 'shape')
-      mapDeEmphasis(chartInfo.$searchMap, chartKB.category, 'category')
-      mapDeEmphasis(chartInfo.$searchMap, chartKB.purpose, 'purpose')
+    if (!chartKB) {
+      console.warn(`${name} 不存在`)
+      continue;
     }
+    const chartInfo: ChartInfo = {} as ChartInfo
+    chartInfo.name = chartKB.name
+    chartInfo.path = name
+    chartInfo.family = chartKB.family
+    chartInfo.shape = chartKB.shape
+    chartInfo.category = chartKB.category
+    chartInfo.purpose = chartKB.purpose
+    chartInfo.body = node.childMdx.body
+    chartInfo.extension = node.extension
+    chartInfo.tableOfContents = node.childMdx.tableOfContents
+    // 将属性转为map便于查找
+    chartInfo.$searchMap = {}
+    mapDeEmphasis(chartInfo.$searchMap, chartKB.family, 'family')
+    mapDeEmphasis(chartInfo.$searchMap, chartKB.shape, 'shape')
+    mapDeEmphasis(chartInfo.$searchMap, chartKB.category, 'category')
+    mapDeEmphasis(chartInfo.$searchMap, chartKB.purpose, 'purpose')
 
     if (childMdx && childMdx.mdxAST && Array.isArray(childMdx.mdxAST.children)) {
       let hasDetailOverview = false
@@ -160,9 +162,7 @@ export function parseChartFromMDX(nodes: Node[]) {
         }
       }
     }
-    if (chartKB) {
-      chartList.push(chartInfo);
-    }
+    chartList.push(chartInfo);
   }
   return {
     chartList,
