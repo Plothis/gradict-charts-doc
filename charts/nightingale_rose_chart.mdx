@@ -1,0 +1,333 @@
+
+# 南丁格尔玫瑰图 - Nightingale Rose Chart
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/dQ9Qzqt/9c82d980aa7a4ed22a3a6dabc2a20077.png)
+
+南丁格尔玫瑰图又名鸡冠花图、极坐标区域图，统计学家和医学改革家[佛罗伦萨‧南丁格尔](<https://en.wikipedia.org/wiki/Florence_Nightingale>) (Florence Nightingale) 在克里米亚战争期间创造了这种图表，用以反映军医院的季节性死亡率（见[场景案例1](<#usage-scene-graph-detail>)），促进了医院条件的改良。
+
+尽管外形很像[饼图](</charts/pie_chart>)，但本质上来说，南丁格尔玫瑰图更像在极坐标下绘制的[柱状图](</charts/column_chart>)或[堆叠柱状图](</charts/stacked_column_chart>)。只不过，它用半径来反映数值（而饼图是以扇形的弧度来表示数据的）。但是，由于半径和面积之间是平方的关系，视觉上，南丁格尔玫瑰图会将数据的比例夸大。因此，当我们追求数据的准确性时，玫瑰图不一定是个好的选择。但反过来说，当我们需要对比非常相近的数值时，适当的夸大会有助于分辨。
+
+
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.loli.net/2021/11/02/oRHJZ48SDnPk7vT.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+对比不同分类的大小，且各分类值差异不是太大。
+
+![null](//i.ibb.co/5FHGQKy/1551510648602-11456bee-c8fd-4778-867d-00b124ef21ab.png)
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+（1）分类过少的场景。例如，只有2类时，应该直接用[饼图](</charts/pie_chart>)或者环图来表示。
+
+![null](//i.ibb.co/L6Sw0W3/1551510695062-ee8a1c1c-5c98-4d45-944a-994d74355dff.png)
+
+（2）南丁格尔玫瑰图是将数值映射到半径上，而扇形的面积和半径是平方关系，因此视觉上看，数值的差异会被扩大。因此，当数值差异较大、或者希望精确的比较数值大小时，推荐使用[柱状图](</charts/column_chart>)。
+
+![null](<//i.ibb.co/Qdv7hZx/1551510682034-2c042d73-5598-469f-b272-7dee9252de21.png>)
+
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="这一案例评估了世界各国的网络影响力，每一个玫瑰图代表一个国家，每一个扇形代表一个细分维度（如经济上的影响力、政治上的影响力等），颜色代表影响力高低。设计者用small multiple的方式，把一个个国家排列起来，区别一目了然。"
+    link="https://databayou.com/webindex/imp.html"
+    image="//i.ibb.co/sm30rkn/impact-e1a5b796c45d6c9e8333b1671f9de121.png"
+/>
+            
+
+<DesignCaseItem
+    description="对于南丁格尔玫瑰图来说，扇形的弧度是不重要的。所以，可以在扇形中间留一些空隙，可以得到更像花朵的效果。"
+    link="https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=00007o"
+    image="//i.ibb.co/whvDrzp/405cb58b-ceec-49e2-9ce2-356206cbe994.jpg"
+/>
+            
+<DesignCaseItem
+    description="可以对扇形做一些变形。例如，这个案例对美国的“体育城市”进行了可视化，每个象限代表一种类型的体育运动。波士顿、芝加哥、底特律实力最为强劲。"
+    link="https://public.tableau.com/en-us/s/gallery/sports-championships-city?gallery=votd"
+    image="//i.ibb.co/rFRQX4F/2692b185-4327-4370-b5e3-15d60e194504.png"
+/>
+            
+
+<DesignCaseItem
+    description="此作品是关于灭绝物种的可视化作品，将玫瑰图与动物icon结合，色彩鲜明、形象生动。"
+    link="https://www.behance.net/gallery/74427625/TERRA-MATER-Bestandsaufnahme-des-Aussterbens"
+    image="//i.ibb.co/DbnBM9d/dedda3005b9eee52c82470ce7a86d00e.jpg"
+/>
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+
+（1）统计学家和医学改革家佛罗伦萨‧南丁格尔 (Florence Nightingale) 在克里米亚战争期间创造了南丁格尔玫瑰图，用以反映士兵的季节性死亡率。图中的每一片“花瓣”代表一个月里的士兵死亡量，其中粉红色表示因受伤过重而死亡的士兵，蓝色表示死于原本可避免的感染的士兵，黑色表示死于其他原因的士兵。右图包含<span style={{"color":"rgb(0, 0, 0)","backgroundColor":"rgb(255, 255, 255)"}}>1854年4月至1855年3月的数据，</span>左边的玫瑰图为1855年4月到1856年3月的数据。南丁格尔成功用这张图说服了上级——最多的士兵不是死在战场上，而是死在恶劣的医疗条件上，从而促进了军医院环境的改善。[[点击阅读更多]](http://blog.infographics.tw/2016/02/nightingale-rose-chart/)
+
+![](//i.ibb.co/zVL4Q5d/1546505391951-d6740156-b926-4259-b4ac-a0cb72218cac.png)
+
+（2）作为柱状图的替代。例如，DT财经（<span style={{"backgroundColor":"rgb(255, 255, 255)","color":"rgb(61, 70, 77)"}}>唐也钦, 2017</span>）统计了中国星巴克店铺数量最多的城市，以径向的方式排列。上海约有500多家星巴克，数量遥遥领先，北京有200多家，苏州、杭州、深圳、广州约有100多家，在南丁格尔图上与上海的差距显示非常大。[[点击访问原作品网页]](https://dtcj.com/topic/493)
+
+<span style={{"backgroundColor":"rgb(255, 255, 255)"}}>![](//i.ibb.co/4pjKzqL/1548668885879-2cd8e92d-d510-42b3-9ce1-f6dddf135b70.png)</span>
+
+（3）下图（<span style={{"backgroundColor":"rgb(255, 255, 255)","color":"rgb(38, 38, 38)"}}>Excel How To, 2016</span>）为facebook的用户画像。每一块扇形表示一种用户群体，例如，41%的用户每天登陆；30%的用户通过移动端登陆。而教育（education）、年龄（age）、收入（income）、性别（gender）部分则用了层叠的玫瑰图。例如，46%的用户为男性，54%的用户为女性。[[点击访问原作品网页]](https://www.excelhowto.com/nightingale-rose-diagram-excel-template/)
+
+
+![](//i.ibb.co/949rQ3P/1546508943869-7e3319d9-5464-4619-9e46-8b63ce16e6ba.png)
+
+
+
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "复刻使用场景案例2-怎样做一张“半圈式玫瑰图”？",
+        "link": "https://dtcj.com/topic/493"
+      },
+      {
+        "linkText": "南丁格尔玫瑰图的Excel-VBA模板",
+        "link": "https://www.excelhowto.com/nightingale-rose-diagram-excel-template/"
+      },
+      {
+        "linkText": "使用EasyCharts插件",
+        "link": "https://zhuanlan.zhihu.com/p/24877192"
+      }
+    ],
+    "PowerBI": [],
+    "Tableau": [
+      {
+        "linkText": "使用Tableau绘制南丁格尔玫瑰图",
+        "link": "https://www.jianshu.com/p/ab9754355533"
+      },
+      {
+        "linkText": "堆叠玫瑰图实例（可下载workbook）",
+        "link": "https://boraberan.wordpress.com/2014/03/30/creating-coxcomb-charts-in-tableau/"
+      },
+      {
+        "linkText": "复刻当年南丁格尔绘制的第一张玫瑰图",
+        "link": "https://public.tableau.com/en-us/s/gallery/recreating-florence-nightingales-coxcomb-chart?gallery=votd"
+      }
+    ],
+    "Qlikview": []
+  },
+  "代码库": {
+    "Echarts": [
+      {
+        "linkText": "官方实例",
+        "link": "http://gallery.echartsjs.com/editor.html?c=pie-roseType"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "基础玫瑰图-官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/rose.html"
+      },
+      {
+        "linkText": "南丁格尔玫瑰环图-官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/donut-rose.html"
+      }
+    ],
+    "D3": [
+      {
+        "linkText": "堆叠玫瑰图示例",
+        "link": "http://bl.ocks.org/kgryte/5926740"
+      }
+    ],
+    "matplotlib": [],
+    "ggplot2": [
+      {
+        "linkText": "代码示例",
+        "link": "http://rstudio-pubs-static.s3.amazonaws.com/179757_4fd1fbdcaa3f4f28868bfada3b9855d4.html"
+      }
+    ]
+  },
+  "设计工具": {
+    "PS/AI": [],
+    "Sketch": []
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[在线绘制玫瑰图](<https://online.visual-paradigm.com/diagrams.jsp#diagram:proj=0&type=RoseChart>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+<span style={{"backgroundColor":"rgb(255, 255, 255)","color":"rgb(38, 38, 38)"}}>（1）</span>
+
+[【历史】拯救生命的图表——南丁格尔玫瑰图。](<http://blog.infographics.tw/2016/02/nightingale-rose-chart/>)
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+  
+
+1. Wikipedia. (n.d.). Florence Nightingale. [online]. Available at: https://en.wikipedia.org/wiki/Florence_Nightingale [Accessed 21 January 2019].
+
+
+2. AntV墨者学院. (n.d.). 南丁格尔玫瑰图. [online]. Available at: https://antv.alipay.com/zh-cn/vis/chart/rose.html [Accessed 21 January 2019].
+
+
+3. The Data Visualisation Catalogue. (2019). Nightingale Rose Chart. [online]. Available at: https://datavizcatalogue.com/methods/nightingale_rose_chart.html [Accessed 21 January 2019].
+
+
+4. Luz K. Molina. (n.d.). The Web Index. [online]. Available at: https://databayou.com/webindex/imp.html [Accessed 26 January 2019].
+
+
+5. Tufte, E. (2013). Florence Nightingale's statistical graphics. [online]. Available at: https://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=00007o [Accessed 26 January 2019].
+
+
+6. Chambers, M. (2018). SPORTS CITY. [online]. Available at: https://public.tableau.com/en-us/s/gallery/sports-championships-city?gallery=votd [Accessed 26 January 2019].
+
+
+7. Pellegrini, V. (2019). TERRA MATER - Bestandsaufnahme des Aussterbens. [online]. Available at: https://www.behance.net/gallery/74427625/TERRA-MATER-Bestandsaufnahme-des-Aussterbens [Accessed 26 January 2019].
+
+
+8. 唐也钦. (2017). 公司楼下竟然没有星巴克，你想过为什么吗？.[online]. Available at: https://36kr.com/p/5091820.html [Accessed 26 January 2019].
+
+
+9. Excel How To. (2016). Nightingale Rose Diagram Excel Template. [online]. Available at: https://www.excelhowto.com/nightingale-rose-diagram-excel-template/ [Accessed 26 January. 2019]
+
+
+10. 刘万祥. (2017). 怎样做一张“半圈式玫瑰图”？. [online]. Available at: https://dtcj.com/topic/493 [Accessed 26 January 2019].
+
+
+11. 胡书豪, 张杰. (2017). 为敬畏生命而生—南丁格尔玫瑰图. [online]. Available at: https://zhuanlan.zhihu.com/p/24877192 [Accessed 21 January 2019]
+
+
+12. 黑喵爱吃棉花糖. (2017). Tableau | 南丁格尔玫瑰图. [online]. Available at: https://www.jianshu.com/p/ab9754355533[Accessed 26 January 2019]
+
+
+13. Berhan, B. (2014). Creating Coxcomb Charts in Tableau. [online]. Available at: https://boraberan.wordpress.com/2014/03/30/creating-coxcomb-charts-in-tableau/ [Accessed 26 January 2019].
+
+
+14. Ganeko, S. (2018). Recreating Florence Nightingale's "Coxcomb" Chart. [online]. Available at: https://public.tableau.com/en-us/s/gallery/recreating-florence-nightingales-coxcomb-chart?gallery=votd [Accessed 26 January 2019].
+
+
+15. Echarts team. (2016). 南丁格尔玫瑰图. [online]. Available at: https://gallery.echartsjs.com/editor.html?c=pie-roseType [Accessed 26 January 2019].
+
+
+16. AntV team. (n.d.). 单色南丁格尔玫瑰图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/rose.html [Accessed 26 January 2019].
+
+
+17. AntV team. (n.d.). 南丁格尔玫瑰环图. [online]. Available at: https://antv.alipay.com/zh-cn/g2/3.x/demo/pie/donut-rose.html [Accessed 26 January 2019].
+
+
+18. Athan. (2015). Nightingale Rose Chart + D3.js. [online]. Available at: http://bl.ocks.org/kgryte/5926740[Accessed 26 January 2019]
+
+
+19. 문건웅. (2016). Rose plot with ggplot2. [online]. Available at: https://rstudio-pubs-static.s3.amazonaws.com/179757_4fd1fbdcaa3f4f28868bfada3b9855d4.html [Accessed 26 January 2019]
+
+
+20. infographics.tw. (2016). 《圖表101》 拯救生命的圖表 — 南丁格爾玫瑰圖. [online]. Available at: http://blog.infographics.tw/2016/02/nightingale-rose-chart/ [Accessed 26 January 2019]
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "鱼头": [
+    {
+      "date": 1546272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Olivia": [
+    {
+      "date": 1546272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+  "Gaia": [
+    {
+      "date": 1548950400000,
+      "content": "贡献设计案例、绘图"
+    }
+  ],
+  "Neo": [
+    {
+      "date": 1548950400000,
+      "content": "文档审核"
+    }
+  ],
+  "Amphetamine": [
+    {
+      "date": 1551369600000,
+      "content": "绘图"
+    }
+  ]
+}}
+  merge
+/>

@@ -82,3 +82,30 @@ addChart(
   hexagonal_binning,
   { 'zh-CN': hexagonal_binning_trans } as Record<Language, TransKnowledgeProps>
 );
+
+// TODO 待完善
+const nightingale_rose_chart: ChartKnowledge = {
+  id: 'nightingale_rose_chart',
+  name: 'Nightingale Rose Chart',
+  alias: [],
+  family: ['LineCharts'],
+  def: '',
+  purpose: ['Composition'],
+  coord: [],
+  category: ['Statistic'],
+  shape: ['Round'],
+  dataPres: [{ minQty: 1, maxQty: 1, fieldConditions: ['Interval'] }],
+  channel: [],
+  recRate: "" as any,
+};
+
+const nightingale_rose_chart_trans: TransKnowledgeProps = {
+  name: '南丁格尔玫瑰图',
+  alias: [],
+  def: '南丁格尔玫瑰图又名鸡冠花图、极坐标区域图',
+};
+
+addChart(
+  nightingale_rose_chart,
+  { 'zh-CN': nightingale_rose_chart_trans } as Record<Language, TransKnowledgeProps>
+);
