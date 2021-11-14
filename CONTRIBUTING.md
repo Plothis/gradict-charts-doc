@@ -1,13 +1,16 @@
 
 In order to contribute to the repository:
 
-- Fork the repository
-- Clone your fork locally
-- Install dependencies via `yarn` or `npm i`
-- Make your changes and commit them
-    - Add the .mdx file to the  [/charts](./charts) directory
-    - Add chart properties to the [src/constants/charts.ts](./src/constants/charts.ts)
-- Open your PR with the description of changes
+### Create new chart
+- Open [mdx-editor](https://plothis.github.io/mdx-editor/) edit MDX file
+- Save this file locally, file name format: xxx_xxx_xxx
+- [Upload file](https://github.com/Plothis/gradict-charts-doc/upload/contribution/charts)
+
+- Add chart props to [src/constants/charts.ts](https://github.com/Plothis/gradict-charts-doc/blob/contribution/src/constants/charts.ts), "id" must be same as the file name
+- [Pull request](https://github.com/Plothis/gradict-charts-doc/compare/master...contribution)
 
 
-Use [mdx-editor](https://plothis.github.io/mdx-editor/) to edit markdown more easily
+###  Modify charts
+
+- Open [./charts](https://github.com/Plothis/gradict-charts-doc/tree/contribution/charts), Select the file you want to edit
+
