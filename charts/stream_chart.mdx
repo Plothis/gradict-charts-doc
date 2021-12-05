@@ -1,0 +1,281 @@
+
+
+# 流图 - Stream Chart
+
+
+<section id="overview-graph-detail-content">
+
+![chart-overview](//i.ibb.co/tXs7fG8/f816563e72cd53bd178c95560497f29a.png)
+
+流图（Stream Graph）也称为主题河流图（Theme River），是堆叠柱状图或堆叠面积图的变体，用于连续时间序列的可视化。简言之，流图一般用于显示多个类别随时间的数值变化。其最大的特色在于数值围绕中心轴移位，且每个“支流”的宽度与其对应类别的值成正比。
+
+流图的出现，一开始是服务于大规模文本数据的分析[1-2]。河流的隐喻，有助于人们直观地观察、发现一段时间内数据变化的趋势和模式，例如数据的上升/下降趋势、周期性循环趋势、波动性等等。当我们对“支流”进行排序之后，还可以看到各类别在一段时间内的排名变化。
+
+再者，由于流图具备流畅、有机的形状，它在艺术上容易让人产生审美的愉悦性。因此，流图也被广泛地应用于艺术设计和创作中。
+
+</section>
+
+## 图表属性
+
+<!-- 自动识别，勿修改 -->
+<section id="chart-property-graph-detail">
+
+  <ChartProps />
+
+</section>
+
+## 图表详解
+
+### 元素构成
+
+<section id="chart-detail-graph-detail-content">
+
+![null](//i.ibb.co/744nz6L/1549126400621-63f16a96-22e1-415f-865b-0319041aeb12.jpg)
+
+
+
+</section>
+
+### 适用场景
+
+<section id="appropriate-scene-graph-detail">
+
+（1）流图适合用于展现时间上的变化，例如历史演变、社会变迁、流量监测等，帮助找出模式和规律。
+
+（2）同时，流图的外观具有较强的审美性，因此也比较适合偏艺术设计类的展示。
+
+
+
+</section>
+
+### 不适用场景
+
+<section id="unappropriate-scene-graph-detail">
+
+（1）当数据类别很多时，流图的易读性会被削弱，尤其是较小值的类别通常会被淹没。
+
+（2）此外，由于所有值都“垂直居中对齐”了，读者往往只能看出数据的大致模式，而难以读取流图中每个类别的精确值，如下图[3]。因此，如果需要获得更准确的数值，传统的折线图或者面积图可能会更适合。
+
+![null](//i.ibb.co/rd2qh9z/cd21993f-060c-47b8-bd10-07c714524560.png "Skærmbillede-2016-02-03-kl.-14.21.05.png")
+
+
+</section>
+
+## 相似图形
+
+<!-- 自动识别，勿修改 -->
+<div id="resemble-chart-graph-detail"></div>
+
+<SimilarCharts/>
+
+## 设计案例
+
+<div id="design-case-graph-detail"></div>
+
+<DesignCaseContainer>
+  
+<DesignCaseItem
+    description="纽约时报早期的经典设计案例。展示了20年间电影票房收入的更迭。"
+    link="http://archive.nytimes.com/www.nytimes.com/interactive/2008/02/23/movies/20080223_REVENUE_GRAPHIC.html"
+    image="//i.ibb.co/fC0t7Fz/198fb7e6-86e8-4c93-8936-424689c82c0f.jpg"
+/>
+
+            
+<DesignCaseItem
+    description="当时间跨度较长、或者想要呈现时间线上的细节时，可以考虑将流图颠倒过来、竖直放置。例如，这一案例呈现了龙卷风后，纽约市求助热线的流量变化。读者可以通过垂直滑动屏幕，阅读其中的细节。"
+    link="https://projects.fivethirtyeight.com/sandy-311/"
+    image="//i.ibb.co/7yVjMZH/66df1430-170d-46b6-8773-1e0612b7f43c.png"
+/>
+
+<DesignCaseItem
+    description="当类别很多时，可以将每个类别拆分出来，并排放置，更加清晰直观。"
+    link="https://www.thepaper.cn/newsDetail_forward_11568566"
+    image="//i.ibb.co/w4CkRwr/02dc4c7a-bcbb-4284-871d-684627297e04.jpg"
+/>
+
+<DesignCaseItem
+    description="对数据进行排序，可以更直观的看出排名变化。"
+    link="https://www.behance.net/gallery/26847499/WIRED-UK-Infoporn-Murderous-Measurements"
+    image="//i.ibb.co/tXQ068B/c490da2c-56ef-44e3-a27d-a64cf7c9152a.jpg"
+/>
+
+<DesignCaseItem
+    description="排序流图，可交互项目。"
+    link="https://www.nytimes.com/interactive/2014/08/13/upshot/where-people-in-each-state-were-born.html"
+    image="//i.ibb.co/KzD0BSf/e27e257c-1d9a-4f9f-a258-3becf3a10d57.png"
+/>
+
+<DesignCaseItem
+    description="对数据进行排序+蛇形布局。1958至2010年间最具影响力的音乐专辑统计。"
+    link="https://www.behance.net/gallery/7654745/Cover-Mania"
+    image="//i.ibb.co/phtTNrf/2be23440-eead-4007-bfab-a6f1ac982bd9.jpg"
+/>
+
+<DesignCaseItem
+    description="对数据进行排序+螺旋布局。"
+    link="https://www.vizualism.nl/automotive-color-trends/"
+    image="//i.ibb.co/kcy4vQn/3339481f-7625-44d7-bc6e-dc4449463dcd.jpg"
+/>
+
+
+
+            
+</DesignCaseContainer>
+
+## 使用场景
+
+<div id="usage-scene-graph-detail-content"></div>
+
+1）文本挖掘。流图在被发明之初[1-2]，就是被用于文本数据的挖掘。在下图中，研究者们用流图来呈现了与前古巴领导人卡斯特罗有关的文本数据（如卡斯特罗的文章、演讲等）。可以发现，从1960年到1961年，卡斯特罗的文本关键词从武器、军队，逐渐过渡到石油、美国佬、苏联、肯尼迪等。
+
+![屏幕快照 2021-04-24 下午7.16.27.png](//i.ibb.co/56dcV8y/4d7e0f66-dd04-4eb6-98f9-e7ca66b18fd2.png "屏幕快照 2021-04-24 下午7.16.27.png")
+
+而下面这张图是同一份数据对应的堆叠柱状图。虽然数值更看上去更精确，但是却难以阅读出每个类别的变化模式。
+
+![屏幕快照 2021-04-24 下午10.15.40.png](//i.ibb.co/mD15zrR/d804b264-7aba-4150-8bf0-36247da5d5a9.png "屏幕快照 2021-04-24 下午10.15.40.png")
+
+(2) 市场演变。Google曾经推出过一个交互产品[4]，展示了人们音乐品味的变化。从这个作品中，我们可以清晰的看到1950年代，爵士乐占据市场绝对主流，而后逐渐被摇滚乐和流行乐取代。
+
+![google_music_timeline_01.jpeg](//i.ibb.co/n7Lkc02/fb98bac1-1c00-4f84-8857-55db91323702.jpg "google_music_timeline_01.jpeg")
+
+## 制作教程
+
+<!-- 制作教程大类有：BI 工具 / 代码库 / 设计软件，请依次按照顺序填写 -->
+
+<div id="production-tutorial-graph-detail"></div>
+
+<ProductionTutorials
+  data={{
+  "BI工具": {
+    "Excel": [
+      {
+        "linkText": "插件教程",
+        "link": "http://scalar.usc.edu/works/c2c-digital-magazine-spring--summer-2017/creating-a-streamgraph-in-microsoft-excel-2016"
+      },
+    ],
+    "Power BI": [
+      {
+        "linkText": "参考教程",
+        "link": "https://devinknightsql.com/2016/09/27/power-bi-custom-visuals-class-module-18-stream-graph/"
+      }
+    ],
+    "Tableau": [
+      {
+        "linkText": "参考教程",
+        "link": "https://greatified.com/2018/09/17/how-to-build-a-stream-graph-in-tableau-software/"
+      }
+    ],
+    "QlikView": []
+  },
+  "代码库": {
+    "ECharts": [
+      {
+        "linkText": "官方实例1",
+        "link": "https://www.echartsjs.com/examples/zh/editor.html?c=themeRiver-basic"
+      },
+      {
+        "linkText": "官方实例2",
+        "link": "https://www.echartsjs.com/examples/zh/editor.html?c=themeRiver-lastfm&theme=light"
+      }
+    ],
+    "AntV": [
+      {
+        "linkText": "官方实例",
+        "link": "https://antv.alipay.com/zh-cn/g2/3.x/demo/area/streamgraph.html"
+      },
+    ],
+    "D3": [
+      {
+        "linkText": "参考实例",
+        "link": "http://bl.ocks.org/WillTurman/4631136"
+      },
+      {
+        "linkText": "动态实例",
+        "link": "https://observablehq.com/@mbostock/streamgraph-transitions"
+      }
+    ],
+    "matplotlib": [
+      {
+        "linkText": "官方实例",
+        "link": "https://matplotlib.org/gallery/lines_bars_and_markers/stackplot_demo.html#sphx-glr-gallery-lines-bars-and-markers-stackplot-demo-py"
+      }
+    ],
+    "gglpot2": [
+      {
+        "linkText": "参考实例",
+        "link": "https://hrbrmstr.github.io/streamgraph/"
+      },
+    ]
+  },
+  "设计工具": {
+    "PS/AI/Sketch": [
+      {
+        "linkText": "通过Hanpuku链接Ai和D3",
+        "link": "https://www.youtube.com/watch?v=uYQ-RLT5AVA"
+      },
+    ]
+  }
+}}
+/>
+
+
+## 专项工具
+
+<div id="specialty-tool-graph-detail"></div>
+
+（1）[在线生成工具 Rawgraphs](<https://rawgraphs.io/>)
+（2）[在线生成工具 plotdb](<https://plotdb.com/chart/1038>)
+（3）[在线生成工具 Displayr](<https://www.displayr.com/create-a-streamgraph/>)
+
+
+
+## 学习资源
+
+<div id="learning-resource-graph-detail"></div>
+
+（1）最早提出流图的文献：Havre, S., Hetzler, B., & Nowell, L. (2000, October). ThemeRiver: Visualizing theme changes over time. InIEEE Symposium on Information Visualization 2000. INFOVIS 2000. Proceedings(pp. 115-123). IEEE.
+
+（2）算法：Byron, L., & Wattenberg, M. (2008). Stacked graphs–geometry & aesthetics.IEEE transactions on visualization and computer graphics,14(6), 1245-1252.
+
+
+
+## 参考文献
+
+<div id="reference-graph-detail"></div>
+
+<Reference>
+  
+[1] Havre, S., Hetzler, B., & Nowell, L. (2000, October). ThemeRiver: Visualizing theme changes over time. InIEEE Symposium on Information Visualization 2000. INFOVIS 2000. Proceedings(pp. 115-123). IEEE.
+
+[2] Havre, S., Hetzler, E., Whitney, P., & Nowell, L. (2002). Themeriver: Visualizing thematic changes in large document collections.IEEE transactions on visualization and computer graphics,8(1), 9-20.
+
+[3] Valerio Pellegrini, AFRICA - Big Change / Big Chance, https://www.behance.net/gallery/20553607/AFRICA-Big-Change-Big-Chance-Triennale-di-Milano
+
+[4] Google, The music timeline, https://www.visualisingdata.com/2014/01/google-research-releases-the-music-timeline/
+
+[5] 澎湃新闻, 数据说两会｜1978年到2021年政府工作报告关键词盘点, https://www.thepaper.cn/newsDetail_forward_11568566
+
+[6] Michele Mauri, Cover-Mania, https://www.behance.net/gallery/7654745/Cover-Mania
+
+[7] Valerio Pellegrini, WIRED UK - Infoporn - Murderous Measurements, https://www.behance.net/gallery/26847499/WIRED-UK-Infoporn-Murderous-Measurements
+
+
+</Reference>
+
+## 贡献者
+
+<div id="contributor-graph-detail"></div>
+
+<!-- 默认读取github commit记录，非commit可以在data中可以自定义 -->
+
+<Contributors
+  data={{
+  "Olivia": [
+    {
+      "date": 1636272000000,
+      "content": "文档资料搜集、整理和编辑"
+    }
+  ],
+}}
+  merge
+/>

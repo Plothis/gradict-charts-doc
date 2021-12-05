@@ -109,3 +109,31 @@ addChart(
   nightingale_rose_chart,
   { 'zh-CN': nightingale_rose_chart_trans } as Record<Language, TransKnowledgeProps>
 );
+
+// TODO 待完善
+const stream_chart: ChartKnowledge = {
+  id: 'stream_chart',
+  name: 'Stream Chart Rose',
+  alias: [],
+  family: [''],
+  def: '',
+  purpose: ['Trend'],
+  coord: [],
+  category: ['Statistic'],
+  shape: ['Lines'],
+  dataPres: [{ minQty: 1, maxQty: 1, fieldConditions: ['Interval'] }],
+  channel: [],
+  recRate: "" as any,
+};
+
+const stream_chart_trans: TransKnowledgeProps = {
+  name: '河流图',
+  alias: [],
+  def: '河流图又名流图、主题河流图',
+};
+
+addChart(
+  stream_chart,
+  { 'zh-CN': stream_chart_trans } as Record<Language, TransKnowledgeProps>
+);
+
