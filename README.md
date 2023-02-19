@@ -2,7 +2,9 @@
 图之典([tuzhidian.com](http://tuzhidian.com/)) - 图表文档
 
 gh-page: [https://plothis.github.io/gradict-charts-doc](https://plothis.github.io/gradict-charts-doc)
+
 gitee: [http://plothis.gitee.io/gradict-charts-doc](http://plothis.gitee.io/gradict-charts-doc) 
+
 surge-preview: [https://github.com/Plothis/gradict-charts-doc/actions](https://github.com/Plothis/gradict-charts-doc/actions)
 
 
