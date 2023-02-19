@@ -9,15 +9,16 @@ const ToTopButton = styled.div`
   position: fixed;
   right: 20px;
   bottom: 80px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-color: #5d6590;
   color: #fff;
   text-align: center;
   border-radius: 2px;
   cursor: pointer;
   span {
-    line-height: 50px;
+    line-height: 40px;
+    font-size: 14px;
   }
   /* 移动端取消返回顶部 */
   @media screen and (max-width: 600px) {
