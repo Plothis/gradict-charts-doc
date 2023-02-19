@@ -187,15 +187,21 @@ class FeedBackTable extends Component<Props, State> {
   }
 
   editCurrentPage = () => {
-    window.open(`http://${editorHost}/?file-path=${encodeURIComponent(window.location.pathname)}`, '_blank')
+    window.open(`http://${this.editorHost()}/?file-path=${encodeURIComponent(window.location.pathname)}`, '_blank')
   }
   submitNewChart = () => {
-    window.open(`http://${editorHost}/?action=new`, '_blank')
+    window.open(`http://${this.editorHost()}/?action=new`, '_blank')
   }
+  inChartPage = () => {
+    
+    return typeof window !== "undefined" && window.location.pathname.includes('/charts')
+  }
+  editorHost = () => {
+    return typeof window !== "undefined" &&  window.location.host.includes("tuzhidian.8and1.cn") ? 'mdx-editor.8and1.cn:3000' : 'mdx-editor.8and1.cn'
+  }
+
   render() {
     const { toggleFeedback, classes } = this.props;
-    const inChartPage = window.location.pathname.includes('/charts')
-    const editorHost = window.location.host.includes("tuzhidian.8and1.cn") ? 'mdx-editor.8and1.cn:3000' : 'mdx-editor.8and1.cn'
     return (
       <div>
           <FeedBackContext>
@@ -207,7 +213,7 @@ class FeedBackTable extends Component<Props, State> {
               <h3>内容反馈</h3>
 
               <div className="input-box" style={{ padding: '0 24px' }}>
-                <button onClick={this.editCurrentPage} disabled={!inChartPage} style={inChartPage ? { background: '#343e73' } : { background: '#d0d0d0' }}>
+                <button onClick={this.editCurrentPage} disabled={!this.inChartPage()} style={this.inChartPage() ? { background: '#343e73' } : { background: '#d0d0d0' }}>
                   编辑当前页
                 </button>
       
