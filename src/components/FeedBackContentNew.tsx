@@ -175,7 +175,7 @@ const styles = () => ({
     textAlign: 'center'
   }
 });
-const editorHost = window.location.host.includes("tuzhidian.8and1.cn") ? 'mdx-editor.8and1.cn:3000' : 'mdx-editor.8and1.cn'
+
 class FeedBackTable extends Component<Props, State> {
   initialState: State = {
   };
@@ -195,6 +195,7 @@ class FeedBackTable extends Component<Props, State> {
   render() {
     const { toggleFeedback, classes } = this.props;
     const inChartPage = window.location.pathname.includes('/charts')
+    const editorHost = window.location.host.includes("tuzhidian.8and1.cn") ? 'mdx-editor.8and1.cn:3000' : 'mdx-editor.8and1.cn'
     return (
       <div>
           <FeedBackContext>

@@ -63,7 +63,6 @@ class CataLog extends Component<Props, {}> {
         });
     };
     each(this.props.catalogData);
-    console.log(this.aNodeList)
   };
 
   // scroll event
