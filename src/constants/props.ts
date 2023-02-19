@@ -36,7 +36,7 @@ export const chartKnowledges = [
             shape: ['Round'],
             dataPres: [{ minQty: 1, maxQty: 1, fieldConditions: ['Interval'] }],
             channel: [],
-            recRate: "" as any,
+            recRate: "",
         },
         trans: {
             'zh-CN': {
@@ -59,7 +59,7 @@ export const chartKnowledges = [
             shape: ['Round'],
             dataPres: [{ minQty: 1, maxQty: 1, fieldConditions: ['Interval'] }],
             channel: [],
-            recRate: "" as any,
+            recRate: "",
         },
         trans: {
             'zh-CN': {
@@ -82,7 +82,7 @@ export const chartKnowledges = [
             shape: ['Round'],
             dataPres: [{ minQty: 1, maxQty: 1, fieldConditions: ['Interval'] }],
             channel: [],
-            recRate: "" as any,
+            recRate: "",
         },
         trans: {
             'zh-CN': {
@@ -105,7 +105,7 @@ export const chartKnowledges = [
             shape: ['Lines'],
             dataPres: [{ minQty: 1, maxQty: 1, fieldConditions: ['Interval'] }],
             channel: [],
-            recRate: "" as any,
+            recRate: "",
         },
         trans: {
             'zh-CN': {
