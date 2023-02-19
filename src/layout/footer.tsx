@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { navigate } from "@reach/router"
+// import { navigate } from "@reach/router"
+import { navigate } from "gatsby"
 import Tooltip from '@material-ui/core/Tooltip';
 import { makeStyles } from '@material-ui/core/styles';
 import { useWidth } from '../hooks/withWidth';

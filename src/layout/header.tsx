@@ -32,7 +32,7 @@ const Header: React.FC<{}> = () => {
             <Menu onClick={() => toggleDrawer(true)} />
           </div>
           <Link to="/">
-            <img className="logo" src="./logo.png" alt="" />
+            <img className="logo" src="/logo.png" alt="" />
           </Link>
           <div className="filters-button"
             onClick={dispatch.indexPage.toggleMobileFilters} 
@@ -44,7 +44,7 @@ const Header: React.FC<{}> = () => {
       ) : (
           <>
             <Link to="/">
-              <img className="logo" src="./logo.png" alt="" />
+              <img className="logo" src="/logo.png" alt="" />
             </Link>
             <div className="links">
               {links.map((link, index) => (
