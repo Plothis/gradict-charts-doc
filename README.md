@@ -3,7 +3,7 @@
 
 gh-page: [https://plothis.github.io/gradict-charts-doc](https://plothis.github.io/gradict-charts-doc)
 
-gitee: [http://plothis.gitee.io/gradict-charts-doc](http://plothis.gitee.io/gradict-charts-doc) 
+gitee-page: [http://plothis.gitee.io/gradict-charts-doc](http://plothis.gitee.io/gradict-charts-doc) 
 
 surge-preview: [https://github.com/Plothis/gradict-charts-doc/actions](https://github.com/Plothis/gradict-charts-doc/actions)
 
@@ -20,6 +20,10 @@ build
 ```bash
 npm run build
 ```
+
+gitee sync
+
+https://gitee.com/Plothis/gradict-charts-doc/pages
 
 ## Contributing
 
