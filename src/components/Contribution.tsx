@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Grow from '@material-ui/core/Grow';
-import FeedBackContent from './FeedBackContent';
+import FeedBackContentNew from './FeedBackContentNew';
 import styled from 'styled-components';
 
 
@@ -11,8 +11,8 @@ const FeedbackButton = styled.div`
   position: fixed;
   right: 20px;
   bottom: 20px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background-color: #5d6590;
   color: #fff;
   text-align: center;
@@ -26,7 +26,9 @@ const FeedbackButton = styled.div`
     }
   }
   .icon{
-    font-size: 30px;
+    position: relative;
+    top: -2px;
+    font-size: 24px;
   }
   .tooltip {
     transform: scale(0, 0);
@@ -80,7 +82,8 @@ class Contribution extends Component<{}, State> {
         </FeedbackButton>
         <Grow in={checked} style={{ transformOrigin: 'right bottom', border: 'solid 1px #e6e6e6', width: '460px', display: checked ? 'block' : 'none' }}>
           <FeedBackContainer style={{ background: '#fff' }}>
-            <FeedBackContent toggleFeedback={this.handleChange} />
+            {/* <FeedBackContent toggleFeedback={this.handleChange} /> */}
+            <FeedBackContentNew toggleFeedback={this.handleChange} />
           </FeedBackContainer>
         </Grow>
       </div>

@@ -55,10 +55,15 @@ export const zhCompletedKB = CKBJson('zh-CN');
 function mapDeEmphasis(map: Record<string, any>, arr: any[], typeName?: string) {
   if (Array.isArray(arr)) {
     for (const iterator of arr) {
+      if (iterator === undefined) {
+        continue
+      }
       const key = typeName ? `${typeName}-${iterator}` : iterator
+
       if (map[key] === undefined) {
         map[key] = 1
       }
+      
     }
   }
 }

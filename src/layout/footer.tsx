@@ -49,10 +49,6 @@ const data = {
       }
     },
     {
-      name: '反馈',
-      // fun: () => this.toggleFeedback()
-    },
-    {
       name: '关于我们',
       fun: () => {
         navigate('/about/');
@@ -73,13 +69,13 @@ const data = {
   ],
   icons: [
     {
+      name: 'github',
+      link: 'https://github.com/Plothis/gradict-charts-doc'
+    },
+    {
       name: 'yuque',
       link: 'https://www.yuque.com/gradict/intro/zv7367'
     },
-    // {
-    //   name: 'github',
-    //   link: 'https://github.com/Plothis/gradict-doc'
-    // },
     {
       name: 'wechat',
       link: '',
