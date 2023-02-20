@@ -197,7 +197,7 @@ class FeedBackTable extends Component<Props, State> {
     return typeof window !== "undefined" && window.location.pathname.includes('/charts')
   }
   editorHost = () => {
-    return typeof window !== "undefined" &&  window.location.host.includes("tuzhidian.8and1.cn") ? 'mdx-editor.8and1.cn:3000' : 'mdx-editor.8and1.cn'
+    return typeof window !== "undefined" &&  window.location.host.includes("tuzhidian.8and1.cn") ? 'mdx-editor.8and1.cn' : 'mdx-editor.8and1.cn'
   }
 
   render() {
