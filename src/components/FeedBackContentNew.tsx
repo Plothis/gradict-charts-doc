@@ -187,10 +187,10 @@ class FeedBackTable extends Component<Props, State> {
   }
 
   editCurrentPage = () => {
-    window.open(`http://${this.editorHost()}/?file-path=${encodeURIComponent(window.location.pathname)}`, '_blank')
+    window.open(`http://${this.editorHost()}/?file-path=${encodeURIComponent(window.location.pathname)}`, '_blank');
   }
   submitNewChart = () => {
-    window.open(`http://${this.editorHost()}/?action=new`, '_blank')
+    window.open(`http://${this.editorHost()}/?action=new`, '_blank');
   }
   inChartPage = () => {
     
