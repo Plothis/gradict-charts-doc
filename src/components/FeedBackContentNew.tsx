@@ -187,17 +187,17 @@ class FeedBackTable extends Component<Props, State> {
   }
 
   editCurrentPage = () => {
-    window.open(`http://${this.editorHost()}/?file-path=${encodeURIComponent(window.location.pathname)}`, '_blank')
+    window.open(`http://${this.editorHost()}/?file-path=${encodeURIComponent(window.location.pathname)}`, '_blank');
   }
   submitNewChart = () => {
-    window.open(`http://${this.editorHost()}/?action=new`, '_blank')
+    window.open(`http://${this.editorHost()}/?action=new`, '_blank');
   }
   inChartPage = () => {
     
     return typeof window !== "undefined" && window.location.pathname.includes('/charts')
   }
   editorHost = () => {
-    return typeof window !== "undefined" &&  window.location.host.includes("tuzhidian.8and1.cn") ? 'mdx-editor.8and1.cn:3000' : 'mdx-editor.8and1.cn'
+    return typeof window !== "undefined" &&  window.location.host.includes("tuzhidian.8and1.cn") ? 'mdx-editor.8and1.cn' : 'mdx-editor.8and1.cn'
   }
 
   render() {
