@@ -236,7 +236,7 @@ export default function Home(props: Props) {
 
   return (
     <div>
-      {chartProps.length > 0 ? (
+      {chartList.length > 0 ? (
         <>
           {/* desktop */}
           {width !== 'xs' && (
