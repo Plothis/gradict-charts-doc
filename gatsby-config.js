@@ -4,7 +4,7 @@ module.exports = {
     title: "gradict-charts",
   },
   pathPrefix: `/gradict-charts-doc`,
-  assetPrefix: `/gradict-charts-doc`,
+  // assetPrefix: `/gradict-charts-doc`,
   plugins: [
     "gatsby-plugin-image",
     {
