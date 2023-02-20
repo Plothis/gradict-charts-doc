@@ -132,18 +132,18 @@ const MobileLine = styled.div`
 
 
 export default function Home(props: Props) {
-  const data = useStaticQuery(graphql`
-  query{
-    allFile {
-      nodes {
-        name
-        childMdx {
-          mdxAST
-        }
-      }
-    }
-  }
-`)
+//   const data = useStaticQuery(graphql`
+//   query{
+//     allFile {
+//       nodes {
+//         name
+//         childMdx {
+//           mdxAST
+//         }
+//       }
+//     }
+//   }
+// `)
   const showMobileFilters = useSelector((state: RootState) => state.indexPage.showMobileFilters)
   const dispatch = useDispatch<Dispatch>()
   const width = useWidth();
@@ -157,7 +157,7 @@ export default function Home(props: Props) {
   }));
   const { propsList: chartProps, propMap } = parseProps()
   const { chartList } = useMemo(() => {
-    return parseChartFromMDX(data.allFile.nodes)
+    return parseChartFromMDX(props.data.allFile.nodes)
   }, [])
 
   useEffect(() => {
@@ -360,15 +360,15 @@ export default function Home(props: Props) {
 }
 
 
-// export const pageQuery = graphql`
-//   query{
-//     allFile {
-//       nodes {
-//         name
-//         childMdx {
-//           mdxAST
-//         }
-//       }
-//     }
-//   }
-// `
+export const pageQuery = graphql`
+  query{
+    allFile {
+      nodes {
+        name
+        childMdx {
+          mdxAST
+        }
+      }
+    }
+  }
+`
