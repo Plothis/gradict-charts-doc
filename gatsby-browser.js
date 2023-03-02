@@ -8,6 +8,7 @@ import 'antd/lib/icon/style/index.css';
 
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
+import Loading from "./src/components/Loading"
 // 设计案例
 import DesignCase from './src/components/graphDetail/DesignCase';
 // 制作教程
@@ -39,5 +40,13 @@ export const wrapPageElement = ({ element}) => {
       ChartProps,
       SimilarCharts,
     }}>{element}</MDXProvider>
+  )
+}
+
+export const wrapRootElement = ({ element }) => {
+  return (
+    <React.Suspense fallback={<Loading />}>
+      {element}
+    </React.Suspense>
   )
 }

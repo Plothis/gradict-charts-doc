@@ -132,7 +132,18 @@ const MobileLine = styled.div`
 
 
 export default function Home(props: Props) {
-
+//   const data = useStaticQuery(graphql`
+//   query{
+//     allFile {
+//       nodes {
+//         name
+//         childMdx {
+//           mdxAST
+//         }
+//       }
+//     }
+//   }
+// `)
   const showMobileFilters = useSelector((state: RootState) => state.indexPage.showMobileFilters)
   const dispatch = useDispatch<Dispatch>()
   const width = useWidth();
@@ -236,7 +247,7 @@ export default function Home(props: Props) {
 
   return (
     <div>
-      {chartProps.length > 0 ? (
+      {chartList.length > 0 ? (
         <>
           {/* desktop */}
           {width !== 'xs' && (
